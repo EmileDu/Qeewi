@@ -1,0 +1,968 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"html",
+				"htmlentities"
+			],
+			[
+				"il",
+				"$ilFaitBeau〔variable〕"
+			],
+			[
+				"ar",
+				"$argentPourLeTrain〔variable〕"
+			],
+			[
+				"rec",
+				"recordDefouloir"
+			],
+			[
+				"path",
+				"pathEl"
+			],
+			[
+				"initS",
+				"initOrthScene"
+			],
+			[
+				"camera",
+				"cameraOrtho"
+			],
+			[
+				"scen",
+				"sceneOrtho"
+			],
+			[
+				"ren",
+				"rendererOrtho"
+			],
+			[
+				"win",
+				"windowHeight  (variable)"
+			],
+			[
+				"window",
+				"windowHeight"
+			],
+			[
+				"text",
+				"text-indent"
+			],
+			[
+				"text-",
+				"text-indent"
+			],
+			[
+				"tex",
+				"text-indent"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"header",
+				"headerTitle"
+			],
+			[
+				"parti",
+				"particlesGeometry"
+			],
+			[
+				"pr",
+				"preloadManager"
+			],
+			[
+				"eart",
+				"earthNBS"
+			],
+			[
+				"fade",
+				"fadeOut  (function)"
+			],
+			[
+				"M",
+				"MeshPhongMaterial"
+			],
+			[
+				"Jeky",
+				"jekyll"
+			],
+			[
+				"jeky",
+				"jekyllBuild"
+			],
+			[
+				"ear",
+				"earthSystem"
+			],
+			[
+				"earth",
+				"earthMesh"
+			],
+			[
+				"geo",
+				"geometry"
+			],
+			[
+				"lat",
+				"latLongToVector3"
+			],
+			[
+				"re",
+				"renderer"
+			],
+			[
+				"p",
+				"preload"
+			],
+			[
+				"userI",
+				"userInfo"
+			],
+			[
+				"u",
+				"userInfo"
+			],
+			[
+				"onM",
+				"onMouseMove"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"st",
+				"strong	Tag"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"font-s",
+				"font-style"
+			],
+			[
+				"font-",
+				"font-weight"
+			],
+			[
+				"tool",
+				"tooltip-two"
+			],
+			[
+				"tooltip-",
+				"tooltip-one"
+			],
+			[
+				"l",
+				"list	list-style-type"
+			],
+			[
+				"wi",
+				"width"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "dev/index.html",
+			"settings":
+			{
+				"buffer_size": 401,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "dev/assets/js/main.js",
+			"settings":
+			{
+				"buffer_size": 19,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "'use strict';\n\nvar gulp = require('gulp');\nvar plugin = require('gulp-load-plugins')();\n\nvar del = require('del');\nvar runSequence = require('run-sequence');\nvar opn = require('opn');\n\nvar NwBuilder = require('node-webkit-builder');\n\nvar paths = {\n	dev: {},\n	public: {},\n	background: {},\n	build: 'build',\n	cache: 'ressource',\n	deploy: 'deploy'\n}\n\npaths.background.packageJSON 	= 'package.json';\npaths.background.dependencies 	= 'node_modules/**';\n\npaths.dev.root 			= 'dev/'; \npaths.dev.assets 		= paths.dev.root + 'assets/';\npaths.dev.styles 		= paths.dev.assets + 'sass/';\npaths.dev.images 		= paths.dev.assets + 'img/';\npaths.dev.fonts 		= paths.dev.assets + 'fonts/';\npaths.dev.scripts 		= paths.dev.assets + 'js/';\n\npaths.public.root 		= 'app/';\npaths.public.assets 	= paths.public.root + 'assets/';\npaths.public.styles 	= paths.public.assets + 'sass/';\npaths.public.images 	= paths.public.assets + 'img/';\npaths.public.fonts 		= paths.public.assets + 'fonts/';\npaths.public.scripts 	= paths.public.assets + 'js/';\n\n// Node webkit builder for deployement \nvar nw = new NwBuilder({\n	files: [paths.background.packageJSON, paths.public.root + 'index.html'],\n	plateform: ['osx', 'win', 'linux'],\n	buildDir: paths.build,\n	cacheDir: paths.cache,\n	forceDownload\n	version: 'v0.11.5'\n});\n\n// Task for compile style files\n// SASS -- > CSS\ngulp.task('style', function(){ \n	var s = plugin.size();\n	return 	plugin.rubySass(paths.dev.styles + 'style.scss', {\n				style: 'expanded',\n				precision: 10,\n				sourcemap: true\n			})\n			.pipe(s)\n			.pipe(gulp.dest(paths.public.styles))\n			.pipe(plugin.notify({\n				title: 'Style',\n				message: 'Style compilation completed' + s.prettySize\n			}));\n});\n\n// Task for compile js files\n// *.js -- > app.js\ngulp.task('js', function(){\n	var s = plugin.size();\n	return 	gulp.src(paths.dev.scripts + '*.js')\n			.pipe(s)\n			.pipe(plugin.concat('app.js'))\n			.pipe(gulp.dest(paths.public.scripts))\n			.pipe(plugin.notify({\n				title: 'JS',\n				message: 'JS compilation completed' + s.prettySize\n			}));\n});\n\n// Task for compile vendors js files\n// vendors/*.js -- > vendors.js\ngulp.task('vendors', function(){\n	var s = plugin.size();\n	return 	gulp.src(paths.dev.scripts + 'vendors/*.js')\n			\n			.pipe(plugin.concat('vendors.js'))\n			.pipe(gulp.dest(paths.public.scripts))\n			.pipe(plugin.notify({\n				title: 'Vendors',\n				message: 'Vendors compilation completed' + s.prettySize\n			}));\n});\n\n// Task for compile images files\n// img.{jpg,png,svg,gif} -- > optimized img.{jpg,png,svg,gif}\ngulp.task('images', function(){\n	var s = plugin.size();\n	return 	gulp.src(paths.dev.images + '**')\n			.pipe(s)\n			.pipe(plugin.imagemin({\n				progressive: true,\n				interlaced: true,\n				optimizationLevel: 5\n			}))\n			.pipe(gulp.dest(paths.public.images))\n			.pipe(plugin.notify({\n				title: 'Images',\n				message: 'Images compilation completed' + s.prettySize\n			}));\n});\n\n// Just copy fonts file to public directory\ngulp.task('fonts', function(){\n	var s = plugin.size();\n	return	gulp.src(paths.dev.fonts + '**')\n			.pipe(s)\n			.pipe(gulp.dest(paths.public.fonts))\n			.pipe(plugin.notify({\n				title: 'Fonts',\n				message: 'Fonts compilation completed' + s.prettySize\n			}));\n});\n\n// Just html file to public directory\ngulp.task('html', function(){\n	var s = plugin.size();\n	return	gulp.src(paths.dev.root + '**/*.html')\n			.pipe(s)\n			.pipe(gulp.dest(paths.public.root))\n			.pipe(plugin.notify({\n				title: 'HTML',\n				message: 'HTML compilation completed' + s.prettySize\n			}));\n});\n\n// Just copy text file to public directory\ngulp.task('copy', function(){\n	var s = plugin.size();\n	return 	gulp.src(paths.dev.root + '**')\n			.pipe(s)\n			.pipe(gulp.dest(paths.public.root))\n			.pipe(plugin.notify({\n				title: 'File',\n				message: 'File compilation completed' + s.prettySize\n			}));\n});\n\n// Clean the public directory\ngulp.task('clean', function(){\n	del(paths.public.root);\n	del(paths.build);\n});\n\ngulp.task('dev', ['clean'], function(){\n	runSequence('html', ['images', 'fonts', 'style', 'js', 'vendors'], function(){\n\n		runSequence('build');\n\n		gulp.watch([paths.dev.root + '**/*.html'], ['html', 'build']);\n		gulp.watch([paths.dev.styles + '**/*.scss'], ['style', 'build']);\n		gulp.watch([paths.dev.script + '*.js'], ['js', 'build']);\n		gulp.watch([paths.dev.script + 'vendors/*.js'], ['vendors', 'build']);\n		gulp.watch([paths.dev.images + '**/*'], ['images', 'build']);\n		plugin.notify({\n			title: 'Watch',\n			message: 'I look at you'\n		});\n\n	});\n})\n\n\ngulp.task('build', function(){\n	nw.build().then(function(){\n		plugin.notify({\n			title: 'NodeWebkit',\n			message: 'Application Compiled'\n		});\n		opn(paths.build+'osx64/app.app');\n	}).catch(function(error){\n		plugin.notify(error);\n		console.log(error);\n	});\n})\n\n\n",
+			"file": "gulpfile.js",
+			"file_size": 4715,
+			"file_write_time": 1423825405000000,
+			"settings":
+			{
+				"buffer_size": 4730,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 1092,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Volumes/Document/Web/Ecole/Flowchart/gulpfile.js",
+		"/Volumes/Document/Web/Perso/TFE/gulpfile.js",
+		"/Volumes/Document/Web/Perso/Boilerplate/dev/assets/js/main.js",
+		"/Volumes/Document/Web/Perso/Boilerplate/gulpfile.js",
+		"/Volumes/Document/Web/Perso/Boilerplate/package.json",
+		"/Volumes/Document/Web/Perso/Boilerplate/.gitignore",
+		"/Volumes/Document/Web/Perso/Boilerplate/.editorconfig",
+		"/Volumes/Document/Web/Perso/Boilerplate/bower.json",
+		"/Volumes/Document/Web/Perso/Boilerplate/Gruntfile.js",
+		"/Volumes/Document/Web/Perso/TFE/boilerplate-generator.sublime-project",
+		"/Volumes/Document/Web/Perso/TFE/.editorconfig",
+		"/Users/emileduval/Web/Perso/TFE/boilerplate-generator.sublime-project",
+		"/Users/emileduval/Documents/Cours/3Ti/T.infog.app.2:2/gulpfile.js",
+		"/Users/emileduval/Web/Ecole/Flowchart/app/js/Question.js",
+		"/Users/emileduval/Web/Ecole/Flowchart/app/js/query.js",
+		"/Users/emileduval/Web/Ecole/Flowchart/app/js/main.js",
+		"/Users/emileduval/Documents/Cours/3Ti/T.infog.app.2:2/package.json",
+		"/Users/emileduval/Documents/Cours/3Ti/T.infog.app.2:2/pays.php",
+		"/Users/emileduval/Web/Reed/TinderLike/app/index.html",
+		"/Users/emileduval/Documents/Cours/3Ti/T.infog.app.2:2/app/js/main.js",
+		"/Users/emileduval/Documents/Cours/3Ti/T.infog.app.2:2/app/css/style.scss",
+		"/Users/emileduval/Documents/Cours/3Ti/T.infog.app.2:2/PHP - Cours 1.txt",
+		"/Users/emileduval/.Trash/index.html",
+		"/Users/emileduval/Documents/Cours/3Ti/T.infog.app.2:2/index.php",
+		"/Users/emileduval/Documents/Cours/3Ti/T.infog.app.2:2/test.php",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/package.json",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_config.build.yml",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/index.html",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_sass/modules/timeline.scss",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/projecthub.html",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_config.yml",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_includes/_nav.html",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_posts/2015-01-16-boilerplate.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_posts/2015-01-16-premier-avis.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_posts/2014-12-21-fin.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_site/project-hub/index.html",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_sass/modules/_preview.scss",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_sass/modules/_post.scss",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_sass/base/_typographie.scss",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/gulpfile.js",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/Gruntfile.js",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_sass/main.scss",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/journal.html",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_sass/modules/_header.scss",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/casestudy.html",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_drafts/fin.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_tfe/2014-12-12-tfe-pistes.md",
+		"/Users/emileduval/Downloads/app.js",
+		"/Users/emileduval/Downloads/Courbe stress/_styles/style.css",
+		"/Users/emileduval/Downloads/Courbe stress/_js/hammer.js",
+		"/Users/emileduval/Downloads/Courbe stress 2/index.html",
+		"/Users/emileduval/.Trash/Courbe stress 2/index.html",
+		"/Users/emileduval/.Trash/Courbe stress 2/3.svg",
+		"/Users/emileduval/.Trash/Courbe stress 2/1.svg",
+		"/Users/emileduval/.Trash/Courbe stress 2/2.svg",
+		"/Users/emileduval/Desktop/untitled.svg",
+		"/Users/emileduval/Desktop/untitled",
+		"/Users/emileduval/Downloads/ElasticSVGElements/index.html",
+		"/Users/emileduval/Downloads/ElasticSVGElements/js/classie.js",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_posts/2014-10-31-croque-monsieur.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_posts/2014-11-23-champagne.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_posts/2014-12-12-tfe-pistes.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_posts/2014-12-12-poisson.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_posts/2014-12-10-tfe-pistes.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_posts/2014-12-10-poisson.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_posts/2014-11-24-champagne.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_posts/2014-11-07-three.js.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_posts/2014-10-27-croque-monsieur.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_posts/2014-10-24-le-debut.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_posts/2014-09-15-Jeffrey-Zeldman.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_sass/layout/_nav.scss",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_sass/base/_base.scss",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_drafts/grunt.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_drafts/Jekyll.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_drafts/grunt copy.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/CNAME",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_sass/bourbon/addons/_clearfix.scss",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_works/2013-05-25-lazylunch.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_works/2014-12-29-test-collections.md",
+		"/Users/emileduval/Web/Perso/game/package.json",
+		"/Users/emileduval/Web/Perso/game/app.js",
+		"/Users/emileduval/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_sass/layout/_layout.scss",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_sass/modules/_interaction.scss",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_sass/modules/_nav.scss",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/assets/js/main.js",
+		"/Users/emileduval/Downloads/hmfaysal-omega-theme-gh-pages/categories.html",
+		"/Users/emileduval/Web/Reed/Ruinart_old/Gruntfile.js",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_layouts/post.html",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_includes/_header.html",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_layouts/error.html",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_layouts/page.html",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_layouts/base.html",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_posts/2014-12-15-poisson.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_posts/2014-12-15-tfe-pistes.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_site/journal/travail-fin-etudes/index.html",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_posts/2014-12-09-poisson.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_drafts/tfe.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_drafts/poisson.md",
+		"/Users/emileduval/Downloads/hmfaysal-omega-theme-gh-pages/tags.html",
+		"/Users/emileduval/Downloads/hmfaysal-omega-theme-gh-pages/_config.yml",
+		"/Users/emileduval/Downloads/hmfaysal-omega-theme-gh-pages/links.jsonp",
+		"/Users/emileduval/Downloads/hmfaysal-omega-theme-gh-pages/search.json",
+		"/Users/emileduval/Downloads/jekyll-incorporated-master/_config.yml",
+		"/Users/emileduval/Downloads/jekyll-incorporated-master/404.html",
+		"/Users/emileduval/Downloads/hmfaysal-omega-theme-gh-pages/404.md",
+		"/Users/emileduval/Downloads/mediator-master/_config.yml",
+		"/Users/emileduval/Downloads/jekyll-incorporated-master/Gemfile",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/robots.txt",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_drafts/call-of-duty.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_works/2014-11-24-dwmtwitter.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/grunt_templates/draft.template",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/grunt_templates/post.template",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_drafts/2014-10-23-Jekyll.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_drafts/2014-12-02-grunt.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/sitemap.xml",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_sass/tools/_site-settings.scss",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_works/_2014-11-24-dwmtwitter.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_works/2014-11-24-lazylunch.md",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_site/assets/css/main.css",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_sass/modules/_footer.scss",
+		"/Users/emileduval/Web/Perso/EmileDu.github.io/_includes/_footer.html",
+		"/Users/emileduval/Documents/Cours/2Ti/TFA/2TID4_Duval-Emile_TFA-Aout/assets/js/main.js",
+		"/Users/emileduval/Documents/Web/Perso/EmileDu.github.io/assets/css/main.scss",
+		"/Users/emileduval/Documents/Web/Perso/EmileDu.github.io/_includes/_footer.html",
+		"/Users/emileduval/Documents/Web/Perso/EmileDu.github.io/_includes/_script.html",
+		"/Users/emileduval/Documents/Web/Reed/Ruinart/assets/js/app.js",
+		"/Users/emileduval/Documents/Web/Reed/Ruinart/package.json"
+	],
+	"find":
+	{
+		"height": 52.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"html",
+			"console",
+			"/>';",
+			");\n",
+			"html",
+			"title",
+			"color",
+			"path[1]",
+			"paths",
+			"path",
+			");\n",
+			"## Introduction\n",
+			"twitter_username",
+			"camera",
+			"renderer",
+			">\n",
+			"slug        : '",
+			"duty",
+			"desktop",
+			"242",
+			"Octobre",
+			"0",
+			"\"></",
+			"}",
+			"		\n",
+			"face",
+			"¯",
+			"0",
+			"█",
+			"|",
+			"0",
+			"O",
+			"site.author",
+			" \n",
+			">,",
+			"}\n",
+			" \",",
+			"$base-size",
+			"$base-font-family",
+			"reverse",
+			".play",
+			".play, .all",
+			".play",
+			".play, .all",
+			"keyframe",
+			"Jouer pour cette gamme",
+			"		array(\n			'gamme' => 'Densify',\n			'percentage' => '82%',\n			'tooltip-one' => 'Missing Copy',\n			'tooltip-two' => 'Missing Copy',\n			'sentence' => array(\n				'des testeuses',\n				' estiment que la routine',\n				' a nourri leurs cheveux en profondeur !'\n			)\n		),",
+			"testimonial-title",
+			"',\n",
+			"all-gamme-label",
+			">\n",
+			"</\n",
+			"      <li>\n        <a href=\"\" mailto:\"{{ site.email }}\">{{ site.email }}</a>\n      </li>",
+			"console"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"_",
+			"█",
+			"▀",
+			"▄",
+			"█",
+			"ø",
+			"0",
+			"$base-font-size"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "dev/index.html",
+					"settings":
+					{
+						"buffer_size": 401,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								401,
+								401
+							]
+						],
+						"settings":
+						{
+							"_anf_new": "",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "dev/assets/js/main.js",
+					"settings":
+					{
+						"buffer_size": 19,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								19,
+								19
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "gulpfile.js",
+					"settings":
+					{
+						"buffer_size": 4730,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1259,
+								1259
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 439.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "package.json",
+					"settings":
+					{
+						"buffer_size": 1092,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1092,
+								1092
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"con",
+				"app/contact.php"
+			],
+			[
+				"queston",
+				"app/js/Question.js"
+			],
+			[
+				"que",
+				"app/js/query.js"
+			],
+			[
+				"main",
+				"app/js/main.js"
+			],
+			[
+				"pac",
+				"package.json"
+			],
+			[
+				"gulp",
+				"gulpfile.js"
+			],
+			[
+				"base",
+				"app/css/base/_base.scss"
+			],
+			[
+				"pack",
+				"package.json"
+			],
+			[
+				"gulpfil",
+				"gulpfile.js"
+			],
+			[
+				"conf",
+				"_config.yml"
+			],
+			[
+				"footer",
+				"_includes/_footer.html"
+			],
+			[
+				"header",
+				"_sass/modules/_header.scss"
+			],
+			[
+				"foo",
+				"_sass/modules/_footer.scss"
+			],
+			[
+				"na",
+				"_sass/layout/_nav.scss"
+			],
+			[
+				"giti",
+				".gitignore"
+			],
+			[
+				"pa",
+				"package.json"
+			],
+			[
+				"config",
+				"_config.yml"
+			],
+			[
+				"inde",
+				"index.html"
+			],
+			[
+				"pre",
+				"_sass/modules/_preview.scss"
+			],
+			[
+				"pos",
+				"_sass/modules/_post.scss"
+			],
+			[
+				"typo",
+				"_sass/base/_typographie.scss"
+			],
+			[
+				"time",
+				"_sass/modules/timeline.scss"
+			],
+			[
+				"ty",
+				"_sass/base/_typographie.scss"
+			],
+			[
+				"grun",
+				"Gruntfile.js"
+			],
+			[
+				"index",
+				"index.html"
+			],
+			[
+				"fin",
+				"_drafts/fin.md"
+			],
+			[
+				"jou",
+				"journal.html"
+			],
+			[
+				"in",
+				"index.html"
+			],
+			[
+				"confi",
+				"_config.yml"
+			],
+			[
+				"hea",
+				"_includes/_header.html"
+			],
+			[
+				"je",
+				"_drafts/Jekyll.md"
+			],
+			[
+				"g",
+				"_drafts/grunt.md"
+			],
+			[
+				"jek",
+				"_drafts/Jekyll.md"
+			],
+			[
+				"grunt",
+				"_drafts/grunt copy.md"
+			],
+			[
+				"poi",
+				"_posts/2014-12-10-poisson.md"
+			],
+			[
+				"three",
+				"_posts/2014-11-07-three.js.md"
+			],
+			[
+				"",
+				"CNAME"
+			],
+			[
+				"head",
+				"_sass/modules/_header.scss"
+			],
+			[
+				"ind",
+				"index.html"
+			],
+			[
+				"test-c",
+				"_works/2014-12-29-test-collections.md"
+			],
+			[
+				"laz",
+				"_works/2013-05-25-lazylunch.md"
+			],
+			[
+				"co",
+				"_config.yml"
+			],
+			[
+				"gr",
+				"Gruntfile.js"
+			],
+			[
+				"h",
+				"_includes/_head.html"
+			],
+			[
+				"nav",
+				"_includes/_nav.html"
+			],
+			[
+				"fish",
+				"public/assets/models/fish.json"
+			],
+			[
+				"inter",
+				"_sass/modules/_interaction.scss"
+			],
+			[
+				"bas",
+				"_sass/base/_base.scss"
+			],
+			[
+				"he",
+				"_includes/_header.html"
+			],
+			[
+				"cham",
+				"_posts/2014-11-24-champagne.md"
+			],
+			[
+				"prev",
+				"_sass/modules/_preview.scss"
+			],
+			[
+				"_",
+				"_config.yml"
+			],
+			[
+				"header.s",
+				"_sass/modules/_header.scss"
+			],
+			[
+				"site-",
+				"_sass/tools/_site-settings.scss"
+			],
+			[
+				"header.sc",
+				"_sass/modules/_header.scss"
+			],
+			[
+				"int",
+				"_sass/modules/_interaction.scss"
+			],
+			[
+				"fo",
+				"_sass/modules/_footer.scss"
+			],
+			[
+				"main.scss",
+				"assets/css/main.scss"
+			],
+			[
+				"mai",
+				"assets/js/main.js"
+			],
+			[
+				"over",
+				"dev/sass/layout/_l-overlay.scss"
+			],
+			[
+				"app",
+				"dev/js/app.js"
+			],
+			[
+				"use",
+				"dev/js/User.js"
+			],
+			[
+				"ma",
+				"dev/js/main.js"
+			],
+			[
+				"u",
+				"dev/js/User.js"
+			],
+			[
+				"gru",
+				"Gruntfile.js"
+			],
+			[
+				"_main",
+				"_sass/modules/_main.scss"
+			],
+			[
+				"post.",
+				"_sass/modules/_post.scss"
+			],
+			[
+				"hel",
+				"_sass/tools/_helpers.scss"
+			],
+			[
+				"sett",
+				"_sass/tools/_site-settings.scss"
+			],
+			[
+				"base.",
+				"_sass/base/_base.scss"
+			],
+			[
+				"_nav",
+				"_sass/layout/_nav.scss"
+			],
+			[
+				"2014",
+				"_posts/2014-10-27-semaine-deux.md"
+			],
+			[
+				"201",
+				"_posts/2014-09-15-Jeffrey-Zeldman.md"
+			],
+			[
+				"_sass",
+				"_sass/tools/_site-settings.scss"
+			],
+			[
+				"lang/fr/",
+				"app/lang/fr/index.php"
+			],
+			[
+				"lang/",
+				"app/lang/fr/index.php"
+			],
+			[
+				"tooles",
+				"_sass/tools/_site-settings.scss"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 183.0,
+	"status_bar_visible": true
+}
