@@ -1,2 +1,2 @@
 # Qeewi
-Application which allows to generate boilerplates
+Application to initialize quickly, easily and efficiently a website
