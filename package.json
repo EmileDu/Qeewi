@@ -1,43 +1,39 @@
 {
-  "name": "Boilerplate",
+  "name": "Qeewi",
   "version": "1.0.0",
-  "description": "Application which allow you to generate boilerplate",
+  "description": "Application to initialize quickly, easily and efficiently a website",
   "main": "app/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/EmileDu/nwBoilerplate.git"
-  },
   "keywords": [
+    "Qeewi",
     "Boilerplate",
     "TFE",
+    "ESIAJ",
+    "HEAJ",
+    "DWM",
     "Generator"
   ],
-  "author": "Emile Duval <bonjour@emileduval.be>",
+  "author": "Emile Duval <bonjour@emileduval.be> (http://emileduval.be/)",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/EmileDu/nwBoilerplate/issues"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EmileDu/Qeewi.git"
   },
-  "homepage": "https://github.com/EmileDu/nwBoilerplate",
+  "homepage": "http://qeewi.io",
+  "bugs": {
+    "url": "https://github.com/EmileDu/Qeewi/issues",
+    "email": "support@qeewi.io"
+  },
+  "dependencies": {
+    "react": "^0.13.1"
+  }
   "devDependencies": {
-    "del": "^1.1.1",
     "gulp": "^3.8.11",
-    "gulp-concat": "^2.4.3",
-    "gulp-csso": "^1.0.0",
-    "gulp-git": "^1.0.0",
-    "gulp-imagemin": "^2.2.0",
-    "gulp-load-plugins": "^0.8.0",
-    "gulp-notify": "^2.2.0",
-    "gulp-replace": "^0.5.2",
-    "gulp-ruby-sass": "^1.0.0-alpha.3",
-    "gulp-size": "^1.2.0",
-    "gulp-uglify": "^1.1.0",
-    "gulp-uncss": "^1.0.0",
-    "node-webkit-builder": "^1.0.8",
-    "opn": "^1.0.1",
-    "run-sequence": "^1.0.2"
+    "gulp-csslint": "^0.1.5",
+    "gulp-jslint": "^0.2.2",
+    "gulp-load-plugins": "^0.9.0"
   },
   "window": {
     "toolbar": true,
@@ -47,5 +43,6 @@
     "position": "mouse",
     "min_width": 960,
     "min_height": 540
-  }
+  },
+
 }

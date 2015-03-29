@@ -2,4 +2,7 @@
 app
 build
 deploy
-node-modules
+node_modules
+ressource
+boilerplate.sublime-project
+boilerplate.sublime-workspace
