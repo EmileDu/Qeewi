@@ -1,0 +1,8 @@
+// --------------------
+// Layout/Main
+// --------------------
+
+.l-main{
+	padding: 6rem 0;
+	@include transition(all .2s ease-in-out);
+}

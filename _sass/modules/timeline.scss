@@ -1,0 +1,51 @@
+.timeline {
+	@include position(relative);
+
+	border-left: 2px solid lighten($color2, 50%);
+	padding-bottom: 3em;
+
+	margin-left: 1.5rem;
+	&:before {
+		content: "";
+		@include position(absolute, null null 0 -1.55555555555556rem);
+
+		width: 3rem;
+		height: 3rem;
+		border-radius: 50%;
+
+		@include calc(left, "-(3rem - 2px) / 2" );
+
+		background: lighten($color2, 50%);
+		border: 2px solid lighten($color2, 50%);
+	}
+}
+
+.tl-node {
+	@include position(relative);
+	padding-left: 1.5rem;
+	margin-bottom: 3rem;
+	&:before {
+		content: "";
+		@include position(absolute, 0 null null -0.80555555555556rem);
+
+		width: 1.5rem;
+		height: 1.5rem;
+		border-radius: 50%;
+		
+
+		background: $color1;
+		border: 2px solid lighten($color2, 50%);
+	}
+}
+
+.tl-title {
+
+}
+
+.tl-content {
+
+}
+
+.tl-stamp {
+	font-weight: 100;
+}

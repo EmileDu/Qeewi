@@ -1,0 +1,68 @@
+/**
+ * Links
+ */
+a {
+    color: $color-link;
+    text-decoration: none;
+    &:visited {
+        color: darken($color-link, 15%);
+    }
+
+    &:hover {
+        color: $color-link-hover;
+    }
+}
+
+.title, .subtitle, .subsubtitle {
+	font-family: $header-font-family;
+	font-weight: 800;
+	width: 100%;
+}
+
+.title {
+	font-size: 5.05555555555556rem;
+	@include media(max-width $width-tablet) {
+		font-size: 4rem;
+	}
+}
+
+.subtitle {
+	font-size: 2.27777777777778rem;
+	margin-bottom: 1.5rem;
+}
+
+.subsubtitle {
+	display: inline-block;
+	margin-bottom: 3rem;
+}
+
+.returnPg {
+	display: inline-block;
+	margin-bottom: 1.5rem;
+}
+
+.metadata {
+	font-weight: 100;
+	margin-bottom: 3rem;
+}
+
+
+.read-more {
+	display: inline;
+}
+
+.inline-link {
+	color: $color-link-hover;
+	&:visited{
+		color: $color-link-hover;
+	}
+}
+
+
+.styled-list{
+	margin-left: 1.5rem;
+	&:before {
+		content: "-";
+		margin-right: 1rem;
+	}
+}

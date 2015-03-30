@@ -1,0 +1,24 @@
+.is-open {
+	@include transform(translate3d(0, 0, 0));
+}
+
+.on-l {
+	display: inline-block;
+	@include media(max-width $width-desktop) {
+		display: none;
+	}
+}
+
+.on-m {
+	display: none;
+	@include media(min-width $width-tablet max-width $width-desktop) {
+		display: inline-block;
+	}
+}
+
+ .on-s {
+	display: none;
+	@include media(max-width $width-tablet) {
+		display: inline-block;
+	}
+}

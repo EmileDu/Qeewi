@@ -1,0 +1,31 @@
+{
+  "name": "Qeewi",
+  "version": "1.0.0",
+  "description": "Qeewi Website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.3.1",
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^2.1.0",
+    "gulp-concat": "^2.5.2",
+    "gulp-csslint": "^0.1.5",
+    "gulp-duration": "0.0.0",
+    "gulp-jslint": "^0.2.2",
+    "gulp-load-plugins": "^0.8.1",
+    "gulp-sass": "^1.3.3",
+    "gulp-size": "^1.2.1",
+    "gulp-uglify": "^1.1.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:EmileDu/Qeewi.git"
+  },
+  "author": "Emile Duval",
+  "license": "ISC"
+}

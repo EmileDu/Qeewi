@@ -1,0 +1,70 @@
+.footer {
+	background: $background-color-secondary;
+	color: $secondary-color-text;
+	text-align: center;
+}
+
+.footer--copyright {
+	display: block;
+	height: 1.5rem;
+	
+	font-size: 0.66666666666667rem;
+	text-align: center;
+	a {
+		color: $secondary-color-text;
+		&:after {
+			border-color: $color1;
+			bottom: -1px;
+		}
+		&:hover {
+			color: $color-link-hover;
+
+		}
+	}
+}
+
+.footer--social {
+	@include clearfix;
+	margin-bottom: 3rem;
+	height: 1.5rem;
+	.footer--social--item{
+		position: relative;
+		display: inline-block;
+		margin: 0px 12px;
+		padding: 0px;
+
+		width: 56px;
+		height: 1.5rem;
+		text-align: center;
+		&:first-child{
+			margin-left: 0;
+		}
+		&:last-child{
+			margin-right: 0;
+		}
+		a{
+			text-align: center;
+			display: inline-block;
+			width: 1.5rem;
+			height: 1.5rem;
+			position: relative;
+			.icon{
+				@include position(absolute, 0 0 0 0);
+			    display: inline-block;
+
+			    width: 1.5rem;
+			    height: 1.5rem;
+			    vertical-align: middle; 
+
+			    fill: $secondary-color-text;
+			}
+			&:hover .icon{
+				fill: $color-link-hover;
+			}
+		}
+		@include media(max-width $width-tablet) {
+			margin: 0;
+		}
+
+	}
+}

@@ -1,0 +1,23 @@
+.main {
+	@include row();
+
+}
+
+.main--about{
+	p{
+		@include span-columns(5 of 10);
+
+		@include media(min-width $width-tablet max-width $width-desktop, 8) {
+	        @include span-columns(4 of 8);
+	    }
+
+	    @include media(max-width $width-tablet, 4) {
+	        @include span-columns(4);
+	        margin-right: 0;
+			margin-bottom: 1.5rem;
+			&:last-child {
+				margin-bottom: 0;
+			}
+	    }
+	}
+}

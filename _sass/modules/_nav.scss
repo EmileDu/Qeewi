@@ -1,0 +1,137 @@
+.nav {
+	background: rgba($background-color-secondary, .9);
+	color: $secondary-color-text;
+}
+
+.nav--list {
+	@include size(100% 18rem);
+	@include position(absolute, 0 0 0 0);
+	margin: auto;
+}
+
+.nav--list--item {
+	width: 100%;
+	height: 4.5rem;
+	a {
+		display: block;
+
+		color: $secondary-color-text;
+
+		line-height: 4.5rem;
+		text-align: center;
+
+		font-size: 2.27777777777778rem;
+		font-family: $content-font-family;
+		font-weight: 100;
+		&:hover{
+			color: $color-link-hover;
+		}
+	}
+}
+
+.nav--reveal {
+	@include position(absolute, 1.5rem 1.5rem null null);
+	z-index: 200;
+	@include size(3rem 3rem);
+	@include transition(fill .2s ease-in-out .0s);
+	> svg {
+		@include size(3rem 3rem);
+	}
+	&.is-open svg{
+		@include transition(fill .2s ease-in-out .0s);
+		fill: $color1;
+	}
+}
+
+.nav--previous, .nav--next {
+	display: block;
+	z-index: 100;
+	@include size(6rem 30rem);
+	a{
+		opacity: .3;
+		span {
+			display: inline-block;
+			@include size(10rem 3rem);
+			@include position(absolute, 0 0 0 0);
+			line-height: 3rem;
+			margin: auto;
+			@include transform(transate3D(0,0,0));
+			opacity: 0;
+			@include transition(all .2s ease-in-out);
+		}
+		svg {
+			@include size(3rem 3rem);
+			@include position(absolute, 20px 0 0 0);
+			margin: auto; 
+		}
+		&:hover {
+			opacity: 1;
+			color: $base-color-text;
+		}
+	}
+}
+.nav--previous {
+	@include position(absolute, 0 null null 0);
+	a {
+		span {
+			@include position(absolute, 20px null null 0);
+			margin-left: 4.5rem;
+			text-align: left;
+			@include media(max-width $width-tablet, 4) {
+				margin-left: 1.5rem;
+			}
+		}
+		svg {
+			margin-left: 1.5rem;
+			@include media(max-width $width-tablet, 4) {
+				margin-left: 0;
+			}
+		}
+		&:hover span{
+			opacity: 1;
+			@include transform(translate3D(1.5rem, 0, 0));
+		}
+
+	}
+}
+
+.nav--next {
+	@include position(absolute, 0 0 null null);
+	a {
+		span {
+			@include position(absolute, 20px 0 null null);
+			margin-right: 4.5rem;
+			text-align: right;
+			@include media(max-width $width-tablet, 4) {
+				margin-right: 1.5rem;
+			}
+		}
+		svg {
+			margin-right: 1.5rem;
+			@include media(max-width $width-tablet, 4) {
+				margin-right: 0;
+			}
+		}
+		&:hover span{
+			opacity: 1;
+			@include transform(translate3D(-1.5rem, 0, 0));
+		}
+	}
+}
+
+.inverted {
+	li {
+		a {
+			color: $secondary-color-text;
+			svg {
+				fill: $secondary-color-text;
+			}
+			&:hover {
+				color: $secondary-color-text;
+			}
+		}
+	}
+	.nav--reveal svg{
+		fill: $secondary-color-text;
+	}
+}

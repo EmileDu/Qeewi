@@ -1,0 +1,85 @@
+.header {
+	
+	background: $background-color;
+	background-image: inherit;
+	background-position: bottom center;
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+
+	color: $base-color-text;
+	text-align: center; 
+
+	overflow: hidden;
+
+	&:before{
+		content: "";
+		@include size(100% 100%);
+		@include position(absolute, 0 0 0 0);
+
+		background: $background-color;
+		background-image: inherit;
+		background-position: center bottom;
+		background-size: cover;
+		background-attachment: fixed;
+		background-repeat: no-repeat;
+		
+		overflow: hidden;
+		z-index: 1;
+
+		@include filter(blur(3px));
+
+	}
+
+	.wrapper{
+		height: 100%;
+		z-index: 5;
+		display: table;
+	}
+
+	.wrapper--middle{
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+
+
+
+.header--title {
+	@include position(relative);
+	display: block;
+
+	width: 100%;
+	min-height: 6rem;
+	padding: 1.5rem 0;
+	line-height: 1;
+	margin: auto;
+
+	&:after {
+		content: "";
+
+		@include position(absolute, null 0 0 0);
+		margin: auto;
+
+		@include calc(width, '100% - 3rem');
+		max-width: 16.94444444444444rem;
+		height: 0px;
+
+		border-bottom: 4px $color2 solid;
+	}
+}
+
+.header--mentra {
+	display: block;
+	
+	width: 100%;
+	padding: 1.5rem 0;
+}
+
+.inverted {
+	color: $secondary-color-text;
+	.header--title:after {
+		border-color: $secondary-color-text;
+	}
+}
+
