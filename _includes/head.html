@@ -1,12 +1,25 @@
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="author" content="{{ site.author.name.desktop }}">
+    <meta name="description" content="{% if page.meta.description %}{{ page.meta.description }}{% else %}{{ site.meta.description }}{% endif %}">
+    <meta name="keywords" content="{% if page.meta.keywords %}{{ page.meta.keywords }}{% else %}{{ site.meta.keywords }}{% endif %}">
 
-  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
+    <meta property="og:title" content="{{ site.meta.title }}">
+    <meta property="og:image" content="{{ "/assets/favicon-160x160.png" | prepend: site.baseurl }}">
+    <meta property="og:site_name" content="{{ site.author.name.desktop }}">
+    <meta property="og:description" content="{% if page.meta.description %}{{ page.meta.description }}{% else %}{{ site.meta.description }}{% endif %}">
+    <meta property="og:url" content="{{ site.url }}" >
+  
+    <meta name="robots" content="INDEX">
+
+	<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+	<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+
+	{% include _google_analytics.html %}
+	<link rel="stylesheet" href="{{ "/css/style.css" | prepend: site.baseurl }}">
+	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+	<link type="text/plain" rel="author" href="{{ "humans.txt" | prepend: site.baseurl }}">
 </head>

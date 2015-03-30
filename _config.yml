@@ -1,14 +1,46 @@
 # Site settings
-title: Your awesome title
-email: your-email@domain.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+meta:
+  title: Qeewi
+  description: > 
+    Emile Duval, Front-End Développeur.
+  keywords: >
+    HTML, CSS, JS, Javascript, Front-end, ESIAJ, HEAJ, Emile, Duval, Stage, Developpeur, Web, albert, jacquard, DWM, Back-end, PHP, jQuery, développement, mobile
+
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+url: "http://qeewi.io" # the base hostname & protocol for your site
+
+# Author
+author: 
+  name: Emile Duval
+  mentra: Développeur Front-End
+  email: bonjour@emileduval.be
+
+#Google Analytics 
+ga:
+  shortname: UA-50282848-2
+
+# Social
+social:
+  - icon: twitter
+    url:  https://twitter.com/Qeewi
+  - icon: github
+    url:  https://github.com/EmileDu
 
 # Build settings
 markdown: kramdown
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  use_coderay: false
+permalink: /journal/:categories/:title
+
+collections:
+  works:
+    output: true
+    permalink: /casestudy/:title/
+
+exclude : [node_modules, gulpfile.js, package.json]
+
+linked_posts: true
