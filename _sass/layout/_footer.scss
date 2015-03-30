@@ -3,6 +3,12 @@
 // --------------------
 
 .l-footer {
-	padding: 4.5rem 0;
-	@include transition(all .2s ease-in-out);
+	background: $black;
+	height: 60px;
+	line-height: 60px;
+	color: lighten($cream, 50%);
+}
+
+.footer__copyright {
+	float: left;
 }

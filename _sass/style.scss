@@ -14,26 +14,20 @@
 @import "base/reset";	
 @import "base/base";	
 @import "base/typographie";	
-@import "base/form";	
 
 /* Fonts */
 
+
 /* Layout */
-@import "layout/header";	 
-@import "layout/nav";	 
+@import "layout/header";	 	 
 @import "layout/main";	 
 @import "layout/footer";	 
 
 /* Modules */
-@import "modules/header";	
-@import "modules/main";	
-@import "modules/nav";	
-	@import "modules/preview";
-	@import "modules/post";
-@import "modules/footer";
-@import "modules/fill";
-@import "modules/interaction";
-@import "modules/timeline";
+@import "modules/button";
+@import "modules/form";
+@import "modules/social";
+
 
 
 

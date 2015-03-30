@@ -8,180 +8,31 @@ html, body {
 html {
     font-style: normal;
     font-weight: 300;
-    font-family: $content-font-family;
-    font-size: 1.125rem;
+    font-family: $content-font;
+    font-size: $base-font-size;
 }
 
 body {
     line-height: $base-line-height;
-    color: $base-color-text;
-    line-height: 1.5 !important;
-    background-color: $background-color;
+    color: $black;
+    background-color: white;
     -webkit-text-size-adjust: 100%; 
-}
-
-// * {
-//     @include transition(all .2s ease-in-out);
-// } 
-
-/**
- * Set `margin-bottom` to maintain vertical rhythm
- */
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
-ul, ol, dl, figure,
-%vertical-rhythm {
-    // margin-bottom: $spacing-unit / 2;
-}
-
-
-
-/**
- * Images
- */
-img {
-    max-width: 100%;
-    vertical-align: middle;
-}
-
-
-
-/**
- * Figures
- */
-figure > img {
-    display: block;
-}
-
-figcaption {
-    // font-size: $small-font-size;
-}
-
-
-
-/**
- * Lists
- */
-ul, ol {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    // margin-left: $spacing-unit;
-}
-
-li {
-    > ul,
-    > ol {
-         margin-bottom: 0;
-    }
-}
-
-
-
-/**
- * Headings
- */
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 300;
-}
-
-/**
- * Blockquotes
- */
-blockquote {
-    color: lighten($base-color-text, 10%);
-    border-left: 4px solid $color3;
-    padding-left: $fg-column + $fg-gutter;
-    font-size: 12px;
-    letter-spacing: -1px;
-    font-weight: 100;
-    font-style: italic;
-    > :last-child {
-        margin-bottom: 0;
-    }
-}
-
-/**
- * Code formatting
- */
-pre,
-code {
-    font-size: 12px;
-    border-radius: 3px;
-    background-color: lighten($color2, 80%);
-}
-
-code {
-    padding: 1px 5px;
-}
-
-pre {
-    margin-left: 1.5rem;
-    padding: 8px 12px;
-    overflow-x: scroll;
-
-    > code {
-        border: 0;
-        padding-right: 0;
-        padding-left: 0;
-    }
+    -webkit-font-smoothing: antialiased;
 }
 
 .wrapper {
     max-width: $width-desktop;
     width: 100%; 
     margin: 0 auto;
-    padding: 0 1.5rem;
+
+    padding: 0 1.25rem;
 
     position: relative; 
-    @include clearfix();    
+    @include clearfix();   
+    @media (min-width: $tablet) { padding: 0 2rem; } 
 }
 
 .container {
-    @include span-columns(12);
-    padding: 0 4.61111111111111rem;
-    margin: 0;
-    
-    @include media(min-width $width-tablet max-width $width-desktop, 8) {
-        @include span-columns(8);
-        margin: 0;
-        padding: 0 1.5rem;
-    }
 
-    @include media(min-width $width-smartphone max-width $width-tablet, 4) {
-        @include span-columns(4);
-        margin: 0;
-        padding: 0;
-    }
 }
 
-.separator {
-    float: left;
-    @include position(relative);    
-    width: 100%;
-
-    padding-top: 6rem;
-    padding-bottom: 6rem;  
-
-    &:first-child {
-        padding-top: 0;
-    }
-    &:last-child {
-        padding-bottom: 0;
-        &:after {
-            display: none;
-        }
-    }
-    &:after {
-        content: "";
-        display: inline-block;
-        @include position(absolute, null 0 0 0);
-        
-        width: 100%;
-        max-width: 16.94444444444444rem;
-        height: 0px;
-        margin: auto;
-
-        border-bottom: 2px solid $color2;
-    }
-}

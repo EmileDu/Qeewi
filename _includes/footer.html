@@ -1,3 +1,16 @@
-<footer class="site-footer">
-
+<footer class="l-footer">
+	<div class="wrapper">
+		<small class="footer__copyright">Fait avec passion par <a href="mailto:bonjour@emileduval.be">Emile Duval</a></small>
+		<ul class="footer__social">
+			{% for social in site.social %}
+			<li class="social__item">
+				<a href="{{ social.url }}" target="_blank">
+					<svg class="icon icon-{{ social.icon }}">
+						<use xlink:href="{{ "/assets/images/svgdefs.svg#icon-" | prepend: site.baseurl  | append: social.icon }}"></use>
+					</svg>
+				</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
 </footer>

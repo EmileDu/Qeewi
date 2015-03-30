@@ -1,0 +1,32 @@
+.form {
+	text-align: center;
+}
+
+.input {
+	height: 40px;
+	width: 300px;
+	line-height: 40px;
+	padding: 0 2rem;
+	border: none;
+	font-family: $content-font;
+	font-size: 1rem;
+	display: inline-block;
+	&:hover, &:focus, &:active {
+		outline: none;
+		border: 2px solid darken($dark-green, 5%);
+		border-right: none;
+	}
+}
+
+	.input--email {
+		width: 100%; 
+		border-radius: 3px;
+		margin-right: -5px;
+		margin-bottom: 20px;
+		color: darken($dark-green, 5%);
+		@media (min-width: $width-tablet) {
+			width: 300px; 
+			margin-bottom: 0;
+			border-radius: 3px 0 0 3px;
+		}
+	}

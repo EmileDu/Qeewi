@@ -1,0 +1,33 @@
+.footer__social {
+	float: right;
+	display: block;
+	height: 100%;
+	line-height: 60px;
+}
+
+
+.social__item {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 30px;
+	&:last-child { margin-right: 0;}
+	a {
+		display: block;
+		position: relative;
+		width: 1.25rem;
+		height: 1.25rem;
+		&:hover .icon {
+			fill: $light-green;
+		}
+	}
+	.icon {
+		@include position(absolute, 0 0 0 0);
+		display: inline-block;
+		width: 1.25rem;
+		height: 1.25rem;
+		vertical-align: middle; 
+		fill: lighten($cream, 50%);
+		transition: fill .2s ease-in-out;
+	}
+
+}

@@ -5,56 +5,35 @@
 // = Font
 // --------------------
 
-$content-font-family: 'Lato', sans-serif;
-$header-font-family: 'PT Sans', sans-serif;
 
-$base-font-size: 18; // 18px corps de base
-$base-line-height: 1.5;
-$ratio: 1.500; // 1.500 -- Perfect Fifth
+$header-font:	'Cronos Pro', sans-serif;
+$content-font: 	'Lato', sans-serif;
+
+$base-font-size: 	16; // 18px corps de base
+$base-line-height: 	1.5;
+$ratio: 			1.500; // 1.500 -- Perfect Fifth
 
 
 // = Colors
 // --------------------
 
-$color1: #fff;
-$color2: #272727;
-$color3: #eb7347;
-
-$base-color-text: $color2;
-$secondary-color-text: $color1;
-
-$color-link: $color2;
-$color-link-hover: $color3;
-
-$color-selection: lighten($color3, 30%);
-
-$background-color: $color1;
-$background-color-secondary: $color2;
-
-// = Grid
-// --------------------
+$black: 		#2C2D2B;
+$brown:			#9E6423;
+$light-green: 	#95C018;
+$medium-green:	#8FB117;
+$dark-green:	#7F9815;
+$cream: 		#F7F4B3;
 
 
-// = Prefix
-// --------------------
-
-$prefix-for-webkit: 	true !default;
-$prefix-for-mozilla: 	true !default;
-$prefix-for-microsoft: 	true !default;
-$prefix-for-opera: 		true !default;
-$prefix-for-spec: 		true !default; 
 
 // = Responsive
 // --------------------
 
-$width-largedesktop: em(1200, $base-font-size); // 1200/18
-$width-desktop: em(1024, $base-font-size); // 1024/18
-$width-tablet: em(640, $base-font-size); // 640/18
-$width-smartphone: em(320, $base-font-size); 
+$width-largedesktop: 	em(1440, $base-font-size); // 1200/18
+$width-desktop: 		em(1024, $base-font-size); // 1024/18
+$width-tablet: 			em(768, $base-font-size); // 640/18
+$width-smartphone: 		em(320, $base-font-size); 
 
-$fg-max-columns: 12!default; // Number of columns
-$fg-columns: 56!default; // Number of columns
-$fg-gutter:27px!default; // Size of gutter 
-
-$desktop: new-breakpoint(min-width $width-desktop, 12);
-$tablet: new-breakpoint(min-width $width-tablet, 8);
+$largedesktop: 	new-breakpoint(min-width $width-largedesktop, 12);
+$desktop: 		new-breakpoint(min-width $width-desktop, 12);
+$tablet: 		new-breakpoint(min-width $width-tablet, 8);

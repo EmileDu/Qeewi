@@ -1,0 +1,12 @@
+.app-visu {
+	display: none;
+	width: 700px;
+	height: 500px;
+	margin: 0 auto;
+	background: white;
+
+	@media (min-width: $width-tablet) { display: block; }
+	@media (min-width: $width-desktop) { 
+		width: 900px;
+	}
+}

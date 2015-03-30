@@ -24,7 +24,7 @@ social:
   - icon: twitter
     url:  https://twitter.com/Qeewi
   - icon: github
-    url:  https://github.com/EmileDu
+    url:  https://github.com/EmileDu/Qeewi
 
 # Build settings
 markdown: kramdown

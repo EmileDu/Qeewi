@@ -35,7 +35,7 @@ article,aside,details,figcaption,figure,
 footer,header,hgroup,menu,nav,section {
     display:block;
 }
-nav ul {
+nav ul, ul {
     list-style:none;
 }
 blockquote, q {
@@ -52,6 +52,10 @@ a {
     font-size:100%;
     vertical-align:baseline;
     background:transparent;
+}
+a, a:hover, a:visited, a:active{
+    text-decoration: none;
+    color: inherit;
 }
 /* change colours to suit your needs */
 ins {
