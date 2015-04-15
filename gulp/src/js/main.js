@@ -5,7 +5,7 @@
 	nativeMenuBar.createMacBuiltin("Boilerplate");
 	win.menu = nativeMenuBar;
 
-	var tray = new gui.Tray({ 
+	var tray = new gui.Tray({
 		title: 'Tray',
 		icon: 'assets/img/icon.png',
 		alticon: 'assets/img/alticon.png'

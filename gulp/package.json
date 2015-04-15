@@ -2,10 +2,6 @@
   "name": "Qeewi",
   "version": "1.0.0",
   "description": "Application to initialize quickly, easily and efficiently a website",
-  "main": "app/index.html",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "Qeewi",
     "Boilerplate",
@@ -27,33 +23,34 @@
     "email": "support@qeewi.io"
   },
   "dependencies": {
+    "browserify": "^9.0.8",
     "express": "^4.12.3",
-    "express-handlebars": "^2.0.0",
     "handlebars": "^3.0.1",
-    "react": "^0.13.1",
-    "react-router": "^0.13.2"
+    "react": "^0.13.1"
   },
   "devDependencies": {
-    "browserify": "^9.0.7",
-    "gulp": "^3.8.11",
-    "gulp-autoprefixer": "^2.1.0",
+    "envify": "^3.4.0",
+    "gulp": "^3.8.10",
+    "gulp-autoprefixer": "^1.0.1",
+    "gulp-clean": "^0.3.1",
     "gulp-csslint": "^0.1.5",
+    "gulp-csso": "^0.2.9",
+    "gulp-header": "^1.2.2",
+    "gulp-if": "^1.2.5",
     "gulp-jslint": "^0.2.2",
-    "gulp-load-plugins": "^0.9.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^1.3.3",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-notify": "^2.0.1",
+    "gulp-ruby-sass": "^0.7.1",
+    "gulp-shell": "^0.2.10",
     "gulp-size": "^1.2.1",
-    "gulp-uglify": "^1.1.0",
+    "gulp-uglify": "^1.0.1",
+    "gulp-webpack": "^1.0.0",
     "reactify": "^1.1.0",
-    "run-sequence": "^1.0.2"
+    "run-sequence": "^1.0.1"
   },
-  "window": {
-    "toolbar": true,
-    "frame": true,
-    "width": 1024,
-    "height": 576,
-    "position": "mouse",
-    "min_width": 1024,
-    "min_height": 576
+  "scripts": {
+    "install": "npm install",
+    "update": "gem update sass && npm install && npm prune",
+    "outdated": "npm outdated --depth=0"
   }
 }

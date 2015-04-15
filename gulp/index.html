@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Qeewi</title>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<div class="page-wrapper">
+			<main data-js="container" class="container">
+				<h1>Welcome to <span class="headline--attention">Node-Webkit</span></h1>
+				<p>
+					Node-Webkit makes it is easy to develop rich desktop applictions using the front-end web stack you already know (HTML, JavaScript and CSS)!
+				</p>
+				<button data-js="open-devtools" class="button--devtools">dev tools</button>
+				<button data-js="reload-page" class="button--reload">reload page</button>
+			</main>
+		</div>
+		<script src="js/script.js"></script>
+		<script>
+			var path = './';
+			var fs = require('fs');
+			fs.watch(path, function() {
+				if (location) location.reload();
+			});
+		</script>
+	</body>
+</html>
