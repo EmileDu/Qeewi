@@ -4,9 +4,9 @@
 	var gulp = require('gulp');
 	var plugin = require('gulp-load-plugins')();
 	var runSequence = require('run-sequence');
-
+	var minimist = require('minimist');
+	var NwBuilder = require('node-webkit-builder');
 // ==========================================
-
 
 
 // ==========================================
@@ -27,11 +27,10 @@
 // ==========================================
 
 
-
 // =========================================
 // ===           Enviro Variables        ===
 // =========================================
-	var minify = false;  // this is set to true when running the "default" task
+	var minify = true;  // this is set to true when running the "default" task
 
 	var pkg = require('./package.json');
 	var banner = ['/**',
@@ -40,8 +39,22 @@
 		' * @license <%= pkg.license %>',
 		' */',
 		''].join('\n');
+
+	var knownOptions = {
+	  string: 'env',
+	  default: { env: process.env.NODE_ENV || 'production' }
+	};
+
+	var options = minimist(process.argv.slice(2), knownOptions);
 // =========================================
 
+
+
+// =========================================
+// ===        Node Webkit builder        ===
+// =========================================
+	var nw;
+// =========================================
 
 
 // -------------------------
@@ -59,7 +72,7 @@ gulp.task('app', function(){
 // --    task: SASS       --
 // -------------------------
 
-gulp.task('sass', function (callback) {
+gulp.task('sass', function(callback) {
 	runSequence('sass-clean', 'sass-build', callback);
 
 });
@@ -83,7 +96,7 @@ gulp.task('sass-build', function(){
 // -------------------------
 // --    task: Scripts    --
 // -------------------------
-gulp.task('scripts', function (callback) {
+gulp.task('scripts', function(callback) {
 	runSequence('scripts-clean', 'scripts-build', callback);
 });
 
@@ -103,7 +116,7 @@ gulp.task('scripts-build', function(){
 // -------------------------
 // --    task: HTML    --
 // -------------------------
-gulp.task('html', function (callback) {
+gulp.task('html', function(callback) {
 	runSequence('html-clean', 'html-build', callback);
 });
 
@@ -122,36 +135,44 @@ gulp.task('html-build', function(){
 // -------------------------
 // --     task: watch     --
 // -------------------------
-gulp.task('watch', function () {
+gulp.task('watch', function() {
 	gulp.watch(sourcePaths.CSS, ['sass']);
 	gulp.watch(sourcePaths.JS, ['scripts']);
 	gulp.watch(sourcePaths.BASE, ['html']);
 });
 
 
-
-
-// *************************
-// ** Gulp tasks meant to **
-// ** be run from command **
-// ** line                **
-// *************************
-// ** gulp OR gulp build  **
-// *************************
-
-
 // -------------------------
 // --    task: build      --
 // -------------------------
-gulp.task('build', function (callback) {
-	minify = true;
-	runSequence('html', 'sass', 'scripts', callback);
+gulp.task('build', function(callback) {
+	nw = new NwBuilder({
+	    files: ['../app/**'],
+	    platforms: ['osx', 'win', 'linux'],
+	    buildDir: '../build',
+	    cacheDir: '../ressources',
+	    macIcns: '../app/icons/app_icon.ico'
+	});
+	nw.on('log', function (msg) { plugin.util.log('node-webkit-builder', msg); });
+	return nw.build().catch(function(err) { plugin.util.log('node-webkit-builder', err); });
+
 });
+
+// -------------------------
+// --    task: serve      --
+//--------------------------
+gulp.task('serve', function(callback) {
+	if (options.env === 'dev') { minify = false; }
+	runSequence('html', 'sass', 'scripts', 'app', 'watch', callback);
+});
+
 
 // -------------------------
 // --    task: default    --
 // -------------------------
 gulp.task('default', function (callback) {
-	minify = false;
-	runSequence('html', 'sass', 'scripts', 'app', 'watch', callback);
+	minify = true;
+	runSequence('html', 'sass', 'scripts', callback);
 });
+
+
