@@ -1,7 +1,7 @@
 # Qeewi
 An application to initialize quickly, easily and efficiently a website
 
-Visit **[project page](http://qeewi.io) for more information
+Visit **[project page](http://qeewi.io)** for more information
 
 ## Changelog
 
