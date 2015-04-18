@@ -23,12 +23,15 @@
     "email": "support@qeewi.io"
   },
   "dependencies": {
-    "browserify": "^9.0.8",
     "express": "^4.12.3",
     "handlebars": "^3.0.1",
+    "jsx-loader": "^0.13.1",
+    "node-jsx": "^0.12.4",
     "react": "^0.13.1"
   },
   "devDependencies": {
+    "babel-core": "^5.1.10",
+    "babel-loader": "^5.0.0",
     "envify": "^3.4.0",
     "gulp": "^3.8.10",
     "gulp-autoprefixer": "^1.0.1",
@@ -40,6 +43,7 @@
     "gulp-jslint": "^0.2.2",
     "gulp-load-plugins": "^0.10.0",
     "gulp-notify": "^2.0.1",
+    "gulp-react": "^3.0.1",
     "gulp-ruby-sass": "^0.7.1",
     "gulp-shell": "^0.2.10",
     "gulp-size": "^1.2.1",
@@ -48,8 +52,10 @@
     "gulp-webpack": "^1.0.0",
     "minimist": "^1.1.1",
     "node-webkit-builder": "^1.0.11",
-    "reactify": "^1.1.0",
-    "run-sequence": "^1.0.1"
+    "react-hot-loader": "^1.2.5",
+    "run-sequence": "^1.0.1",
+    "webpack": "^1.8.5",
+    "webpack-dev-server": "^1.8.0"
   },
   "scripts": {
     "install": "npm install",

@@ -2,6 +2,9 @@
 
 	'use strict';
 
+	var React = require('react');
+	var AppComponent = require('./components/AppComponent.js');
+
 	var app = {};
 	app.node = {};
 	app.node.fs = require('fs');
@@ -28,8 +31,6 @@
 	}
 
 	function initTray() {
-
-
 		tray = new app.node.gui.Tray({icon: 'icons/tray_icon.png', tooltip: 'Qeewi'});
 
 		var trayMenu = new app.node.gui.Menu();
@@ -44,9 +45,6 @@
 		app.init();
 	});
 
-	app.node.fs.watch('css/', function() {
-	  if (location)
-	    location.reload();
-	});
+	React.render( <AppComponent name="Emile"/>, document.getElementById('container'));
 
 })(window, require, process);

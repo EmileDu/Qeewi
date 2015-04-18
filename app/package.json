@@ -1,44 +1,48 @@
 {
-	"name": "Qeewi",
-	"version": "1.0.0",
-	"description": "Application to initialize quickly, easily and efficiently a website",
-	"main": "index.html",
-	"keywords": [
-		"Qeewi",
-		"Boilerplate",
-		"TFE",
-		"ESIAJ",
-		"HEAJ",
-		"DWM",
-		"Generator"
-	],
-	"author": "Emile Duval <bonjour@emileduval.be> (http://emileduval.be/)",
-	"license": "ISC",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/EmileDu/Qeewi.git"
-	},
-	"homepage": "http://qeewi.io",
-	"bugs": {
-		"url": "https://github.com/EmileDu/Qeewi/issues",
-		"email": "support@qeewi.io"
-	},
-	"window": {
-		"title": "Qeewi",
-		"icon": "icons/app_icon.png",
-		"show": true,
-		"toolbar": false,
-		"frame": true,
-		"width": 1024,
-		"height": 576,
-		"position": "mouse",
-		"min_width": 1024,
-		"min_height": 576
-	},
-	"dependencies": {
-		"browserify": "^9.0.8",
-		"express": "^4.12.3",
-		"handlebars": "^3.0.1",
-		"react": "^0.13.1"
-	}
+  "name": "Qeewi",
+  "version": "1.0.0",
+  "description": "Application to initialize quickly, easily and efficiently a website",
+  "main": "index.html",
+  "keywords": [
+    "Qeewi",
+    "Boilerplate",
+    "TFE",
+    "ESIAJ",
+    "HEAJ",
+    "DWM",
+    "Generator"
+  ],
+  "author": "Emile Duval <bonjour@emileduval.be> (http://emileduval.be/)",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EmileDu/Qeewi.git"
+  },
+  "homepage": "http://qeewi.io",
+  "bugs": {
+    "url": "https://github.com/EmileDu/Qeewi/issues",
+    "email": "support@qeewi.io"
+  },
+  "webkit": {
+    "plugin": true
+  },
+  "window": {
+    "title": "Qeewi",
+    "icon": "icons/app_icon.png",
+    "show": true,
+    "toolbar": true,
+    "frame": true,
+    "width": 1024,
+    "height": 576,
+    "position": "mouse",
+    "min_width": 1024,
+    "min_height": 576
+  },
+  "dependencies": {
+    "browserify": "^9.0.8",
+    "express": "^4.12.3",
+    "handlebars": "^3.0.1",
+    "node-jsx": "^0.12.4",
+    "react": "^0.13.1"
+  }
 }
