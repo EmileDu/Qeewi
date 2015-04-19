@@ -6,7 +6,9 @@ var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 var node_modules_dir = path.resolve(__dirname, 'node_modules');
 
 var entry = { app: './src/js/app.js', vendors: ['react']};
-var modules = { loaders: [{ test: /\.js$/, exclude: [node_modules_dir], loader: 'babel' }] };
+var modules = { loaders: [
+	{ test: /\.js$/, exclude: [node_modules_dir], loader: 'babel' }
+] };
 
 module.exports = {
   entry: entry,

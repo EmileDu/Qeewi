@@ -2,7 +2,11 @@
 
 	'use strict';
 
+	var debug = require('debug');
+
 	var React = require('react');
+	var Router = require('react-router');
+	var routes = require('./routes.js');
 	var AppComponent = require('./components/AppComponent.js');
 
 	var app = {};
@@ -45,6 +49,9 @@
 		app.init();
 	});
 
-	React.render( <AppComponent name="Emile"/>, document.getElementById('container'));
+	debug('React rendering');
+	Router.run(routes, Router.HistoryLocation, function (Handler) {
+		React.render( <AppComponent name="Emile"/>, document.getElementById('container'));
+	});
 
 })(window, require, process);

@@ -6,7 +6,7 @@
 	var runSequence = require('run-sequence');
 	var minimist = require('minimist');
 	var NwBuilder = require('node-webkit-builder');
-
+	var handlebars = require('handlebars');
 
 	var webpackConfig = require('./webpack.config.js');
 // ==========================================
@@ -91,7 +91,8 @@ gulp.task('sass-build', function(){
 							.pipe(plugin.autoprefixer( { browsers: ['Chrome >= 30'] } ))
 							.pipe(plugin.if(minify, plugin.csso()))
 							.pipe(plugin.header(banner, { pkg : pkg } ))
-							.pipe(gulp.dest(destPaths.CSS));
+							.pipe(gulp.dest(destPaths.CSS))
+							.pipe(plugin.size());
 });
 
 
@@ -113,15 +114,23 @@ gulp.task('scripts-build', function(){
 							.pipe(plugin.webpack(webpackConfig))
 							.pipe(plugin.if(minify, plugin.uglify()))
 							.pipe(plugin.header(banner, { pkg : pkg } ))
-							.pipe(gulp.dest(destPaths.JS));
+							.pipe(gulp.dest(destPaths.JS))
+							.pipe(plugin.size());
 });
 
 // -------------------------
 // --    task: HTML    --
 // -------------------------
 gulp.task('html', function(){
-	return 	gulp.src('*.html')
-							.pipe(gulp.dest(destPaths.BASE));
+	return 	gulp.src(sourcePaths.JSPath + 'views/layout.hbs')
+							.pipe(plugin.tap(function(file) {
+								var layout = handlebars.compile(file.contents.toString());
+								var html = layout({body: ''});
+								file.contents = new Buffer(html, 'utf-8');
+							}))
+							.pipe(plugin.rename('index.html'))
+							.pipe(gulp.dest(destPaths.BASE))
+							.pipe(plugin.size());
 });
 
 
@@ -148,7 +157,9 @@ gulp.task('build', function(callback) {
 	    macIcns: '../app/icons/app_icon.ico'
 	});
 	nw.on('log', function (msg) { plugin.util.log('node-webkit-builder', msg); });
-	return nw.build().catch(function(err) { plugin.util.log('node-webkit-builder', err); });
+	return 	nw.build()
+						.catch(function(err) { plugin.util.log('node-webkit-builder', err); })
+						.pipe(plugin.size());
 
 });
 
