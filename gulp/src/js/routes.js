@@ -1,20 +1,24 @@
 'use strict';
 
-var React = require('react');
-var Router = require('react-router');
-var Route = Router.Route;
-var DefaultRoute = Router.DefaultRoute;
+import React from "react";
+import { Route, DefaultRoute, NotFoundRoute } from "react-router";
 
-// route handler components
-var App = require('./views/containers/main.container.js');
-var DashboardProject = require('./views/pages/dashboardproject.page.js');
-var NewProject = require('./views/pages/newproject.page.js');
-var Home = require('./views/pages/home.page.js');
+import App from './views/containers/app.container.jsx';
+import Home from './views/pages/home.page.jsx';
+import DashboardProject from './views/pages/dashboardproject.page.jsx';
+import NewProject from './views/pages/newproject.page.jsx';
+import NotFound from './views/pages/notfound.page.jsx';
 
-module.exports = (
-  <Route name="app" path="/" handler={App}>
-		<DefaultRoute handler={Home} />
-    <Route name="dashboardproject" path="/:project" handler={DashboardProject} />
-		<Route name="newproject" path="/new-project" handler={NewProject} />
-  </Route>
+
+var routes = (
+	<Route name="app" path="/" handler={ App }>
+    <Route name="dashboardproject" path="/:project" handler={ DashboardProject } />
+		<Route name="newproject" path="/new-project" handler={ NewProject } />
+		<Route name="home" handler={ Home } />
+		<DefaultRoute handler={ Home } />
+		<NotFoundRoute Handler={ NotFound } />
+	</Route>
+
 );
+
+export default routes;
