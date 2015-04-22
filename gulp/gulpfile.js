@@ -7,6 +7,7 @@
 	var NwBuilder = require('node-webkit-builder');
 	var handlebars = require('handlebars');
 	var del = require('del');
+	var nw = require('nw').findpath();
 
 // ==========================================
 
@@ -56,7 +57,7 @@
 // -------------------------
 gulp.task('app', function(){
 	gulp.src('', {read: false})
-		.pipe(plugin.shell(['nw app'], { cwd: '../' } ));
+		.pipe(plugin.shell(['nw ../app']));
 });
 // -------------------------
 
@@ -130,15 +131,15 @@ gulp.task('watch', function() {
 // --    task: build      --
 // -------------------------
 gulp.task('build', function(callback) {
-	nw = new NwBuilder({
+	nodeWebkit = new NwBuilder({
 	    files: ['../app/**'],
 	    platforms: ['osx', 'win', 'linux'],
 	    buildDir: '../build',
 	    cacheDir: '../ressources',
 	    macIcns: '../app/icons/app_icon.ico'
 	});
-	nw.on('log', function (msg) { plugin.util.log('node-webkit-builder', msg); });
-	return 	nw.build()
+	nodeWebkit.on('log', function (msg) { plugin.util.log('node-webkit-builder', msg); });
+	return 	nodeWebkit.build()
 						.catch(function(err) { plugin.util.log('node-webkit-builder', err); })
 						.pipe(plugin.size());
 

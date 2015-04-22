@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "handlebars": "^3.0.1",
+    "nw": "^0.12.1",
     "react": "^0.13.1",
     "react-router": "^0.13.2"
   },
@@ -53,7 +54,7 @@
     "webpack": "^1.8.5"
   },
   "scripts": {
-    "install": "npm install",
+    "install": "sudo npm install",
     "update": "gem update sass && npm install && npm prune",
     "outdated": "npm outdated --depth=0"
   }
