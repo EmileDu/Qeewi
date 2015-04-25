@@ -1,6 +1,7 @@
 import React from 'react';
 import Router from 'react-router';
 import routes from './routes';
+import ProjectsData from './ProjectsData';
 
 
 var app = {};
@@ -40,7 +41,12 @@ function initTray() {
 }
 
 app.node.gui.Window.get().on('loaded', function(){
-	app.init();
-});
+	ProjectsData.init();
 
-Router.run(routes, Handler => React.render(<Handler />, document.body));
+	app.init();
+	app.node.gui.Window.get().showDevTools();
+
+	Router.run(routes, function(Handler) {
+		React.render(<Handler/>, document.body)
+	});
+});

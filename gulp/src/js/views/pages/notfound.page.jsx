@@ -6,7 +6,7 @@ class NotFound extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className="page">
 				<h1>404!</h1>
 				Route not found :/
       </div>

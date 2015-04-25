@@ -9,10 +9,33 @@ html, body {
 html {
 	font-size: 16px;
 	line-height: 16px;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	text-size-adjust: 100%;
 }
 
 .wrapper {
 	width: 100%;
 	max-width: 914px;
 	margin: 0 auto;
+}
+
+::selection {
+	background: transparentize($green, 0.4);
+}
+
+a, a:hover, a:active, a:visited {
+	color: inherit;
+}
+
+ul {
+	list-style: none;
+}
+
+.page {
+	padding-top: 1.5rem;
+}
+.page__title {
+	display: none;
 }

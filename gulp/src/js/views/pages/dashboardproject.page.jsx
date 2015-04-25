@@ -5,7 +5,9 @@ import React from 'react';
 class DashboardProject extends React.Component {
 	render() {
 		return (
-			<div>Dashboard Project</div>
+			<div className="page">
+				<h1 className="page__title">Dashboard Project</h1>
+			</div>
 		);
 	}
 }

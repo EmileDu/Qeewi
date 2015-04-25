@@ -103,13 +103,7 @@ gulp.task('scripts', ['clean:scripts'], function(){
 // --    task: HTML    --
 // -------------------------
 gulp.task('html', function(){
-	return 	gulp.src(sourcePaths.JS + 'views/layout.hbs')
-							.pipe(plugin.tap(function(file) {
-								var layout = handlebars.compile(file.contents.toString());
-								var html = layout({body: ''});
-								file.contents = new Buffer(html, 'utf-8');
-							}))
-							.pipe(plugin.rename('index.html'))
+	return 	gulp.src(sourcePaths.BASE + 'index.HTML')
 							.pipe(gulp.dest(destPaths.BASE))
 							.pipe(plugin.size({title: 'HTML'}));
 });

@@ -1,5 +1,3 @@
-'use strict';
-
 import React from "react";
 import { Route, DefaultRoute, NotFoundRoute } from "react-router";
 
@@ -11,14 +9,14 @@ import NotFound from './views/pages/notfound.page.jsx';
 
 
 var routes = (
-	<Route name="app" path="/" handler={ App }>
-    <Route name="dashboardproject" path="/:project" handler={ DashboardProject } />
-		<Route name="newproject" path="/new-project" handler={ NewProject } />
-		<Route name="home" handler={ Home } />
+	<Route name="App" path="/" handler={ App }>
+    <Route name="Dahsboard Project" handler={ DashboardProject } />
+		<Route name="New Project" handler={ NewProject } />
+		<Route name="Homepage" handler={ Home } />
 		<DefaultRoute handler={ Home } />
 		<NotFoundRoute Handler={ NotFound } />
 	</Route>
 
 );
 
-export default routes;
+module.exports = routes;

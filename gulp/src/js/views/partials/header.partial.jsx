@@ -1,17 +1,18 @@
 'use strict';
 
-var React = require('react/addons');
-var Link = require('react-router').Link;
+import React from 'react';
+import { Link } from 'react-router';
 
+// import Search from '../../components/search.components.jsx';
 
-var Header = React.createClass({
-	render: function() {
+class Header extends React.Component {
+	render() {
 		return (
 			<header className="app__header">
 
 			</header>
-		)
+		);
 	}
-});
+}
 
-module.exports = Header;
+export default Header

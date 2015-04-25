@@ -39,9 +39,9 @@
 		"min_height": 576
 	},
 	"dependencies": {
-		"express": "^4.12.3",
 		"handlebars": "^3.0.1",
-		"node-jsx": "^0.12.4",
-		"react": "^0.13.1"
+    "nw": "^0.12.1",
+    "react": "^0.13.1",
+    "react-router": "^0.13.2"
 	}
 }

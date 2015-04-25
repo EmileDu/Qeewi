@@ -5,7 +5,9 @@ import React from 'react';
 class NewProject extends React.Component {
 	render() {
 		return (
-			<div>New project</div>
+			<div className="page">
+				<h1 className="page__title">New Project</h1>
+			</div>
 		);
 	}
 }
