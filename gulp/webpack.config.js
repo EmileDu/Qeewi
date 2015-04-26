@@ -8,7 +8,7 @@ module.exports.getConfig = function(type) {
 	var config = {
 	  entry: {
 			app: './src/js/app.js',
-			vendors: ['react', 'react-router', 'reflux', 'lodash', 'shortid']
+			vendors: ['react', 'react-router', 'react-modal', 'reflux', 'lodash', 'shortid']
 		} ,
 	  output: {
 			path: __dirname,

@@ -1,6 +1,10 @@
 .drag-drop-field {
-	border: 2px dashed $black;
+	border: 1px dashed $black;
 	color: $black;
 	opacity: .5;
+}
 
+.drag-drop-field__label {
+	text-transform: uppercase;
+	text-align: center;
 }

@@ -3,6 +3,10 @@
 import React from 'react';
 
 class DashboardProject extends React.Component {
+	constructor() {
+		super();
+	}
+
 	render() {
 		return (
 			<div className="page">
@@ -11,5 +15,7 @@ class DashboardProject extends React.Component {
 		);
 	}
 }
+
+DashboardProject.displayName = 'Dashboard Project page';
 
 export default DashboardProject;

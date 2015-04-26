@@ -3,6 +3,9 @@
 import React from 'react';
 
 class NotFound extends React.Component {
+	constructor() {
+		super();
+	}
 
 	render() {
 		return (
@@ -13,5 +16,7 @@ class NotFound extends React.Component {
 		);
 	}
 }
+
+NotFound.displayName = 'Not Found page';
 
 export default NotFound;

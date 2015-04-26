@@ -4,8 +4,6 @@ import shortid from 'shortid';
 
 var localStorageKey = 'projects';
 
-
-
 var AppActions = Reflux.createActions([
 	'onAddProject',					// Called by button in Home Page
 	'onRemoveProject',			// Called by rightClick on project
@@ -29,7 +27,6 @@ AppActions.loadProjects.preEmit = function(data) {
 			return project;
 		});
 	}
-	// var _projects = ['1','2','3'];
 	AppActions.loadProjectsSuccess(_projects);
 };
 

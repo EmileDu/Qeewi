@@ -8,7 +8,7 @@ class NewProject extends React.Component{
 	render() {
 		return (
 			<li className="projects-list__item project drag-drop-field">
-				<p>Nouveau Projet</p>
+				<h2 className="drag-drop-field__label">Nouveau projet</h2>
 			</li>
 		)
 	}

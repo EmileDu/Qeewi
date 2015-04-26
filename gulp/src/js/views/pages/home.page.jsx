@@ -37,6 +37,6 @@ class Home extends React.Component {
 	}
 };
 
-Home.displayName = 'HomeView';
+Home.displayName = 'Home page';
 
 export default Home;

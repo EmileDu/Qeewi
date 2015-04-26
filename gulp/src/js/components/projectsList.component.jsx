@@ -20,8 +20,10 @@ class ProjectsList extends React.Component{
 	}
 };
 
-ProjectsList.displayName = ProjectsList;
+ProjectsList.displayName = 'ProjectsList';
+
 ProjectsList.propTypes = {
 	projects : React.PropTypes.arrayOf(React.PropTypes.object)
 }
+
 export default ProjectsList;
