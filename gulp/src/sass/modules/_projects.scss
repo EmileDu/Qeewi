@@ -21,10 +21,10 @@
 	overflow: hidden;
 	border-radius: 5px;
 	color: $white;
-	&:not(.drag-drop-field) {
+	&:not(.drop-field) {
 		box-shadow: 2px 0px 4px 0px transparentize($black, 0.85);
 	}
-	&:not(.drag-drop-field):hover {
+	&:not(.drop-field):hover {
 		color: $green;
 	}
 }
@@ -72,11 +72,4 @@
 		content: '- v';
 		color: inherit;
 	}
-}
-
-.drag-drop-field__icon {
-	display: block;
-	width: 50px;
-	height: 50px;
-	margin: 20px auto 16px;
 }

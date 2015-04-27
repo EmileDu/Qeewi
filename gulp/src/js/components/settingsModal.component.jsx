@@ -10,6 +10,8 @@ class SettingsModal extends React.Component {
 		Modal.setAppElement(Element);
 		Modal.injectCSS();
 		this.state = { modalIsOpen: false };
+		this.openModal = this.openModal.bind(this);
+		this.closeModal = this.closeModal.bind(this);
 	}
 
 	openModal() {

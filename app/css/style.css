@@ -210,6 +210,7 @@ ul {
   width: 100%;
   height: 100%;
   fill: #ffffff;
+  transition: fill .2s ease-in-out;
 }
 .header__button:hover .button__icon {
   fill: #96c119;
@@ -255,10 +256,10 @@ ul {
   border-radius: 5px;
   color: #ffffff;
 }
-.project:not(.drag-drop-field) {
+.project:not(.drop-field) {
   box-shadow: 2px 0px 4px 0px rgba(45, 46, 44, 0.15);
 }
-.project:not(.drag-drop-field):hover {
+.project:not(.drop-field):hover {
   color: #96c119;
 }
 
@@ -310,21 +311,29 @@ ul {
   color: inherit;
 }
 
-.drag-drop-field__icon {
-  display: block;
-  width: 50px;
-  height: 50px;
-  margin: 20px auto 16px;
-}
-
-.drag-drop-field {
+.dropzone {
   border: 1px dashed #2d2e2c;
   color: #2d2e2c;
   opacity: .5;
 }
 
-.drag-drop-field__label {
+.dropzone__label {
   text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.dropzone__icon {
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 16px;
+}
+
+.dropzone__instruction {
+  font-size: 0.6875rem;
+  font-weight: 300;
+  color: inherit;
   text-align: center;
 }
 

@@ -12,11 +12,11 @@ webpackJsonp([1],{
 	
 	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
 	
-	var _React = __webpack_require__(2);
+	var _React = __webpack_require__(4);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Router = __webpack_require__(4);
+	var _Router = __webpack_require__(6);
 	
 	var _Router2 = _interopRequireWildcard(_Router);
 	
@@ -30,9 +30,9 @@ webpackJsonp([1],{
 	
 	var app = {};
 	app.node = {};
-	app.node.fs = __webpack_require__(29);
-	app.node.gui = __webpack_require__(30);
-	app.node.os = __webpack_require__(31);
+	app.node.fs = __webpack_require__(7);
+	app.node.gui = __webpack_require__(8);
+	app.node.os = __webpack_require__(9);
 	
 	var tray;
 	
@@ -81,21 +81,21 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 29:
+/***/ 7:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = require("fs");
 
 /***/ },
 
-/***/ 30:
+/***/ 8:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = require("nw.gui");
 
 /***/ },
 
-/***/ 31:
+/***/ 9:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = require("os");
@@ -109,11 +109,11 @@ webpackJsonp([1],{
 	
 	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { "default": obj }; };
 	
-	var _React = __webpack_require__(2);
+	var _React = __webpack_require__(4);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Route$DefaultRoute$NotFoundRoute = __webpack_require__(4);
+	var _Route$DefaultRoute$NotFoundRoute = __webpack_require__(6);
 	
 	var _App = __webpack_require__(94);
 	
@@ -190,13 +190,13 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(2);
+	var _React = __webpack_require__(4);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _RouteHandler = __webpack_require__(4);
+	var _RouteHandler = __webpack_require__(6);
 	
-	var _Header = __webpack_require__(171);
+	var _Header = __webpack_require__(169);
 	
 	var _Header2 = _interopRequireWildcard(_Header);
 	
@@ -260,19 +260,19 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(2);
+	var _React = __webpack_require__(4);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _ProjectsList = __webpack_require__(172);
+	var _ProjectsList = __webpack_require__(170);
 	
 	var _ProjectsList2 = _interopRequireWildcard(_ProjectsList);
 	
-	var _AppStore = __webpack_require__(173);
+	var _AppStore = __webpack_require__(171);
 	
 	var _AppStore2 = _interopRequireWildcard(_AppStore);
 	
-	var _AppActions = __webpack_require__(174);
+	var _AppActions = __webpack_require__(172);
 	
 	var _AppActions2 = _interopRequireWildcard(_AppActions);
 	
@@ -352,7 +352,7 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(2);
+	var _React = __webpack_require__(4);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
@@ -416,7 +416,7 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(2);
+	var _React = __webpack_require__(4);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
@@ -480,7 +480,7 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(2);
+	var _React = __webpack_require__(4);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
@@ -521,7 +521,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 171:
+/***/ 169:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -540,17 +540,17 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(2);
+	var _React = __webpack_require__(4);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Link = __webpack_require__(4);
+	var _Link = __webpack_require__(6);
 	
-	var _SettingsModal = __webpack_require__(242);
+	var _SettingsModal = __webpack_require__(221);
 	
 	var _SettingsModal2 = _interopRequireWildcard(_SettingsModal);
 	
-	var _AddProjectButton = __webpack_require__(243);
+	var _AddProjectButton = __webpack_require__(222);
 	
 	var _AddProjectButton2 = _interopRequireWildcard(_AddProjectButton);
 	
@@ -589,7 +589,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 172:
+/***/ 170:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -612,15 +612,15 @@ webpackJsonp([1],{
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Project = __webpack_require__(240);
+	var _Project = __webpack_require__(223);
 	
 	var _Project2 = _interopRequireWildcard(_Project);
 	
-	var _NewProject = __webpack_require__(241);
+	var _NewProject = __webpack_require__(224);
 	
 	var _NewProject2 = _interopRequireWildcard(_NewProject);
 	
-	var _import = __webpack_require__(1);
+	var _import = __webpack_require__(2);
 	
 	var _import2 = _interopRequireWildcard(_import);
 	
@@ -665,7 +665,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 173:
+/***/ 171:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -676,15 +676,15 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _Reflux = __webpack_require__(3);
+	var _Reflux = __webpack_require__(1);
 	
 	var _Reflux2 = _interopRequireWildcard(_Reflux);
 	
-	var _AppActions = __webpack_require__(174);
+	var _AppActions = __webpack_require__(172);
 	
 	var _AppActions2 = _interopRequireWildcard(_AppActions);
 	
-	var _import = __webpack_require__(1);
+	var _import = __webpack_require__(2);
 	
 	var _import2 = _interopRequireWildcard(_import);
 	
@@ -749,7 +749,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 174:
+/***/ 172:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -760,11 +760,11 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _Reflux = __webpack_require__(3);
+	var _Reflux = __webpack_require__(1);
 	
 	var _Reflux2 = _interopRequireWildcard(_Reflux);
 	
-	var _import = __webpack_require__(1);
+	var _import = __webpack_require__(2);
 	
 	var _import2 = _interopRequireWildcard(_import);
 	
@@ -808,7 +808,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 240:
+/***/ 221:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -827,11 +827,163 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(2);
+	var _React = __webpack_require__(4);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Link = __webpack_require__(4);
+	var _Modal = __webpack_require__(3);
+	
+	var _Modal2 = _interopRequireWildcard(_Modal);
+	
+	var _Icon = __webpack_require__(245);
+	
+	var _Icon2 = _interopRequireWildcard(_Icon);
+	
+	var Element = document.body;
+	
+	var SettingsModal = (function (_React$Component) {
+		function SettingsModal() {
+			_classCallCheck(this, SettingsModal);
+	
+			_get(Object.getPrototypeOf(SettingsModal.prototype), 'constructor', this).call(this);
+			_Modal2['default'].setAppElement(Element);
+			_Modal2['default'].injectCSS();
+			this.state = { modalIsOpen: false };
+			this.openModal = this.openModal.bind(this);
+			this.closeModal = this.closeModal.bind(this);
+		}
+	
+		_inherits(SettingsModal, _React$Component);
+	
+		_createClass(SettingsModal, [{
+			key: 'openModal',
+			value: function openModal() {
+				this.setState({ modalIsOpen: true });
+			}
+		}, {
+			key: 'closeModal',
+			value: function closeModal() {
+				this.setState({ modalIsOpen: false });
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				return _React2['default'].createElement(
+					'div',
+					{ className: 'modal' },
+					_React2['default'].createElement(
+						'button',
+						{ className: 'header__button header__button--settings button', onClick: this.openModal },
+						_React2['default'].createElement(_Icon2['default'], { className: 'button__icon', size: '32', icon: 'icon-cog', link: 'images/Icons/svgdefs.svg' }),
+						'Préférences'
+					),
+					_React2['default'].createElement(
+						_Modal2['default'],
+						{ isOpen: this.state.modalIsOpen, onRequestClose: this.closeModal },
+						_React2['default'].createElement(
+							'button',
+							{ onClick: this.closeModal },
+							'Fermer'
+						)
+					)
+				);
+			}
+		}]);
+	
+		return SettingsModal;
+	})(_React2['default'].Component);
+	
+	SettingsModal.displayName = 'Settings Modals';
+	
+	exports['default'] = SettingsModal;
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 222:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
+	
+	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(object, property, receiver) { var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
+	
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+	
+	var _React = __webpack_require__(4);
+	
+	var _React2 = _interopRequireWildcard(_React);
+	
+	var _Link = __webpack_require__(6);
+	
+	var _Icon = __webpack_require__(245);
+	
+	var _Icon2 = _interopRequireWildcard(_Icon);
+	
+	var AddProjectButton = (function (_React$Component) {
+		function AddProjectButton() {
+			_classCallCheck(this, AddProjectButton);
+	
+			_get(Object.getPrototypeOf(AddProjectButton.prototype), 'constructor', this).call(this);
+		}
+	
+		_inherits(AddProjectButton, _React$Component);
+	
+		_createClass(AddProjectButton, [{
+			key: 'render',
+			value: function render() {
+				return _React2['default'].createElement(
+					_Link.Link,
+					{ to: 'NewProject', className: 'header__button button', onClick: this.openModal },
+					_React2['default'].createElement(_Icon2['default'], { className: 'button__icon', size: '32', icon: 'icon-circle-plus', link: 'images/Icons/svgdefs.svg' }),
+					'Préférences'
+				);
+			}
+		}]);
+	
+		return AddProjectButton;
+	})(_React2['default'].Component);
+	
+	AddProjectButton.displayName = 'Add Project Button';
+	
+	exports['default'] = AddProjectButton;
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 223:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
+	
+	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(object, property, receiver) { var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
+	
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+	
+	var _React = __webpack_require__(4);
+	
+	var _React2 = _interopRequireWildcard(_React);
+	
+	var _Link = __webpack_require__(6);
 	
 	var Project = (function (_React$Component) {
 		function Project() {
@@ -890,7 +1042,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 241:
+/***/ 224:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -909,13 +1061,17 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(2);
+	var _React = __webpack_require__(4);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Icon = __webpack_require__(253);
+	var _Icon = __webpack_require__(245);
 	
 	var _Icon2 = _interopRequireWildcard(_Icon);
+	
+	var _DropZone = __webpack_require__(246);
+	
+	var _DropZone2 = _interopRequireWildcard(_DropZone);
 	
 	var NewProject = (function (_React$Component) {
 		function NewProject() {
@@ -931,15 +1087,20 @@ webpackJsonp([1],{
 			value: function render() {
 				return _React2['default'].createElement(
 					'li',
-					{ className: 'projects-list__item project drag-drop-field valign-parent' },
+					{ className: 'projects-list__item project valign-parent' },
 					_React2['default'].createElement(
-						'div',
-						{ className: 'valign-child' },
-						_React2['default'].createElement(_Icon2['default'], { className: 'drag-drop-field__icon', size: '32', icon: 'icon-plus', link: 'images/Icons/svgdefs.svg' }),
+						_DropZone2['default'],
+						{ className: 'valign-child dropzone' },
+						_React2['default'].createElement(_Icon2['default'], { className: 'dropzone__icon', size: '32', icon: 'icon-plus', link: 'images/Icons/svgdefs.svg' }),
 						_React2['default'].createElement(
 							'h2',
-							{ className: 'drag-drop-field__label' },
+							{ className: 'dropzone__label' },
 							'Nouveau projet'
+						),
+						_React2['default'].createElement(
+							'p',
+							{ className: 'dropzone__instruction' },
+							'(Drop ton dossier ici)'
 						)
 					)
 				);
@@ -954,156 +1115,6 @@ webpackJsonp([1],{
 	NewProject.displayName = 'NewProject DragDrop Field';
 	
 	exports['default'] = NewProject;
-	module.exports = exports['default'];
-
-/***/ },
-
-/***/ 242:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
-	
-	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(object, property, receiver) { var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-	
-	var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
-	
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-	
-	var _React = __webpack_require__(2);
-	
-	var _React2 = _interopRequireWildcard(_React);
-	
-	var _Modal = __webpack_require__(6);
-	
-	var _Modal2 = _interopRequireWildcard(_Modal);
-	
-	var _Icon = __webpack_require__(253);
-	
-	var _Icon2 = _interopRequireWildcard(_Icon);
-	
-	var Element = document.body;
-	
-	var SettingsModal = (function (_React$Component) {
-		function SettingsModal() {
-			_classCallCheck(this, SettingsModal);
-	
-			_get(Object.getPrototypeOf(SettingsModal.prototype), 'constructor', this).call(this);
-			_Modal2['default'].setAppElement(Element);
-			_Modal2['default'].injectCSS();
-			this.state = { modalIsOpen: false };
-		}
-	
-		_inherits(SettingsModal, _React$Component);
-	
-		_createClass(SettingsModal, [{
-			key: 'openModal',
-			value: function openModal() {
-				this.setState({ modalIsOpen: true });
-			}
-		}, {
-			key: 'closeModal',
-			value: function closeModal() {
-				this.setState({ modalIsOpen: false });
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				return _React2['default'].createElement(
-					'div',
-					{ className: 'modal' },
-					_React2['default'].createElement(
-						'button',
-						{ className: 'header__button header__button--settings button', onClick: this.openModal },
-						_React2['default'].createElement(_Icon2['default'], { className: 'button__icon', size: '32', icon: 'icon-cog', link: 'images/Icons/svgdefs.svg' }),
-						'Préférences'
-					),
-					_React2['default'].createElement(
-						_Modal2['default'],
-						{ isOpen: this.state.modalIsOpen, onRequestClose: this.closeModal },
-						_React2['default'].createElement(
-							'button',
-							{ onClick: this.closeModal },
-							'Fermer'
-						)
-					)
-				);
-			}
-		}]);
-	
-		return SettingsModal;
-	})(_React2['default'].Component);
-	
-	SettingsModal.displayName = 'Settings Modals';
-	
-	exports['default'] = SettingsModal;
-	module.exports = exports['default'];
-
-/***/ },
-
-/***/ 243:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
-	
-	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(object, property, receiver) { var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-	
-	var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
-	
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-	
-	var _React = __webpack_require__(2);
-	
-	var _React2 = _interopRequireWildcard(_React);
-	
-	var _Link = __webpack_require__(4);
-	
-	var _Icon = __webpack_require__(253);
-	
-	var _Icon2 = _interopRequireWildcard(_Icon);
-	
-	var AddProjectButton = (function (_React$Component) {
-		function AddProjectButton() {
-			_classCallCheck(this, AddProjectButton);
-	
-			_get(Object.getPrototypeOf(AddProjectButton.prototype), 'constructor', this).call(this);
-		}
-	
-		_inherits(AddProjectButton, _React$Component);
-	
-		_createClass(AddProjectButton, [{
-			key: 'render',
-			value: function render() {
-				return _React2['default'].createElement(
-					_Link.Link,
-					{ to: 'NewProject', className: 'header__button button', onClick: this.openModal },
-					_React2['default'].createElement(_Icon2['default'], { className: 'button__icon', size: '32', icon: 'icon-circle-plus', link: 'images/Icons/svgdefs.svg' }),
-					'Préférences'
-				);
-			}
-		}]);
-	
-		return AddProjectButton;
-	})(_React2['default'].Component);
-	
-	AddProjectButton.displayName = 'Add Project Button';
-	
-	exports['default'] = AddProjectButton;
 	module.exports = exports['default'];
 
 /***/ },
@@ -1131,18 +1142,18 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var LinkedStateMixin = __webpack_require__(254);
-	var React = __webpack_require__(7);
+	var LinkedStateMixin = __webpack_require__(255);
+	var React = __webpack_require__(12);
 	var ReactComponentWithPureRenderMixin =
-	  __webpack_require__(255);
-	var ReactCSSTransitionGroup = __webpack_require__(256);
-	var ReactFragment = __webpack_require__(111);
-	var ReactTransitionGroup = __webpack_require__(257);
-	var ReactUpdates = __webpack_require__(156);
+	  __webpack_require__(256);
+	var ReactCSSTransitionGroup = __webpack_require__(257);
+	var ReactFragment = __webpack_require__(107);
+	var ReactTransitionGroup = __webpack_require__(258);
+	var ReactUpdates = __webpack_require__(157);
 	
-	var cx = __webpack_require__(167);
-	var cloneWithProps = __webpack_require__(258);
-	var update = __webpack_require__(259);
+	var cx = __webpack_require__(104);
+	var cloneWithProps = __webpack_require__(259);
+	var update = __webpack_require__(260);
 	
 	React.addons = {
 	  CSSTransitionGroup: ReactCSSTransitionGroup,
@@ -1158,8 +1169,8 @@ webpackJsonp([1],{
 	};
 	
 	if ("production" !== process.env.NODE_ENV) {
-	  React.addons.Perf = __webpack_require__(148);
-	  React.addons.TestUtils = __webpack_require__(260);
+	  React.addons.Perf = __webpack_require__(151);
+	  React.addons.TestUtils = __webpack_require__(261);
 	}
 	
 	module.exports = React;
@@ -1167,7 +1178,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 253:
+/***/ 245:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1208,11 +1219,8 @@ webpackJsonp([1],{
 		}, {
 			key: 'render',
 			value: function render() {
-				var classes = 'icon ';
-				if (this.props.className) {
-					classes += this.props.className;
-				}
-				return _React2['default'].createElement('svg', { className: classes, viewBox: '0 0 32 32', dangerouslySetInnerHTML: this.createMarkup() });
+				var className = this.props.className || 'icon';
+				return _React2['default'].createElement('svg', { className: className, viewBox: '0 0 32 32', dangerouslySetInnerHTML: this.createMarkup() });
 			}
 		}]);
 	
@@ -1226,7 +1234,94 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 254:
+/***/ 246:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
+	
+	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(object, property, receiver) { var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
+	
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+	
+	var _React = __webpack_require__(4);
+	
+	var _React2 = _interopRequireWildcard(_React);
+	
+	var _Icon = __webpack_require__(245);
+	
+	var _Icon2 = _interopRequireWildcard(_Icon);
+	
+	var DropZone = (function (_React$Component) {
+		function DropZone(props) {
+			_classCallCheck(this, DropZone);
+	
+			_get(Object.getPrototypeOf(DropZone.prototype), 'constructor', this).call(this, props);
+			this.state = { isDraging: false };
+			this.onDragOver = this.onDragOver.bind(this);
+			this.onDragLeave = this.onDragLeave.bind(this);
+			this.onDrop = this.onDrop.bind(this);
+		}
+	
+		_inherits(DropZone, _React$Component);
+	
+		_createClass(DropZone, [{
+			key: 'onDragOver',
+			value: function onDragOver(ev) {
+				ev.preventDefault();
+				console.log(ev);
+				this.setState({ isDragging: true });
+			}
+		}, {
+			key: 'onDragLeave',
+			value: function onDragLeave(ev) {
+				this.setState({ isDragging: false });
+			}
+		}, {
+			key: 'onDrop',
+			value: function onDrop(ev) {
+				ev.preventDefault();
+				console.log(ev);
+				this.setState({ isDragging: false });
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				var className = this.props.className || 'dropzone';
+				if (this.state.isDragging) {
+					className += 'active';
+				};
+	
+				return _React2['default'].createElement(
+					'div',
+					{ className: className, onDragOver: this.onDragOver, onDragLeave: this.onDragLeave },
+					this.props.children
+				);
+			}
+		}]);
+	
+		return DropZone;
+	})(_React2['default'].Component);
+	
+	;
+	
+	DropZone.displayName = 'Dropzone';
+	
+	exports['default'] = DropZone;
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 255:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1243,8 +1338,8 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var ReactLink = __webpack_require__(263);
-	var ReactStateSetters = __webpack_require__(264);
+	var ReactLink = __webpack_require__(264);
+	var ReactStateSetters = __webpack_require__(265);
 	
 	/**
 	 * A simple mixin around ReactLink.forState().
@@ -1272,7 +1367,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 255:
+/***/ 256:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1288,7 +1383,7 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var shallowEqual = __webpack_require__(209);
+	var shallowEqual = __webpack_require__(202);
 	
 	/**
 	 * If your React component's render function is "pure", e.g. it will render the
@@ -1326,7 +1421,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 256:
+/***/ 257:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1343,12 +1438,12 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var React = __webpack_require__(7);
+	var React = __webpack_require__(12);
 	
-	var assign = __webpack_require__(72);
+	var assign = __webpack_require__(75);
 	
 	var ReactTransitionGroup = React.createFactory(
-	  __webpack_require__(257)
+	  __webpack_require__(258)
 	);
 	var ReactCSSTransitionGroupChild = React.createFactory(
 	  __webpack_require__(266)
@@ -1401,7 +1496,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 257:
+/***/ 258:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1417,12 +1512,12 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var React = __webpack_require__(7);
+	var React = __webpack_require__(12);
 	var ReactTransitionChildMapping = __webpack_require__(267);
 	
-	var assign = __webpack_require__(72);
-	var cloneWithProps = __webpack_require__(258);
-	var emptyFunction = __webpack_require__(161);
+	var assign = __webpack_require__(75);
+	var cloneWithProps = __webpack_require__(259);
+	var emptyFunction = __webpack_require__(163);
 	
 	var ReactTransitionGroup = React.createClass({
 	  displayName: 'ReactTransitionGroup',
@@ -1636,7 +1731,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 258:
+/***/ 259:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1653,11 +1748,11 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var ReactElement = __webpack_require__(61);
-	var ReactPropTransferer = __webpack_require__(265);
+	var ReactElement = __webpack_require__(64);
+	var ReactPropTransferer = __webpack_require__(268);
 	
-	var keyOf = __webpack_require__(109);
-	var warning = __webpack_require__(80);
+	var keyOf = __webpack_require__(116);
+	var warning = __webpack_require__(85);
 	
 	var CHILDREN_PROP = keyOf({children: null});
 	
@@ -1698,7 +1793,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 259:
+/***/ 260:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1716,9 +1811,9 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var assign = __webpack_require__(72);
-	var keyOf = __webpack_require__(109);
-	var invariant = __webpack_require__(77);
+	var assign = __webpack_require__(75);
+	var keyOf = __webpack_require__(116);
+	var invariant = __webpack_require__(82);
 	var hasOwnProperty = {}.hasOwnProperty;
 	
 	function shallowCopy(x) {
@@ -1872,7 +1967,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 260:
+/***/ 261:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1888,21 +1983,21 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var EventConstants = __webpack_require__(101);
-	var EventPluginHub = __webpack_require__(184);
-	var EventPropagators = __webpack_require__(180);
-	var React = __webpack_require__(7);
-	var ReactElement = __webpack_require__(61);
+	var EventConstants = __webpack_require__(105);
+	var EventPluginHub = __webpack_require__(185);
+	var EventPropagators = __webpack_require__(181);
+	var React = __webpack_require__(12);
+	var ReactElement = __webpack_require__(64);
 	var ReactEmptyComponent = __webpack_require__(155);
 	var ReactBrowserEventEmitter = __webpack_require__(154);
-	var ReactCompositeComponent = __webpack_require__(214);
-	var ReactInstanceHandles = __webpack_require__(66);
-	var ReactInstanceMap = __webpack_require__(104);
-	var ReactMount = __webpack_require__(67);
-	var ReactUpdates = __webpack_require__(156);
-	var SyntheticEvent = __webpack_require__(185);
+	var ReactCompositeComponent = __webpack_require__(218);
+	var ReactInstanceHandles = __webpack_require__(69);
+	var ReactInstanceMap = __webpack_require__(111);
+	var ReactMount = __webpack_require__(70);
+	var ReactUpdates = __webpack_require__(157);
+	var SyntheticEvent = __webpack_require__(186);
 	
-	var assign = __webpack_require__(72);
+	var assign = __webpack_require__(75);
 	
 	var topLevelTypes = EventConstants.topLevelTypes;
 	
@@ -2387,7 +2482,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 263:
+/***/ 264:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2427,7 +2522,7 @@ webpackJsonp([1],{
 	 * consumption of ReactLink easier; see LinkedValueUtils and LinkedStateMixin.
 	 */
 	
-	var React = __webpack_require__(7);
+	var React = __webpack_require__(12);
 	
 	/**
 	 * @param {*} value current value of the link
@@ -2465,7 +2560,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 264:
+/***/ 265:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2576,121 +2671,6 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 265:
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule ReactPropTransferer
-	 */
-	
-	'use strict';
-	
-	var assign = __webpack_require__(72);
-	var emptyFunction = __webpack_require__(161);
-	var joinClasses = __webpack_require__(271);
-	
-	/**
-	 * Creates a transfer strategy that will merge prop values using the supplied
-	 * `mergeStrategy`. If a prop was previously unset, this just sets it.
-	 *
-	 * @param {function} mergeStrategy
-	 * @return {function}
-	 */
-	function createTransferStrategy(mergeStrategy) {
-	  return function(props, key, value) {
-	    if (!props.hasOwnProperty(key)) {
-	      props[key] = value;
-	    } else {
-	      props[key] = mergeStrategy(props[key], value);
-	    }
-	  };
-	}
-	
-	var transferStrategyMerge = createTransferStrategy(function(a, b) {
-	  // `merge` overrides the first object's (`props[key]` above) keys using the
-	  // second object's (`value`) keys. An object's style's existing `propA` would
-	  // get overridden. Flip the order here.
-	  return assign({}, b, a);
-	});
-	
-	/**
-	 * Transfer strategies dictate how props are transferred by `transferPropsTo`.
-	 * NOTE: if you add any more exceptions to this list you should be sure to
-	 * update `cloneWithProps()` accordingly.
-	 */
-	var TransferStrategies = {
-	  /**
-	   * Never transfer `children`.
-	   */
-	  children: emptyFunction,
-	  /**
-	   * Transfer the `className` prop by merging them.
-	   */
-	  className: createTransferStrategy(joinClasses),
-	  /**
-	   * Transfer the `style` prop (which is an object) by merging them.
-	   */
-	  style: transferStrategyMerge
-	};
-	
-	/**
-	 * Mutates the first argument by transferring the properties from the second
-	 * argument.
-	 *
-	 * @param {object} props
-	 * @param {object} newProps
-	 * @return {object}
-	 */
-	function transferInto(props, newProps) {
-	  for (var thisKey in newProps) {
-	    if (!newProps.hasOwnProperty(thisKey)) {
-	      continue;
-	    }
-	
-	    var transferStrategy = TransferStrategies[thisKey];
-	
-	    if (transferStrategy && TransferStrategies.hasOwnProperty(thisKey)) {
-	      transferStrategy(props, thisKey, newProps[thisKey]);
-	    } else if (!props.hasOwnProperty(thisKey)) {
-	      props[thisKey] = newProps[thisKey];
-	    }
-	  }
-	  return props;
-	}
-	
-	/**
-	 * ReactPropTransferer are capable of transferring props to another component
-	 * using a `transferPropsTo` method.
-	 *
-	 * @class ReactPropTransferer
-	 */
-	var ReactPropTransferer = {
-	
-	  /**
-	   * Merge two props objects using TransferStrategies.
-	   *
-	   * @param {object} oldProps original props (they take precedence)
-	   * @param {object} newProps new props to merge in
-	   * @return {object} a new object containing both sets of props merged.
-	   */
-	  mergeProps: function(oldProps, newProps) {
-	    return transferInto(assign({}, oldProps), newProps);
-	  }
-	
-	};
-	
-	module.exports = ReactPropTransferer;
-
-
-/***/ },
-
 /***/ 266:
 /***/ function(module, exports, __webpack_require__) {
 
@@ -2708,13 +2688,13 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var React = __webpack_require__(7);
+	var React = __webpack_require__(12);
 	
-	var CSSCore = __webpack_require__(269);
-	var ReactTransitionEvents = __webpack_require__(270);
+	var CSSCore = __webpack_require__(270);
+	var ReactTransitionEvents = __webpack_require__(271);
 	
-	var onlyChild = __webpack_require__(74);
-	var warning = __webpack_require__(80);
+	var onlyChild = __webpack_require__(77);
+	var warning = __webpack_require__(85);
 	
 	// We don't remove the element from the DOM until we receive an animationend or
 	// transitionend event. If the user screws up and forgets to add an animation
@@ -2859,8 +2839,8 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var ReactChildren = __webpack_require__(56);
-	var ReactFragment = __webpack_require__(111);
+	var ReactChildren = __webpack_require__(59);
+	var ReactFragment = __webpack_require__(107);
 	
 	var ReactTransitionChildMapping = {
 	  /**
@@ -2952,7 +2932,122 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 269:
+/***/ 268:
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule ReactPropTransferer
+	 */
+	
+	'use strict';
+	
+	var assign = __webpack_require__(75);
+	var emptyFunction = __webpack_require__(163);
+	var joinClasses = __webpack_require__(272);
+	
+	/**
+	 * Creates a transfer strategy that will merge prop values using the supplied
+	 * `mergeStrategy`. If a prop was previously unset, this just sets it.
+	 *
+	 * @param {function} mergeStrategy
+	 * @return {function}
+	 */
+	function createTransferStrategy(mergeStrategy) {
+	  return function(props, key, value) {
+	    if (!props.hasOwnProperty(key)) {
+	      props[key] = value;
+	    } else {
+	      props[key] = mergeStrategy(props[key], value);
+	    }
+	  };
+	}
+	
+	var transferStrategyMerge = createTransferStrategy(function(a, b) {
+	  // `merge` overrides the first object's (`props[key]` above) keys using the
+	  // second object's (`value`) keys. An object's style's existing `propA` would
+	  // get overridden. Flip the order here.
+	  return assign({}, b, a);
+	});
+	
+	/**
+	 * Transfer strategies dictate how props are transferred by `transferPropsTo`.
+	 * NOTE: if you add any more exceptions to this list you should be sure to
+	 * update `cloneWithProps()` accordingly.
+	 */
+	var TransferStrategies = {
+	  /**
+	   * Never transfer `children`.
+	   */
+	  children: emptyFunction,
+	  /**
+	   * Transfer the `className` prop by merging them.
+	   */
+	  className: createTransferStrategy(joinClasses),
+	  /**
+	   * Transfer the `style` prop (which is an object) by merging them.
+	   */
+	  style: transferStrategyMerge
+	};
+	
+	/**
+	 * Mutates the first argument by transferring the properties from the second
+	 * argument.
+	 *
+	 * @param {object} props
+	 * @param {object} newProps
+	 * @return {object}
+	 */
+	function transferInto(props, newProps) {
+	  for (var thisKey in newProps) {
+	    if (!newProps.hasOwnProperty(thisKey)) {
+	      continue;
+	    }
+	
+	    var transferStrategy = TransferStrategies[thisKey];
+	
+	    if (transferStrategy && TransferStrategies.hasOwnProperty(thisKey)) {
+	      transferStrategy(props, thisKey, newProps[thisKey]);
+	    } else if (!props.hasOwnProperty(thisKey)) {
+	      props[thisKey] = newProps[thisKey];
+	    }
+	  }
+	  return props;
+	}
+	
+	/**
+	 * ReactPropTransferer are capable of transferring props to another component
+	 * using a `transferPropsTo` method.
+	 *
+	 * @class ReactPropTransferer
+	 */
+	var ReactPropTransferer = {
+	
+	  /**
+	   * Merge two props objects using TransferStrategies.
+	   *
+	   * @param {object} oldProps original props (they take precedence)
+	   * @param {object} newProps new props to merge in
+	   * @return {object} a new object containing both sets of props merged.
+	   */
+	  mergeProps: function(oldProps, newProps) {
+	    return transferInto(assign({}, oldProps), newProps);
+	  }
+	
+	};
+	
+	module.exports = ReactPropTransferer;
+
+
+/***/ },
+
+/***/ 270:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2967,7 +3062,7 @@ webpackJsonp([1],{
 	 * @typechecks
 	 */
 	
-	var invariant = __webpack_require__(77);
+	var invariant = __webpack_require__(82);
 	
 	/**
 	 * The CSSCore module specifies the API (and implements most of the methods)
@@ -3067,7 +3162,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 270:
+/***/ 271:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3083,7 +3178,7 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var ExecutionEnvironment = __webpack_require__(75);
+	var ExecutionEnvironment = __webpack_require__(78);
 	
 	/**
 	 * EVENT_NAME_MAP is used to determine which event fired when a
@@ -3183,7 +3278,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 271:
+/***/ 272:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**

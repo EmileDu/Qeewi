@@ -11,12 +11,9 @@ class Icon extends React.Component {
 	}
 
 	render() {
-		var classes= 'icon ';
-		if (this.props.className) {
-			classes += this.props.className;
-		}
+		var className= this.props.className || 'icon';
 		return (
-			<svg className={classes} viewBox="0 0 32 32" dangerouslySetInnerHTML={this.createMarkup()} />
+			<svg className={className} viewBox="0 0 32 32" dangerouslySetInnerHTML={this.createMarkup()} />
 		)
 	}
 }
