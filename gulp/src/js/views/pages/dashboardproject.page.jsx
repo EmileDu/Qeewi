@@ -11,6 +11,7 @@ class DashboardProject extends React.Component {
 		return (
 			<div className="page">
 				<h1 className="page__title">Dashboard Project</h1>
+				<p>Dashboard Project page</p>
 			</div>
 		);
 	}

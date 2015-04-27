@@ -246,6 +246,9 @@ ul {
 .project:not(.drag-drop-field) {
   box-shadow: 2px 0px 4px 0px rgba(45, 46, 44, 0.15);
 }
+.project:not(.drag-drop-field):hover {
+  color: #96c119;
+}
 
 .project__thumb {
   position: absolute;

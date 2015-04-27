@@ -18,3 +18,7 @@ This project is releases under the [MIT License](LICENSE).
 * [NW.js](http://nwjs.io)
 * [Gulp](http://gulpjs.com//)
 * [React JS](https://facebook.github.io/react/)
+* [Reflux](https://github.com/spoike/refluxjs)
+* [React-Router](https://github.com/rackt/react-router/)
+* [Shortid](https://github.com/dylang/shortid)
+* [Lodash](https://github.com/lodash/lodash/)

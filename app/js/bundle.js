@@ -138,8 +138,8 @@ webpackJsonp([1],{
 	var routes = _React2["default"].createElement(
 		_Route$DefaultRoute$NotFoundRoute.Route,
 		{ name: "App", path: "/", handler: _App2["default"] },
-		_React2["default"].createElement(_Route$DefaultRoute$NotFoundRoute.Route, { name: "Dahsboard Project", handler: _DashboardProject2["default"] }),
-		_React2["default"].createElement(_Route$DefaultRoute$NotFoundRoute.Route, { name: "New Project", handler: _NewProject2["default"] }),
+		_React2["default"].createElement(_Route$DefaultRoute$NotFoundRoute.Route, { name: "DahsboardProject", handler: _DashboardProject2["default"] }),
+		_React2["default"].createElement(_Route$DefaultRoute$NotFoundRoute.Route, { name: "NewProject", handler: _NewProject2["default"] }),
 		_React2["default"].createElement(_Route$DefaultRoute$NotFoundRoute.Route, { name: "Homepage", handler: _Home2["default"] }),
 		_React2["default"].createElement(_Route$DefaultRoute$NotFoundRoute.DefaultRoute, { handler: _Home2["default"] }),
 		_React2["default"].createElement(_Route$DefaultRoute$NotFoundRoute.NotFoundRoute, { Handler: _NotFound2["default"] })
@@ -214,7 +214,7 @@ webpackJsonp([1],{
 			value: function render() {
 				return _React2['default'].createElement(
 					'div',
-					{ id: 'app', className: 'app' },
+					{ className: 'app', id: 'app' },
 					_React2['default'].createElement(_Header2['default'], null),
 					_React2['default'].createElement(
 						'div',
@@ -377,6 +377,11 @@ webpackJsonp([1],{
 						'h1',
 						{ className: 'page__title' },
 						'Dashboard Project'
+					),
+					_React2['default'].createElement(
+						'p',
+						null,
+						'Dashboard Project page'
 					)
 				);
 			}
@@ -436,6 +441,11 @@ webpackJsonp([1],{
 						'h1',
 						{ className: 'page__title' },
 						'New Project'
+					),
+					_React2['default'].createElement(
+						'p',
+						null,
+						'New Project page'
 					)
 				);
 			}
@@ -540,7 +550,10 @@ webpackJsonp([1],{
 	
 	var _SettingsModal2 = _interopRequireWildcard(_SettingsModal);
 	
-	// import Search from '../../components/search.components.jsx';
+	// import AddProjectButton from '../../components/addProjectButton.component.jsx';
+	// import Search from '../../components/search.component.jsx';
+	// import NewProjectNav from '../../components/newProjectNav.component.jsx';
+	// import Return from '../../components/return.component.jsx'
 	
 	var Header = (function (_React$Component) {
 		function Header() {
@@ -814,34 +827,58 @@ webpackJsonp([1],{
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Portal = __webpack_require__(253);
+	var _Modal = __webpack_require__(4);
 	
-	var _Portal2 = _interopRequireWildcard(_Portal);
+	var _Modal2 = _interopRequireWildcard(_Modal);
 	
-	var _SettingsButton = __webpack_require__(244);
+	var _Icon = __webpack_require__(244);
 	
-	var _SettingsButton2 = _interopRequireWildcard(_SettingsButton);
+	var _Icon2 = _interopRequireWildcard(_Icon);
+	
+	var Element = document.body;
 	
 	var SettingsModal = (function (_React$Component) {
 		function SettingsModal() {
 			_classCallCheck(this, SettingsModal);
 	
 			_get(Object.getPrototypeOf(SettingsModal.prototype), 'constructor', this).call(this);
+			_Modal2['default'].setAppElement(Element);
+			_Modal2['default'].injectCSS();
+			this.state = { modalIsOpen: false };
 		}
 	
 		_inherits(SettingsModal, _React$Component);
 	
 		_createClass(SettingsModal, [{
+			key: 'openModal',
+			value: function openModal() {
+				this.setState({ modalIsOpen: true });
+			}
+		}, {
+			key: 'closeModal',
+			value: function closeModal() {
+				this.setState({ modalIsOpen: false });
+			}
+		}, {
 			key: 'render',
 			value: function render() {
-				var button = _React2['default'].createElement(_SettingsButton2['default'], null);
 				return _React2['default'].createElement(
-					_Portal2['default'],
-					{ openByClickOn: button, closeOnEsc: true, closeOnOutsideClick: true },
+					'div',
+					{ className: 'modal' },
 					_React2['default'].createElement(
 						'button',
-						null,
-						'Fermer'
+						{ className: 'header__button header__button--settings button', onClick: this.openModal },
+						_React2['default'].createElement(_Icon2['default'], { size: '32', icon: 'icon-cog', link: 'images/Icons/svgdefs.svg' }),
+						'Préférences'
+					),
+					_React2['default'].createElement(
+						_Modal2['default'],
+						{ isOpen: this.state.modalIsOpen, onRequestClose: this.closeModal },
+						_React2['default'].createElement(
+							'button',
+							{ onClick: this.closeModal },
+							'Fermer'
+						)
 					)
 				);
 			}
@@ -901,7 +938,7 @@ webpackJsonp([1],{
 					{ className: 'projects-list__item project' },
 					_React2['default'].createElement(
 						_Link.Link,
-						{ to: 'Homepage' },
+						{ to: 'DahsboardProject' },
 						_React2['default'].createElement('img', { src: thumb, className: 'project__thumb', alt: 'screenshot du projet' }),
 						_React2['default'].createElement(
 							'div',
@@ -1021,18 +1058,18 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var LinkedStateMixin = __webpack_require__(254);
+	var LinkedStateMixin = __webpack_require__(253);
 	var React = __webpack_require__(11);
 	var ReactComponentWithPureRenderMixin =
-	  __webpack_require__(255);
-	var ReactCSSTransitionGroup = __webpack_require__(256);
+	  __webpack_require__(254);
+	var ReactCSSTransitionGroup = __webpack_require__(255);
 	var ReactFragment = __webpack_require__(104);
-	var ReactTransitionGroup = __webpack_require__(257);
+	var ReactTransitionGroup = __webpack_require__(256);
 	var ReactUpdates = __webpack_require__(154);
 	
 	var cx = __webpack_require__(166);
-	var cloneWithProps = __webpack_require__(258);
-	var update = __webpack_require__(259);
+	var cloneWithProps = __webpack_require__(257);
+	var update = __webpack_require__(258);
 	
 	React.addons = {
 	  CSSTransitionGroup: ReactCSSTransitionGroup,
@@ -1049,7 +1086,7 @@ webpackJsonp([1],{
 	
 	if ("production" !== process.env.NODE_ENV) {
 	  React.addons.Perf = __webpack_require__(148);
-	  React.addons.TestUtils = __webpack_require__(260);
+	  React.addons.TestUtils = __webpack_require__(259);
 	}
 	
 	module.exports = React;
@@ -1080,229 +1117,39 @@ webpackJsonp([1],{
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Icon = __webpack_require__(261);
+	var Icon = (function (_React$Component) {
+		function Icon(props) {
+			_classCallCheck(this, Icon);
 	
-	var _Icon2 = _interopRequireWildcard(_Icon);
-	
-	var SettingsButton = (function (_React$Component) {
-		function SettingsButton() {
-			_classCallCheck(this, SettingsButton);
-	
-			_get(Object.getPrototypeOf(SettingsButton.prototype), 'constructor', this).call(this);
+			_get(Object.getPrototypeOf(Icon.prototype), 'constructor', this).call(this, props);
 		}
 	
-		_inherits(SettingsButton, _React$Component);
+		_inherits(Icon, _React$Component);
 	
-		_createClass(SettingsButton, [{
+		_createClass(Icon, [{
+			key: 'createMarkup',
+			value: function createMarkup() {
+				var iconUrl = this.props.link + '#' + this.props.icon;
+				return { __html: '<use xlink:href="' + iconUrl + '"></use>' };
+			}
+		}, {
 			key: 'render',
 			value: function render() {
-				return _React2['default'].createElement(
-					'button',
-					{ className: 'header__button header__button--settings button' },
-					_React2['default'].createElement(_Icon2['default'], { size: '32', icon: 'icon-cog', link: 'images/Icons/svgdefs.svg' }),
-					'Préférences'
-				);
+				return _React2['default'].createElement('svg', { className: 'button__icon icon', viewBox: '0 0 32 32', dangerouslySetInnerHTML: this.createMarkup() });
 			}
 		}]);
 	
-		return SettingsButton;
+		return Icon;
 	})(_React2['default'].Component);
 	
-	SettingsButton.displayName = 'Settings Button';
+	Icon.displayName = 'Icon';
 	
-	exports['default'] = SettingsButton;
+	exports['default'] = Icon;
 	module.exports = exports['default'];
 
 /***/ },
 
 /***/ 253:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
-	
-	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(object, property, receiver) { var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-	
-	var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _React$findDOMNode = __webpack_require__(3);
-	
-	var _React$findDOMNode2 = _interopRequireWildcard(_React$findDOMNode);
-	
-	var _shallowEqual = __webpack_require__(201);
-	
-	var _shallowEqual2 = _interopRequireWildcard(_shallowEqual);
-	
-	var Portal = (function (_React$Component) {
-	  function Portal() {
-	    _classCallCheck(this, Portal);
-	
-	    _get(Object.getPrototypeOf(Portal.prototype), 'constructor', this).call(this);
-	    this.state = { active: false };
-	    this.openPortal = this.openPortal.bind(this);
-	    this.closePortal = this.closePortal.bind(this);
-	    this.handleOutsideMouseClick = this.handleOutsideMouseClick.bind(this);
-	    this.handleKeydown = this.handleKeydown.bind(this);
-	    this.portal = null;
-	    this.node = null;
-	  }
-	
-	  _inherits(Portal, _React$Component);
-	
-	  _createClass(Portal, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      if (this.props.closeOnEsc) {
-	        document.addEventListener('keydown', this.handleKeydown);
-	      }
-	
-	      if (this.props.closeOnOutsideClick) {
-	        document.addEventListener('mousedown', this.handleOutsideMouseClick);
-	      }
-	    }
-	  }, {
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
-	      if (this.props.isOpened) {
-	        this.openPortal();
-	      }
-	    }
-	  }, {
-	    key: 'componentWillReceiveProps',
-	    value: function componentWillReceiveProps(newProps) {
-	      if (newProps.isOpened !== 'undefined' && this.newProps !== this.props) {
-	        if (newProps.isOpened && !this.state.active) {
-	          this.openPortal();
-	        }
-	        if (!newProps.isOpened && this.state.active) {
-	          this.closePortal();
-	        }
-	      }
-	    }
-	  }, {
-	    key: 'componentWillUnmount',
-	    value: function componentWillUnmount() {
-	      if (this.props.closeOnEsc) {
-	        document.removeEventListener('keydown', this.handleKeydown);
-	      }
-	
-	      if (this.props.closeOnOutsideClick) {
-	        document.removeEventListener('mousedown', this.handleOutsideMouseClick);
-	      }
-	
-	      this.closePortal();
-	    }
-	  }, {
-	    key: 'shouldComponentUpdate',
-	    value: function shouldComponentUpdate(nextProps, nextState) {
-	      return !_shallowEqual2['default'](this.props, nextProps) || !_shallowEqual2['default'](this.state, nextState);
-	    }
-	  }, {
-	    key: 'renderPortal',
-	    value: function renderPortal(props) {
-	      if (!this.node) {
-	        this.node = document.createElement('div');
-	        document.body.appendChild(this.node);
-	      }
-	      this.portal = _React$findDOMNode2['default'].render(_React$findDOMNode2['default'].cloneElement(props.children, { closePortal: this.closePortal }), this.node);
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      if (this.props.openByClickOn) {
-	        return _React$findDOMNode2['default'].createElement(
-	          'div',
-	          { className: 'openByClickOn', onClick: this.openPortal },
-	          this.props.openByClickOn
-	        );
-	      } else {
-	        return null;
-	      }
-	    }
-	  }, {
-	    key: 'openPortal',
-	    value: function openPortal(e) {
-	      if (e) {
-	        e.preventDefault();
-	        e.stopPropagation();
-	      }
-	      this.setState({ active: true });
-	      this.renderPortal(this.props);
-	    }
-	  }, {
-	    key: 'closePortal',
-	    value: function closePortal() {
-	      if (this.node) {
-	        _React$findDOMNode2['default'].unmountComponentAtNode(this.node);
-	        document.body.removeChild(this.node);
-	      }
-	      this.portal = null;
-	      this.node = null;
-	      this.setState({ active: false });
-	
-	      if (this.props.onClose) {
-	        this.props.onClose();
-	      }
-	    }
-	  }, {
-	    key: 'handleOutsideMouseClick',
-	    value: function handleOutsideMouseClick(e) {
-	      if (!this.state.active) {
-	        return;
-	      }
-	      if (isNodeInRoot(e.target, _React$findDOMNode.findDOMNode(this.portal))) {
-	        return;
-	      }
-	      e.stopPropagation();
-	      this.closePortal();
-	    }
-	  }, {
-	    key: 'handleKeydown',
-	    value: function handleKeydown(e) {
-	      // ESC
-	      if (e.keyCode === 27) {
-	        this.closePortal();
-	      }
-	    }
-	  }]);
-	
-	  return Portal;
-	})(_React$findDOMNode2['default'].Component);
-	
-	exports['default'] = Portal;
-	
-	Portal.propTypes = {
-	  children: _React$findDOMNode2['default'].PropTypes.element.isRequired,
-	  openByClickOn: _React$findDOMNode2['default'].PropTypes.element,
-	  closeOnEsc: _React$findDOMNode2['default'].PropTypes.bool,
-	  closeOnOutsideClick: _React$findDOMNode2['default'].PropTypes.bool,
-	  isOpened: _React$findDOMNode2['default'].PropTypes.bool,
-	  onClose: _React$findDOMNode2['default'].PropTypes.func
-	};
-	
-	function isNodeInRoot(node, root) {
-	  while (node) {
-	    if (node === root) {
-	      return true;
-	    }
-	    node = node.parentNode;
-	  }
-	  return false;
-	}
-	module.exports = exports['default'];
-
-/***/ },
-
-/***/ 254:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1319,8 +1166,8 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var ReactLink = __webpack_require__(264);
-	var ReactStateSetters = __webpack_require__(265);
+	var ReactLink = __webpack_require__(262);
+	var ReactStateSetters = __webpack_require__(263);
 	
 	/**
 	 * A simple mixin around ReactLink.forState().
@@ -1348,7 +1195,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 255:
+/***/ 254:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1402,7 +1249,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 256:
+/***/ 255:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1424,10 +1271,10 @@ webpackJsonp([1],{
 	var assign = __webpack_require__(72);
 	
 	var ReactTransitionGroup = React.createFactory(
-	  __webpack_require__(257)
+	  __webpack_require__(256)
 	);
 	var ReactCSSTransitionGroupChild = React.createFactory(
-	  __webpack_require__(266)
+	  __webpack_require__(264)
 	);
 	
 	var ReactCSSTransitionGroup = React.createClass({
@@ -1477,7 +1324,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 257:
+/***/ 256:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1494,10 +1341,10 @@ webpackJsonp([1],{
 	'use strict';
 	
 	var React = __webpack_require__(11);
-	var ReactTransitionChildMapping = __webpack_require__(267);
+	var ReactTransitionChildMapping = __webpack_require__(265);
 	
 	var assign = __webpack_require__(72);
-	var cloneWithProps = __webpack_require__(258);
+	var cloneWithProps = __webpack_require__(257);
 	var emptyFunction = __webpack_require__(160);
 	
 	var ReactTransitionGroup = React.createClass({
@@ -1712,7 +1559,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 258:
+/***/ 257:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1730,7 +1577,7 @@ webpackJsonp([1],{
 	'use strict';
 	
 	var ReactElement = __webpack_require__(61);
-	var ReactPropTransferer = __webpack_require__(268);
+	var ReactPropTransferer = __webpack_require__(266);
 	
 	var keyOf = __webpack_require__(113);
 	var warning = __webpack_require__(85);
@@ -1774,7 +1621,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 259:
+/***/ 258:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1948,7 +1795,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 260:
+/***/ 259:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2463,62 +2310,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 261:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
-	
-	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(object, property, receiver) { var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-	
-	var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
-	
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-	
-	var _React = __webpack_require__(3);
-	
-	var _React2 = _interopRequireWildcard(_React);
-	
-	var Icon = (function (_React$Component) {
-		function Icon(props) {
-			_classCallCheck(this, Icon);
-	
-			_get(Object.getPrototypeOf(Icon.prototype), 'constructor', this).call(this, props);
-		}
-	
-		_inherits(Icon, _React$Component);
-	
-		_createClass(Icon, [{
-			key: 'createMarkup',
-			value: function createMarkup() {
-				var iconUrl = this.props.link + '#' + this.props.icon;
-				return { __html: '<use xlink:href="' + iconUrl + '"></use>' };
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				return _React2['default'].createElement('svg', { className: 'button__icon icon', viewBox: '0 0 32 32', dangerouslySetInnerHTML: this.createMarkup() });
-			}
-		}]);
-	
-		return Icon;
-	})(_React2['default'].Component);
-	
-	Icon.displayName = 'Icon';
-	
-	exports['default'] = Icon;
-	module.exports = exports['default'];
-
-/***/ },
-
-/***/ 264:
+/***/ 262:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2596,7 +2388,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 265:
+/***/ 263:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2707,7 +2499,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 266:
+/***/ 264:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2726,8 +2518,8 @@ webpackJsonp([1],{
 	
 	var React = __webpack_require__(11);
 	
-	var CSSCore = __webpack_require__(270);
-	var ReactTransitionEvents = __webpack_require__(271);
+	var CSSCore = __webpack_require__(268);
+	var ReactTransitionEvents = __webpack_require__(269);
 	
 	var onlyChild = __webpack_require__(74);
 	var warning = __webpack_require__(85);
@@ -2858,7 +2650,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 267:
+/***/ 265:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2968,7 +2760,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 268:
+/***/ 266:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2986,7 +2778,7 @@ webpackJsonp([1],{
 	
 	var assign = __webpack_require__(72);
 	var emptyFunction = __webpack_require__(160);
-	var joinClasses = __webpack_require__(272);
+	var joinClasses = __webpack_require__(270);
 	
 	/**
 	 * Creates a transfer strategy that will merge prop values using the supplied
@@ -3083,7 +2875,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 270:
+/***/ 268:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3198,7 +2990,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 271:
+/***/ 269:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3314,7 +3106,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 272:
+/***/ 270:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**

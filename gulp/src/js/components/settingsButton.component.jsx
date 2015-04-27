@@ -8,10 +8,7 @@ class SettingsButton extends React.Component {
 
 	render() {
 		return (
-			<button className='header__button header__button--settings button'>
-				<Icon size="32" icon="icon-cog" link="images/Icons/svgdefs.svg" />
-				Préférences
-			</button>
+
 		)
 	}
 }

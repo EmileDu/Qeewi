@@ -10,8 +10,8 @@ import NotFound from './views/pages/notfound.page.jsx';
 
 var routes = (
 	<Route name="App" path="/" handler={ App }>
-    <Route name="Dahsboard Project" handler={ DashboardProject } />
-		<Route name="New Project" handler={ NewProject } />
+    <Route name="DahsboardProject" handler={ DashboardProject } />
+		<Route name="NewProject" handler={ NewProject } />
 		<Route name="Homepage" handler={ Home } />
 		<DefaultRoute handler={ Home } />
 		<NotFoundRoute Handler={ NotFound } />

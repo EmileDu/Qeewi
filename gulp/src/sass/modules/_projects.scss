@@ -24,6 +24,9 @@
 	&:not(.drag-drop-field) {
 		box-shadow: 2px 0px 4px 0px transparentize($black, 0.85);
 	}
+	&:not(.drag-drop-field):hover {
+		color: $green;
+	}
 }
 
 .project__thumb {
