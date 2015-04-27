@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react/addons';
 
 class Icon extends React.Component {
 	constructor(props) {
@@ -11,8 +11,12 @@ class Icon extends React.Component {
 	}
 
 	render() {
+		var classes= 'icon ';
+		if (this.props.className) {
+			classes += this.props.className;
+		}
 		return (
-			<svg className="button__icon icon" viewBox="0 0 32 32" dangerouslySetInnerHTML={this.createMarkup()} />
+			<svg className={classes} viewBox="0 0 32 32" dangerouslySetInnerHTML={this.createMarkup()} />
 		)
 	}
 }

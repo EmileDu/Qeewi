@@ -39,3 +39,12 @@ ul {
 .page__title {
 	display: none;
 }
+
+.valign-parent {
+	display: table;
+}
+
+.valign-child {
+	display: table-cell;
+	vertical-align: middle;
+}

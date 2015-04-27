@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import SettingsModal from '../../components/settingsModal.component.jsx';
-// import AddProjectButton from '../../components/addProjectButton.component.jsx';
+import AddProjectButton from '../../components/addProjectButton.component.jsx';
 // import Search from '../../components/search.component.jsx';
 // import NewProjectNav from '../../components/newProjectNav.component.jsx';
 // import Return from '../../components/return.component.jsx'
@@ -14,6 +14,7 @@ class Header extends React.Component {
 	render() {
 		return (
 			<header className="app__header header">
+				<AddProjectButton />
 				<SettingsModal />
 			</header>
 		);
