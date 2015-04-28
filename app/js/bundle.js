@@ -12,11 +12,11 @@ webpackJsonp([1],{
 	
 	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
 	
-	var _React = __webpack_require__(4);
+	var _React = __webpack_require__(2);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Router = __webpack_require__(6);
+	var _Router = __webpack_require__(4);
 	
 	var _Router2 = _interopRequireWildcard(_Router);
 	
@@ -30,9 +30,9 @@ webpackJsonp([1],{
 	
 	var app = {};
 	app.node = {};
-	app.node.fs = __webpack_require__(7);
-	app.node.gui = __webpack_require__(8);
-	app.node.os = __webpack_require__(9);
+	app.node.fs = __webpack_require__(35);
+	app.node.gui = __webpack_require__(36);
+	app.node.os = __webpack_require__(37);
 	
 	var tray;
 	
@@ -81,21 +81,21 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 7:
+/***/ 35:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = require("fs");
 
 /***/ },
 
-/***/ 8:
+/***/ 36:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = require("nw.gui");
 
 /***/ },
 
-/***/ 9:
+/***/ 37:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = require("os");
@@ -109,29 +109,29 @@ webpackJsonp([1],{
 	
 	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { "default": obj }; };
 	
-	var _React = __webpack_require__(4);
+	var _React = __webpack_require__(2);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Route$DefaultRoute$NotFoundRoute = __webpack_require__(6);
+	var _Route$DefaultRoute$NotFoundRoute = __webpack_require__(4);
 	
-	var _App = __webpack_require__(94);
+	var _App = __webpack_require__(100);
 	
 	var _App2 = _interopRequireWildcard(_App);
 	
-	var _Home = __webpack_require__(95);
+	var _Home = __webpack_require__(101);
 	
 	var _Home2 = _interopRequireWildcard(_Home);
 	
-	var _DashboardProject = __webpack_require__(96);
+	var _DashboardProject = __webpack_require__(102);
 	
 	var _DashboardProject2 = _interopRequireWildcard(_DashboardProject);
 	
-	var _NewProject = __webpack_require__(97);
+	var _NewProject = __webpack_require__(103);
 	
 	var _NewProject2 = _interopRequireWildcard(_NewProject);
 	
-	var _NotFound = __webpack_require__(98);
+	var _NotFound = __webpack_require__(104);
 	
 	var _NotFound2 = _interopRequireWildcard(_NotFound);
 	
@@ -171,7 +171,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 94:
+/***/ 100:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -190,13 +190,13 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(4);
+	var _React = __webpack_require__(2);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _RouteHandler = __webpack_require__(6);
+	var _RouteHandler = __webpack_require__(4);
 	
-	var _Header = __webpack_require__(169);
+	var _Header = __webpack_require__(173);
 	
 	var _Header2 = _interopRequireWildcard(_Header);
 	
@@ -241,7 +241,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 95:
+/***/ 101:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -260,19 +260,19 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(4);
+	var _React = __webpack_require__(2);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _ProjectsList = __webpack_require__(170);
+	var _ProjectsList = __webpack_require__(174);
 	
 	var _ProjectsList2 = _interopRequireWildcard(_ProjectsList);
 	
-	var _AppStore = __webpack_require__(171);
+	var _AppStore = __webpack_require__(175);
 	
 	var _AppStore2 = _interopRequireWildcard(_AppStore);
 	
-	var _AppActions = __webpack_require__(172);
+	var _AppActions = __webpack_require__(176);
 	
 	var _AppActions2 = _interopRequireWildcard(_AppActions);
 	
@@ -333,7 +333,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 96:
+/***/ 102:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -352,7 +352,7 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(4);
+	var _React = __webpack_require__(2);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
@@ -397,7 +397,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 97:
+/***/ 103:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -416,7 +416,7 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(4);
+	var _React = __webpack_require__(2);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
@@ -461,7 +461,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 98:
+/***/ 104:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -480,7 +480,7 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(4);
+	var _React = __webpack_require__(2);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
@@ -521,7 +521,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 169:
+/***/ 173:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -540,17 +540,17 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(4);
+	var _React = __webpack_require__(2);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Link = __webpack_require__(6);
+	var _Link = __webpack_require__(4);
 	
-	var _SettingsModal = __webpack_require__(221);
+	var _SettingsModal = __webpack_require__(240);
 	
 	var _SettingsModal2 = _interopRequireWildcard(_SettingsModal);
 	
-	var _AddProjectButton = __webpack_require__(222);
+	var _AddProjectButton = __webpack_require__(241);
 	
 	var _AddProjectButton2 = _interopRequireWildcard(_AddProjectButton);
 	
@@ -589,7 +589,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 170:
+/***/ 174:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -608,19 +608,19 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(220);
+	var _React = __webpack_require__(222);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Project = __webpack_require__(223);
+	var _Project = __webpack_require__(242);
 	
 	var _Project2 = _interopRequireWildcard(_Project);
 	
-	var _NewProject = __webpack_require__(224);
+	var _NewProject = __webpack_require__(243);
 	
 	var _NewProject2 = _interopRequireWildcard(_NewProject);
 	
-	var _import = __webpack_require__(2);
+	var _import = __webpack_require__(6);
 	
 	var _import2 = _interopRequireWildcard(_import);
 	
@@ -665,7 +665,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 171:
+/***/ 175:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -680,11 +680,11 @@ webpackJsonp([1],{
 	
 	var _Reflux2 = _interopRequireWildcard(_Reflux);
 	
-	var _AppActions = __webpack_require__(172);
+	var _AppActions = __webpack_require__(176);
 	
 	var _AppActions2 = _interopRequireWildcard(_AppActions);
 	
-	var _import = __webpack_require__(2);
+	var _import = __webpack_require__(6);
 	
 	var _import2 = _interopRequireWildcard(_import);
 	
@@ -749,7 +749,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 172:
+/***/ 176:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -764,7 +764,7 @@ webpackJsonp([1],{
 	
 	var _Reflux2 = _interopRequireWildcard(_Reflux);
 	
-	var _import = __webpack_require__(2);
+	var _import = __webpack_require__(6);
 	
 	var _import2 = _interopRequireWildcard(_import);
 	
@@ -800,15 +800,15 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 220:
+/***/ 222:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(244);
+	module.exports = __webpack_require__(246);
 
 
 /***/ },
 
-/***/ 221:
+/***/ 240:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -827,7 +827,7 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(4);
+	var _React = __webpack_require__(2);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
@@ -835,7 +835,7 @@ webpackJsonp([1],{
 	
 	var _Modal2 = _interopRequireWildcard(_Modal);
 	
-	var _Icon = __webpack_require__(245);
+	var _Icon = __webpack_require__(253);
 	
 	var _Icon2 = _interopRequireWildcard(_Icon);
 	
@@ -900,7 +900,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 222:
+/***/ 241:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -919,13 +919,13 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(4);
+	var _React = __webpack_require__(2);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Link = __webpack_require__(6);
+	var _Link = __webpack_require__(4);
 	
-	var _Icon = __webpack_require__(245);
+	var _Icon = __webpack_require__(253);
 	
 	var _Icon2 = _interopRequireWildcard(_Icon);
 	
@@ -960,7 +960,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 223:
+/***/ 242:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -979,11 +979,11 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(4);
+	var _React = __webpack_require__(2);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Link = __webpack_require__(6);
+	var _Link = __webpack_require__(4);
 	
 	var Project = (function (_React$Component) {
 		function Project() {
@@ -1042,7 +1042,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 224:
+/***/ 243:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1061,15 +1061,15 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(4);
+	var _React = __webpack_require__(2);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Icon = __webpack_require__(245);
+	var _Icon = __webpack_require__(253);
 	
 	var _Icon2 = _interopRequireWildcard(_Icon);
 	
-	var _DropZone = __webpack_require__(246);
+	var _DropZone = __webpack_require__(254);
 	
 	var _DropZone2 = _interopRequireWildcard(_DropZone);
 	
@@ -1119,7 +1119,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 244:
+/***/ 246:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1142,18 +1142,18 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var LinkedStateMixin = __webpack_require__(255);
-	var React = __webpack_require__(12);
+	var LinkedStateMixin = __webpack_require__(256);
+	var React = __webpack_require__(34);
 	var ReactComponentWithPureRenderMixin =
-	  __webpack_require__(256);
-	var ReactCSSTransitionGroup = __webpack_require__(257);
-	var ReactFragment = __webpack_require__(107);
-	var ReactTransitionGroup = __webpack_require__(258);
-	var ReactUpdates = __webpack_require__(157);
+	  __webpack_require__(257);
+	var ReactCSSTransitionGroup = __webpack_require__(258);
+	var ReactFragment = __webpack_require__(109);
+	var ReactTransitionGroup = __webpack_require__(259);
+	var ReactUpdates = __webpack_require__(162);
 	
-	var cx = __webpack_require__(104);
-	var cloneWithProps = __webpack_require__(259);
-	var update = __webpack_require__(260);
+	var cx = __webpack_require__(97);
+	var cloneWithProps = __webpack_require__(260);
+	var update = __webpack_require__(261);
 	
 	React.addons = {
 	  CSSTransitionGroup: ReactCSSTransitionGroup,
@@ -1169,8 +1169,8 @@ webpackJsonp([1],{
 	};
 	
 	if ("production" !== process.env.NODE_ENV) {
-	  React.addons.Perf = __webpack_require__(151);
-	  React.addons.TestUtils = __webpack_require__(261);
+	  React.addons.Perf = __webpack_require__(149);
+	  React.addons.TestUtils = __webpack_require__(262);
 	}
 	
 	module.exports = React;
@@ -1178,7 +1178,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 245:
+/***/ 253:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1197,7 +1197,7 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(220);
+	var _React = __webpack_require__(222);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
@@ -1234,7 +1234,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 246:
+/***/ 254:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1253,11 +1253,11 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(4);
+	var _React = __webpack_require__(2);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Icon = __webpack_require__(245);
+	var _Icon = __webpack_require__(253);
 	
 	var _Icon2 = _interopRequireWildcard(_Icon);
 	
@@ -1321,7 +1321,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 255:
+/***/ 256:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1367,7 +1367,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 256:
+/***/ 257:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1383,7 +1383,7 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var shallowEqual = __webpack_require__(202);
+	var shallowEqual = __webpack_require__(201);
 	
 	/**
 	 * If your React component's render function is "pure", e.g. it will render the
@@ -1421,7 +1421,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 257:
+/***/ 258:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1438,15 +1438,15 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var React = __webpack_require__(12);
+	var React = __webpack_require__(34);
 	
-	var assign = __webpack_require__(75);
+	var assign = __webpack_require__(61);
 	
 	var ReactTransitionGroup = React.createFactory(
-	  __webpack_require__(258)
+	  __webpack_require__(259)
 	);
 	var ReactCSSTransitionGroupChild = React.createFactory(
-	  __webpack_require__(266)
+	  __webpack_require__(267)
 	);
 	
 	var ReactCSSTransitionGroup = React.createClass({
@@ -1496,7 +1496,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 258:
+/***/ 259:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1512,12 +1512,12 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var React = __webpack_require__(12);
-	var ReactTransitionChildMapping = __webpack_require__(267);
+	var React = __webpack_require__(34);
+	var ReactTransitionChildMapping = __webpack_require__(268);
 	
-	var assign = __webpack_require__(75);
-	var cloneWithProps = __webpack_require__(259);
-	var emptyFunction = __webpack_require__(163);
+	var assign = __webpack_require__(61);
+	var cloneWithProps = __webpack_require__(260);
+	var emptyFunction = __webpack_require__(105);
 	
 	var ReactTransitionGroup = React.createClass({
 	  displayName: 'ReactTransitionGroup',
@@ -1731,7 +1731,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 259:
+/***/ 260:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1748,11 +1748,11 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var ReactElement = __webpack_require__(64);
-	var ReactPropTransferer = __webpack_require__(268);
+	var ReactElement = __webpack_require__(81);
+	var ReactPropTransferer = __webpack_require__(266);
 	
-	var keyOf = __webpack_require__(116);
-	var warning = __webpack_require__(85);
+	var keyOf = __webpack_require__(118);
+	var warning = __webpack_require__(66);
 	
 	var CHILDREN_PROP = keyOf({children: null});
 	
@@ -1793,7 +1793,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 260:
+/***/ 261:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1811,9 +1811,9 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var assign = __webpack_require__(75);
-	var keyOf = __webpack_require__(116);
-	var invariant = __webpack_require__(82);
+	var assign = __webpack_require__(61);
+	var keyOf = __webpack_require__(118);
+	var invariant = __webpack_require__(62);
 	var hasOwnProperty = {}.hasOwnProperty;
 	
 	function shallowCopy(x) {
@@ -1967,7 +1967,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 261:
+/***/ 262:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1983,21 +1983,21 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var EventConstants = __webpack_require__(105);
-	var EventPluginHub = __webpack_require__(185);
-	var EventPropagators = __webpack_require__(181);
-	var React = __webpack_require__(12);
-	var ReactElement = __webpack_require__(64);
-	var ReactEmptyComponent = __webpack_require__(155);
-	var ReactBrowserEventEmitter = __webpack_require__(154);
-	var ReactCompositeComponent = __webpack_require__(218);
-	var ReactInstanceHandles = __webpack_require__(69);
-	var ReactInstanceMap = __webpack_require__(111);
-	var ReactMount = __webpack_require__(70);
-	var ReactUpdates = __webpack_require__(157);
-	var SyntheticEvent = __webpack_require__(186);
+	var EventConstants = __webpack_require__(107);
+	var EventPluginHub = __webpack_require__(181);
+	var EventPropagators = __webpack_require__(177);
+	var React = __webpack_require__(34);
+	var ReactElement = __webpack_require__(81);
+	var ReactEmptyComponent = __webpack_require__(161);
+	var ReactBrowserEventEmitter = __webpack_require__(160);
+	var ReactCompositeComponent = __webpack_require__(215);
+	var ReactInstanceHandles = __webpack_require__(86);
+	var ReactInstanceMap = __webpack_require__(113);
+	var ReactMount = __webpack_require__(87);
+	var ReactUpdates = __webpack_require__(162);
+	var SyntheticEvent = __webpack_require__(182);
 	
-	var assign = __webpack_require__(75);
+	var assign = __webpack_require__(61);
 	
 	var topLevelTypes = EventConstants.topLevelTypes;
 	
@@ -2522,7 +2522,7 @@ webpackJsonp([1],{
 	 * consumption of ReactLink easier; see LinkedValueUtils and LinkedStateMixin.
 	 */
 	
-	var React = __webpack_require__(12);
+	var React = __webpack_require__(34);
 	
 	/**
 	 * @param {*} value current value of the link
@@ -2682,19 +2682,134 @@ webpackJsonp([1],{
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
+	 * @providesModule ReactPropTransferer
+	 */
+	
+	'use strict';
+	
+	var assign = __webpack_require__(61);
+	var emptyFunction = __webpack_require__(105);
+	var joinClasses = __webpack_require__(272);
+	
+	/**
+	 * Creates a transfer strategy that will merge prop values using the supplied
+	 * `mergeStrategy`. If a prop was previously unset, this just sets it.
+	 *
+	 * @param {function} mergeStrategy
+	 * @return {function}
+	 */
+	function createTransferStrategy(mergeStrategy) {
+	  return function(props, key, value) {
+	    if (!props.hasOwnProperty(key)) {
+	      props[key] = value;
+	    } else {
+	      props[key] = mergeStrategy(props[key], value);
+	    }
+	  };
+	}
+	
+	var transferStrategyMerge = createTransferStrategy(function(a, b) {
+	  // `merge` overrides the first object's (`props[key]` above) keys using the
+	  // second object's (`value`) keys. An object's style's existing `propA` would
+	  // get overridden. Flip the order here.
+	  return assign({}, b, a);
+	});
+	
+	/**
+	 * Transfer strategies dictate how props are transferred by `transferPropsTo`.
+	 * NOTE: if you add any more exceptions to this list you should be sure to
+	 * update `cloneWithProps()` accordingly.
+	 */
+	var TransferStrategies = {
+	  /**
+	   * Never transfer `children`.
+	   */
+	  children: emptyFunction,
+	  /**
+	   * Transfer the `className` prop by merging them.
+	   */
+	  className: createTransferStrategy(joinClasses),
+	  /**
+	   * Transfer the `style` prop (which is an object) by merging them.
+	   */
+	  style: transferStrategyMerge
+	};
+	
+	/**
+	 * Mutates the first argument by transferring the properties from the second
+	 * argument.
+	 *
+	 * @param {object} props
+	 * @param {object} newProps
+	 * @return {object}
+	 */
+	function transferInto(props, newProps) {
+	  for (var thisKey in newProps) {
+	    if (!newProps.hasOwnProperty(thisKey)) {
+	      continue;
+	    }
+	
+	    var transferStrategy = TransferStrategies[thisKey];
+	
+	    if (transferStrategy && TransferStrategies.hasOwnProperty(thisKey)) {
+	      transferStrategy(props, thisKey, newProps[thisKey]);
+	    } else if (!props.hasOwnProperty(thisKey)) {
+	      props[thisKey] = newProps[thisKey];
+	    }
+	  }
+	  return props;
+	}
+	
+	/**
+	 * ReactPropTransferer are capable of transferring props to another component
+	 * using a `transferPropsTo` method.
+	 *
+	 * @class ReactPropTransferer
+	 */
+	var ReactPropTransferer = {
+	
+	  /**
+	   * Merge two props objects using TransferStrategies.
+	   *
+	   * @param {object} oldProps original props (they take precedence)
+	   * @param {object} newProps new props to merge in
+	   * @return {object} a new object containing both sets of props merged.
+	   */
+	  mergeProps: function(oldProps, newProps) {
+	    return transferInto(assign({}, oldProps), newProps);
+	  }
+	
+	};
+	
+	module.exports = ReactPropTransferer;
+
+
+/***/ },
+
+/***/ 267:
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
 	 * @typechecks
 	 * @providesModule ReactCSSTransitionGroupChild
 	 */
 	
 	'use strict';
 	
-	var React = __webpack_require__(12);
+	var React = __webpack_require__(34);
 	
 	var CSSCore = __webpack_require__(270);
 	var ReactTransitionEvents = __webpack_require__(271);
 	
-	var onlyChild = __webpack_require__(77);
-	var warning = __webpack_require__(85);
+	var onlyChild = __webpack_require__(93);
+	var warning = __webpack_require__(66);
 	
 	// We don't remove the element from the DOM until we receive an animationend or
 	// transitionend event. If the user screws up and forgets to add an animation
@@ -2822,7 +2937,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 267:
+/***/ 268:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2839,8 +2954,8 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var ReactChildren = __webpack_require__(59);
-	var ReactFragment = __webpack_require__(107);
+	var ReactChildren = __webpack_require__(76);
+	var ReactFragment = __webpack_require__(109);
 	
 	var ReactTransitionChildMapping = {
 	  /**
@@ -2932,121 +3047,6 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 268:
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule ReactPropTransferer
-	 */
-	
-	'use strict';
-	
-	var assign = __webpack_require__(75);
-	var emptyFunction = __webpack_require__(163);
-	var joinClasses = __webpack_require__(272);
-	
-	/**
-	 * Creates a transfer strategy that will merge prop values using the supplied
-	 * `mergeStrategy`. If a prop was previously unset, this just sets it.
-	 *
-	 * @param {function} mergeStrategy
-	 * @return {function}
-	 */
-	function createTransferStrategy(mergeStrategy) {
-	  return function(props, key, value) {
-	    if (!props.hasOwnProperty(key)) {
-	      props[key] = value;
-	    } else {
-	      props[key] = mergeStrategy(props[key], value);
-	    }
-	  };
-	}
-	
-	var transferStrategyMerge = createTransferStrategy(function(a, b) {
-	  // `merge` overrides the first object's (`props[key]` above) keys using the
-	  // second object's (`value`) keys. An object's style's existing `propA` would
-	  // get overridden. Flip the order here.
-	  return assign({}, b, a);
-	});
-	
-	/**
-	 * Transfer strategies dictate how props are transferred by `transferPropsTo`.
-	 * NOTE: if you add any more exceptions to this list you should be sure to
-	 * update `cloneWithProps()` accordingly.
-	 */
-	var TransferStrategies = {
-	  /**
-	   * Never transfer `children`.
-	   */
-	  children: emptyFunction,
-	  /**
-	   * Transfer the `className` prop by merging them.
-	   */
-	  className: createTransferStrategy(joinClasses),
-	  /**
-	   * Transfer the `style` prop (which is an object) by merging them.
-	   */
-	  style: transferStrategyMerge
-	};
-	
-	/**
-	 * Mutates the first argument by transferring the properties from the second
-	 * argument.
-	 *
-	 * @param {object} props
-	 * @param {object} newProps
-	 * @return {object}
-	 */
-	function transferInto(props, newProps) {
-	  for (var thisKey in newProps) {
-	    if (!newProps.hasOwnProperty(thisKey)) {
-	      continue;
-	    }
-	
-	    var transferStrategy = TransferStrategies[thisKey];
-	
-	    if (transferStrategy && TransferStrategies.hasOwnProperty(thisKey)) {
-	      transferStrategy(props, thisKey, newProps[thisKey]);
-	    } else if (!props.hasOwnProperty(thisKey)) {
-	      props[thisKey] = newProps[thisKey];
-	    }
-	  }
-	  return props;
-	}
-	
-	/**
-	 * ReactPropTransferer are capable of transferring props to another component
-	 * using a `transferPropsTo` method.
-	 *
-	 * @class ReactPropTransferer
-	 */
-	var ReactPropTransferer = {
-	
-	  /**
-	   * Merge two props objects using TransferStrategies.
-	   *
-	   * @param {object} oldProps original props (they take precedence)
-	   * @param {object} newProps new props to merge in
-	   * @return {object} a new object containing both sets of props merged.
-	   */
-	  mergeProps: function(oldProps, newProps) {
-	    return transferInto(assign({}, oldProps), newProps);
-	  }
-	
-	};
-	
-	module.exports = ReactPropTransferer;
-
-
-/***/ },
-
 /***/ 270:
 /***/ function(module, exports, __webpack_require__) {
 
@@ -3062,7 +3062,7 @@ webpackJsonp([1],{
 	 * @typechecks
 	 */
 	
-	var invariant = __webpack_require__(82);
+	var invariant = __webpack_require__(62);
 	
 	/**
 	 * The CSSCore module specifies the API (and implements most of the methods)
@@ -3178,7 +3178,7 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var ExecutionEnvironment = __webpack_require__(78);
+	var ExecutionEnvironment = __webpack_require__(65);
 	
 	/**
 	 * EVENT_NAME_MAP is used to determine which event fired when a

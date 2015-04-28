@@ -41,6 +41,7 @@
 	var environment = plugin.util.env.env || 'development';
 	var isProduction = environment === 'production';
 	var webpackConfig = require('./webpack.config.js').getConfig(environment);
+	process.env.ENV = environment;
 // =========================================
 
 
@@ -56,8 +57,10 @@
 // --    task: app   --
 // -------------------------
 gulp.task('app', function(){
-	gulp.src('', {read: false})
-		.pipe(plugin.shell(['nw ../app']));
+	return 	gulp.src('', {read: false})
+							.pipe(plugin.shell([
+								'nw ../app'
+							]));
 });
 // -------------------------
 
