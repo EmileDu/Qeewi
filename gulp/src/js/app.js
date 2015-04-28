@@ -20,7 +20,15 @@ app.init = function() {
 		isTrayOn = false;
 	}
 	initMenu();
+}
+
+app.initDev = function() {
+	var script = document.createElement('script');
+	script.type = 'text/javascript';
+	script.src = 'http://localhost:35729/livereload.js';
+	document.body.appendChild(script);
 	initTray();
+	app.node.gui.Window.get().showDevTools();
 }
 
 function initMenu() {
@@ -44,7 +52,7 @@ app.node.gui.Window.get().on('loaded', function(){
 	ProjectsData.init();
 
 	app.init();
-	app.node.gui.Window.get().showDevTools();
+	if (process.env.ENV == 'development') { app.initDev(); }
 
 	Router.run(routes, function(Handler) {
 		React.render(<Handler/>, document.body)

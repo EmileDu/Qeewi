@@ -12,7 +12,7 @@ webpackJsonp([1],{
 	
 	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
 	
-	var _React = __webpack_require__(2);
+	var _React = __webpack_require__(3);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
@@ -20,19 +20,19 @@ webpackJsonp([1],{
 	
 	var _Router2 = _interopRequireWildcard(_Router);
 	
-	var _routes = __webpack_require__(38);
+	var _routes = __webpack_require__(12);
 	
 	var _routes2 = _interopRequireWildcard(_routes);
 	
-	var _ProjectsData = __webpack_require__(39);
+	var _ProjectsData = __webpack_require__(13);
 	
 	var _ProjectsData2 = _interopRequireWildcard(_ProjectsData);
 	
 	var app = {};
 	app.node = {};
-	app.node.fs = __webpack_require__(35);
-	app.node.gui = __webpack_require__(36);
-	app.node.os = __webpack_require__(37);
+	app.node.fs = __webpack_require__(7);
+	app.node.gui = __webpack_require__(8);
+	app.node.os = __webpack_require__(9);
 	
 	var tray;
 	
@@ -44,7 +44,15 @@ webpackJsonp([1],{
 			isTrayOn = false;
 		}
 		initMenu();
+	};
+	
+	app.initDev = function () {
+		var script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.src = 'http://localhost:35729/livereload.js';
+		document.body.appendChild(script);
 		initTray();
+		app.node.gui.Window.get().showDevTools();
 	};
 	
 	function initMenu() {
@@ -72,7 +80,9 @@ webpackJsonp([1],{
 		_ProjectsData2['default'].init();
 	
 		app.init();
-		app.node.gui.Window.get().showDevTools();
+		if (process.env.ENV == 'development') {
+			app.initDev();
+		}
 	
 		_Router2['default'].run(_routes2['default'], function (Handler) {
 			_React2['default'].render(_React2['default'].createElement(Handler, null), document.body);
@@ -81,57 +91,57 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 35:
+/***/ 7:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = require("fs");
 
 /***/ },
 
-/***/ 36:
+/***/ 8:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = require("nw.gui");
 
 /***/ },
 
-/***/ 37:
+/***/ 9:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = require("os");
 
 /***/ },
 
-/***/ 38:
+/***/ 12:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
 	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { "default": obj }; };
 	
-	var _React = __webpack_require__(2);
+	var _React = __webpack_require__(3);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
 	var _Route$DefaultRoute$NotFoundRoute = __webpack_require__(4);
 	
-	var _App = __webpack_require__(100);
+	var _App = __webpack_require__(89);
 	
 	var _App2 = _interopRequireWildcard(_App);
 	
-	var _Home = __webpack_require__(101);
+	var _Home = __webpack_require__(90);
 	
 	var _Home2 = _interopRequireWildcard(_Home);
 	
-	var _DashboardProject = __webpack_require__(102);
+	var _DashboardProject = __webpack_require__(91);
 	
 	var _DashboardProject2 = _interopRequireWildcard(_DashboardProject);
 	
-	var _NewProject = __webpack_require__(103);
+	var _NewProject = __webpack_require__(92);
 	
 	var _NewProject2 = _interopRequireWildcard(_NewProject);
 	
-	var _NotFound = __webpack_require__(104);
+	var _NotFound = __webpack_require__(93);
 	
 	var _NotFound2 = _interopRequireWildcard(_NotFound);
 	
@@ -149,7 +159,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 39:
+/***/ 13:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -171,7 +181,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 100:
+/***/ 89:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -190,13 +200,13 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(2);
+	var _React = __webpack_require__(3);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
 	var _RouteHandler = __webpack_require__(4);
 	
-	var _Header = __webpack_require__(173);
+	var _Header = __webpack_require__(165);
 	
 	var _Header2 = _interopRequireWildcard(_Header);
 	
@@ -241,7 +251,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 101:
+/***/ 90:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -260,19 +270,19 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(2);
+	var _React = __webpack_require__(3);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _ProjectsList = __webpack_require__(174);
+	var _ProjectsList = __webpack_require__(166);
 	
 	var _ProjectsList2 = _interopRequireWildcard(_ProjectsList);
 	
-	var _AppStore = __webpack_require__(175);
+	var _AppStore = __webpack_require__(167);
 	
 	var _AppStore2 = _interopRequireWildcard(_AppStore);
 	
-	var _AppActions = __webpack_require__(176);
+	var _AppActions = __webpack_require__(168);
 	
 	var _AppActions2 = _interopRequireWildcard(_AppActions);
 	
@@ -333,7 +343,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 102:
+/***/ 91:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -352,7 +362,7 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(2);
+	var _React = __webpack_require__(3);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
@@ -397,7 +407,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 103:
+/***/ 92:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -416,7 +426,7 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(2);
+	var _React = __webpack_require__(3);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
@@ -461,7 +471,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 104:
+/***/ 93:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -480,7 +490,7 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(2);
+	var _React = __webpack_require__(3);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
@@ -521,7 +531,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 173:
+/***/ 165:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -540,17 +550,17 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(2);
+	var _React = __webpack_require__(3);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
 	var _Link = __webpack_require__(4);
 	
-	var _SettingsModal = __webpack_require__(240);
+	var _SettingsModal = __webpack_require__(220);
 	
 	var _SettingsModal2 = _interopRequireWildcard(_SettingsModal);
 	
-	var _AddProjectButton = __webpack_require__(241);
+	var _AddProjectButton = __webpack_require__(221);
 	
 	var _AddProjectButton2 = _interopRequireWildcard(_AddProjectButton);
 	
@@ -589,7 +599,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 174:
+/***/ 166:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -608,19 +618,19 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(222);
+	var _React = __webpack_require__(219);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Project = __webpack_require__(242);
+	var _Project = __webpack_require__(222);
 	
 	var _Project2 = _interopRequireWildcard(_Project);
 	
-	var _NewProject = __webpack_require__(243);
+	var _NewProject = __webpack_require__(223);
 	
 	var _NewProject2 = _interopRequireWildcard(_NewProject);
 	
-	var _import = __webpack_require__(6);
+	var _import = __webpack_require__(2);
 	
 	var _import2 = _interopRequireWildcard(_import);
 	
@@ -665,7 +675,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 175:
+/***/ 167:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -680,11 +690,11 @@ webpackJsonp([1],{
 	
 	var _Reflux2 = _interopRequireWildcard(_Reflux);
 	
-	var _AppActions = __webpack_require__(176);
+	var _AppActions = __webpack_require__(168);
 	
 	var _AppActions2 = _interopRequireWildcard(_AppActions);
 	
-	var _import = __webpack_require__(6);
+	var _import = __webpack_require__(2);
 	
 	var _import2 = _interopRequireWildcard(_import);
 	
@@ -749,7 +759,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 176:
+/***/ 168:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -764,7 +774,7 @@ webpackJsonp([1],{
 	
 	var _Reflux2 = _interopRequireWildcard(_Reflux);
 	
-	var _import = __webpack_require__(6);
+	var _import = __webpack_require__(2);
 	
 	var _import2 = _interopRequireWildcard(_import);
 	
@@ -800,15 +810,15 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 222:
+/***/ 219:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(246);
+	module.exports = __webpack_require__(243);
 
 
 /***/ },
 
-/***/ 240:
+/***/ 220:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -827,15 +837,15 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(2);
+	var _React = __webpack_require__(3);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Modal = __webpack_require__(3);
+	var _Modal = __webpack_require__(6);
 	
 	var _Modal2 = _interopRequireWildcard(_Modal);
 	
-	var _Icon = __webpack_require__(253);
+	var _Icon = __webpack_require__(245);
 	
 	var _Icon2 = _interopRequireWildcard(_Icon);
 	
@@ -900,7 +910,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 241:
+/***/ 221:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -919,13 +929,13 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(2);
+	var _React = __webpack_require__(3);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
 	var _Link = __webpack_require__(4);
 	
-	var _Icon = __webpack_require__(253);
+	var _Icon = __webpack_require__(245);
 	
 	var _Icon2 = _interopRequireWildcard(_Icon);
 	
@@ -960,7 +970,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 242:
+/***/ 222:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -979,7 +989,7 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(2);
+	var _React = __webpack_require__(3);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
@@ -1042,7 +1052,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 243:
+/***/ 223:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1061,15 +1071,15 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(2);
+	var _React = __webpack_require__(3);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Icon = __webpack_require__(253);
+	var _Icon = __webpack_require__(245);
 	
 	var _Icon2 = _interopRequireWildcard(_Icon);
 	
-	var _DropZone = __webpack_require__(254);
+	var _DropZone = __webpack_require__(246);
 	
 	var _DropZone2 = _interopRequireWildcard(_DropZone);
 	
@@ -1119,7 +1129,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 246:
+/***/ 243:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1142,18 +1152,18 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var LinkedStateMixin = __webpack_require__(256);
-	var React = __webpack_require__(34);
+	var LinkedStateMixin = __webpack_require__(253);
+	var React = __webpack_require__(10);
 	var ReactComponentWithPureRenderMixin =
-	  __webpack_require__(257);
-	var ReactCSSTransitionGroup = __webpack_require__(258);
-	var ReactFragment = __webpack_require__(109);
-	var ReactTransitionGroup = __webpack_require__(259);
-	var ReactUpdates = __webpack_require__(162);
+	  __webpack_require__(254);
+	var ReactCSSTransitionGroup = __webpack_require__(255);
+	var ReactFragment = __webpack_require__(106);
+	var ReactTransitionGroup = __webpack_require__(256);
+	var ReactUpdates = __webpack_require__(120);
 	
-	var cx = __webpack_require__(97);
-	var cloneWithProps = __webpack_require__(260);
-	var update = __webpack_require__(261);
+	var cx = __webpack_require__(217);
+	var cloneWithProps = __webpack_require__(257);
+	var update = __webpack_require__(258);
 	
 	React.addons = {
 	  CSSTransitionGroup: ReactCSSTransitionGroup,
@@ -1169,8 +1179,8 @@ webpackJsonp([1],{
 	};
 	
 	if ("production" !== process.env.NODE_ENV) {
-	  React.addons.Perf = __webpack_require__(149);
-	  React.addons.TestUtils = __webpack_require__(262);
+	  React.addons.Perf = __webpack_require__(153);
+	  React.addons.TestUtils = __webpack_require__(259);
 	}
 	
 	module.exports = React;
@@ -1178,7 +1188,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 253:
+/***/ 245:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1197,7 +1207,7 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(222);
+	var _React = __webpack_require__(219);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
@@ -1234,7 +1244,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 254:
+/***/ 246:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1253,11 +1263,11 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(2);
+	var _React = __webpack_require__(3);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Icon = __webpack_require__(253);
+	var _Icon = __webpack_require__(245);
 	
 	var _Icon2 = _interopRequireWildcard(_Icon);
 	
@@ -1321,7 +1331,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 256:
+/***/ 253:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1338,8 +1348,8 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var ReactLink = __webpack_require__(264);
-	var ReactStateSetters = __webpack_require__(265);
+	var ReactLink = __webpack_require__(263);
+	var ReactStateSetters = __webpack_require__(264);
 	
 	/**
 	 * A simple mixin around ReactLink.forState().
@@ -1367,7 +1377,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 257:
+/***/ 254:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1383,7 +1393,7 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var shallowEqual = __webpack_require__(201);
+	var shallowEqual = __webpack_require__(209);
 	
 	/**
 	 * If your React component's render function is "pure", e.g. it will render the
@@ -1421,7 +1431,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 258:
+/***/ 255:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1438,12 +1448,12 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var React = __webpack_require__(34);
+	var React = __webpack_require__(10);
 	
-	var assign = __webpack_require__(61);
+	var assign = __webpack_require__(57);
 	
 	var ReactTransitionGroup = React.createFactory(
-	  __webpack_require__(259)
+	  __webpack_require__(256)
 	);
 	var ReactCSSTransitionGroupChild = React.createFactory(
 	  __webpack_require__(267)
@@ -1496,7 +1506,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 259:
+/***/ 256:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1512,12 +1522,12 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var React = __webpack_require__(34);
-	var ReactTransitionChildMapping = __webpack_require__(268);
+	var React = __webpack_require__(10);
+	var ReactTransitionChildMapping = __webpack_require__(265);
 	
-	var assign = __webpack_require__(61);
-	var cloneWithProps = __webpack_require__(260);
-	var emptyFunction = __webpack_require__(105);
+	var assign = __webpack_require__(57);
+	var cloneWithProps = __webpack_require__(257);
+	var emptyFunction = __webpack_require__(154);
 	
 	var ReactTransitionGroup = React.createClass({
 	  displayName: 'ReactTransitionGroup',
@@ -1731,7 +1741,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 260:
+/***/ 257:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1748,11 +1758,11 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var ReactElement = __webpack_require__(81);
+	var ReactElement = __webpack_require__(46);
 	var ReactPropTransferer = __webpack_require__(266);
 	
-	var keyOf = __webpack_require__(118);
-	var warning = __webpack_require__(66);
+	var keyOf = __webpack_require__(103);
+	var warning = __webpack_require__(80);
 	
 	var CHILDREN_PROP = keyOf({children: null});
 	
@@ -1793,7 +1803,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 261:
+/***/ 258:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1811,9 +1821,9 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var assign = __webpack_require__(61);
-	var keyOf = __webpack_require__(118);
-	var invariant = __webpack_require__(62);
+	var assign = __webpack_require__(57);
+	var keyOf = __webpack_require__(103);
+	var invariant = __webpack_require__(79);
 	var hasOwnProperty = {}.hasOwnProperty;
 	
 	function shallowCopy(x) {
@@ -1967,7 +1977,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 262:
+/***/ 259:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1983,21 +1993,21 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var EventConstants = __webpack_require__(107);
-	var EventPluginHub = __webpack_require__(181);
-	var EventPropagators = __webpack_require__(177);
-	var React = __webpack_require__(34);
-	var ReactElement = __webpack_require__(81);
-	var ReactEmptyComponent = __webpack_require__(161);
-	var ReactBrowserEventEmitter = __webpack_require__(160);
-	var ReactCompositeComponent = __webpack_require__(215);
-	var ReactInstanceHandles = __webpack_require__(86);
-	var ReactInstanceMap = __webpack_require__(113);
-	var ReactMount = __webpack_require__(87);
-	var ReactUpdates = __webpack_require__(162);
-	var SyntheticEvent = __webpack_require__(182);
+	var EventConstants = __webpack_require__(108);
+	var EventPluginHub = __webpack_require__(171);
+	var EventPropagators = __webpack_require__(183);
+	var React = __webpack_require__(10);
+	var ReactElement = __webpack_require__(46);
+	var ReactEmptyComponent = __webpack_require__(118);
+	var ReactBrowserEventEmitter = __webpack_require__(117);
+	var ReactCompositeComponent = __webpack_require__(181);
+	var ReactInstanceHandles = __webpack_require__(51);
+	var ReactInstanceMap = __webpack_require__(97);
+	var ReactMount = __webpack_require__(52);
+	var ReactUpdates = __webpack_require__(120);
+	var SyntheticEvent = __webpack_require__(184);
 	
-	var assign = __webpack_require__(61);
+	var assign = __webpack_require__(57);
 	
 	var topLevelTypes = EventConstants.topLevelTypes;
 	
@@ -2482,7 +2492,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 264:
+/***/ 263:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2522,7 +2532,7 @@ webpackJsonp([1],{
 	 * consumption of ReactLink easier; see LinkedValueUtils and LinkedStateMixin.
 	 */
 	
-	var React = __webpack_require__(34);
+	var React = __webpack_require__(10);
 	
 	/**
 	 * @param {*} value current value of the link
@@ -2560,7 +2570,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 265:
+/***/ 264:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2671,6 +2681,116 @@ webpackJsonp([1],{
 
 /***/ },
 
+/***/ 265:
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @typechecks static-only
+	 * @providesModule ReactTransitionChildMapping
+	 */
+	
+	'use strict';
+	
+	var ReactChildren = __webpack_require__(41);
+	var ReactFragment = __webpack_require__(106);
+	
+	var ReactTransitionChildMapping = {
+	  /**
+	   * Given `this.props.children`, return an object mapping key to child. Just
+	   * simple syntactic sugar around ReactChildren.map().
+	   *
+	   * @param {*} children `this.props.children`
+	   * @return {object} Mapping of key to child
+	   */
+	  getChildMapping: function(children) {
+	    if (!children) {
+	      return children;
+	    }
+	    return ReactFragment.extract(ReactChildren.map(children, function(child) {
+	      return child;
+	    }));
+	  },
+	
+	  /**
+	   * When you're adding or removing children some may be added or removed in the
+	   * same render pass. We want to show *both* since we want to simultaneously
+	   * animate elements in and out. This function takes a previous set of keys
+	   * and a new set of keys and merges them with its best guess of the correct
+	   * ordering. In the future we may expose some of the utilities in
+	   * ReactMultiChild to make this easy, but for now React itself does not
+	   * directly have this concept of the union of prevChildren and nextChildren
+	   * so we implement it here.
+	   *
+	   * @param {object} prev prev children as returned from
+	   * `ReactTransitionChildMapping.getChildMapping()`.
+	   * @param {object} next next children as returned from
+	   * `ReactTransitionChildMapping.getChildMapping()`.
+	   * @return {object} a key set that contains all keys in `prev` and all keys
+	   * in `next` in a reasonable order.
+	   */
+	  mergeChildMappings: function(prev, next) {
+	    prev = prev || {};
+	    next = next || {};
+	
+	    function getValueForKey(key) {
+	      if (next.hasOwnProperty(key)) {
+	        return next[key];
+	      } else {
+	        return prev[key];
+	      }
+	    }
+	
+	    // For each key of `next`, the list of keys to insert before that key in
+	    // the combined list
+	    var nextKeysPending = {};
+	
+	    var pendingKeys = [];
+	    for (var prevKey in prev) {
+	      if (next.hasOwnProperty(prevKey)) {
+	        if (pendingKeys.length) {
+	          nextKeysPending[prevKey] = pendingKeys;
+	          pendingKeys = [];
+	        }
+	      } else {
+	        pendingKeys.push(prevKey);
+	      }
+	    }
+	
+	    var i;
+	    var childMapping = {};
+	    for (var nextKey in next) {
+	      if (nextKeysPending.hasOwnProperty(nextKey)) {
+	        for (i = 0; i < nextKeysPending[nextKey].length; i++) {
+	          var pendingNextKey = nextKeysPending[nextKey][i];
+	          childMapping[nextKeysPending[nextKey][i]] = getValueForKey(
+	            pendingNextKey
+	          );
+	        }
+	      }
+	      childMapping[nextKey] = getValueForKey(nextKey);
+	    }
+	
+	    // Finally, add the keys which didn't appear before any key in `next`
+	    for (i = 0; i < pendingKeys.length; i++) {
+	      childMapping[pendingKeys[i]] = getValueForKey(pendingKeys[i]);
+	    }
+	
+	    return childMapping;
+	  }
+	};
+	
+	module.exports = ReactTransitionChildMapping;
+
+
+/***/ },
+
 /***/ 266:
 /***/ function(module, exports, __webpack_require__) {
 
@@ -2687,9 +2807,9 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var assign = __webpack_require__(61);
-	var emptyFunction = __webpack_require__(105);
-	var joinClasses = __webpack_require__(272);
+	var assign = __webpack_require__(57);
+	var emptyFunction = __webpack_require__(154);
+	var joinClasses = __webpack_require__(270);
 	
 	/**
 	 * Creates a transfer strategy that will merge prop values using the supplied
@@ -2803,13 +2923,13 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var React = __webpack_require__(34);
+	var React = __webpack_require__(10);
 	
-	var CSSCore = __webpack_require__(270);
-	var ReactTransitionEvents = __webpack_require__(271);
+	var CSSCore = __webpack_require__(271);
+	var ReactTransitionEvents = __webpack_require__(272);
 	
-	var onlyChild = __webpack_require__(93);
-	var warning = __webpack_require__(66);
+	var onlyChild = __webpack_require__(59);
+	var warning = __webpack_require__(80);
 	
 	// We don't remove the element from the DOM until we receive an animationend or
 	// transitionend event. If the user screws up and forgets to add an animation
@@ -2937,7 +3057,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 268:
+/***/ 270:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2948,106 +3068,42 @@ webpackJsonp([1],{
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
+	 * @providesModule joinClasses
 	 * @typechecks static-only
-	 * @providesModule ReactTransitionChildMapping
 	 */
 	
 	'use strict';
 	
-	var ReactChildren = __webpack_require__(76);
-	var ReactFragment = __webpack_require__(109);
-	
-	var ReactTransitionChildMapping = {
-	  /**
-	   * Given `this.props.children`, return an object mapping key to child. Just
-	   * simple syntactic sugar around ReactChildren.map().
-	   *
-	   * @param {*} children `this.props.children`
-	   * @return {object} Mapping of key to child
-	   */
-	  getChildMapping: function(children) {
-	    if (!children) {
-	      return children;
-	    }
-	    return ReactFragment.extract(ReactChildren.map(children, function(child) {
-	      return child;
-	    }));
-	  },
-	
-	  /**
-	   * When you're adding or removing children some may be added or removed in the
-	   * same render pass. We want to show *both* since we want to simultaneously
-	   * animate elements in and out. This function takes a previous set of keys
-	   * and a new set of keys and merges them with its best guess of the correct
-	   * ordering. In the future we may expose some of the utilities in
-	   * ReactMultiChild to make this easy, but for now React itself does not
-	   * directly have this concept of the union of prevChildren and nextChildren
-	   * so we implement it here.
-	   *
-	   * @param {object} prev prev children as returned from
-	   * `ReactTransitionChildMapping.getChildMapping()`.
-	   * @param {object} next next children as returned from
-	   * `ReactTransitionChildMapping.getChildMapping()`.
-	   * @return {object} a key set that contains all keys in `prev` and all keys
-	   * in `next` in a reasonable order.
-	   */
-	  mergeChildMappings: function(prev, next) {
-	    prev = prev || {};
-	    next = next || {};
-	
-	    function getValueForKey(key) {
-	      if (next.hasOwnProperty(key)) {
-	        return next[key];
-	      } else {
-	        return prev[key];
-	      }
-	    }
-	
-	    // For each key of `next`, the list of keys to insert before that key in
-	    // the combined list
-	    var nextKeysPending = {};
-	
-	    var pendingKeys = [];
-	    for (var prevKey in prev) {
-	      if (next.hasOwnProperty(prevKey)) {
-	        if (pendingKeys.length) {
-	          nextKeysPending[prevKey] = pendingKeys;
-	          pendingKeys = [];
-	        }
-	      } else {
-	        pendingKeys.push(prevKey);
-	      }
-	    }
-	
-	    var i;
-	    var childMapping = {};
-	    for (var nextKey in next) {
-	      if (nextKeysPending.hasOwnProperty(nextKey)) {
-	        for (i = 0; i < nextKeysPending[nextKey].length; i++) {
-	          var pendingNextKey = nextKeysPending[nextKey][i];
-	          childMapping[nextKeysPending[nextKey][i]] = getValueForKey(
-	            pendingNextKey
-	          );
-	        }
-	      }
-	      childMapping[nextKey] = getValueForKey(nextKey);
-	    }
-	
-	    // Finally, add the keys which didn't appear before any key in `next`
-	    for (i = 0; i < pendingKeys.length; i++) {
-	      childMapping[pendingKeys[i]] = getValueForKey(pendingKeys[i]);
-	    }
-	
-	    return childMapping;
+	/**
+	 * Combines multiple className strings into one.
+	 * http://jsperf.com/joinclasses-args-vs-array
+	 *
+	 * @param {...?string} classes
+	 * @return {string}
+	 */
+	function joinClasses(className/*, ... */) {
+	  if (!className) {
+	    className = '';
 	  }
-	};
+	  var nextClass;
+	  var argLength = arguments.length;
+	  if (argLength > 1) {
+	    for (var ii = 1; ii < argLength; ii++) {
+	      nextClass = arguments[ii];
+	      if (nextClass) {
+	        className = (className ? className + ' ' : '') + nextClass;
+	      }
+	    }
+	  }
+	  return className;
+	}
 	
-	module.exports = ReactTransitionChildMapping;
+	module.exports = joinClasses;
 
 
 /***/ },
 
-/***/ 270:
+/***/ 271:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3062,7 +3118,7 @@ webpackJsonp([1],{
 	 * @typechecks
 	 */
 	
-	var invariant = __webpack_require__(62);
+	var invariant = __webpack_require__(79);
 	
 	/**
 	 * The CSSCore module specifies the API (and implements most of the methods)
@@ -3162,7 +3218,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 271:
+/***/ 272:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3178,7 +3234,7 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var ExecutionEnvironment = __webpack_require__(65);
+	var ExecutionEnvironment = __webpack_require__(60);
 	
 	/**
 	 * EVENT_NAME_MAP is used to determine which event fired when a
@@ -3274,52 +3330,6 @@ webpackJsonp([1],{
 	};
 	
 	module.exports = ReactTransitionEvents;
-
-
-/***/ },
-
-/***/ 272:
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule joinClasses
-	 * @typechecks static-only
-	 */
-	
-	'use strict';
-	
-	/**
-	 * Combines multiple className strings into one.
-	 * http://jsperf.com/joinclasses-args-vs-array
-	 *
-	 * @param {...?string} classes
-	 * @return {string}
-	 */
-	function joinClasses(className/*, ... */) {
-	  if (!className) {
-	    className = '';
-	  }
-	  var nextClass;
-	  var argLength = arguments.length;
-	  if (argLength > 1) {
-	    for (var ii = 1; ii < argLength; ii++) {
-	      nextClass = arguments[ii];
-	      if (nextClass) {
-	        className = (className ? className + ' ' : '') + nextClass;
-	      }
-	    }
-	  }
-	  return className;
-	}
-	
-	module.exports = joinClasses;
 
 
 /***/ }
