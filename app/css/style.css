@@ -272,6 +272,9 @@ ul {
   border-radius: 5px;
   color: #ffffff;
 }
+.project:first-child {
+  display: table;
+}
 .project:not(:first-child) {
   box-shadow: 2px 0px 4px 0px rgba(45, 46, 44, 0.15);
 }
@@ -328,8 +331,6 @@ ul {
 }
 
 .dropzone {
-  width: 100%;
-  height: 100%;
   border: 1px dashed #2d2e2c;
   color: #2d2e2c;
   opacity: .5;
