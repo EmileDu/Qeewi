@@ -177,7 +177,7 @@ ul {
 /* Layout */
 .app {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   background: #eef3f5;
 }
 
@@ -224,29 +224,45 @@ ul {
 }
 
 .app__content {
-  width: calc(100% - 50px);
-  height: auto;
-  min-height: 100%;
-  margin-left: 50px;
+  max-width: 974px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 0 30px;
+  margin-left: 50px;
+}
+.app__content:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /* Modules */
 .projects-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  align-items: flex-start;
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.projects-list:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .projects-list__item {
-  width: calc((100% - (3 * 30px)) / 4);
-  margin-right: 30px;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%;
   margin-bottom: 24px;
+}
+.projects-list__item:last-child {
+  margin-right: 0;
 }
 .projects-list__item:nth-child(4n) {
   margin-right: 0;
+}
+.projects-list__item:nth-child(4n+1) {
+  clear: left;
 }
 
 .project {
@@ -256,10 +272,10 @@ ul {
   border-radius: 5px;
   color: #ffffff;
 }
-.project:not(.drop-field) {
+.project:not(:first-child) {
   box-shadow: 2px 0px 4px 0px rgba(45, 46, 44, 0.15);
 }
-.project:not(.drop-field):hover {
+.project:not(:first-child):hover {
   color: #96c119;
 }
 
@@ -312,6 +328,8 @@ ul {
 }
 
 .dropzone {
+  width: 100%;
+  height: 100%;
   border: 1px dashed #2d2e2c;
   color: #2d2e2c;
   opacity: .5;
@@ -346,4 +364,59 @@ ul {
 }
 .button:focus, .button:hover, .button:active {
   outline: none;
+}
+
+.ReactModal__Overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(45, 46, 44, 0.75);
+}
+
+.ReactModal__Content {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  bottom: 30px;
+  left: 30px;
+  padding: 24px 30px;
+  border-radius: 5px;
+  background: #eef3f5;
+}
+
+.form__section {
+  padding-bottom: 4.5rem;
+}
+
+.form__section__title {
+  position: relative;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 300;
+  width: 100%;
+  margin-bottom: 4.5rem;
+  opacity: .5;
+}
+.form__section__title:before, .form__section__title:after {
+  content: "";
+  display: block;
+  width: 236px;
+  height: 1px;
+  margin: auto;
+  background: rgba(45, 46, 44, 0.5);
+}
+.form__section__title:before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+.form__section__title:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
 }

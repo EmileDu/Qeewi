@@ -1,0 +1,28 @@
+.form__section {
+	padding-bottom: 4.5rem;
+}
+
+.form__section__title {
+	@include position(relative);
+	text-align: center;
+	font-size: 1.5rem;
+	font-weight: 300;
+	width: 100%;
+	margin-bottom: 4.5rem;
+	opacity: .5;
+	&:before, &:after {
+		content: "";
+		display: block;
+		width: 236px;
+		height: 1px;
+		margin: auto;
+		background: transparentize($black, .5);
+
+	}
+	&:before {
+		@include position(absolute, 0 null 0 0);
+	}
+	&:after {
+		@include position(absolute, 0 0 0 null);
+	}
+}

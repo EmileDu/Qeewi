@@ -8,6 +8,7 @@
 	var handlebars = require('handlebars');
 	var del = require('del');
 	var nw = require('nw').findpath();
+	var http = require('http');
 
 // ==========================================
 
@@ -80,6 +81,7 @@ gulp.task('styles', ['clean:styles'],function(){
 							.pipe(plugin.if(isProduction, plugin.csso()))
 							.pipe(plugin.header(banner, { pkg : pkg } ))
 							.pipe(gulp.dest(destPaths.CSS))
+							.pipe(plugin.livereload())
 							.pipe(plugin.size({title: 'CSS'}));
 });
 
@@ -99,6 +101,7 @@ gulp.task('scripts', ['clean:scripts'], function(){
 							.pipe(plugin.if(isProduction, plugin.uglify()))
 							.pipe(plugin.header(banner, { pkg : pkg } ))
 							.pipe(gulp.dest(destPaths.JS))
+							.pipe(plugin.livereload())
 							.pipe(plugin.size({title: 'JS'}));
 });
 
@@ -108,6 +111,7 @@ gulp.task('scripts', ['clean:scripts'], function(){
 gulp.task('html', function(){
 	return 	gulp.src(sourcePaths.BASE + 'index.HTML')
 							.pipe(gulp.dest(destPaths.BASE))
+							.pipe(plugin.livereload())
 							.pipe(plugin.size({title: 'HTML'}));
 });
 
@@ -117,6 +121,7 @@ gulp.task('html', function(){
 // --     task: watch     --
 // -------------------------
 gulp.task('watch', function() {
+	plugin.livereload.listen({ basePath: '../app'});
 	gulp.watch(sourcePaths.CSS + '**/*.scss', ['styles']);
 	gulp.watch(sourcePaths.JS  + '**/*.js', 	['scripts']);
 	gulp.watch(sourcePaths.JS  + '**/*.jsx', 	['scripts']);
@@ -148,7 +153,6 @@ gulp.task('build', function(callback) {
 gulp.task('serve', function(callback) {
 	runSequence('html', 'styles', 'scripts', 'app', 'watch', callback);
 });
-
 
 // -------------------------
 // --    task: default    --

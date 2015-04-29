@@ -1,0 +1,17 @@
+.ReactModalPortal {
+
+}
+
+.ReactModal__Overlay {
+	@include position(absolute, 0 0 0 0);
+	z-index: 10;
+	background-color: transparentize($black, .25);
+}
+
+.ReactModal__Content {
+	@include position(absolute, 30px 30px 30px 30px);
+	padding: 24px 30px;
+	border-radius: 5px;
+
+	background: $gray;
+}

@@ -1,7 +1,5 @@
 .app__content {
-	width: calc(100% - 50px);
-	height: auto;
-	min-height: 100%;
-	margin-left: 50px;
+	@include outer-container(974px);
 	padding: 0 30px;
+	margin-left: 50px;
 }

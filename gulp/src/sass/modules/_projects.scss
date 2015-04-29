@@ -1,18 +1,12 @@
 .projects-list {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	align-content: flex-start;
-	align-items: flex-start;
+	@include outer-container;
+
 }
 
 .projects-list__item {
-	width: calc((100% - (3 * 30px)) / 4);
-	margin-right: 30px;
+	@include span-columns(3);
+	@include omega(4n);
 	margin-bottom: 24px;
-	&:nth-child(4n) {
-		margin-right: 0;
-	}
 }
 
 .project {
@@ -21,10 +15,10 @@
 	overflow: hidden;
 	border-radius: 5px;
 	color: $white;
-	&:not(.drop-field) {
+	&:not(:first-child) {
 		box-shadow: 2px 0px 4px 0px transparentize($black, 0.85);
 	}
-	&:not(.drop-field):hover {
+	&:not(:first-child):hover {
 		color: $green;
 	}
 }

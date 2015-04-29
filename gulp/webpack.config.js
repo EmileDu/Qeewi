@@ -16,7 +16,8 @@ module.exports.getConfig = function(type) {
 		},
 	  module: {
 			loaders: [
-				{	test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' }
+				{	test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' },
+				{	test: /\.json?$/, exclude: /node_modules/, loader: 'json-loader' }
 			]
 		},
 	  plugins: [
