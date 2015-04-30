@@ -60,13 +60,7 @@ webpackJsonp([1],{
 		app.node.gui.Window.get().showDevTools();
 	};
 	
-	app.initMenu = function (template) {
-		console.log(template);
-		// var nativeMenuBar = new app.node.gui.Menu({ type: "menubar" });
-		// nativeMenuBar.createMacBuiltin("Qeewi");
-		// nativeMenuBar.items[0].submenu.append(new app.node.gui.MenuItem({ type: 'normal', label: 'Préférences', key: ',', modifiers: 'cmd', click: function() { } }))
-		// app.node.gui.Window.get().menu = nativeMenuBar;
-	};
+	app.initMenu = function (template) {};
 	
 	app.initTray = function () {
 		tray = new app.node.gui.Tray({ icon: 'icons/tray_icon.png', tooltip: 'Qeewi' });
@@ -95,6 +89,16 @@ webpackJsonp([1],{
 			_React2['default'].render(_React2['default'].createElement(Handler, null), document.body);
 		});
 	});
+	
+	window.ondragover = window.ondrop = function (e) {
+		e.preventDefault();return false;
+	};
+	
+	// console.log(template);
+	// var nativeMenuBar = new app.node.gui.Menu({ type: "menubar" });
+	// nativeMenuBar.createMacBuiltin("Qeewi");
+	// nativeMenuBar.items[0].submenu.append(new app.node.gui.MenuItem({ type: 'normal', label: 'Préférences', key: ',', modifiers: 'cmd', click: function() { } }))
+	// app.node.gui.Window.get().menu = nativeMenuBar;
 
 /***/ },
 
@@ -155,10 +159,10 @@ webpackJsonp([1],{
 	var routes = _React2["default"].createElement(
 		_Route$DefaultRoute$NotFoundRoute.Route,
 		{ name: "App", path: "/", handler: _App2["default"] },
-		_React2["default"].createElement(_Route$DefaultRoute$NotFoundRoute.Route, { name: "DahsboardProject", handler: _DashboardProject2["default"] }),
+		_React2["default"].createElement(_Route$DefaultRoute$NotFoundRoute.Route, { name: "DahsboardProject", path: "/project/:projectID", handler: _DashboardProject2["default"] }),
 		_React2["default"].createElement(_Route$DefaultRoute$NotFoundRoute.Route, { name: "NewProject", handler: _NewProject2["default"] }),
 		_React2["default"].createElement(_Route$DefaultRoute$NotFoundRoute.Route, { name: "Homepage", handler: _Home2["default"] }),
-		_React2["default"].createElement(_Route$DefaultRoute$NotFoundRoute.DefaultRoute, { handler: _NewProject2["default"] }),
+		_React2["default"].createElement(_Route$DefaultRoute$NotFoundRoute.DefaultRoute, { handler: _Home2["default"] }),
 		_React2["default"].createElement(_Route$DefaultRoute$NotFoundRoute.NotFoundRoute, { Handler: _NotFound2["default"] })
 	);
 	
@@ -238,10 +242,10 @@ webpackJsonp([1],{
 	var _Header2 = _interopRequireWildcard(_Header);
 	
 	var App = (function (_React$Component) {
-		function App() {
+		function App(props) {
 			_classCallCheck(this, App);
 	
-			_get(Object.getPrototypeOf(App.prototype), 'constructor', this).call(this);
+			_get(Object.getPrototypeOf(App.prototype), 'constructor', this).call(this, props);
 		}
 	
 		_inherits(App, _React$Component);
@@ -393,20 +397,60 @@ webpackJsonp([1],{
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	'use strict';
+	var _import = __webpack_require__(2);
+	
+	var _import2 = _interopRequireWildcard(_import);
+	
+	var _AppStore = __webpack_require__(172);
+	
+	var _AppStore2 = _interopRequireWildcard(_AppStore);
+	
+	var _AppActions = __webpack_require__(173);
+	
+	var _AppActions2 = _interopRequireWildcard(_AppActions);
 	
 	var DashboardProject = (function (_React$Component) {
-		function DashboardProject() {
+		function DashboardProject(props) {
 			_classCallCheck(this, DashboardProject);
 	
-			_get(Object.getPrototypeOf(DashboardProject.prototype), 'constructor', this).call(this);
+			_get(Object.getPrototypeOf(DashboardProject.prototype), 'constructor', this).call(this, props);
+			this.state = { projects: [] };
 		}
 	
 		_inherits(DashboardProject, _React$Component);
 	
 		_createClass(DashboardProject, [{
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				this.unsubscribe = _AppStore2['default'].listen(this.onStatusChange.bind(this));
+				_AppActions2['default'].loadProjects();
+			}
+		}, {
+			key: 'componentWillUnmount',
+			value: function componentWillUnmount() {
+				this.unsubscribe();
+			}
+		}, {
+			key: 'onStatusChange',
+			value: function onStatusChange(state) {
+				this.setState(state);
+			}
+		}, {
+			key: 'getProjectByID',
+			value: function getProjectByID(id) {
+				var project = _import2['default'].filter(this.state.projects, function (project) {
+					return project.key == id;
+				});
+				console.log(project);
+				return project;
+			}
+		}, {
 			key: 'render',
 			value: function render() {
+				var router = this.context.router;
+	
+				var projectID = router.getCurrentParams().projectID;
+				var project = this.getProjectByID(projectID);
 				return _React2['default'].createElement(
 					'div',
 					{ className: 'page' },
@@ -419,6 +463,11 @@ webpackJsonp([1],{
 						'p',
 						null,
 						'Dashboard Project page'
+					),
+					_React2['default'].createElement(
+						'p',
+						null,
+						project
 					)
 				);
 			}
@@ -428,6 +477,7 @@ webpackJsonp([1],{
 	})(_React2['default'].Component);
 	
 	DashboardProject.displayName = 'Dashboard Project page';
+	DashboardProject.contextTypes = { router: _React2['default'].PropTypes.func };
 	
 	exports['default'] = DashboardProject;
 	module.exports = exports['default'];
@@ -658,7 +708,7 @@ webpackJsonp([1],{
 	
 	var _Link = __webpack_require__(6);
 	
-	var _SettingsModal = __webpack_require__(224);
+	var _SettingsModal = __webpack_require__(223);
 	
 	var _SettingsModal2 = _interopRequireWildcard(_SettingsModal);
 	
@@ -715,15 +765,15 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(223);
+	var _React = __webpack_require__(3);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Project = __webpack_require__(225);
+	var _Project = __webpack_require__(224);
 	
 	var _Project2 = _interopRequireWildcard(_Project);
 	
-	var _NewProject = __webpack_require__(226);
+	var _NewProject = __webpack_require__(225);
 	
 	var _NewProject2 = _interopRequireWildcard(_NewProject);
 	
@@ -910,19 +960,19 @@ webpackJsonp([1],{
 /***/ 174:
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
-	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { "default": obj }; };
+	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
 	
-	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
+	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
 	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 	
-	var _get = function get(object, property, receiver) { var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	var _get = function get(object, property, receiver) { var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 	
-	var _inherits = function (subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
+	var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
 	
-	Object.defineProperty(exports, "__esModule", {
+	Object.defineProperty(exports, '__esModule', {
 		value: true
 	});
 	
@@ -934,27 +984,41 @@ webpackJsonp([1],{
 		function Input(props) {
 			_classCallCheck(this, Input);
 	
-			_get(Object.getPrototypeOf(Input.prototype), "constructor", this).call(this, props);
+			_get(Object.getPrototypeOf(Input.prototype), 'constructor', this).call(this, props);
+			this.state = { isFilled: false };
+			this.onChange = this.onChange.bind(this);
 		}
 	
 		_inherits(Input, _React$Component);
 	
 		_createClass(Input, [{
-			key: "render",
+			key: 'onChange',
+			value: function onChange(ev) {
+				console.log(ev.target.value);
+				if (ev.target.value !== '') {
+					this.setState({ isFilled: true });
+				}
+			}
+		}, {
+			key: 'render',
 			value: function render() {
-				var type = this.props.type || "text";
-				var id = this.props.id || "input";
-				var className = this.props.className || "input";
-				return _React2["default"].createElement(
-					"span",
+				var type = this.props.type || 'text';
+				var id = this.props.id || 'input';
+				var className = this.props.className || 'input';
+				var inputClassName = 'input__field';
+				if (this.state.isFilled) {
+					inputClassName += ' input__field--filled';
+				};
+				return _React2['default'].createElement(
+					'span',
 					{ className: className },
-					_React2["default"].createElement("input", { className: "input__field", type: type, id: id }),
-					_React2["default"].createElement(
-						"label",
-						{ className: "input__label", htmlFor: id },
-						_React2["default"].createElement(
-							"span",
-							{ className: "input__label__content" },
+					_React2['default'].createElement('input', { className: inputClassName, type: type, id: id, onChange: this.onChange }),
+					_React2['default'].createElement(
+						'label',
+						{ className: 'input__label', htmlFor: id },
+						_React2['default'].createElement(
+							'span',
+							{ className: 'input__label__content' },
 							this.props.children
 						)
 					)
@@ -963,31 +1027,31 @@ webpackJsonp([1],{
 		}]);
 	
 		return Input;
-	})(_React2["default"].Component);
+	})(_React2['default'].Component);
 	
-	Input.displayName = "Input";
+	Input.displayName = 'Input';
 	
-	exports["default"] = Input;
-	module.exports = exports["default"];
+	exports['default'] = Input;
+	module.exports = exports['default'];
 
 /***/ },
 
 /***/ 175:
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
-	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { "default": obj }; };
+	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
 	
-	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
+	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
 	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 	
-	var _get = function get(object, property, receiver) { var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	var _get = function get(object, property, receiver) { var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 	
-	var _inherits = function (subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
+	var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
 	
-	Object.defineProperty(exports, "__esModule", {
+	Object.defineProperty(exports, '__esModule', {
 		value: true
 	});
 	
@@ -999,27 +1063,39 @@ webpackJsonp([1],{
 		function Textarea(props) {
 			_classCallCheck(this, Textarea);
 	
-			_get(Object.getPrototypeOf(Textarea.prototype), "constructor", this).call(this, props);
+			_get(Object.getPrototypeOf(Textarea.prototype), 'constructor', this).call(this, props);
+			this.state = { isFilled: false };
+			this.onChange = this.onChange.bind(this);
 		}
 	
 		_inherits(Textarea, _React$Component);
 	
 		_createClass(Textarea, [{
-			key: "render",
+			key: 'onChange',
+			value: function onChange(ev) {
+				if (ev.target.value != '') {
+					this.setState({ isFilled: true });
+				}
+			}
+		}, {
+			key: 'render',
 			value: function render() {
-				var id = this.props.id || "textarea";
-				var className = this.props.className || "input";
-	
-				return _React2["default"].createElement(
-					"span",
+				var id = this.props.id || 'textarea';
+				var className = this.props.className || 'input';
+				var inputClassName = 'input__field';
+				if (this.state.isFilled) {
+					inputClassName += ' input__field--filled';
+				};
+				return _React2['default'].createElement(
+					'span',
 					{ className: className },
-					_React2["default"].createElement("textarea", { className: "input__field", id: id }),
-					_React2["default"].createElement(
-						"label",
-						{ className: "input__label", htmlFor: id },
-						_React2["default"].createElement(
-							"span",
-							{ className: "input__label__content" },
+					_React2['default'].createElement('textarea', { className: inputClassName, id: id, onChange: this.onChange }),
+					_React2['default'].createElement(
+						'label',
+						{ className: 'input__label', htmlFor: id },
+						_React2['default'].createElement(
+							'span',
+							{ className: 'input__label__content' },
 							this.props.children
 						)
 					)
@@ -1028,24 +1104,16 @@ webpackJsonp([1],{
 		}]);
 	
 		return Textarea;
-	})(_React2["default"].Component);
+	})(_React2['default'].Component);
 	
-	Textarea.displayName = "Field";
+	Textarea.displayName = 'Field';
 	
-	exports["default"] = Textarea;
-	module.exports = exports["default"];
+	exports['default'] = Textarea;
+	module.exports = exports['default'];
 
 /***/ },
 
 /***/ 223:
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(246);
-
-
-/***/ },
-
-/***/ 224:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1072,7 +1140,7 @@ webpackJsonp([1],{
 	
 	var _Modal2 = _interopRequireWildcard(_Modal);
 	
-	var _Icon = __webpack_require__(247);
+	var _Icon = __webpack_require__(245);
 	
 	var _Icon2 = _interopRequireWildcard(_Icon);
 	
@@ -1136,7 +1204,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 225:
+/***/ 224:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1180,7 +1248,7 @@ webpackJsonp([1],{
 					{ className: 'projects-list__item project' },
 					_React2['default'].createElement(
 						_Link.Link,
-						{ to: 'DahsboardProject' },
+						{ to: 'DahsboardProject', params: { projectID: project.key } },
 						_React2['default'].createElement('img', { src: thumb, className: 'project__thumb', alt: 'screenshot du projet' }),
 						_React2['default'].createElement(
 							'div',
@@ -1218,7 +1286,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 226:
+/***/ 225:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1243,11 +1311,11 @@ webpackJsonp([1],{
 	
 	var _Link = __webpack_require__(6);
 	
-	var _Icon = __webpack_require__(247);
+	var _Icon = __webpack_require__(245);
 	
 	var _Icon2 = _interopRequireWildcard(_Icon);
 	
-	var _DropZone = __webpack_require__(248);
+	var _DropZone = __webpack_require__(246);
 	
 	var _DropZone2 = _interopRequireWildcard(_DropZone);
 	
@@ -1301,66 +1369,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 246:
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule ReactWithAddons
-	 */
-	
-	/**
-	 * This module exists purely in the open source project, and is meant as a way
-	 * to create a separate standalone build of React. This build has "addons", or
-	 * functionality we've built and think might be useful but doesn't have a good
-	 * place to live inside React core.
-	 */
-	
-	'use strict';
-	
-	var LinkedStateMixin = __webpack_require__(257);
-	var React = __webpack_require__(11);
-	var ReactComponentWithPureRenderMixin =
-	  __webpack_require__(258);
-	var ReactCSSTransitionGroup = __webpack_require__(259);
-	var ReactFragment = __webpack_require__(105);
-	var ReactTransitionGroup = __webpack_require__(260);
-	var ReactUpdates = __webpack_require__(155);
-	
-	var cx = __webpack_require__(167);
-	var cloneWithProps = __webpack_require__(261);
-	var update = __webpack_require__(262);
-	
-	React.addons = {
-	  CSSTransitionGroup: ReactCSSTransitionGroup,
-	  LinkedStateMixin: LinkedStateMixin,
-	  PureRenderMixin: ReactComponentWithPureRenderMixin,
-	  TransitionGroup: ReactTransitionGroup,
-	
-	  batchedUpdates: ReactUpdates.batchedUpdates,
-	  classSet: cx,
-	  cloneWithProps: cloneWithProps,
-	  createFragment: ReactFragment.create,
-	  update: update
-	};
-	
-	if ("production" !== process.env.NODE_ENV) {
-	  React.addons.Perf = __webpack_require__(149);
-	  React.addons.TestUtils = __webpack_require__(263);
-	}
-	
-	module.exports = React;
-
-
-/***/ },
-
-/***/ 247:
+/***/ 245:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1379,7 +1388,7 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(223);
+	var _React = __webpack_require__(255);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
@@ -1416,7 +1425,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 248:
+/***/ 246:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1439,7 +1448,7 @@ webpackJsonp([1],{
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Icon = __webpack_require__(247);
+	var _Icon = __webpack_require__(245);
 	
 	var _Icon2 = _interopRequireWildcard(_Icon);
 	
@@ -1480,12 +1489,12 @@ webpackJsonp([1],{
 			value: function render() {
 				var className = this.props.className || 'dropzone';
 				if (this.state.isDragging) {
-					className += 'active';
+					className += ' dropzone--active';
 				};
 	
 				return _React2['default'].createElement(
 					'div',
-					{ className: className, onDragOver: this.onDragOver, onDragLeave: this.onDragLeave },
+					{ className: className, onDragOver: this.onDragOver, onDragLeave: this.onDragLeave, onDrop: this.onDrop },
 					this.props.children
 				);
 			}
@@ -1503,7 +1512,74 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 257:
+/***/ 255:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(258);
+
+
+/***/ },
+
+/***/ 258:
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule ReactWithAddons
+	 */
+	
+	/**
+	 * This module exists purely in the open source project, and is meant as a way
+	 * to create a separate standalone build of React. This build has "addons", or
+	 * functionality we've built and think might be useful but doesn't have a good
+	 * place to live inside React core.
+	 */
+	
+	'use strict';
+	
+	var LinkedStateMixin = __webpack_require__(260);
+	var React = __webpack_require__(11);
+	var ReactComponentWithPureRenderMixin =
+	  __webpack_require__(261);
+	var ReactCSSTransitionGroup = __webpack_require__(262);
+	var ReactFragment = __webpack_require__(105);
+	var ReactTransitionGroup = __webpack_require__(263);
+	var ReactUpdates = __webpack_require__(155);
+	
+	var cx = __webpack_require__(167);
+	var cloneWithProps = __webpack_require__(264);
+	var update = __webpack_require__(265);
+	
+	React.addons = {
+	  CSSTransitionGroup: ReactCSSTransitionGroup,
+	  LinkedStateMixin: LinkedStateMixin,
+	  PureRenderMixin: ReactComponentWithPureRenderMixin,
+	  TransitionGroup: ReactTransitionGroup,
+	
+	  batchedUpdates: ReactUpdates.batchedUpdates,
+	  classSet: cx,
+	  cloneWithProps: cloneWithProps,
+	  createFragment: ReactFragment.create,
+	  update: update
+	};
+	
+	if ("production" !== process.env.NODE_ENV) {
+	  React.addons.Perf = __webpack_require__(149);
+	  React.addons.TestUtils = __webpack_require__(266);
+	}
+	
+	module.exports = React;
+
+
+/***/ },
+
+/***/ 260:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1520,8 +1596,8 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var ReactLink = __webpack_require__(266);
-	var ReactStateSetters = __webpack_require__(267);
+	var ReactLink = __webpack_require__(267);
+	var ReactStateSetters = __webpack_require__(268);
 	
 	/**
 	 * A simple mixin around ReactLink.forState().
@@ -1549,7 +1625,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 258:
+/***/ 261:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1603,7 +1679,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 259:
+/***/ 262:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1625,10 +1701,10 @@ webpackJsonp([1],{
 	var assign = __webpack_require__(73);
 	
 	var ReactTransitionGroup = React.createFactory(
-	  __webpack_require__(260)
+	  __webpack_require__(263)
 	);
 	var ReactCSSTransitionGroupChild = React.createFactory(
-	  __webpack_require__(268)
+	  __webpack_require__(269)
 	);
 	
 	var ReactCSSTransitionGroup = React.createClass({
@@ -1678,7 +1754,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 260:
+/***/ 263:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1695,10 +1771,10 @@ webpackJsonp([1],{
 	'use strict';
 	
 	var React = __webpack_require__(11);
-	var ReactTransitionChildMapping = __webpack_require__(269);
+	var ReactTransitionChildMapping = __webpack_require__(270);
 	
 	var assign = __webpack_require__(73);
-	var cloneWithProps = __webpack_require__(261);
+	var cloneWithProps = __webpack_require__(264);
 	var emptyFunction = __webpack_require__(161);
 	
 	var ReactTransitionGroup = React.createClass({
@@ -1913,7 +1989,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 261:
+/***/ 264:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1931,7 +2007,7 @@ webpackJsonp([1],{
 	'use strict';
 	
 	var ReactElement = __webpack_require__(62);
-	var ReactPropTransferer = __webpack_require__(270);
+	var ReactPropTransferer = __webpack_require__(271);
 	
 	var keyOf = __webpack_require__(114);
 	var warning = __webpack_require__(86);
@@ -1975,7 +2051,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 262:
+/***/ 265:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2149,7 +2225,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 263:
+/***/ 266:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2664,7 +2740,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 266:
+/***/ 267:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2742,7 +2818,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 267:
+/***/ 268:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2853,7 +2929,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 268:
+/***/ 269:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3004,7 +3080,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 269:
+/***/ 270:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3114,7 +3190,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 270:
+/***/ 271:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**

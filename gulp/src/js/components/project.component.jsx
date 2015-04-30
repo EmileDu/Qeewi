@@ -11,7 +11,7 @@ class Project extends React.Component{
 		var thumb = project.thumb || './images/default_thumb.jpg';
 		return (
 			<li className="projects-list__item project">
-				<Link to="DahsboardProject">
+				<Link to="DahsboardProject" params={{projectID: project.key}}>
 					<img src={thumb} className="project__thumb" alt="screenshot du projet"/>
 					<div className="project__detail">
 						<h2 className="project__title">{project.title}</h2>

@@ -2,7 +2,13 @@
 	color: inherit;
 	border: 1px dashed currentColor;
 	opacity: .5;
+	transition: all .2s ease-in-out;
 }
+
+.dropzone--active {
+	color: $green;
+	opacity: 1;
+};
 
 .dropzone__label {
 	text-transform: uppercase;

@@ -31,7 +31,7 @@ app.initDev = function() {
 }
 
 app.initMenu = function(template) {
-	console.log(template);
+	// console.log(template);
 	// var nativeMenuBar = new app.node.gui.Menu({ type: "menubar" });
 	// nativeMenuBar.createMacBuiltin("Qeewi");
 	// nativeMenuBar.items[0].submenu.append(new app.node.gui.MenuItem({ type: 'normal', label: 'Préférences', key: ',', modifiers: 'cmd', click: function() { } }))
@@ -59,3 +59,5 @@ app.node.gui.Window.get().on('loaded', function(){
 		React.render(<Handler/>, document.body)
 	});
 });
+
+window.ondragover = window.ondrop = function(e) {	e.preventDefault(); return false; };

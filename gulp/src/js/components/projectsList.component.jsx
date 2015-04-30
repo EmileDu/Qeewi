@@ -1,4 +1,4 @@
-import React from 'react/addons';
+import React from 'react';
 import Project from './project.component.jsx';
 import NewProject from './newProject.component.jsx';
 import _ from 'lodash';
@@ -15,7 +15,7 @@ class ProjectsList extends React.Component{
 			<ul className="projects-list">
 				<NewProject />
 				{projects}
-				</ul>
+			</ul>
 		)
 	}
 };

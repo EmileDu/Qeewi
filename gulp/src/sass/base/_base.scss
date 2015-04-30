@@ -47,6 +47,7 @@ textarea {
   white-space:normal;
   background:none;
   line-height:1;
+  resize: none;
   &,&:hover, &:focus, &:active {
     outline: none;
   }

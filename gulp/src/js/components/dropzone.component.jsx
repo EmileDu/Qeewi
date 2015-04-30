@@ -28,10 +28,10 @@ class DropZone extends React.Component{
 
 	render() {
 		var className = this.props.className || 'dropzone';
-		if (this.state.isDragging) { className += 'active' };
+		if (this.state.isDragging) { className += ' dropzone--active' };
 
 		return (
-			<div className={className} onDragOver={this.onDragOver} onDragLeave={this.onDragLeave}>
+			<div className={className} onDragOver={this.onDragOver} onDragLeave={this.onDragLeave} onDrop={this.onDrop}>
 				{this.props.children}
 			</div>
 		)

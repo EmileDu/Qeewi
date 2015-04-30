@@ -170,6 +170,7 @@ textarea {
   white-space: normal;
   background: none;
   line-height: 1;
+  resize: none;
 }
 input, input:hover, input:focus, input:active,
 label,
@@ -409,6 +410,12 @@ textarea:active {
   color: inherit;
   border: 1px dashed currentColor;
   opacity: .5;
+  transition: all .2s ease-in-out;
+}
+
+.dropzone--active {
+  color: #96c119;
+  opacity: 1;
 }
 
 .dropzone__label {

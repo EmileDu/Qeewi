@@ -1,5 +1,4 @@
 import React from 'react';
-
 import ProjectsList from '../../components/projectsList.component.jsx';
 import AppStore from '../../stores/app.store.jsx';
 import AppActions from '../../actions/app.action.jsx';
