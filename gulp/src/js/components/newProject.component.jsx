@@ -15,7 +15,7 @@ class NewProject extends React.Component{
 					<Link to="NewProject">
 						<Icon className="dropzone__icon" size="32" icon="icon-plus" link="images/Icons/svgdefs.svg" />
 						<h2 className="dropzone__label">Nouveau projet</h2>
-						<p className="dropzone__instruction">(Drop ton dossier ici)</p>
+						<p className="dropzone__instruction" ref="instruction">(Drop ton dossier ici)</p>
 					</Link>
 				</DropZone>
 			</li>

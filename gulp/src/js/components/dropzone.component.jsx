@@ -12,7 +12,9 @@ class DropZone extends React.Component{
 
 	onDragOver(ev) {
 		ev.preventDefault();
-		console.log(ev);
+		// if(!ev.dataTransfer.items[0].webkitGetAsEntry().isDirectory) {
+		// 	this.refs.dropzone.refs.instruction.getDOMNode().value = 'Tu dois drop un dossier';
+		// }
 		this.setState({ isDragging: true });
 	}
 
@@ -22,7 +24,9 @@ class DropZone extends React.Component{
 
 	onDrop(ev) {
 		ev.preventDefault();
-		console.log(ev);
+		if (ev.dataTransfer.items[0].webkitGetAsEntry().isDirectory) {
+			console.log(ev.dataTransfer.files[0].path);
+		}
 		this.setState({ isDragging: false });
 	}
 
@@ -31,7 +35,7 @@ class DropZone extends React.Component{
 		if (this.state.isDragging) { className += ' dropzone--active' };
 
 		return (
-			<div className={className} onDragOver={this.onDragOver} onDragLeave={this.onDragLeave} onDrop={this.onDrop}>
+			<div className={className} onDragOver={this.onDragOver} onDragLeave={this.onDragLeave} onDrop={this.onDrop} ref="dropzone">
 				{this.props.children}
 			</div>
 		)

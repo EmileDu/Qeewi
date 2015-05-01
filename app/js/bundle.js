@@ -181,7 +181,7 @@ webpackJsonp([1],{
 	
 	var _shortid2 = _interopRequireWildcard(_shortid);
 	
-	var projects = [{ key: _shortid2['default'].generate(), title: 'Titre du projet 1', type: 'Site Web', version: '1.0.0' }, { key: _shortid2['default'].generate(), title: 'Titre du projet 2', type: 'Web Application', version: '1.0.0' }, { key: _shortid2['default'].generate(), title: 'Titre du projet 3', type: 'Site Web', version: '1.0.0' }, { key: _shortid2['default'].generate(), title: 'Titre du projet 4', type: 'Prototype', version: '1.0.0' }, { key: _shortid2['default'].generate(), title: 'Titre du projet 5', type: 'Web Application', version: '1.0.0' }, { key: _shortid2['default'].generate(), title: 'Titre du projet 6', type: 'Site Web', version: '1.0.0' }];
+	var projects = [{ key: _shortid2['default'].generate(), path: '/Volumes/Document/Web/Perso/test' }, { key: _shortid2['default'].generate(), path: '/Volumes/Document/Web/Perso/test2' }, { key: _shortid2['default'].generate(), path: '/Volumes/Document/Web/Perso/test3' }, { key: _shortid2['default'].generate(), path: '/Volumes/Document/Web/Perso/test4' }];
 	
 	module.exports = {
 		init: function init() {
@@ -409,12 +409,24 @@ webpackJsonp([1],{
 	
 	var _AppActions2 = _interopRequireWildcard(_AppActions);
 	
+	var project = {};
+	
 	var DashboardProject = (function (_React$Component) {
 		function DashboardProject(props) {
 			_classCallCheck(this, DashboardProject);
 	
 			_get(Object.getPrototypeOf(DashboardProject.prototype), 'constructor', this).call(this, props);
 			this.state = { projects: [] };
+			project = {
+				title: '',
+				type: '',
+				desc: '',
+				author: '',
+				version: '',
+				key: '',
+				path: '',
+				thumb: './images/default_thumb.jpg'
+			};
 		}
 	
 		_inherits(DashboardProject, _React$Component);
@@ -441,8 +453,7 @@ webpackJsonp([1],{
 				var project = _import2['default'].filter(this.state.projects, function (project) {
 					return project.key == id;
 				});
-				console.log(project);
-				return project;
+				return project[0];
 			}
 		}, {
 			key: 'render',
@@ -450,24 +461,41 @@ webpackJsonp([1],{
 				var router = this.context.router;
 	
 				var projectID = router.getCurrentParams().projectID;
-				var project = this.getProjectByID(projectID);
+				project = this.getProjectByID(projectID);
+				var thumb = project.thumb || './images/default_thumb.jpg';
 				return _React2['default'].createElement(
 					'div',
-					{ className: 'page' },
+					{ className: 'page dashboard' },
 					_React2['default'].createElement(
 						'h1',
 						{ className: 'page__title' },
-						'Dashboard Project'
+						'Dashboard Project ',
+						project.title
 					),
+					_React2['default'].createElement('img', { src: thumb, className: 'dashboard__thumb', alt: 'screenshot du projet' }),
 					_React2['default'].createElement(
-						'p',
-						null,
-						'Dashboard Project page'
-					),
-					_React2['default'].createElement(
-						'p',
-						null,
-						project
+						'div',
+						{ className: 'dashboard__detail' },
+						_React2['default'].createElement(
+							'h2',
+							{ className: 'dashboard__title' },
+							project.title
+						),
+						_React2['default'].createElement(
+							'p',
+							{ className: 'dashboard__type' },
+							project.type,
+							_React2['default'].createElement(
+								'span',
+								{ className: 'project__version' },
+								project.version
+							)
+						),
+						_React2['default'].createElement(
+							'p',
+							{ className: 'dashboard__desc' },
+							project.desc
+						)
 					)
 				);
 			}
@@ -929,6 +957,10 @@ webpackJsonp([1],{
 	
 	var _shortid2 = _interopRequireWildcard(_shortid);
 	
+	var _fs = __webpack_require__(7);
+	
+	var _fs2 = _interopRequireWildcard(_fs);
+	
 	var localStorageKey = 'projects';
 	
 	var AppActions = _Reflux2['default'].createActions(['onAddProject', // Called by button in Home Page
@@ -938,14 +970,13 @@ webpackJsonp([1],{
 	AppActions.loadProjects.preEmit = function (data) {
 		var loadedList = localStorage.getItem(localStorageKey);
 		if (!loadedList) {
-			var _projects = [{
-				key: _shortid2['default'].generate(),
-				title: 'Titre du projet',
-				type: 'Type de projet',
-				version: '1.0.0'
-			}];
+			var _projects = [];
 		} else {
-			var _projects = _import2['default'].map(JSON.parse(loadedList), function (project) {
+			var _projects = _import2['default'].map(JSON.parse(loadedList), function (projectConfig) {
+				var project = _fs2['default'].readFileSync(projectConfig.path + '/.qeewiconfig', 'utf-8');
+				project = JSON.parse(project.toString('utf8').replace(/^\uFEFF/, ''));
+				project.path = projectConfig.path;
+				project.key = projectConfig.key;
 				return project;
 			});
 		}
@@ -1348,7 +1379,7 @@ webpackJsonp([1],{
 							),
 							_React2['default'].createElement(
 								'p',
-								{ className: 'dropzone__instruction' },
+								{ className: 'dropzone__instruction', ref: 'instruction' },
 								'(Drop ton dossier ici)'
 							)
 						)
@@ -1469,7 +1500,9 @@ webpackJsonp([1],{
 			key: 'onDragOver',
 			value: function onDragOver(ev) {
 				ev.preventDefault();
-				console.log(ev);
+				// if(!ev.dataTransfer.items[0].webkitGetAsEntry().isDirectory) {
+				// 	this.refs.dropzone.refs.instruction.getDOMNode().value = 'Tu dois drop un dossier';
+				// }
 				this.setState({ isDragging: true });
 			}
 		}, {
@@ -1481,7 +1514,9 @@ webpackJsonp([1],{
 			key: 'onDrop',
 			value: function onDrop(ev) {
 				ev.preventDefault();
-				console.log(ev);
+				if (ev.dataTransfer.items[0].webkitGetAsEntry().isDirectory) {
+					console.log(ev.dataTransfer.files[0].path);
+				}
 				this.setState({ isDragging: false });
 			}
 		}, {
@@ -1494,7 +1529,7 @@ webpackJsonp([1],{
 	
 				return _React2['default'].createElement(
 					'div',
-					{ className: className, onDragOver: this.onDragOver, onDragLeave: this.onDragLeave, onDrop: this.onDrop },
+					{ className: className, onDragOver: this.onDragOver, onDragLeave: this.onDragLeave, onDrop: this.onDrop, ref: 'dropzone' },
 					this.props.children
 				);
 			}

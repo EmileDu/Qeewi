@@ -55,6 +55,7 @@ textarea {
 
 .page {
 	padding-top: 1.5rem;
+  @include outer-container();
 }
 .page__title {
 	display: none;

@@ -1,6 +1,8 @@
 import Reflux from 'reflux';
 import _ from 'lodash';
 import shortid from 'shortid';
+import fs from 'fs';
+
 
 var localStorageKey = 'projects';
 
@@ -16,14 +18,13 @@ var AppActions = Reflux.createActions([
 AppActions.loadProjects.preEmit = function(data) {
 	var loadedList = localStorage.getItem(localStorageKey);
 	if (!loadedList) {
-		var _projects = [{
-			key : shortid.generate(),
-			title: "Titre du projet",
-			type: "Type de projet",
-			version: "1.0.0"
-		}];
+		var _projects = [];
 	} else {
-		var _projects = _.map(JSON.parse(loadedList), function(project) {
+		var _projects = _.map(JSON.parse(loadedList), function(projectConfig) {
+			var project = fs.readFileSync(projectConfig.path + '/.qeewiconfig', 'utf-8')
+					project = JSON.parse(project.toString('utf8').replace(/^\uFEFF/, ''));
+					project.path = projectConfig.path;
+					project.key = projectConfig.key;
 			return project;
 		});
 	}

@@ -3,10 +3,22 @@ import _ from 'lodash';
 import AppStore from '../../stores/app.store.jsx';
 import AppActions from '../../actions/app.action.jsx';
 
+var project = {};
+
 class DashboardProject extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { projects: [] };
+		project = {
+			title: '',
+			type: '',
+			desc: '',
+			author: '',
+			version: '',
+			key: '',
+			path: '',
+			thumb: './images/default_thumb.jpg'
+		}
 	}
 
 	componentDidMount() {
@@ -26,19 +38,23 @@ class DashboardProject extends React.Component {
 		var project = _.filter(this.state.projects, function(project) {
 			return project.key == id;
 		});
-		console.log(project);
-		return project;
+		return project[0];
 	}
 
 	render() {
 		var { router } = this.context;
 		var projectID = router.getCurrentParams().projectID;
-		var project = this.getProjectByID(projectID);
+		project = this.getProjectByID(projectID);
+		var thumb = project.thumb || './images/default_thumb.jpg';
 		return (
-			<div className="page">
-				<h1 className="page__title">Dashboard Project</h1>
-				<p>Dashboard Project page</p>
-				<p>{project}</p>
+			<div className="page dashboard">
+				<h1 className="page__title">Dashboard Project {project.title}</h1>
+				<img src={thumb} className="dashboard__thumb" alt="screenshot du projet"/>
+					<div className="dashboard__detail">
+						<h2 className="dashboard__title">{project.title}</h2>
+						<p className="dashboard__type">{project.type}<span className="project__version">{project.version}</span></p>
+						<p className="dashboard__desc">{project.desc}</p>
+					</div>
 			</div>
 		);
 	}
