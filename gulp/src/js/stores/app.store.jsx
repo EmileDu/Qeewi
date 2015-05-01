@@ -9,6 +9,21 @@ var AppStore = Reflux.createStore({
 			this.projects = [];
 	},
 
+	loadProject(id) {
+		this.trigger({
+			loading: true
+		})
+	},
+
+	loadProjectSuccess(project) {
+		this.project = project;
+
+		this.trigger({
+			project: this.project,
+			loading: false
+		})
+	},
+
 	loadProjects() {
 		this.trigger({
 			loading: true
@@ -16,7 +31,7 @@ var AppStore = Reflux.createStore({
 	},
 
 	loadProjectsSuccess(projects) {
-		this.projects = projects
+		this.projects = projects;
 
 		this.trigger({
 			projects: this.projects,

@@ -27,15 +27,11 @@ app.initDev = function() {
 		isTrayOn = false;
 	}
 	this.initTray();
-	app.node.gui.Window.get().showDevTools();
+	// app.node.gui.Window.get().showDevTools();
 }
 
 app.initMenu = function(template) {
 	// console.log(template);
-	// var nativeMenuBar = new app.node.gui.Menu({ type: "menubar" });
-	// nativeMenuBar.createMacBuiltin("Qeewi");
-	// nativeMenuBar.items[0].submenu.append(new app.node.gui.MenuItem({ type: 'normal', label: 'Préférences', key: ',', modifiers: 'cmd', click: function() { } }))
-	// app.node.gui.Window.get().menu = nativeMenuBar;
 }
 
 app.initTray = function() {
@@ -50,8 +46,6 @@ app.initTray = function() {
 }
 
 app.node.gui.Window.get().on('loaded', function(){
-	ProjectsData.init();
-
 	app.init();
 	if (process.env.ENV == 'development') { app.initDev(); }
 

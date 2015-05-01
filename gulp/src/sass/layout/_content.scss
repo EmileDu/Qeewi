@@ -1,4 +1,5 @@
 .app__content {
+	@include position(relative);
 	@include outer-container(974px);
 	padding: 0 30px;
 	margin-left: 50px;

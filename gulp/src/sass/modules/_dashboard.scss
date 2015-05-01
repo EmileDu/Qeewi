@@ -1,0 +1,65 @@
+.dashboard {
+	color: $black;
+}
+
+.dashboard__thumb {
+	@include position(fixed, 0 null 0 50px);
+	width: 391px;
+	height: 100%;
+}
+
+.dashboard__detail {
+	@include span-columns(7);
+	@include shift(5);
+}
+
+.dashboard__title {
+	display: block;
+	font-size: 2.25rem;
+	font-family: $font-bold;
+	color: inherit;
+	margin-left: -2px;
+	margin-bottom: 5px;
+}
+
+.dashboard__type {
+	@include position(relative);
+	display: block;
+	font-size: 0.6875rem;
+	font-family: $font-light;
+	margin-bottom: 1.5rem;
+	span {
+		@include position(relative);
+		z-index: 5;
+		background: $gray;
+	}
+	span:first-child:after {
+
+	}
+	&:after {
+		content: '';
+		height: 1px;
+		width: 100%;
+		@include position(absolute, 0 0 0 null);
+		z-index: 1;
+		margin: auto;
+		background: $black;
+	}
+}
+
+.dashboard__version {
+	font-family: $font-thin;
+	color: inherit;
+	padding-right: 10px;
+	&:before {
+		display: inline-block;
+		content: ' - v';
+		color: inherit;
+	}
+}
+
+.dashboard__desc {
+	font-family: $font-light;
+	font-size: 1rem;
+	line-height: 1.5;
+}

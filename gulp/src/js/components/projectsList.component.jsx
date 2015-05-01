@@ -10,7 +10,6 @@ class ProjectsList extends React.Component{
 
 	render() {
 		var projects = this.props.projects.map(project => <Project key={ project.key } project={ project } />);
-
 		return (
 			<ul className="projects-list">
 				<NewProject />

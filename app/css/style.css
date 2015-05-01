@@ -269,6 +269,7 @@ textarea:active {
   width: 50px;
   min-height: 100%;
   height: 100%;
+  z-index: 5;
 }
 
 .header {
@@ -282,6 +283,13 @@ textarea:active {
   width: 25px;
   height: 25px;
   margin: 0 auto;
+  margin-bottom: 1.5rem;
+}
+.header__button:first-child, .header__button:last-child {
+  margin-bottom: 0;
+}
+.header__button:disabled .button__icon {
+  opacity: .3;
 }
 .header__button span {
   display: none;
@@ -292,7 +300,7 @@ textarea:active {
   fill: #ffffff;
   transition: fill .2s ease-in-out;
 }
-.header__button:hover .button__icon {
+.header__button:hover:enabled .button__icon {
   fill: #96c119;
 }
 
@@ -304,6 +312,7 @@ textarea:active {
 }
 
 .app__content {
+  position: relative;
   max-width: 974px;
   margin-left: auto;
   margin-right: auto;
@@ -412,6 +421,81 @@ textarea:active {
   display: inline-block;
   content: ' - v';
   color: inherit;
+}
+
+.dashboard {
+  color: #2d2e2c;
+}
+
+.dashboard__thumb {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 50px;
+  width: 391px;
+  height: 100%;
+}
+
+.dashboard__detail {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 57.35098%;
+  margin-left: 42.64902%;
+}
+.dashboard__detail:last-child {
+  margin-right: 0;
+}
+
+.dashboard__title {
+  display: block;
+  font-size: 2.25rem;
+  font-family: "HelveticaNeue_Bold", Helvetica, Arial, sans-serif;
+  color: inherit;
+  margin-left: -2px;
+  margin-bottom: 5px;
+}
+
+.dashboard__type {
+  position: relative;
+  display: block;
+  font-size: 0.6875rem;
+  font-family: "HelveticaNeue_Light", Helvetica, Arial, sans-serif;
+  margin-bottom: 1.5rem;
+}
+.dashboard__type span {
+  position: relative;
+  z-index: 5;
+  background: #eef3f5;
+}
+.dashboard__type:after {
+  content: '';
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  margin: auto;
+  background: #2d2e2c;
+}
+
+.dashboard__version {
+  font-family: "HelveticaNeue_Thin", Helvetica, Arial, sans-serif;
+  color: inherit;
+  padding-right: 10px;
+}
+.dashboard__version:before {
+  display: inline-block;
+  content: ' - v';
+  color: inherit;
+}
+
+.dashboard__desc {
+  font-family: "HelveticaNeue_Light", Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .dropzone {
