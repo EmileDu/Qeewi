@@ -69,3 +69,9 @@ textarea {
 	display: table-cell;
 	vertical-align: middle;
 }
+
+.row {
+  @include row();
+  margin-bottom: 1.5rem;
+  &:last-child { margin-bottom: 0; }
+}

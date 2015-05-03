@@ -13,7 +13,7 @@ class Header extends React.Component {
 	}
 
 	render() {
-		var { router } = this.context
+		var { router } = this.context;
 		var path = router.getCurrentPath();
 		var navigation = [];
 		switch(path) {
