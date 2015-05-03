@@ -2,6 +2,8 @@ import React from 'react';
 import Input from '../../components/input.component.jsx';
 import Dropzone from '../../components/dropzone.component.jsx';
 import _ from 'lodash';
+import AppStore from '../../stores/app.store.jsx';
+import AppActions from '../../actions/app.action.jsx';
 
 var requiredInput;
 var formValidateButton;
@@ -10,19 +12,19 @@ class NewProject extends React.Component {
 	constructor() {
 		super();
 		this.onChange = this.onChange.bind(this);
-		// requiredInput = this.refs.newprojectform.getDOMNode().querySelector('[required]');
+		this.onSubmit = this.onSubmit.bind(this);
 	}
 
+	componentDidMount() {
+		requiredInput = this.refs.newprojectform.getDOMNode().querySelectorAll('[required]');
+	}
 
-
-	onSubmit() {
-
+	onSubmit(ev) {
+		ev.preventDefault();
+		console.log("submited");
 	}
 
 	onChange() {
-		formValidateButton = this.refs;
-		console.log(formValidateButton);
-		requiredInput = this.refs.newprojectform.getDOMNode().querySelectorAll('[required]');
 		var isValidatable = false;
 		var flag = false;
 		_.map(requiredInput, function(input){
@@ -32,14 +34,14 @@ class NewProject extends React.Component {
 			}
 		});
 		if (!flag){ isValidatable = true };
-		// formValidateButton.isValidatable(!isValidatable);
+		AppActions.isValidable(isValidatable);
 	}
 
 	render() {
 		return (
-			<div className="page">
+			<div className="page" ref="newprojectpage">
 				<h1 className="page__title">New Project</h1>
-				<form ref="newprojectform" onChange={this.onChange}>
+				<form ref="newprojectform" id="newprojectform" onChange={this.onChange} onSubmit={this.onSubmit}>
 					<fieldset className="form-section">
 						<legend className="form-section__title">Informations Générales</legend>
 						<div className="row">
@@ -186,10 +188,29 @@ class NewProject extends React.Component {
 					</fieldset>
 					<fieldset className="form-section">
 						<legend className="form-section__title">Javascript</legend>
+						<div className="row">
+							<Input
+								className="form-section__input input input--3col input--radio"
+								type="radio"
+								name="input-preprojs"
+								value="CoffeeScript"
+								id="input-preprojs-coffescript">
+								CoffeeScript
+							</Input>
+							<Input
+								className="form-section__input input input--3col input--radio"
+								type="radio"
+								name="input-preprojs"
+								value="LiveScript"
+								id="input-preprojs-livescript">
+								LiveScript
+							</Input>
+						</div>
 					</fieldset>
 					<fieldset className="form-section">
 						<legend className="form-section__title">Typographie</legend>
 					</fieldset>
+					<button type="submit" id="newprojectformsubmiter" className="form-section__input input input--hidden">Submit</button>
 				</form>
 			</div>
 		);

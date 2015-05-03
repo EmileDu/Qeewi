@@ -6,12 +6,12 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 	}
-
+	
 	render() {
 		return (
-			<div className="app" id="app">
-				<Header />
-				<div className="app__content">
+			<div className="app" id="app" ref="app">
+				<Header ref="app__header"/>
+				<div className="app__content" ref="app__content">
 					<div className="wrapper">
 						<RouteHandler/>
 					</div>

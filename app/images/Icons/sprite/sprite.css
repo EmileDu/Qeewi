@@ -3,53 +3,58 @@
 	background-repeat: no-repeat;
 	background-image: url(sprite.svg);
 }
-.icon-cog {
+.icon-back {
 	width: 32px;
 	height: 32px;
 	background-position: 0 0;
 }
-.icon-search {
+.icon-cog {
 	width: 32px;
 	height: 32px;
 	background-position: -48px 0;
 }
-.icon-circle-plus {
+.icon-search {
 	width: 32px;
 	height: 32px;
 	background-position: -96px 0;
 }
-.icon-circle-minus {
+.icon-circle-plus {
 	width: 32px;
 	height: 32px;
 	background-position: -144px 0;
 }
-.icon-circle-check {
+.icon-circle-minus {
 	width: 32px;
 	height: 32px;
 	background-position: -192px 0;
 }
-.icon-circle-cross {
+.icon-circle-check {
 	width: 32px;
 	height: 32px;
 	background-position: -240px 0;
 }
-.icon-plus {
+.icon-circle-cross {
 	width: 32px;
 	height: 32px;
 	background-position: -288px 0;
 }
-.icon-minus {
+.icon-plus {
 	width: 32px;
 	height: 32px;
 	background-position: -336px 0;
 }
-.icon-check {
+.icon-minus {
 	width: 32px;
 	height: 32px;
 	background-position: -384px 0;
 }
-.icon-cross {
+.icon-check {
 	width: 32px;
 	height: 32px;
 	background-position: -432px 0;
+}
+.icon-cross {
+	width: 32px;
+	height: 32px;
+	background-position: -480px 0;
 }

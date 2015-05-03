@@ -5,12 +5,12 @@ class DropZone extends React.Component{
 	constructor(props) {
 		super(props);
 		this.state = { isDraging: false }
-		this._onDragOver = this._onDragOver.bind(this);
-		this._onDragLeave = this._onDragLeave.bind(this);
-		this._onDrop = this._onDrop.bind(this);
+		this.handleDragOver = this.handleDragOver.bind(this);
+		this.handleDragLeave = this.handleDragLeave.bind(this);
+		this.handleDrop = this.handleDrop.bind(this);
 	}
 
-	_onDragOver(ev) {
+	handleDragOver(ev) {
 		ev.preventDefault();
 		// if(!ev.dataTransfer.items[0].webkitGetAsEntry().isDirectory) {
 		// 	this.refs.dropzone.refs.instruction.getDOMNode().value = 'Tu dois drop un dossier';
@@ -18,11 +18,11 @@ class DropZone extends React.Component{
 		this.setState({ isDragging: true });
 	}
 
-	_onDragLeave(ev) {
+	handleDragLeave(ev) {
 		this.setState({ isDragging: false });
 	}
 
-	_onDrop(ev) {
+	handleDrop(ev) {
 		ev.preventDefault();
 		if (ev.dataTransfer.items[0].webkitGetAsEntry().isDirectory) {
 			console.log(ev.dataTransfer.files[0].path);
@@ -35,7 +35,7 @@ class DropZone extends React.Component{
 		if (this.state.isDragging) { className += ' dropzone--active' };
 
 		return (
-			<div className={className} onDragOver={this._onDragOver} onDragLeave={this._onDragLeave} onDrop={this._onDrop}>
+			<div className={className} onDragOver={this.handleDragOver} onDragLeave={this.handleDragLeave} onDrop={this.handleDrop}>
 				{this.props.children}
 			</div>
 		)

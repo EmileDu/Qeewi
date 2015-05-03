@@ -311,7 +311,7 @@ textarea:active {
   width: 100%;
   height: 100%;
   fill: #ffffff;
-  transition: fill .2s ease-in-out;
+  transition: all .2s ease-in-out;
 }
 .header__button:hover:enabled .button__icon {
   fill: #96c119;
@@ -754,6 +754,10 @@ textarea:active {
           transform: scale(0);
   background: #96c119;
   transition: all .2s ease-in-out;
+}
+
+.input--hidden {
+  display: none;
 }
 
 .input__field {

@@ -30,7 +30,7 @@
 		"title": "Qeewi",
 		"icon": "icons/app_icon.png",
 		"show": true,
-		"toolbar": true,
+		"toolbar": false,
 		"frame": true,
 		"width": 1024,
 		"height": 576,

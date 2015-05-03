@@ -23,6 +23,7 @@
     "email": "support@qeewi.io"
   },
   "dependencies": {
+    "classnames": "^2.0.0",
     "handlebars": "^3.0.1",
     "json-loader": "^0.5.1",
     "lodash": "^3.7.0",

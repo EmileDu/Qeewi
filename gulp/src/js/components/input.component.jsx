@@ -1,15 +1,17 @@
 import React from 'react';
+import _ from 'lodash';
+import classNames from 'classnames';
 
 class Input extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { isFilled: false };
-		this.onChange = this.onChange.bind(this);
+		this.handleChange = this.handleChange.bind(this);
 	}
 
-	onChange(ev) {
-		console.log(ev.target.value);
-		if (ev.target.value !== '') {
+	handleChange(ev) {
+		if (!_.isEmpty(_.trim(ev.target.value))) {
+			console.log(!_.isEmpty(_.trim(ev.target.value)));
 			this.setState({ isFilled: true });
 		}
 	}
@@ -18,10 +20,7 @@ class Input extends React.Component {
 		var id = this.props.id || "input-"+this.props.type;
 		var className = this.props.className || "input";
 
-		var inputClassName = "input__field";
-		if(this.state.isFilled)  {
-			inputClassName += " input__field--filled";
-		};
+		var inputClassName = classNames('input__field', {'input__field--filled': this.state.isFilled});
 
 		var field = [];
 		var input = [];
@@ -34,7 +33,8 @@ class Input extends React.Component {
 						name={this.props.name}
 						value={this.props.value}
 						className={inputClassName}
-						id={id} />
+						id={id}
+						ref={id}/>
 				);
 				break;
 			case 'radio':
@@ -44,7 +44,8 @@ class Input extends React.Component {
 						name={this.props.name}
 						value={this.props.value}
 						className={inputClassName}
-						id={id} />
+						id={id}
+						ref={id}/>
 				);
 				break;
 			case 'file':
@@ -54,18 +55,21 @@ class Input extends React.Component {
 						name={this.props.name}
 						className={inputClassName}
 						id={id}
+						ref={id}
 						required={this.props.required}
 						accept={this.props.accept}
-						onChange={this.onChange} />
+						onChange={this.handleChange} />
 				);
 				break;
 			case 'text':
 				input.push(
 					<input
 						type={this.props.type}
-						className={inputClassName} id={id}
+						className={inputClassName}
+						id={id}
+						ref={id}
 						required={this.props.required}
-						onChange={this.onChange} />
+						onChange={this.handleChange} />
 				);
 				break;
 			case 'textarea':
@@ -73,8 +77,9 @@ class Input extends React.Component {
 					<textarea
 						className={inputClassName}
 						id={id}
+						ref={id}
 						required={this.props.required}
-						onChange={this.onChange}>
+						onChange={this.handleChange}>
 					</textarea>
 				);
 				break;
@@ -86,8 +91,9 @@ class Input extends React.Component {
 						type={this.props.type}
 						className={inputClassName}
 						id={id}
+						ref={id}
 						required={this.props.required}
-						onChange={this.onChange} />
+						onChange={this.handleChange} />
 					);
 				break;
 		};

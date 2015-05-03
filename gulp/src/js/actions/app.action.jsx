@@ -14,7 +14,8 @@ var AppActions = Reflux.createActions([
 	'loadProjectsSuccess',
 	'loadProjectsError',
 	'loadProject',
-	'loadProjectSuccess'
+	'loadProjectSuccess',
+	'isValidable'
 ]);
 
 AppActions.loadProjects.preEmit = function(data) {

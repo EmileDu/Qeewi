@@ -10,15 +10,14 @@ class NewProject extends React.Component{
 	}
 
 	onDrop() {
-		console.log('coucou');
 		var { router } = this.context;
 		router.transitionTo('NewProject');
 	}
 
 	render() {
 		return (
-			<li className="projects-list__item project valign-parent">
-				<DropZone className="valign-child dropzone" onDrop={this.onDrop}>
+			<li className="projects-list__item project valign-parent" onDrop={this.onDrop}>
+				<DropZone className="valign-child dropzone">
 					<Link to="NewProject">
 						<Icon className="dropzone__icon" size="32" icon="icon-plus" link="images/Icons/svgdefs.svg" />
 						<h2 className="dropzone__label">Nouveau projet</h2>

@@ -69,6 +69,10 @@ var AppStore = Reflux.createStore({
 		localStorage.setItem(localStorageKey, JSON.stringify(list));
 		_projects = list;
 		this.trigger(list);
+	},
+
+	isValidable: function(state) {
+		this.trigger({isDisabled: !state});
 	}
 });
 

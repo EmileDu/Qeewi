@@ -12,7 +12,7 @@ var routes = (
 	<Route name="App" path="/" handler={ App }>
     <Route name="DahsboardProject" path="/project/:projectID" handler={ DashboardProject } />
 		<Route name="NewProject" path="/newproject" handler={ NewProject } />
-		<Route name="Homepage" handler={ Home } />
+		<Route name="Homepage" path="/" handler={ Home } />
 		<DefaultRoute handler={ Home } />
 		<NotFoundRoute Handler={ NotFound } />
 	</Route>

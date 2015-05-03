@@ -5,7 +5,7 @@ import SettingsModal from '../../components/settingsModal.component.jsx';
 // import FormNavigation from '../../components/formNavigation.component.jsx';
 import FormValidate from '../../components/formValidate.component.jsx';
 import FormClose from '../../components/formClose.component.jsx';
-// import Return from '../../components/return.component.jsx';
+import Return from '../../components/return.component.jsx';
 
 class Header extends React.Component {
 	constructor() {
@@ -26,7 +26,9 @@ class Header extends React.Component {
 				)
 				break;
 			default:
-
+				navigation.push(
+						<Return />
+				)
 				break;
 		}
 		return (
