@@ -15,8 +15,9 @@ class Header extends React.Component {
 	render() {
 		var { router } = this.context;
 		var path = router.getCurrentPath();
+		path = path.split("?");
 		var navigation = [];
-		switch(path) {
+		switch(path[0]) {
 			case '/':
 				break;
 			case '/newproject':
@@ -25,10 +26,12 @@ class Header extends React.Component {
 					<FormClose />
 				)
 				break;
-			default:
+			case '/project':
 				navigation.push(
 						<Return />
 				)
+				break;
+			default:
 				break;
 		}
 		return (

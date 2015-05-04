@@ -372,7 +372,7 @@ textarea:active {
   height: 144px;
   overflow: hidden;
   border-radius: 5px;
-  color: #ffffff;
+  color: #2d2e2c;
 }
 .project:first-child {
   display: table;
@@ -406,7 +406,6 @@ textarea:active {
   z-index: 1;
   padding: 0 10px 5px;
   color: inherit;
-  background: linear-gradient(to top, rgba(45, 46, 44, 0.7) 0%, rgba(45, 46, 44, 0) 100%);
 }
 
 .project__title {

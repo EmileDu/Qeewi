@@ -73,6 +73,10 @@ var AppStore = Reflux.createStore({
 
 	isValidable: function(state) {
 		this.trigger({isDisabled: !state});
+	},
+
+	compileProject(data) {
+		console.log(data);
 	}
 });
 

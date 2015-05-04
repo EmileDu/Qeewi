@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import classNames from 'classnames';
+import ClassNames from 'classnames';
 
 class Input extends React.Component {
 	constructor(props) {
@@ -18,8 +18,8 @@ class Input extends React.Component {
 
 	render() {
 		var id = this.props.id || "input-"+this.props.type;
-		var className = classNames(this.props.className);
-		var inputClassName = classNames('input__field', {'input__field--filled': this.state.isFilled});
+		var className = ClassNames(this.props.className);
+		var inputClassName = ClassNames('input__field', {'input__field--filled': this.state.isFilled});
 
 		var field = [];
 		var input = [];
@@ -57,7 +57,7 @@ class Input extends React.Component {
 						ref={id}
 						required={this.props.required}
 						accept={this.props.accept}
-						onChange={this.handleChange} />
+						onInput={this.handleChange} />
 				);
 				break;
 			case 'text':
@@ -68,7 +68,7 @@ class Input extends React.Component {
 						id={id}
 						ref={id}
 						required={this.props.required}
-						onChange={this.handleChange} />
+						onInput={this.handleChange}/>
 				);
 				break;
 			case 'textarea':
@@ -78,7 +78,7 @@ class Input extends React.Component {
 						id={id}
 						ref={id}
 						required={this.props.required}
-						onChange={this.handleChange}>
+						onInput={this.handleChange}>
 					</textarea>
 				);
 				break;
@@ -92,7 +92,7 @@ class Input extends React.Component {
 						id={id}
 						ref={id}
 						required={this.props.required}
-						onChange={this.handleChange} />
+						onInput={this.handleChange} />
 					);
 				break;
 		};

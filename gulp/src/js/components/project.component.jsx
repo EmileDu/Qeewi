@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import Image from './image.component.jsx';
 
 class Project extends React.Component{
 	constructor() {
@@ -8,11 +9,18 @@ class Project extends React.Component{
 
 	render() {
 		var project = this.props.project;
-		var thumb = project.thumb || './images/default_thumb.jpg';
+		var file = project.thumb || "images/"+ this.props.id;
 		return (
 			<li className="projects-list__item project">
-				<Link to="DahsboardProject" params={{projectID: project.key}}>
-					<img src={thumb} className="project__thumb" alt="screenshot du projet"/>
+				<Link to="DahsboardProject" query={{projectID: project.key, id: this.props.id}}>
+					<Image
+						file={file}
+						format="png"
+						className="project__thumb"
+						alt="screenshot du projet"
+						width="212"
+						height="144"
+						responsiveOption={['1x', '2x']}/>
 					<div className="project__detail">
 						<h2 className="project__title">{project.title}</h2>
 						<p className="project__type">{project.type}<span className="project__version">{project.version}</span></p>

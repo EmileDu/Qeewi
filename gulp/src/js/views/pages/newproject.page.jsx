@@ -7,21 +7,26 @@ import AppActions from '../../actions/app.action.jsx';
 
 var requiredInput;
 var formValidateButton;
+var router;
 
 class NewProject extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.onChange = this.onChange.bind(this);
-		this.onSubmit = this.onSubmit.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.getFormData = this.getFormData.bind(this);
+	}
+
+	componentWillMount() {
+		router = this.context.router;
 	}
 
 	componentDidMount() {
-		requiredInput = this.refs.newprojectform.getDOMNode().querySelectorAll('[required]');
-	}
 
-	onSubmit(ev) {
-		ev.preventDefault();
-		console.log("submited");
+		requiredInput = this.refs.newprojectform.getDOMNode().querySelectorAll('[required]');
+		this.refs.inputPath.getDOMNode().setAttribute('nwdirectory', true);
+		this.refs.inputPath.getDOMNode().setAttribute('directory', true);
+
 	}
 
 	onChange() {
@@ -37,12 +42,30 @@ class NewProject extends React.Component {
 		AppActions.isValidable(isValidatable);
 	}
 
+	getFormData() {
+		var form = document.querySelector("#newprojectform");
+		var data = form.querySelectorAll("input, textarea, button");
+		return data;
+	}
+
+	handleSubmit() {
+		console.log('submited');
+		var data = this.getFormData();
+		console.log(data);
+		// AppActions.compileProject(isValidatable);
+	}
+
 	render() {
+		if (router.getCurrentQuery().path !== undefined) {
+			var pathValue = router.getCurrentQuery().path;
+		} else {
+			var pathValue = '';
+		}
 		return (
 			<div className="page" ref="newprojectpage">
 				<h1 className="page__title">New Project</h1>
 				<form ref="newprojectform" id="newprojectform" onChange={this.onChange} onSubmit={this.onSubmit}>
-					<fieldset className="form-section">
+					<fieldset className="form-section" id="infogen">
 						<legend className="form-section__title">Informations Générales</legend>
 						<div className="row">
 							<Input
@@ -210,7 +233,8 @@ class NewProject extends React.Component {
 					<fieldset className="form-section">
 						<legend className="form-section__title">Typographie</legend>
 					</fieldset>
-					<button type="submit" id="newprojectformsubmiter" className="form-section__input input input--hidden">Submit</button>
+					<input type="file" ref="inputPath" id="newprojectpath" className="form-section__input input input--hidden" value={pathValue} onChange={this.handleSubmit}/>
+					<button type="submit" id="newprojectsubmit" className="form-section__input input input--hidden">Submit</button>
 				</form>
 			</div>
 		);
@@ -218,5 +242,7 @@ class NewProject extends React.Component {
 }
 
 NewProject.displayName = 'New project page';
+NewProject.contextTypes = { router: React.PropTypes.func.isRequired };
+
 
 export default NewProject;

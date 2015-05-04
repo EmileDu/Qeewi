@@ -9,7 +9,14 @@ class ProjectsList extends React.Component{
 	}
 
 	render() {
-		var projects = this.props.projects.map(project => <Project key={ project.key } project={ project } />);
+		var i = 0;
+		var projects = _.map(this.props.projects, function(project){
+			i++;
+			if (i > 5) {
+				i = 1;
+			}
+			return <Project key={ project.key } project={ project } id={i}/>
+		});
 		return (
 			<ul className="projects-list">
 				<NewProject />

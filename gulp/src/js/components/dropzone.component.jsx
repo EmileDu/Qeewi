@@ -1,11 +1,11 @@
 import React from 'react';
 import Icon from './icon.component.jsx';
-import classNames from 'classnames';
+import ClassNames from 'classnames';
 
 class DropZone extends React.Component{
 	constructor(props) {
 		super(props);
-		this.state = { isDraging: false }
+		this.state = {isDraging: props.isDraging || false, path: props.path || undefined};
 		this.handleDragOver = this.handleDragOver.bind(this);
 		this.handleDragLeave = this.handleDragLeave.bind(this);
 		this.handleDrop = this.handleDrop.bind(this);
@@ -16,27 +16,29 @@ class DropZone extends React.Component{
 		// if(!ev.dataTransfer.items[0].webkitGetAsEntry().isDirectory) {
 		// 	this.refs.dropzone.refs.instruction.getDOMNode().value = 'Tu dois drop un dossier';
 		// }
-		this.setState({ isDragging: true });
+		this.setState({ isDraging: true });
 	}
 
 	handleDragLeave(ev) {
-		this.setState({ isDragging: false });
+		this.setState({ isDraging: false });
 	}
 
 	handleDrop(ev) {
+		console.log('coucou');
 		ev.preventDefault();
 		if (ev.dataTransfer.items[0].webkitGetAsEntry().isDirectory) {
-			console.log(ev.dataTransfer.files[0].path);
+			this.setState({ path: ev.dataTransfer.files[0].path});
 		}
-		this.setState({ isDragging: false });
+		this.setState({ isDraging: false });
 	}
 
 	render() {
-		var className = classNames(this.props.className);
-		if (this.state.isDragging) { className += ' dropzone--active' };
-
+		var className = ClassNames(this.props.className, {'dropzone--active': this.state.isDraging});
 		return (
-			<div className={className} onDragOver={this.handleDragOver} onDragLeave={this.handleDragLeave} onDrop={this.handleDrop}>
+			<div className={className}
+				onDragOver={this.props.onDragOver || this.handleDragOver}
+				onDragLeave={this.props.onDragLeave || this.handleDragLeave}
+				onDrop={this.props.onDrop || this.handleDrop}>
 				{this.props.children}
 			</div>
 		)

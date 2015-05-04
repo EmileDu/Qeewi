@@ -2,20 +2,27 @@ import React from 'react';
 import _ from 'lodash';
 import AppStore from '../../stores/app.store.jsx';
 import AppActions from '../../actions/app.action.jsx';
+import Image from '../../components/image.component.jsx';
 
 var project = {};
 var projectID;
+var id;
+
+var router;
 
 class DashboardProject extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { project: {} };
-		// projectID = router.getCurrentParams().projectID;
 	}
 
+	componentWillMount() {
+		router = this.context.router;
+		id = router.getCurrentQuery().id;
+		projectID = router.getCurrentQuery().projectID;
+	}
+	
 	componentDidMount() {
-		var { router } = this.context;
-		projectID = router.getCurrentParams().projectID;
 		this.unsubscribe = AppStore.listen(this.onStatusChange.bind(this));
 		AppActions.loadProject(projectID);
 	}
@@ -30,11 +37,18 @@ class DashboardProject extends React.Component {
 
 	render() {
 		var project = this.state.project;
-		var thumb = project.thumb || './images/default_thumb.jpg';
+		var file = project.thumbportrait || "images/"+id+"_portrait";
 		return (
 			<div className="page dashboard">
 				<h1 className="page__title">Dashboard Project {project.title}</h1>
-				<img src={thumb} className="dashboard__thumb" alt="screenshot du projet"/>
+				<Image
+					file={file}
+					format="png"
+					className="dashboard__thumb"
+					alt="screenshot du projet"
+					width="391"
+					height="576"
+					responsiveOption={['1x', '2x']}/>
 				<div className="dashboard__detail">
 					<h2 className="dashboard__title">{project.title}</h2>
 					<p className="dashboard__type">{project.type} <span className="dashboard__version">{project.version}</span></p>

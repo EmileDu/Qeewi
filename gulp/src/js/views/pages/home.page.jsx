@@ -17,7 +17,7 @@ class Home extends React.Component {
 		this.unsubscribe = AppStore.listen(this.onStatusChange.bind(this));
 		AppActions.loadProjects();
 	}
-
+	
 	componentWillUnmount() {
 		this.unsubscribe();
 	}
