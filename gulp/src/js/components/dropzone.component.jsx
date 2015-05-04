@@ -1,5 +1,6 @@
 import React from 'react';
 import Icon from './icon.component.jsx';
+import classNames from 'classnames';
 
 class DropZone extends React.Component{
 	constructor(props) {
@@ -31,7 +32,7 @@ class DropZone extends React.Component{
 	}
 
 	render() {
-		var className = this.props.className || 'dropzone';
+		var className = classNames(this.props.className);
 		if (this.state.isDragging) { className += ' dropzone--active' };
 
 		return (

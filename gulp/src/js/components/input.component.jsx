@@ -18,8 +18,7 @@ class Input extends React.Component {
 
 	render() {
 		var id = this.props.id || "input-"+this.props.type;
-		var className = this.props.className || "input";
-
+		var className = classNames(this.props.className);
 		var inputClassName = classNames('input__field', {'input__field--filled': this.state.isFilled});
 
 		var field = [];

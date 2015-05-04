@@ -15,7 +15,7 @@ class Return extends React.Component {
 
 	render() {
 		return(
-			<button className='header__button header__button button' onClick={this.onClick}>
+			<button className='header__button button' onClick={this.onClick}>
 				<Icon className='button__icon' size="32" icon="icon-back" link="images/Icons/svgdefs.svg" />
 				Return
 			</button>

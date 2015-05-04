@@ -8,9 +8,8 @@ class FormClose extends React.Component {
 	}
 
 	render() {
-		// var { router } = this.context;
 		return (
-			<Link className='header__button header__button button' to='Homepage'>
+			<Link className='header__button button' to='Homepage'>
 				<Icon className='button__icon' size="32" icon="icon-circle-cross" link="images/Icons/svgdefs.svg" />
 				Valider
 			</Link>

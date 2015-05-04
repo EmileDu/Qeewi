@@ -29,7 +29,7 @@ class FormValidate extends React.Component {
 
 	render() {
 		return (
-			<button className='header__button header__button button' disabled={this.state.isDisabled} onClick={this.handleClick}>
+			<button className='header__button button' disabled={this.state.isDisabled} onClick={this.handleClick}>
 				<Icon className='button__icon' size="32" icon="icon-circle-check" link="images/Icons/svgdefs.svg" />
 				Valider
 			</button>
