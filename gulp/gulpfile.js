@@ -121,7 +121,6 @@ gulp.task('html', function(){
 // --     task: watch     --
 // -------------------------
 gulp.task('watch', function() {
-	plugin.livereload.listen({ basePath: '../app'});
 	gulp.watch(sourcePaths.CSS + '**/*.scss', ['styles']);
 	gulp.watch(sourcePaths.JS  + '**/*.js', 	['scripts']);
 	gulp.watch(sourcePaths.JS  + '**/*.jsx', 	['scripts']);
@@ -151,7 +150,7 @@ gulp.task('build', function(callback) {
 // --    task: serve      --
 //--------------------------
 gulp.task('serve', function(callback) {
-	runSequence('html', 'styles', 'scripts', 'app', 'watch', callback);
+	runSequence('html', 'styles', 'scripts', 'watch', 'app', callback);
 });
 
 // -------------------------

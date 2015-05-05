@@ -22,7 +22,7 @@ class NewProject extends React.Component {
 	}
 
 	componentDidMount() {
-
+		document.title = "Qeewi | Nouveau projet";
 		requiredInput = this.refs.newprojectform.getDOMNode().querySelectorAll('[required]');
 		this.refs.inputPath.getDOMNode().setAttribute('nwdirectory', true);
 		this.refs.inputPath.getDOMNode().setAttribute('directory', true);
@@ -83,7 +83,8 @@ class NewProject extends React.Component {
 								type="textarea"
 								name="input-desc"
 								id="input-desc"
-								required={false}>
+								required={false}
+								maxlength="400">
 								Description du project
 							</Input>
 						</div>

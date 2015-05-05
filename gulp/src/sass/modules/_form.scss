@@ -129,6 +129,12 @@
 	background: $white;
 	border-radius: 3px;
 	font-size: inherit;
+	&:required + .input__label .input__label__content {
+		&:after {
+			content: '*';
+			display: inline-block;
+		}
+	}
 }
 
 .input:not(.input--dropzone):not(.input--radio) .input__field {
@@ -165,5 +171,4 @@
 	transform: translate3d(0, 0, 0);
 	transition: all .3s ease-in-out;
 	padding: 1.25rem 0 0.5rem;
-
 }

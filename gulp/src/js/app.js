@@ -2,8 +2,9 @@ import React from 'react';
 import Router from 'react-router';
 import _ from 'lodash';
 import routes from './routes';
-import ProjectsData from './ProjectsData';
+import ProjectsData from './ProjectsData.js';
 import MenuTemplate from './menus.js';
+import AppMenu from 'nw-appmenu';
 
 
 var app = {};
@@ -17,7 +18,6 @@ var tray;
 var isTrayOn = false;
 
 app.init = function() {
-
 	this.initMenu(MenuTemplate);
 }
 
@@ -27,11 +27,16 @@ app.initDev = function() {
 		isTrayOn = false;
 	}
 	this.initTray();
-	// app.node.gui.Window.get().showDevTools();
 }
 
 app.initMenu = function(template) {
-	// console.log(template);
+	var gui = app.node.gui;
+	var win = gui.Window.get();
+	var nativeMenuBar = new gui.Menu({ type: 'menubar' });
+	nativeMenuBar.createMacBuiltin && nativeMenuBar.createMacBuiltin("Qeewi");
+
+	AppMenu.extend(nativeMenuBar, template);
+	win.menu = nativeMenuBar;
 }
 
 app.initTray = function() {
@@ -46,9 +51,8 @@ app.initTray = function() {
 }
 
 app.node.gui.Window.get().on('loaded', function(){
+	// ProjectsData.init();
 	app.init();
-	if (process.env.ENV == 'development') { app.initDev(); }
-
 	Router.run(routes, function(Handler) {
 		React.render(<Handler/>, document.body)
 	});

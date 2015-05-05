@@ -26,7 +26,7 @@ class SettingsModal extends React.Component {
 			<div className="modal">
 				<button className='header__button header__button--settings button' onClick={this.openModal}>
 					<Icon className='button__icon' size="32" icon="icon-cog" link="images/Icons/svgdefs.svg" />
-					Préférences
+					<span className='button__label'>Préférences</span>
 				</button>
 				<Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}>
 					<button onClick={this.closeModal}>Fermer</button>

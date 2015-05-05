@@ -1,36 +1,52 @@
-var menu = [
-	{
-		label:"Qeewi",
-		submenu: [
-			{ type: "normal", label: "A propos de Qeewi" },
-			{ type: "separator"},
-			{ type: "normal", label: "Préférences" },
-			{ type: "separator"},
-			{ type: "normal", label: "Masquer Qeewi" },
-			{ type: "normal", label: "Masquer les autres" },
-			{ type: "normal", label: "Tout afficher" },
-			{ type: "separator"},
-			{ type: "normal", label: "Quitter Qeewi" },
-		]
+var gui = require('nw.gui');
+
+var menu = {
+	'': {
+		'Préférences': {
+			click: function () {
+				window.alert('click Example App -> "example item"');
+			},
+			key: ',',
+		}
 	},
-	{
-		label: "Fenêtre",
-		submenu: [
-			{ type: "normal", label: "Reduire"},
-			{ type: "normal", label: "Fermer la fenêtre"},
-			{ type: "separator" },
-			{ type: "normal", label: "Tout ramener au premier plan" }
-		]
+	"Aide": {
+		"Conditions d'utilisation": {
+			click: function() {
+				window.alert("condition d'utilisation");
+			}
+		},
+		"Documentation": {
+			click: function() {
+				window.alert("Documentation");
+			}
+		},
+		'separator2': 'separator',
+		"Reporter un bug": {
+			click: function() {
+				window.alert("Report un bug");
+			}
+		}
 	},
-	{
-		label: "Aide",
-		submenu: [
-			{ type: "normal", label: "Conditions d'utilisation" },
-			{ type: "normal", label: "Documentation" },
-			{ type: "separator" },
-			{ type: "normal", label: "Reporter un bug" }
-		]
+	"Fenêtre": {
+		'separator': 'separator',
+    Inspector: {
+      click: function () {
+        var win = gui.Window.get();
+        if (win.isDevToolsOpen()) {
+          win.closeDevTools();
+        } else {
+          win.showDevTools();
+        }
+      },
+      key: 'i'
+    },
+		Reload: {
+			click: function () {
+				gui.Window.get().reloadDev();
+			},
+			key: 'r'
+		}
 	}
-];
+};
 
 module.exports = menu;

@@ -3,58 +3,73 @@
 	background-repeat: no-repeat;
 	background-image: url(sprite.svg);
 }
-.icon-back {
+.icon-edit {
 	width: 32px;
 	height: 32px;
 	background-position: 0 0;
 }
+.icon-back {
+	width: 32px;
+	height: 32px;
+	background-position: 0 -48px;
+}
 .icon-cog {
 	width: 32px;
 	height: 32px;
-	background-position: -48px 0;
+	background-position: -48px -48px;
 }
 .icon-search {
 	width: 32px;
 	height: 32px;
-	background-position: -96px 0;
+	background-position: -96px -48px;
 }
 .icon-circle-plus {
 	width: 32px;
 	height: 32px;
-	background-position: -144px 0;
+	background-position: -144px -48px;
 }
 .icon-circle-minus {
 	width: 32px;
 	height: 32px;
-	background-position: -192px 0;
+	background-position: -192px -48px;
 }
 .icon-circle-check {
 	width: 32px;
 	height: 32px;
-	background-position: -240px 0;
+	background-position: -240px -48px;
 }
 .icon-circle-cross {
 	width: 32px;
 	height: 32px;
-	background-position: -288px 0;
+	background-position: -288px -48px;
+}
+.icon-reload {
+	width: 32px;
+	height: 32px;
+	background-position: -336px -48px;
+}
+.icon-esc {
+	width: 32px;
+	height: 32px;
+	background-position: -384px -48px;
 }
 .icon-plus {
 	width: 32px;
 	height: 32px;
-	background-position: -336px 0;
+	background-position: -432px -48px;
 }
 .icon-minus {
 	width: 32px;
 	height: 32px;
-	background-position: -384px 0;
+	background-position: -480px -48px;
 }
 .icon-check {
 	width: 32px;
 	height: 32px;
-	background-position: -432px 0;
+	background-position: -528px -48px;
 }
 .icon-cross {
 	width: 32px;
 	height: 32px;
-	background-position: -480px 0;
+	background-position: -576px -48px;
 }

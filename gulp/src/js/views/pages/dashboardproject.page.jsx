@@ -21,7 +21,7 @@ class DashboardProject extends React.Component {
 		id = router.getCurrentQuery().id;
 		projectID = router.getCurrentQuery().projectID;
 	}
-	
+
 	componentDidMount() {
 		this.unsubscribe = AppStore.listen(this.onStatusChange.bind(this));
 		AppActions.loadProject(projectID);
@@ -33,6 +33,7 @@ class DashboardProject extends React.Component {
 
 	onStatusChange(state) {
 		this.setState(state);
+		document.title = "Qeewi | " + this.state.project.title;
 	}
 
 	render() {

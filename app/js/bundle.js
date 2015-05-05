@@ -36,6 +36,10 @@ webpackJsonp([1],{
 	
 	var _MenuTemplate2 = _interopRequireWildcard(_MenuTemplate);
 	
+	var _AppMenu = __webpack_require__(56);
+	
+	var _AppMenu2 = _interopRequireWildcard(_AppMenu);
+	
 	var app = {};
 	app.node = {};
 	app.node.fs = __webpack_require__(7);
@@ -47,7 +51,6 @@ webpackJsonp([1],{
 	var isTrayOn = false;
 	
 	app.init = function () {
-	
 		this.initMenu(_MenuTemplate2['default']);
 	};
 	
@@ -57,10 +60,17 @@ webpackJsonp([1],{
 			isTrayOn = false;
 		}
 		this.initTray();
-		// app.node.gui.Window.get().showDevTools();
 	};
 	
-	app.initMenu = function (template) {};
+	app.initMenu = function (template) {
+		var gui = app.node.gui;
+		var win = gui.Window.get();
+		var nativeMenuBar = new gui.Menu({ type: 'menubar' });
+		nativeMenuBar.createMacBuiltin && nativeMenuBar.createMacBuiltin('Qeewi');
+	
+		_AppMenu2['default'].extend(nativeMenuBar, template);
+		win.menu = nativeMenuBar;
+	};
 	
 	app.initTray = function () {
 		tray = new app.node.gui.Tray({ icon: 'icons/tray_icon.png', tooltip: 'Qeewi' });
@@ -78,11 +88,8 @@ webpackJsonp([1],{
 	};
 	
 	app.node.gui.Window.get().on('loaded', function () {
+		// ProjectsData.init();
 		app.init();
-		if (process.env.ENV == 'development') {
-			app.initDev();
-		}
-	
 		_Router2['default'].run(_routes2['default'], function (Handler) {
 			_React2['default'].render(_React2['default'].createElement(Handler, null), document.body);
 		});
@@ -91,8 +98,6 @@ webpackJsonp([1],{
 	window.ondragover = window.ondrop = function (e) {
 		e.preventDefault();return false;
 	};
-	
-	// console.log(template);
 
 /***/ },
 
@@ -130,23 +135,23 @@ webpackJsonp([1],{
 	
 	var _Route$DefaultRoute$NotFoundRoute = __webpack_require__(6);
 	
-	var _App = __webpack_require__(95);
+	var _App = __webpack_require__(96);
 	
 	var _App2 = _interopRequireWildcard(_App);
 	
-	var _Home = __webpack_require__(96);
+	var _Home = __webpack_require__(97);
 	
 	var _Home2 = _interopRequireWildcard(_Home);
 	
-	var _DashboardProject = __webpack_require__(97);
+	var _DashboardProject = __webpack_require__(98);
 	
 	var _DashboardProject2 = _interopRequireWildcard(_DashboardProject);
 	
-	var _NewProject = __webpack_require__(98);
+	var _NewProject = __webpack_require__(99);
 	
 	var _NewProject2 = _interopRequireWildcard(_NewProject);
 	
-	var _NotFound = __webpack_require__(99);
+	var _NotFound = __webpack_require__(100);
 	
 	var _NotFound2 = _interopRequireWildcard(_NotFound);
 	
@@ -175,7 +180,7 @@ webpackJsonp([1],{
 	
 	var _shortid2 = _interopRequireWildcard(_shortid);
 	
-	var projects = [{ key: _shortid2['default'].generate(), path: '/Volumes/Document/Web/Perso/test' }, { key: _shortid2['default'].generate(), path: '/Volumes/Document/Web/Perso/test2' }, { key: _shortid2['default'].generate(), path: '/Volumes/Document/Web/Perso/test3' }, { key: _shortid2['default'].generate(), path: '/Volumes/Document/Web/Perso/test4' }];
+	var projects = [{ key: _shortid2['default'].generate(), path: '/Users/emileduval/Desktop/test' }, { key: _shortid2['default'].generate(), path: '/Users/emileduval/Desktop/test2' }, { key: _shortid2['default'].generate(), path: '/Users/emileduval/Desktop/test3' }, { key: _shortid2['default'].generate(), path: '/Users/emileduval/Desktop/test4' }];
 	
 	module.exports = {
 		init: function init() {
@@ -189,24 +194,159 @@ webpackJsonp([1],{
 /***/ 40:
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
-	var menu = [{
-		label: "Qeewi",
-		submenu: [{ type: "normal", label: "A propos de Qeewi" }, { type: "separator" }, { type: "normal", label: "Préférences" }, { type: "separator" }, { type: "normal", label: "Masquer Qeewi" }, { type: "normal", label: "Masquer les autres" }, { type: "normal", label: "Tout afficher" }, { type: "separator" }, { type: "normal", label: "Quitter Qeewi" }]
-	}, {
-		label: "Fenêtre",
-		submenu: [{ type: "normal", label: "Reduire" }, { type: "normal", label: "Fermer la fenêtre" }, { type: "separator" }, { type: "normal", label: "Tout ramener au premier plan" }]
-	}, {
-		label: "Aide",
-		submenu: [{ type: "normal", label: "Conditions d'utilisation" }, { type: "normal", label: "Documentation" }, { type: "separator" }, { type: "normal", label: "Reporter un bug" }]
-	}];
+	var gui = __webpack_require__(8);
+	
+	var menu = {
+		'': {
+			Préférences: {
+				click: function click() {
+					window.alert('click Example App -> "example item"');
+				},
+				key: ',' }
+		},
+		Aide: {
+			'Conditions d\'utilisation': {
+				click: function click() {
+					window.alert('condition d\'utilisation');
+				}
+			},
+			Documentation: {
+				click: function click() {
+					window.alert('Documentation');
+				}
+			},
+			separator2: 'separator',
+			'Reporter un bug': {
+				click: function click() {
+					window.alert('Report un bug');
+				}
+			}
+		},
+		Fenêtre: {
+			separator: 'separator',
+			Inspector: {
+				click: function click() {
+					var win = gui.Window.get();
+					if (win.isDevToolsOpen()) {
+						win.closeDevTools();
+					} else {
+						win.showDevTools();
+					}
+				},
+				key: 'i'
+			},
+			Reload: {
+				click: function click() {
+					gui.Window.get().reloadDev();
+				},
+				key: 'r'
+			}
+		}
+	};
 	
 	module.exports = menu;
 
 /***/ },
 
-/***/ 95:
+/***/ 56:
+/***/ function(module, exports, __webpack_require__) {
+
+	var gui = window.nwDispatcher.nwGui || __webpack_require__(8);
+	
+	function Object_forEach (object, callback) {
+	  for (var key in object) {
+	    if (object.hasOwnProperty(key)) callback(key, object[key]);
+	  }
+	};
+	
+	var AppMenu = {
+	  /**
+	   * Append properties to application menu
+	   */
+	  extend: function(nativeMenuBar, newMenu) {
+	    Object_forEach(newMenu, function (submenuName, submenu) {
+	      var nativeSubmenu;
+	      nativeMenuBar.items.forEach(function(es) {
+	        if (es.label == submenuName) nativeSubmenu = es.submenu;
+	      });
+	      if (!nativeSubmenu) {
+	        nativeSubmenu = new gui.Menu();
+	        var position = nativeMenuBar.items.length - 1;
+	        nativeMenuBar.insert(new gui.MenuItem({label: submenuName, submenu: nativeSubmenu}), position);
+	      }
+	      Object_forEach(submenu, function (itemName, callback) {
+	        if (typeof callback == 'string') {
+	          nativeSubmenu.append(new gui.MenuItem({ type: callback }));
+	        } else {
+	          var menuItem;
+	          if (typeof callback == 'object') {
+	            var options = {label: itemName};
+	            Object_forEach(callback, function (key, value) {
+	              options[key] = value;
+	            });
+	            menuItem = new gui.MenuItem(options);
+	          } else {
+	            menuItem = new gui.MenuItem({label: itemName});
+	            menuItem.click = callback;
+	          }
+	          nativeSubmenu.append(menuItem);
+	        }
+	      });
+	    });
+	  },
+	
+	  createAndExtend: function (menuObject) {
+	    var nativeMenuBar = new gui.Menu({type: "menubar"});
+	    nativeMenuBar.createMacBuiltin && nativeMenuBar.createMacBuiltin("AppMenu");
+	
+	    AppMenu.extend(nativeMenuBar, menuObject);
+	    gui.Window.get().menu = nativeMenuBar;
+	  },
+	
+	  menuItem: function (menuName, itemName) {
+	    var menu = gui.Window.get().menu;
+	    var result;
+	    menu.items.forEach(function(es) {
+	      if (es.label == menuName) {
+	        es.submenu.items.forEach(function(item) {
+	          if (item.label == itemName) result = item;
+	        });
+	      }
+	    });
+	    return result;
+	  },
+	
+	  callMenuItem: function (menuName, itemName) {
+	    var item = this.menuItem(menuName, itemName);
+	    if (item) item.click();
+	  },
+	
+	  disableItem: function (menuName, itemName) {
+	    var item = this.menuItem(menuName, itemName);
+	    if (item) {
+	      item.enabled = false;
+	    } else {
+	      console.log("can not find menu item: '" + menuName + " -> " + itemName);
+	    }
+	  },
+	
+	  enableItem: function (menuName, itemName) {
+	    var item = this.menuItem(menuName, itemName);
+	    if (item) {
+	      item.enabled = true;
+	    } else {
+	      console.log("can not find menu item: '" + menuName + " -> " + itemName);
+	    }
+	  },
+	};
+	
+	module.exports = AppMenu;
+
+/***/ },
+
+/***/ 96:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -231,7 +371,7 @@ webpackJsonp([1],{
 	
 	var _RouteHandler = __webpack_require__(6);
 	
-	var _Header = __webpack_require__(170);
+	var _Header = __webpack_require__(171);
 	
 	var _Header2 = _interopRequireWildcard(_Header);
 	
@@ -276,7 +416,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 96:
+/***/ 97:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -299,15 +439,15 @@ webpackJsonp([1],{
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _ProjectsList = __webpack_require__(171);
+	var _ProjectsList = __webpack_require__(172);
 	
 	var _ProjectsList2 = _interopRequireWildcard(_ProjectsList);
 	
-	var _AppStore = __webpack_require__(172);
+	var _AppStore = __webpack_require__(173);
 	
 	var _AppStore2 = _interopRequireWildcard(_AppStore);
 	
-	var _AppActions = __webpack_require__(173);
+	var _AppActions = __webpack_require__(174);
 	
 	var _AppActions2 = _interopRequireWildcard(_AppActions);
 	
@@ -327,6 +467,7 @@ webpackJsonp([1],{
 		_createClass(Home, [{
 			key: 'componentDidMount',
 			value: function componentDidMount() {
+				document.title = 'Qeewi';
 				this.unsubscribe = _AppStore2['default'].listen(this.onStatusChange.bind(this));
 				_AppActions2['default'].loadProjects();
 			}
@@ -368,7 +509,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 97:
+/***/ 98:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -395,15 +536,15 @@ webpackJsonp([1],{
 	
 	var _import2 = _interopRequireWildcard(_import);
 	
-	var _AppStore = __webpack_require__(172);
+	var _AppStore = __webpack_require__(173);
 	
 	var _AppStore2 = _interopRequireWildcard(_AppStore);
 	
-	var _AppActions = __webpack_require__(173);
+	var _AppActions = __webpack_require__(174);
 	
 	var _AppActions2 = _interopRequireWildcard(_AppActions);
 	
-	var _Image = __webpack_require__(174);
+	var _Image = __webpack_require__(175);
 	
 	var _Image2 = _interopRequireWildcard(_Image);
 	
@@ -445,6 +586,7 @@ webpackJsonp([1],{
 			key: 'onStatusChange',
 			value: function onStatusChange(state) {
 				this.setState(state);
+				document.title = 'Qeewi | ' + this.state.project.title;
 			}
 		}, {
 			key: 'render',
@@ -508,7 +650,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 98:
+/***/ 99:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -531,11 +673,11 @@ webpackJsonp([1],{
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Input = __webpack_require__(175);
+	var _Input = __webpack_require__(176);
 	
 	var _Input2 = _interopRequireWildcard(_Input);
 	
-	var _Dropzone = __webpack_require__(176);
+	var _Dropzone = __webpack_require__(177);
 	
 	var _Dropzone2 = _interopRequireWildcard(_Dropzone);
 	
@@ -543,11 +685,11 @@ webpackJsonp([1],{
 	
 	var _import2 = _interopRequireWildcard(_import);
 	
-	var _AppStore = __webpack_require__(172);
+	var _AppStore = __webpack_require__(173);
 	
 	var _AppStore2 = _interopRequireWildcard(_AppStore);
 	
-	var _AppActions = __webpack_require__(173);
+	var _AppActions = __webpack_require__(174);
 	
 	var _AppActions2 = _interopRequireWildcard(_AppActions);
 	
@@ -575,7 +717,7 @@ webpackJsonp([1],{
 		}, {
 			key: 'componentDidMount',
 			value: function componentDidMount() {
-	
+				document.title = 'Qeewi | Nouveau projet';
 				requiredInput = this.refs.newprojectform.getDOMNode().querySelectorAll('[required]');
 				this.refs.inputPath.getDOMNode().setAttribute('nwdirectory', true);
 				this.refs.inputPath.getDOMNode().setAttribute('directory', true);
@@ -662,7 +804,8 @@ webpackJsonp([1],{
 										type: 'textarea',
 										name: 'input-desc',
 										id: 'input-desc',
-										required: false },
+										required: false,
+										maxlength: '400' },
 									'Description du project'
 								)
 							),
@@ -908,7 +1051,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 99:
+/***/ 100:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -966,7 +1109,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 170:
+/***/ 171:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -991,24 +1134,40 @@ webpackJsonp([1],{
 	
 	var _Link = __webpack_require__(6);
 	
-	var _SettingsModal = __webpack_require__(225);
+	var _SettingsModal = __webpack_require__(226);
 	
 	var _SettingsModal2 = _interopRequireWildcard(_SettingsModal);
 	
 	// import Search from '../../components/search.component.jsx';
 	// import FormNavigation from '../../components/formNavigation.component.jsx';
 	
-	var _FormValidate = __webpack_require__(226);
+	var _FormValidate = __webpack_require__(227);
 	
 	var _FormValidate2 = _interopRequireWildcard(_FormValidate);
 	
-	var _FormClose = __webpack_require__(227);
+	var _FormClose = __webpack_require__(228);
 	
 	var _FormClose2 = _interopRequireWildcard(_FormClose);
 	
-	var _Return = __webpack_require__(228);
+	var _Return = __webpack_require__(229);
 	
 	var _Return2 = _interopRequireWildcard(_Return);
+	
+	var _UpdateProject = __webpack_require__(230);
+	
+	var _UpdateProject2 = _interopRequireWildcard(_UpdateProject);
+	
+	var _EditProject = __webpack_require__(231);
+	
+	var _EditProject2 = _interopRequireWildcard(_EditProject);
+	
+	var _DeleteProject = __webpack_require__(232);
+	
+	var _DeleteProject2 = _interopRequireWildcard(_DeleteProject);
+	
+	var _ExportProject = __webpack_require__(233);
+	
+	var _ExportProject2 = _interopRequireWildcard(_ExportProject);
 	
 	var Header = (function (_React$Component) {
 		function Header() {
@@ -1034,7 +1193,7 @@ webpackJsonp([1],{
 						navigation.push(_React2['default'].createElement(_FormValidate2['default'], null), _React2['default'].createElement(_FormClose2['default'], null));
 						break;
 					case '/project':
-						navigation.push(_React2['default'].createElement(_Return2['default'], null));
+						navigation.push(_React2['default'].createElement(_Return2['default'], null), _React2['default'].createElement(_EditProject2['default'], null), _React2['default'].createElement(_UpdateProject2['default'], null), _React2['default'].createElement(_DeleteProject2['default'], null), _React2['default'].createElement(_ExportProject2['default'], null));
 						break;
 					default:
 						break;
@@ -1059,7 +1218,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 171:
+/***/ 172:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1082,11 +1241,11 @@ webpackJsonp([1],{
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Project = __webpack_require__(229);
+	var _Project = __webpack_require__(234);
 	
 	var _Project2 = _interopRequireWildcard(_Project);
 	
-	var _NewProject = __webpack_require__(230);
+	var _NewProject = __webpack_require__(235);
 	
 	var _NewProject2 = _interopRequireWildcard(_NewProject);
 	
@@ -1139,7 +1298,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 172:
+/***/ 173:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1154,7 +1313,7 @@ webpackJsonp([1],{
 	
 	var _Reflux2 = _interopRequireWildcard(_Reflux);
 	
-	var _AppActions = __webpack_require__(173);
+	var _AppActions = __webpack_require__(174);
 	
 	var _AppActions2 = _interopRequireWildcard(_AppActions);
 	
@@ -1246,7 +1405,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 173:
+/***/ 174:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1317,7 +1476,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 174:
+/***/ 175:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1336,11 +1495,11 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(224);
+	var _React = __webpack_require__(225);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _ClassNames = __webpack_require__(251);
+	var _ClassNames = __webpack_require__(256);
 	
 	var _ClassNames2 = _interopRequireWildcard(_ClassNames);
 	
@@ -1388,7 +1547,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 175:
+/***/ 176:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1415,7 +1574,7 @@ webpackJsonp([1],{
 	
 	var _import2 = _interopRequireWildcard(_import);
 	
-	var _ClassNames = __webpack_require__(251);
+	var _ClassNames = __webpack_require__(256);
 	
 	var _ClassNames2 = _interopRequireWildcard(_ClassNames);
 	
@@ -1547,7 +1706,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 176:
+/***/ 177:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1570,11 +1729,11 @@ webpackJsonp([1],{
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Icon = __webpack_require__(231);
+	var _Icon = __webpack_require__(236);
 	
 	var _Icon2 = _interopRequireWildcard(_Icon);
 	
-	var _ClassNames = __webpack_require__(251);
+	var _ClassNames = __webpack_require__(256);
 	
 	var _ClassNames2 = _interopRequireWildcard(_ClassNames);
 	
@@ -1642,15 +1801,15 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 224:
+/***/ 225:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(252);
+	module.exports = __webpack_require__(257);
 
 
 /***/ },
 
-/***/ 225:
+/***/ 226:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1677,7 +1836,7 @@ webpackJsonp([1],{
 	
 	var _Modal2 = _interopRequireWildcard(_Modal);
 	
-	var _Icon = __webpack_require__(231);
+	var _Icon = __webpack_require__(236);
 	
 	var _Icon2 = _interopRequireWildcard(_Icon);
 	
@@ -1716,7 +1875,11 @@ webpackJsonp([1],{
 						'button',
 						{ className: 'header__button header__button--settings button', onClick: this.openModal },
 						_React2['default'].createElement(_Icon2['default'], { className: 'button__icon', size: '32', icon: 'icon-cog', link: 'images/Icons/svgdefs.svg' }),
-						'Préférences'
+						_React2['default'].createElement(
+							'span',
+							{ className: 'button__label' },
+							'Préférences'
+						)
 					),
 					_React2['default'].createElement(
 						_Modal2['default'],
@@ -1741,7 +1904,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 226:
+/***/ 227:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1764,15 +1927,15 @@ webpackJsonp([1],{
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _AppStore = __webpack_require__(172);
+	var _AppStore = __webpack_require__(173);
 	
 	var _AppStore2 = _interopRequireWildcard(_AppStore);
 	
-	var _AppActions = __webpack_require__(173);
+	var _AppActions = __webpack_require__(174);
 	
 	var _AppActions2 = _interopRequireWildcard(_AppActions);
 	
-	var _Icon = __webpack_require__(231);
+	var _Icon = __webpack_require__(236);
 	
 	var _Icon2 = _interopRequireWildcard(_Icon);
 	
@@ -1806,7 +1969,6 @@ webpackJsonp([1],{
 			key: 'handleClick',
 			value: function handleClick() {
 				console.log(document.querySelector('#newprojectpath').value);
-				// document.querySelector("#newprojectsubmit").click();
 				document.querySelector('#newprojectpath').click();
 			}
 		}, {
@@ -1816,7 +1978,11 @@ webpackJsonp([1],{
 					'button',
 					{ className: 'header__button button', disabled: this.state.isDisabled, onClick: this.handleClick },
 					_React2['default'].createElement(_Icon2['default'], { className: 'button__icon', size: '32', icon: 'icon-circle-check', link: 'images/Icons/svgdefs.svg' }),
-					'Valider'
+					_React2['default'].createElement(
+						'span',
+						{ className: 'button__label' },
+						'Valider'
+					)
 				);
 			}
 		}]);
@@ -1827,66 +1993,6 @@ webpackJsonp([1],{
 	FormValidate.displayName = 'Form validation button';
 	
 	exports['default'] = FormValidate;
-	module.exports = exports['default'];
-
-/***/ },
-
-/***/ 227:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
-	
-	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(object, property, receiver) { var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-	
-	var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
-	
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-	
-	var _React = __webpack_require__(3);
-	
-	var _React2 = _interopRequireWildcard(_React);
-	
-	var _Link = __webpack_require__(6);
-	
-	var _Icon = __webpack_require__(231);
-	
-	var _Icon2 = _interopRequireWildcard(_Icon);
-	
-	var FormClose = (function (_React$Component) {
-		function FormClose() {
-			_classCallCheck(this, FormClose);
-	
-			_get(Object.getPrototypeOf(FormClose.prototype), 'constructor', this).call(this);
-		}
-	
-		_inherits(FormClose, _React$Component);
-	
-		_createClass(FormClose, [{
-			key: 'render',
-			value: function render() {
-				return _React2['default'].createElement(
-					_Link.Link,
-					{ className: 'header__button button', to: 'Homepage' },
-					_React2['default'].createElement(_Icon2['default'], { className: 'button__icon', size: '32', icon: 'icon-circle-cross', link: 'images/Icons/svgdefs.svg' }),
-					'Valider'
-				);
-			}
-		}]);
-	
-		return FormClose;
-	})(_React2['default'].Component);
-	
-	FormClose.displayName = 'Form close button';
-	
-	exports['default'] = FormClose;
 	module.exports = exports['default'];
 
 /***/ },
@@ -1914,50 +2020,43 @@ webpackJsonp([1],{
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _Router = __webpack_require__(6);
+	var _Link = __webpack_require__(6);
 	
-	var _Router2 = _interopRequireWildcard(_Router);
-	
-	var _Icon = __webpack_require__(231);
+	var _Icon = __webpack_require__(236);
 	
 	var _Icon2 = _interopRequireWildcard(_Icon);
 	
-	var Return = (function (_React$Component) {
-		function Return() {
-			_classCallCheck(this, Return);
+	var FormClose = (function (_React$Component) {
+		function FormClose() {
+			_classCallCheck(this, FormClose);
 	
-			_get(Object.getPrototypeOf(Return.prototype), 'constructor', this).call(this);
-			this.onClick = this.onClick.bind(this);
+			_get(Object.getPrototypeOf(FormClose.prototype), 'constructor', this).call(this);
 		}
 	
-		_inherits(Return, _React$Component);
+		_inherits(FormClose, _React$Component);
 	
-		_createClass(Return, [{
-			key: 'onClick',
-			value: function onClick() {
-				var router = this.context.router;
-	
-				router.transitionTo('Homepage');
-			}
-		}, {
+		_createClass(FormClose, [{
 			key: 'render',
 			value: function render() {
 				return _React2['default'].createElement(
-					'button',
-					{ className: 'header__button button', onClick: this.onClick },
-					_React2['default'].createElement(_Icon2['default'], { className: 'button__icon', size: '32', icon: 'icon-back', link: 'images/Icons/svgdefs.svg' }),
-					'Return'
+					_Link.Link,
+					{ className: 'header__button button', to: 'Homepage' },
+					_React2['default'].createElement(_Icon2['default'], { className: 'button__icon', size: '32', icon: 'icon-circle-cross', link: 'images/Icons/svgdefs.svg' }),
+					_React2['default'].createElement(
+						'span',
+						{ className: 'button__label' },
+						'Annuler'
+					)
 				);
 			}
 		}]);
 	
-		return Return;
+		return FormClose;
 	})(_React2['default'].Component);
 	
-	Return.displayName = 'Return';
-	Return.contextTypes = { router: _React2['default'].PropTypes.func.isRequired };
+	FormClose.displayName = 'Form close button';
 	
-	exports['default'] = Return;
+	exports['default'] = FormClose;
 	module.exports = exports['default'];
 
 /***/ },
@@ -1985,9 +2084,336 @@ webpackJsonp([1],{
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
+	var _Router = __webpack_require__(6);
+	
+	var _Router2 = _interopRequireWildcard(_Router);
+	
+	var _Icon = __webpack_require__(236);
+	
+	var _Icon2 = _interopRequireWildcard(_Icon);
+	
+	var Return = (function (_React$Component) {
+		function Return() {
+			_classCallCheck(this, Return);
+	
+			_get(Object.getPrototypeOf(Return.prototype), 'constructor', this).call(this);
+			this.onClick = this.onClick.bind(this);
+		}
+	
+		_inherits(Return, _React$Component);
+	
+		_createClass(Return, [{
+			key: 'onClick',
+			value: function onClick() {
+				var router = this.context.router;
+	
+				router.transitionTo('Homepage');
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				return _React2['default'].createElement(
+					'button',
+					{ className: 'header__button button', onClick: this.onClick },
+					_React2['default'].createElement(_Icon2['default'], { className: 'button__icon', size: '32', icon: 'icon-back', link: 'images/Icons/svgdefs.svg' }),
+					_React2['default'].createElement(
+						'span',
+						{ className: 'button__label' },
+						'Retour'
+					)
+				);
+			}
+		}]);
+	
+		return Return;
+	})(_React2['default'].Component);
+	
+	Return.displayName = 'Return';
+	Return.contextTypes = { router: _React2['default'].PropTypes.func.isRequired };
+	
+	exports['default'] = Return;
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 230:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
+	
+	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(object, property, receiver) { var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
+	
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+	
+	var _React = __webpack_require__(3);
+	
+	var _React2 = _interopRequireWildcard(_React);
+	
+	var _Icon = __webpack_require__(236);
+	
+	var _Icon2 = _interopRequireWildcard(_Icon);
+	
+	var UpdateProject = (function (_React$Component) {
+		function UpdateProject() {
+			_classCallCheck(this, UpdateProject);
+	
+			_get(Object.getPrototypeOf(UpdateProject.prototype), 'constructor', this).call(this);
+		}
+	
+		_inherits(UpdateProject, _React$Component);
+	
+		_createClass(UpdateProject, [{
+			key: 'render',
+			value: function render() {
+				return _React2['default'].createElement(
+					'button',
+					{ className: 'header__button button', onClick: this.onClick },
+					_React2['default'].createElement(_Icon2['default'], { className: 'button__icon', size: '32', icon: 'icon-reload', link: 'images/Icons/svgdefs.svg' }),
+					_React2['default'].createElement(
+						'span',
+						{ className: 'button__label' },
+						'Mettre à jour le projet'
+					)
+				);
+			}
+		}]);
+	
+		return UpdateProject;
+	})(_React2['default'].Component);
+	
+	UpdateProject.displayName = 'Update Project Button';
+	
+	exports['default'] = UpdateProject;
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 231:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
+	
+	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(object, property, receiver) { var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
+	
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+	
+	var _React = __webpack_require__(3);
+	
+	var _React2 = _interopRequireWildcard(_React);
+	
+	var _Router = __webpack_require__(6);
+	
+	var _Router2 = _interopRequireWildcard(_Router);
+	
+	var _Icon = __webpack_require__(236);
+	
+	var _Icon2 = _interopRequireWildcard(_Icon);
+	
+	var EditProject = (function (_React$Component) {
+		function EditProject() {
+			_classCallCheck(this, EditProject);
+	
+			_get(Object.getPrototypeOf(EditProject.prototype), 'constructor', this).call(this);
+		}
+	
+		_inherits(EditProject, _React$Component);
+	
+		_createClass(EditProject, [{
+			key: 'render',
+			value: function render() {
+				return _React2['default'].createElement(
+					'button',
+					{ className: 'header__button button', onClick: this.onClick },
+					_React2['default'].createElement(_Icon2['default'], { className: 'button__icon', size: '32', icon: 'icon-edit', link: 'images/Icons/svgdefs.svg' }),
+					_React2['default'].createElement(
+						'span',
+						{ className: 'button__label' },
+						'Éditer le projet'
+					)
+				);
+			}
+		}]);
+	
+		return EditProject;
+	})(_React2['default'].Component);
+	
+	EditProject.displayName = 'Edit Project Button';
+	
+	exports['default'] = EditProject;
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 232:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
+	
+	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(object, property, receiver) { var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
+	
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+	
+	var _React = __webpack_require__(3);
+	
+	var _React2 = _interopRequireWildcard(_React);
+	
+	var _Icon = __webpack_require__(236);
+	
+	var _Icon2 = _interopRequireWildcard(_Icon);
+	
+	var DeleteProject = (function (_React$Component) {
+		function DeleteProject() {
+			_classCallCheck(this, DeleteProject);
+	
+			_get(Object.getPrototypeOf(DeleteProject.prototype), 'constructor', this).call(this);
+		}
+	
+		_inherits(DeleteProject, _React$Component);
+	
+		_createClass(DeleteProject, [{
+			key: 'render',
+			value: function render() {
+				return _React2['default'].createElement(
+					'button',
+					{ className: 'header__button button', onClick: this.onClick },
+					_React2['default'].createElement(_Icon2['default'], { className: 'button__icon', size: '32', icon: 'icon-circle-minus', link: 'images/Icons/svgdefs.svg' }),
+					_React2['default'].createElement(
+						'span',
+						{ className: 'button__label' },
+						'Supprimer le projet'
+					)
+				);
+			}
+		}]);
+	
+		return DeleteProject;
+	})(_React2['default'].Component);
+	
+	DeleteProject.displayName = 'Delete Project Button';
+	
+	exports['default'] = DeleteProject;
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 233:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
+	
+	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(object, property, receiver) { var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
+	
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+	
+	var _React = __webpack_require__(3);
+	
+	var _React2 = _interopRequireWildcard(_React);
+	
+	var _Icon = __webpack_require__(236);
+	
+	var _Icon2 = _interopRequireWildcard(_Icon);
+	
+	var ExportProject = (function (_React$Component) {
+		function ExportProject() {
+			_classCallCheck(this, ExportProject);
+	
+			_get(Object.getPrototypeOf(ExportProject.prototype), 'constructor', this).call(this);
+		}
+	
+		_inherits(ExportProject, _React$Component);
+	
+		_createClass(ExportProject, [{
+			key: 'render',
+			value: function render() {
+				return _React2['default'].createElement(
+					'button',
+					{ className: 'header__button button', onClick: this.onClick },
+					_React2['default'].createElement(_Icon2['default'], { className: 'button__icon', size: '32', icon: 'icon-esc', link: 'images/Icons/svgdefs.svg' }),
+					_React2['default'].createElement(
+						'span',
+						{ className: 'button__label' },
+						'Exporter le projet'
+					)
+				);
+			}
+		}]);
+	
+		return ExportProject;
+	})(_React2['default'].Component);
+	
+	ExportProject.displayName = 'Export Project Button';
+	
+	exports['default'] = ExportProject;
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 234:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
+	
+	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(object, property, receiver) { var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
+	
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+	
+	var _React = __webpack_require__(3);
+	
+	var _React2 = _interopRequireWildcard(_React);
+	
 	var _Link = __webpack_require__(6);
 	
-	var _Image = __webpack_require__(174);
+	var _Image = __webpack_require__(175);
 	
 	var _Image2 = _interopRequireWildcard(_Image);
 	
@@ -2055,7 +2481,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 230:
+/***/ 235:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2080,11 +2506,11 @@ webpackJsonp([1],{
 	
 	var _Link = __webpack_require__(6);
 	
-	var _Icon = __webpack_require__(231);
+	var _Icon = __webpack_require__(236);
 	
 	var _Icon2 = _interopRequireWildcard(_Icon);
 	
-	var _DropZone = __webpack_require__(176);
+	var _DropZone = __webpack_require__(177);
 	
 	var _DropZone2 = _interopRequireWildcard(_DropZone);
 	
@@ -2174,7 +2600,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 231:
+/***/ 236:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2193,11 +2619,11 @@ webpackJsonp([1],{
 		value: true
 	});
 	
-	var _React = __webpack_require__(224);
+	var _React = __webpack_require__(225);
 	
 	var _React2 = _interopRequireWildcard(_React);
 	
-	var _ClassNames = __webpack_require__(251);
+	var _ClassNames = __webpack_require__(256);
 	
 	var _ClassNames2 = _interopRequireWildcard(_ClassNames);
 	
@@ -2234,7 +2660,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 251:
+/***/ 256:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -2283,7 +2709,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 252:
+/***/ 257:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2306,18 +2732,18 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var LinkedStateMixin = __webpack_require__(261);
+	var LinkedStateMixin = __webpack_require__(266);
 	var React = __webpack_require__(11);
 	var ReactComponentWithPureRenderMixin =
-	  __webpack_require__(262);
-	var ReactCSSTransitionGroup = __webpack_require__(263);
-	var ReactFragment = __webpack_require__(105);
-	var ReactTransitionGroup = __webpack_require__(264);
-	var ReactUpdates = __webpack_require__(155);
+	  __webpack_require__(267);
+	var ReactCSSTransitionGroup = __webpack_require__(268);
+	var ReactFragment = __webpack_require__(106);
+	var ReactTransitionGroup = __webpack_require__(269);
+	var ReactUpdates = __webpack_require__(156);
 	
-	var cx = __webpack_require__(167);
-	var cloneWithProps = __webpack_require__(265);
-	var update = __webpack_require__(266);
+	var cx = __webpack_require__(168);
+	var cloneWithProps = __webpack_require__(270);
+	var update = __webpack_require__(271);
 	
 	React.addons = {
 	  CSSTransitionGroup: ReactCSSTransitionGroup,
@@ -2333,8 +2759,8 @@ webpackJsonp([1],{
 	};
 	
 	if ("production" !== process.env.NODE_ENV) {
-	  React.addons.Perf = __webpack_require__(149);
-	  React.addons.TestUtils = __webpack_require__(267);
+	  React.addons.Perf = __webpack_require__(150);
+	  React.addons.TestUtils = __webpack_require__(272);
 	}
 	
 	module.exports = React;
@@ -2342,7 +2768,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 261:
+/***/ 266:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2359,8 +2785,8 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var ReactLink = __webpack_require__(270);
-	var ReactStateSetters = __webpack_require__(271);
+	var ReactLink = __webpack_require__(275);
+	var ReactStateSetters = __webpack_require__(276);
 	
 	/**
 	 * A simple mixin around ReactLink.forState().
@@ -2388,7 +2814,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 262:
+/***/ 267:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2404,7 +2830,7 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var shallowEqual = __webpack_require__(205);
+	var shallowEqual = __webpack_require__(206);
 	
 	/**
 	 * If your React component's render function is "pure", e.g. it will render the
@@ -2442,7 +2868,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 263:
+/***/ 268:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2461,13 +2887,13 @@ webpackJsonp([1],{
 	
 	var React = __webpack_require__(11);
 	
-	var assign = __webpack_require__(73);
+	var assign = __webpack_require__(74);
 	
 	var ReactTransitionGroup = React.createFactory(
-	  __webpack_require__(264)
+	  __webpack_require__(269)
 	);
 	var ReactCSSTransitionGroupChild = React.createFactory(
-	  __webpack_require__(272)
+	  __webpack_require__(277)
 	);
 	
 	var ReactCSSTransitionGroup = React.createClass({
@@ -2517,7 +2943,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 264:
+/***/ 269:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2534,11 +2960,11 @@ webpackJsonp([1],{
 	'use strict';
 	
 	var React = __webpack_require__(11);
-	var ReactTransitionChildMapping = __webpack_require__(273);
+	var ReactTransitionChildMapping = __webpack_require__(278);
 	
-	var assign = __webpack_require__(73);
-	var cloneWithProps = __webpack_require__(265);
-	var emptyFunction = __webpack_require__(161);
+	var assign = __webpack_require__(74);
+	var cloneWithProps = __webpack_require__(270);
+	var emptyFunction = __webpack_require__(162);
 	
 	var ReactTransitionGroup = React.createClass({
 	  displayName: 'ReactTransitionGroup',
@@ -2752,7 +3178,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 265:
+/***/ 270:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2769,11 +3195,11 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var ReactElement = __webpack_require__(62);
-	var ReactPropTransferer = __webpack_require__(274);
+	var ReactElement = __webpack_require__(63);
+	var ReactPropTransferer = __webpack_require__(279);
 	
-	var keyOf = __webpack_require__(114);
-	var warning = __webpack_require__(86);
+	var keyOf = __webpack_require__(115);
+	var warning = __webpack_require__(87);
 	
 	var CHILDREN_PROP = keyOf({children: null});
 	
@@ -2814,7 +3240,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 266:
+/***/ 271:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2832,9 +3258,9 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var assign = __webpack_require__(73);
-	var keyOf = __webpack_require__(114);
-	var invariant = __webpack_require__(83);
+	var assign = __webpack_require__(74);
+	var keyOf = __webpack_require__(115);
+	var invariant = __webpack_require__(84);
 	var hasOwnProperty = {}.hasOwnProperty;
 	
 	function shallowCopy(x) {
@@ -2988,7 +3414,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 267:
+/***/ 272:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3004,21 +3430,21 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var EventConstants = __webpack_require__(103);
-	var EventPluginHub = __webpack_require__(188);
-	var EventPropagators = __webpack_require__(184);
+	var EventConstants = __webpack_require__(104);
+	var EventPluginHub = __webpack_require__(189);
+	var EventPropagators = __webpack_require__(185);
 	var React = __webpack_require__(11);
-	var ReactElement = __webpack_require__(62);
-	var ReactEmptyComponent = __webpack_require__(153);
-	var ReactBrowserEventEmitter = __webpack_require__(152);
-	var ReactCompositeComponent = __webpack_require__(221);
-	var ReactInstanceHandles = __webpack_require__(67);
-	var ReactInstanceMap = __webpack_require__(109);
-	var ReactMount = __webpack_require__(68);
-	var ReactUpdates = __webpack_require__(155);
-	var SyntheticEvent = __webpack_require__(189);
+	var ReactElement = __webpack_require__(63);
+	var ReactEmptyComponent = __webpack_require__(154);
+	var ReactBrowserEventEmitter = __webpack_require__(153);
+	var ReactCompositeComponent = __webpack_require__(222);
+	var ReactInstanceHandles = __webpack_require__(68);
+	var ReactInstanceMap = __webpack_require__(110);
+	var ReactMount = __webpack_require__(69);
+	var ReactUpdates = __webpack_require__(156);
+	var SyntheticEvent = __webpack_require__(190);
 	
-	var assign = __webpack_require__(73);
+	var assign = __webpack_require__(74);
 	
 	var topLevelTypes = EventConstants.topLevelTypes;
 	
@@ -3503,7 +3929,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 270:
+/***/ 275:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3581,7 +4007,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 271:
+/***/ 276:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3692,7 +4118,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 272:
+/***/ 277:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3711,11 +4137,11 @@ webpackJsonp([1],{
 	
 	var React = __webpack_require__(11);
 	
-	var CSSCore = __webpack_require__(276);
-	var ReactTransitionEvents = __webpack_require__(277);
+	var CSSCore = __webpack_require__(281);
+	var ReactTransitionEvents = __webpack_require__(282);
 	
-	var onlyChild = __webpack_require__(75);
-	var warning = __webpack_require__(86);
+	var onlyChild = __webpack_require__(76);
+	var warning = __webpack_require__(87);
 	
 	// We don't remove the element from the DOM until we receive an animationend or
 	// transitionend event. If the user screws up and forgets to add an animation
@@ -3843,7 +4269,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 273:
+/***/ 278:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3860,8 +4286,8 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var ReactChildren = __webpack_require__(57);
-	var ReactFragment = __webpack_require__(105);
+	var ReactChildren = __webpack_require__(58);
+	var ReactFragment = __webpack_require__(106);
 	
 	var ReactTransitionChildMapping = {
 	  /**
@@ -3953,7 +4379,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 274:
+/***/ 279:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3969,9 +4395,9 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var assign = __webpack_require__(73);
-	var emptyFunction = __webpack_require__(161);
-	var joinClasses = __webpack_require__(278);
+	var assign = __webpack_require__(74);
+	var emptyFunction = __webpack_require__(162);
+	var joinClasses = __webpack_require__(283);
 	
 	/**
 	 * Creates a transfer strategy that will merge prop values using the supplied
@@ -4068,7 +4494,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 276:
+/***/ 281:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4083,7 +4509,7 @@ webpackJsonp([1],{
 	 * @typechecks
 	 */
 	
-	var invariant = __webpack_require__(83);
+	var invariant = __webpack_require__(84);
 	
 	/**
 	 * The CSSCore module specifies the API (and implements most of the methods)
@@ -4183,7 +4609,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 277:
+/***/ 282:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4199,7 +4625,7 @@ webpackJsonp([1],{
 	
 	'use strict';
 	
-	var ExecutionEnvironment = __webpack_require__(76);
+	var ExecutionEnvironment = __webpack_require__(77);
 	
 	/**
 	 * EVENT_NAME_MAP is used to determine which event fired when a
@@ -4299,7 +4725,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 278:
+/***/ 283:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**

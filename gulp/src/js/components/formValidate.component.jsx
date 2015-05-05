@@ -25,7 +25,6 @@ class FormValidate extends React.Component {
 
 	handleClick() {
 		console.log(document.querySelector("#newprojectpath").value);
-		// document.querySelector("#newprojectsubmit").click();
 		document.querySelector("#newprojectpath").click();
 	}
 
@@ -33,7 +32,7 @@ class FormValidate extends React.Component {
 		return (
 			<button className='header__button button' disabled={this.state.isDisabled} onClick={this.handleClick}>
 				<Icon className='button__icon' size="32" icon="icon-circle-check" link="images/Icons/svgdefs.svg" />
-				Valider
+				<span className='button__label' >Valider</span>
 			</button>
 		)
 	}
