@@ -7,15 +7,16 @@ import fs from 'fs';
 var localStorageKey = 'projects';
 
 var AppActions = Reflux.createActions([
-	'onAddProject',					// Called by button in Home Page
-	'onRemoveProject',			// Called by rightClick on project
-	'onEditProject',
+	'addProject',					// Called by button in Home Page
+	'removeProject',			// Called by rightClick on project
+	'editProject',
 	'loadProjects',
 	'loadProjectsSuccess',
 	'loadProjectsError',
 	'loadProject',
 	'loadProjectSuccess',
-	'isValidable'
+	'isValidable',
+	'compileProject'
 ]);
 
 AppActions.loadProjects.preEmit = function(data) {

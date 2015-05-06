@@ -138,20 +138,20 @@
 }
 
 .input:not(.input--dropzone):not(.input--radio) .input__field {
-	&:focus, &.input__field--filled {
+	&:focus, &:not([value=""]) {
 		border: 1px solid $green;
 	}
 	&:hover + .input__label .input__label__content {
 		color: $green;
 	}
 	&:focus + .input__label .input__label__content ,
-	&.input__field--filled + .input__label .input__label__content{
+	&:not([value=""]) + .input__label .input__label__content{
 		transform: translate3d(0, -13px, 0);
 		font-size: 0.6875rem;
 		opacity: .5;
 	}
 	&:focus:hover + .input__label .input__label__content,
-	&.input__field--filleds:hover + .input__label .input__label__content {
+	&:not([value=""]):hover + .input__label .input__label__content {
 		color: $black;
 	}
 }

@@ -24,8 +24,7 @@ class FormValidate extends React.Component {
 	}
 
 	handleClick() {
-		console.log(document.querySelector("#newprojectpath").value);
-		document.querySelector("#newprojectpath").click();
+		document.querySelector("#input-path").click();
 	}
 
 	render() {

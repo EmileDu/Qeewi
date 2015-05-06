@@ -1,9 +1,9 @@
 import React from 'react';
-import Input from '../../components/input.component.jsx';
 import Dropzone from '../../components/dropzone.component.jsx';
 import _ from 'lodash';
 import AppStore from '../../stores/app.store.jsx';
 import AppActions from '../../actions/app.action.jsx';
+import Input from '../../components/input.component.jsx';
 
 var requiredInput;
 var formValidateButton;
@@ -40,6 +40,7 @@ class NewProject extends React.Component {
 		});
 		if (!flag){ isValidatable = true };
 		AppActions.isValidable(isValidatable);
+
 	}
 
 	getFormData() {
@@ -48,11 +49,40 @@ class NewProject extends React.Component {
 		return data;
 	}
 
+	getInputValue(list, identifier) {
+		var value = _.result(_.find(list, function(item) {
+		  return item.name == identifier;
+		}), 'value');
+		if(value == undefined) {
+			return false
+		}
+		return value;
+	}
+
 	handleSubmit() {
-		console.log('submited');
-		var data = this.getFormData();
-		console.log(data);
-		// AppActions.compileProject(isValidatable);
+		var formData = this.getFormData();
+		formData = _.filter(formData, function(input){
+			return  input.value != '';
+		})
+		formData = _.filter(formData, function(input){
+			if (input.type == 'radio'){
+				return input.checked;
+			} else {
+				return input;
+			}
+		});
+
+		var data = {
+			path: this.getInputValue(formData, 'input-path') || '',
+			title: this.getInputValue(formData, 'input-title') || '',
+			type: this.getInputValue(formData, 'input-preconfig') || 'Site Web',
+			desc: this.getInputValue(formData, 'input-desc') || '',
+			author: this.getInputValue(formData, 'input-author') || ''
+		}
+
+		AppActions.addProject(data);
+		var { router } = this.context;
+		router.transitionTo('Homepage');
 	}
 
 	render() {
@@ -71,8 +101,8 @@ class NewProject extends React.Component {
 							<Input
 								className="form-section__input input input--8col input--shit2col"
 								type="text"
-								name="input-name"
-								id="input-name"
+								name="input-title"
+								id="input-title"
 								required={true}>
 								Nom du projet
 							</Input>
@@ -125,7 +155,7 @@ class NewProject extends React.Component {
 								className="form-section__input input input--4col input--radio"
 								type="radio"
 								name="input-preconfig"
-								value="siteweb"
+								value="Site Web"
 								id="input-preconfig-siteweb">
 								Site Web
 							</Input>
@@ -133,7 +163,7 @@ class NewProject extends React.Component {
 								className="form-section__input input input--4col input--radio"
 								type="radio"
 								name="input-preconfig"
-								value="webapp"
+								value="Web Application"
 								id="input-preconfig-webapp">
 								Web Application
 							</Input>
@@ -141,7 +171,7 @@ class NewProject extends React.Component {
 								className="form-section__input input input--4col input--radio"
 								type="radio"
 								name="input-preconfig"
-								value="prototype"
+								value="Prototype"
 								id="input-preconfig-prototype">
 								Prototype
 							</Input>
@@ -234,8 +264,7 @@ class NewProject extends React.Component {
 					<fieldset className="form-section">
 						<legend className="form-section__title">Typographie</legend>
 					</fieldset>
-					<input type="file" ref="inputPath" id="newprojectpath" className="form-section__input input input--hidden" value={pathValue} onChange={this.handleSubmit}/>
-					<button type="submit" id="newprojectsubmit" className="form-section__input input input--hidden">Submit</button>
+					<input type="file" ref="inputPath" id="input-path" name="input-path" className="form-section__input input input--hidden" onChange={this.handleSubmit}/>
 				</form>
 			</div>
 		);

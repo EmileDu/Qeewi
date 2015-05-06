@@ -28,17 +28,17 @@ class Header extends React.Component {
 				break;
 			case '/newproject':
 				navigation.push(
-					<FormValidate />,
-					<FormClose />
+					<FormValidate key="formValidate"/>,
+					<FormClose key="formClose"/>
 				)
 				break;
 			case '/project':
 				navigation.push(
-						<Return />,
-						<EditProject />,
-						<UpdateProject />,
-						<DeleteProject />,
-						<ExportProject />
+						<Return key="return"/>,
+						<EditProject key="editProject"/>,
+						// <UpdateProject key="updateProject"/>,
+						<DeleteProject key="deleteProject"/>
+						// <ExportProject key="exportProject"/>
 				)
 				break;
 			default:
@@ -46,7 +46,6 @@ class Header extends React.Component {
 		}
 		return (
 			<header className="app__header header">
-				<SettingsModal />
 				{navigation}
 			</header>
 		);
