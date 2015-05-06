@@ -137,7 +137,7 @@ gulp.task('build', function(callback) {
 	    platforms: ['osx', 'win', 'linux'],
 	    buildDir: '../build',
 	    cacheDir: '../ressources',
-	    macIcns: '../app/icons/app_icon.ico'
+	    macIcns: '../app/icons/app_icon.icns'
 	});
 	nodeWebkit.on('log', function (msg) { plugin.util.log('node-webkit-builder', msg); });
 	return 	nodeWebkit.build()

@@ -4,6 +4,7 @@ import ClassNames from 'classnames';
 
 var id;
 var className;
+var classInput;
 var input;
 var field;
 var value;
@@ -11,7 +12,7 @@ var value;
 class Input extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { value: '' };
+		this.state = { value: '', isFilled: false };
 		this.handleChange = this.handleChange.bind(this);
 	}
 
@@ -56,7 +57,7 @@ class Input extends React.Component {
 						key={id}
 						type={this.props.type}
 						name={this.props.name}
-						className="input__field"
+						className={classInput}
 						id={id}
 						ref={id}
 						required={this.props.required}
@@ -68,7 +69,7 @@ class Input extends React.Component {
 				input.push(
 					<input
 						type={this.props.type}
-						className="input__field"
+						className={classInput}
 						id={id}
 						name={this.props.name}
 						ref={id}
@@ -81,7 +82,7 @@ class Input extends React.Component {
 				input.push(
 					<textarea
 						key={id}
-						className="input__field"
+						className={classInput}
 						id={id}
 						name={this.props.name}
 						ref={id}
@@ -97,7 +98,7 @@ class Input extends React.Component {
 					<input
 						key={id}
 						type={this.props.type}
-						className="input__field"
+						className={classInput}
 						id={id}
 						ref={id}
 						value={value}
@@ -141,6 +142,7 @@ class Input extends React.Component {
 	render() {
 		id = this.props.id || "input-"+this.props.type;
 		className = ClassNames(this.props.className);
+		classInput = ClassNames('input__field', {'input__field--filled': this.state.isFilled})
 		value = this.state.value;
 		input = this.getInputType(this.props.type);
 		field = this.getFieldMarkup(this.props.type);

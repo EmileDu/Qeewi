@@ -1893,6 +1893,7 @@ webpackJsonp([1],[
 	
 	var id;
 	var className;
+	var classInput;
 	var input;
 	var field;
 	var value;
@@ -1902,7 +1903,7 @@ webpackJsonp([1],[
 			_classCallCheck(this, Input);
 	
 			_get(Object.getPrototypeOf(Input.prototype), 'constructor', this).call(this, props);
-			this.state = { value: '' };
+			this.state = { value: '', isFilled: false };
 			this.handleChange = this.handleChange.bind(this);
 		}
 	
@@ -1947,7 +1948,7 @@ webpackJsonp([1],[
 							key: id,
 							type: this.props.type,
 							name: this.props.name,
-							className: 'input__field',
+							className: classInput,
 							id: id,
 							ref: id,
 							required: this.props.required,
@@ -1957,7 +1958,7 @@ webpackJsonp([1],[
 					case 'text':
 						input.push(_React2['default'].createElement('input', {
 							type: this.props.type,
-							className: 'input__field',
+							className: classInput,
 							id: id,
 							name: this.props.name,
 							ref: id,
@@ -1968,7 +1969,7 @@ webpackJsonp([1],[
 					case 'textarea':
 						input.push(_React2['default'].createElement('textarea', {
 							key: id,
-							className: 'input__field',
+							className: classInput,
 							id: id,
 							name: this.props.name,
 							ref: id,
@@ -1982,7 +1983,7 @@ webpackJsonp([1],[
 						input.push(_React2['default'].createElement('input', {
 							key: id,
 							type: this.props.type,
-							className: 'input__field',
+							className: classInput,
 							id: id,
 							ref: id,
 							value: value,
@@ -2029,6 +2030,7 @@ webpackJsonp([1],[
 			value: function render() {
 				id = this.props.id || 'input-' + this.props.type;
 				className = _ClassNames2['default'](this.props.className);
+				classInput = _ClassNames2['default']('input__field', { 'input__field--filled': this.state.isFilled });
 				value = this.state.value;
 				input = this.getInputType(this.props.type);
 				field = this.getFieldMarkup(this.props.type);
