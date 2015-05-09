@@ -36,9 +36,9 @@ class Header extends React.Component {
 				navigation.push(
 						<Return key="return"/>,
 						<EditProject key="editProject"/>,
-						// <UpdateProject key="updateProject"/>,
-						<DeleteProject key="deleteProject"/>
-						// <ExportProject key="exportProject"/>
+						<UpdateProject key="updateProject"/>,
+						<DeleteProject key="deleteProject"/>,
+						<ExportProject key="exportProject"/>
 				)
 				break;
 			default:
@@ -46,6 +46,7 @@ class Header extends React.Component {
 		}
 		return (
 			<header className="app__header header">
+				<SettingsModal />
 				{navigation}
 			</header>
 		);

@@ -4,6 +4,7 @@ import _ from 'lodash';
 import AppStore from '../../stores/app.store.jsx';
 import AppActions from '../../actions/app.action.jsx';
 import Input from '../../components/input.component.jsx';
+import ClassNames from 'classnames';
 
 var requiredInput;
 var formValidateButton;
@@ -12,8 +13,10 @@ var router;
 class NewProject extends React.Component {
 	constructor(props) {
 		super(props);
-		this.onChange = this.onChange.bind(this);
+		this.state = { isPanelOpen: false };
+		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleOpenPanel = this.handleOpenPanel.bind(this);
 		this.getFormData = this.getFormData.bind(this);
 	}
 
@@ -29,7 +32,7 @@ class NewProject extends React.Component {
 
 	}
 
-	onChange() {
+	handleChange() {
 		var isValidatable = false;
 		var flag = false;
 		_.map(requiredInput, function(input){
@@ -85,7 +88,17 @@ class NewProject extends React.Component {
 		router.transitionTo('Homepage');
 	}
 
+	handleOpenPanel() {
+		if(this.state.isPanelOpen){
+			this.setState({isPanelOpen: false});
+		} else {
+			this.setState({isPanelOpen: true});
+		}
+	}
+
 	render() {
+		var classPanel = ClassNames('form-section', 'form-panel', {'form-panel--open': this.state.isPanelOpen})
+
 		if (router.getCurrentQuery().path !== undefined) {
 			var pathValue = router.getCurrentQuery().path;
 		} else {
@@ -94,7 +107,7 @@ class NewProject extends React.Component {
 		return (
 			<div className="page" ref="newprojectpage">
 				<h1 className="page__title">New Project</h1>
-				<form ref="newprojectform" id="newprojectform" onChange={this.onChange} onSubmit={this.onSubmit}>
+				<form ref="newprojectform" id="newprojectform" onChange={this.handleChange}>
 					<fieldset className="form-section" id="infogen">
 						<legend className="form-section__title">Informations Générales</legend>
 						<div className="row">
@@ -148,122 +161,39 @@ class NewProject extends React.Component {
 							</Input>
 						</div>
 					</fieldset>
-					<fieldset className="form-section">
-						<legend className="form-section__title">Pré-configuration</legend>
-						<div className="row">
-							<Input
-								className="form-section__input input input--4col input--radio"
-								type="radio"
-								name="input-preconfig"
-								value="Site Web"
-								id="input-preconfig-siteweb">
-								Site Web
-							</Input>
-							<Input
-								className="form-section__input input input--4col input--radio"
-								type="radio"
-								name="input-preconfig"
-								value="Web Application"
-								id="input-preconfig-webapp">
-								Web Application
-							</Input>
-							<Input
-								className="form-section__input input input--4col input--radio"
-								type="radio"
-								name="input-preconfig"
-								value="Prototype"
-								id="input-preconfig-prototype">
-								Prototype
-							</Input>
-						</div>
-					</fieldset>
-					<fieldset className="form-section">
-						<legend className="form-section__title">Stylesheet</legend>
-						<div className="row">
-							<Input
-								className="form-section__input input input--4col input--radio"
-								type="radio"
-								name="input-resetcss"
-								value="reset.css"
-								id="input-resetcss-reset">
-								Reset.css
-							</Input>
-							<Input
-								className="form-section__input input input--4col input--radio"
-								type="radio"
-								name="input-resetcss"
-								value="normalize.css"
-								id="input-resetcss-normalize">
-								Normalize.css
-							</Input>
-							<Input
-								className="form-section__input input input--4col input--dropzone input--radio"
-								type="file"
-								name="input-resetcss"
-								id="input-favicon"
-								accept="image/*">
-								<Dropzone className="input__label__content dropzone">Reset personnel</Dropzone>
-							</Input>
-						</div>
-						<div className="row">
-							<Input
-								className="form-section__input input input--3col input--radio"
-								type="radio"
-								name="input-preprocss"
-								value="SASS"
-								id="input-preprocss-sass">
-								SASS
-							</Input>
-							<Input
-								className="form-section__input input input--3col input--radio"
-								type="radio"
-								name="input-preprocss"
-								value="SCSS"
-								id="input-preprocss-scss">
-								SCSS
-							</Input>
-							<Input
-								className="form-section__input input input--3col input--radio"
-								type="radio"
-								name="input-preprocss"
-								value="LESS"
-								id="input-preprocss-less">
-								LESS
-							</Input>
-							<Input
-								className="form-section__input input input--3col input--radio"
-								type="radio"
-								name="input-preprocss"
-								value="Stylus"
-								id="input-preprocss-stylus">
-								Stylus
-							</Input>
-						</div>
-					</fieldset>
-					<fieldset className="form-section">
-						<legend className="form-section__title">Javascript</legend>
-						<div className="row">
-							<Input
-								className="form-section__input input input--3col input--radio"
-								type="radio"
-								name="input-preprojs"
-								value="CoffeeScript"
-								id="input-preprojs-coffescript">
-								CoffeeScript
-							</Input>
-							<Input
-								className="form-section__input input input--3col input--radio"
-								type="radio"
-								name="input-preprojs"
-								value="LiveScript"
-								id="input-preprojs-livescript">
-								LiveScript
-							</Input>
-						</div>
-					</fieldset>
-					<fieldset className="form-section">
-						<legend className="form-section__title">Typographie</legend>
-					</fieldset>
+					<div className={classPanel}>
+						<button className="form-panel__button" onClick={this.handleOpenPanel}>Plus d'option</button>
+						<fieldset>
+							<legend className="form-section__title">Pré-configuration</legend>
+							<div className="row">
+								<Input
+									className="form-section__input input input--4col input--radio"
+									type="radio"
+									name="input-preconfig"
+									value="Site Web"
+									id="input-preconfig-siteweb"
+									checked={true}>
+									Site Web
+								</Input>
+								<Input
+									className="form-section__input input input--4col input--radio"
+									type="radio"
+									name="input-preconfig"
+									value="Web Application"
+									id="input-preconfig-webapp">
+									Web Application
+								</Input>
+								<Input
+									className="form-section__input input input--4col input--radio"
+									type="radio"
+									name="input-preconfig"
+									value="Prototype"
+									id="input-preconfig-prototype">
+									Prototype
+								</Input>
+							</div>
+						</fieldset>
+					</div>
 					<input type="file" ref="inputPath" id="input-path" name="input-path" className="form-section__input input input--hidden" onChange={this.handleSubmit}/>
 				</form>
 			</div>

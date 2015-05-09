@@ -19,7 +19,6 @@ class Input extends React.Component {
 	handleChange(ev) {
 		this.setState({ value: ev.target.value });
 		if (!_.isEmpty(_.trim(ev.target.value))) {
-			console.log(!_.isEmpty(_.trim(ev.target.value)));
 			this.setState({ isFilled: true });
 		}
 	}
@@ -48,7 +47,8 @@ class Input extends React.Component {
 						value={this.props.value}
 						className="input__field"
 						id={id}
-						ref={id}/>
+						ref={id}
+						checked={this.props.checked}/>
 				);
 				break;
 			case 'file':
