@@ -621,13 +621,12 @@ textarea:active {
 }
 
 .form-panel {
-  color: #ffffff;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   z-index: 50;
-  width: 50%;
+  width: 65%;
   background: #2d2e2c;
   padding: 24px 30px;
   -webkit-transform: translateX(100%);
@@ -638,6 +637,13 @@ textarea:active {
 .form-panel.form-panel--open {
   -webkit-transform: translateX(0);
           transform: translateX(0);
+}
+.form-panel .form-section__title {
+  color: #ffffff;
+}
+.form-panel .form-section__title:before, .form-panel .form-section__title:after {
+  width: 150px;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .form-panel__button {
@@ -652,7 +658,7 @@ textarea:active {
   line-height: 30px;
   text-align: center;
   color: #ffffff;
-  font-family: "HelveticaNeue_Thin", Helvetica, Arial, sans-serif;
+  font-family: "HelveticaNeue_Light", Helvetica, Arial, sans-serif;
   font-size: 0.6875rem;
   background: #2d2e2c;
   -webkit-transform: translateX(-62.5%) rotate(-90deg);
@@ -679,6 +685,7 @@ textarea:active {
   width: 236px;
   height: 1px;
   margin: auto;
+  z-index: 5;
   background: rgba(45, 46, 44, 0.5);
 }
 .form-section__title:before {
