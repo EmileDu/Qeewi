@@ -1,29 +1,28 @@
-
 .title {
-	font-family: $header-font;
 	font-size: 5.0625rem;
-
 	margin-bottom: 1rem;
 }
 
 .subtitle {
-	font-family: $header-font;
 	font-size: 2.25rem;
-
 	margin-bottom: 1.5rem;
 }
 
 .baseline {
 	font-size: 1.5rem;
-	font-weight: 300;
-
 	display: inline-block;
 	margin-bottom: 2rem;
 }
 
-a {
-	transition: color .2s ease-in-out;
-	&:hover {
-		color: $light-green;
-	}
-}
+.text--thin  			{ font-weight: 100; }
+.text--light 			{ font-weight: 300; }
+.text--roman 			{ font-weight: 400; }
+.text--semibold 	{ font-weight: 600; }
+.text--bold 			{ font-weight: 800; }
+.text--extrabold 	{ font-weight: 900; }
+
+.text--italic 		{ font-style: italic; }
+
+.text--center 		{ text-align: center; }
+.text--left 			{ text-align: left; }
+.text--right 			{ text-align: right; }

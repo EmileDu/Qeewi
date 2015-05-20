@@ -5,16 +5,47 @@ layout: default
 	<div class="wrapper">
 		<div class="container">
 			<div class="feature">
-				<h2 class="subtitle">Personnel</h2>
-				<p>Il n’y a pas de meilleure façon de travaillé que celle qui vous convient. </p><p>Personnalisez à souhait votre squelette de projet</p>
+				<div class="column column--6">
+					<div class="column-el-wrapper">
+						<img src="http://placehold.it/400x400" alt="" width="400" height="400" class="text--center"/>
+					</div>
+				</div>
+				<div class="column column--6">
+					<div class="column-el-wrapper">
+						<h2 class="subtitle text--bold">Rapidité de production</h2>
+						<p>Passer des heures à créer le squelette et à aller chercher les ressources nécessaires pour un projet est une perte de temps. </p>
+						<p>Qeewi a pour mission de remplir cette première étape à votre place.</p>
+						<p>Compléter l’écran de configuration du projet, Qeewi se charge de le créer tel que vous l’avez demandé, prêt à être développer.</p>
+					</div>
+				</div>
 			</div>
 			<div class="feature">
-				<h2 class="subtitle">Facile</h2>
-				<p>Il n’y a pas de meilleure façon de travaillé que celle qui vous convient. </p><p>Personnalisez à souhait votre squelette de projet</p>
+				<div class="column column--6">
+					<div class="column-el-wrapper">
+						<img src="http://placehold.it/400x400" alt="" width="400" height="400" class="text--center"/>
+					</div>
+				</div>
+				<div class="column column--6">
+					<div class="column-el-wrapper">
+						<h2 class="subtitle text--bold">Facile d'utilisation</h2>
+						<p>Les solutions existantes pour pallier à ce problème nécessitent souvent l’utilisation de ligne de commande.</p>
+						<p>Qeewi tente de le résoudre par le biais d’une interface visuelle plus simple à utiliser.</p>
+					</div>
+				</div>
 			</div>
 			<div class="feature">
-				<h2 class="subtitle">Rapide</h2>
-				<p>Il n’y a pas de meilleure façon de travaillé que celle qui vous convient. </p><p>Personnalisez à souhait votre squelette de projet</p>
+				<div class="column column--6">
+					<div class="column-el-wrapper">
+						<img src="http://placehold.it/400x400" alt="" width="400" height="400" class="text--center"/>
+					</div>
+				</div>
+				<div class="column column--6">
+					<div class="column-el-wrapper">
+						<h2 class="subtitle text--bold">Produit personnel</h2>
+						<p>Les solutions existantes vous imposent une structure. Alors qu’il n’existe pas de meilleure façon de travailler que celle qui vous convienne.</p>
+						<p>Qeewi vous laisse la possibilité de personnaliser le squelette du projet compilé.</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -22,9 +53,13 @@ layout: default
 <div class="l-main__section l-main__section--newsletter">
 	<div class="wrapper">
 		<h2 class="subtitle">Rester informer</h2>
-		<form class="form" method="post" action="">
-			<input class="input input--email" type="email" name="email" id="email" placeholder="votre adress mail" />
-			<input class="btn btn--submit" type="submit" name"submit" id="submit" value="Tien moi au jus" />
+		<p>L'application est actuellement en cours de développement.</p>
+		<p>Pour avoir accès à l'application en beta et être informer de sa sortie officielle, inscris toi à la newsletter.</p>
+		<form class="form" method="post" action="subscribe.php" id="newsletter">
+			<input class="input input--email text--thin" type="email" name="email" id="email" placeholder="Votre adresse mail" />
+			<button class="input input--submit text--semibold" type="submit" name"submit" id="submit">Tiens moi au jus</button>
+			<div class="loading" id="loading"></div>
+			<div class="feedback text--roman" id="feedback"></div>
 		</form>
 	</div>
 </div>

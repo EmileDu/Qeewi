@@ -5,35 +5,38 @@
 // = Font
 // --------------------
 
+$font-family: 'Proxima Nova', 'Helvetica', 'Arial', sans-serif;
 
-$header-font:	'Cronos Pro', sans-serif;
-$content-font: 	'Lato', sans-serif;
-
-$base-font-size: 	16; // 18px corps de base
+$base-font-size:    16; // 18px corps de base
 $base-line-height: 	1.5;
-$ratio: 			1.500; // 1.500 -- Perfect Fifth
+$ratio: 			      1.500; // 1.500 -- Perfect Fifth
 
 
 // = Colors
 // --------------------
 
-$black: 		#2C2D2B;
-$brown:			#9E6423;
-$light-green: 	#95C018;
-$medium-green:	#8FB117;
-$dark-green:	#7F9815;
-$cream: 		#F7F4B3;
+$black: 		#2d2e2c;
+$green:     #96c119;
+$white: 		#fff;
+$gray:      #eef3f5;
 
+// = Grid
+// --------------------
 
+$gutter: 30px !default;
+$grid-columns: 12 !default;
+$visual-grid: true !default;
+$visual-grid-color: #eee !default;
+$visual-grid-opacity: 0.3 !default;
 
 // = Responsive
 // --------------------
 
-$width-largedesktop: 	em(1440, $base-font-size); // 1200/18
-$width-desktop: 		em(1024, $base-font-size); // 1024/18
-$width-tablet: 			em(768, $base-font-size); // 640/18
-$width-smartphone: 		em(320, $base-font-size); 
+$width-largedesktop: 	em(1440px, $base-font-size); // 1200/16
+$width-desktop: 		em(1024px, $base-font-size); // 1024/16
+$width-tablet: 			em(768px, $base-font-size); // 640/16
+$width-smartphone: 		em(320px, $base-font-size);
 
-$largedesktop: 	new-breakpoint(min-width $width-largedesktop, 12);
-$desktop: 		new-breakpoint(min-width $width-desktop, 12);
-$tablet: 		new-breakpoint(min-width $width-tablet, 8);
+$largedesktop: new-breakpoint(min-width 1440px 12);
+$desktop: new-breakpoint(min-width 1024px 12);
+$tablet: new-breakpoint(min-width 768px 12);

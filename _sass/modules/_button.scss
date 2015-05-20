@@ -10,15 +10,14 @@
 	padding: 0;
 	border-radius: 3px;
 
-	font-family: $content-font;
 	font-size: 1rem;
 
 	cursor: pointer;
 
 }
 	.btn--download {
-		background: lighten($cream, 50%);
-		color: $light-green;
+		background: lighten($white, 50%);
+		color: $green;
 		width: 250px;
 		height: 60px;
 		line-height: 60px;
@@ -26,18 +25,18 @@
 
 	.btn--submit {
 		display: inline-block;
-		background: darken($dark-green, 5%);
-		color: lighten($cream, 50%);
+		background: darken($green, 5%);
+		color: lighten($white, 50%);
 		width: 100%;
 		height: 40px;
 		line-height: 40px;
 		margin: 0;
 		border-radius: 3px;
 		transition: background .2s ease-in-out;
-		&:hover { background: darken($dark-green, 15%); }
+		&:hover { background: darken($green, 15%); }
 		&:hover, &:active, &:focus { outline: none; }
 
-		@media (min-width: $width-tablet) {
+		@include media($tablet) {
 			width: 200px;
 			border-radius: 0 3px 3px 0;
 		}

@@ -3,23 +3,39 @@
 // --------------------
 
 .l-header {
-	background-color: $light-green;
-	background-image: url(/assets/images/background.png);
-	background-size: cover;
-	background-position: center bottom;
-	background-attachment: fixed;
+	@include position(relative);
+	min-height: 100%;
+	padding: 5rem 0;
+	background-color: $green;
 
-	color: lighten($cream, 50%);
+	color: lighten($white, 50%);
 	text-align: center;
+	z-index: 5;
 
-	padding-top: 5rem;
+	@include media($tablet) {
+		min-height: inherit;
+		padding-bottom: 0;
+	}
+
+	&:before {
+		content: '';
+		@include position(absolute, 0 0 0 0);
+		background-image: url(/assets/images/background.png);
+		background-size: cover;
+		background-position: center bottom;
+		background-attachment: fixed;
+		opacity: .5;
+	}
+
 	&:after {
 		content: '';
-		background: white;
-		display: none;;
+		@include position(relative);
+		display: none;
 		height: 5rem;
 		width: 100%;
-		@media (min-width: $width-tablet) { display: block; }
+		z-index: 10;
+		background: white;
+		@include media($tablet) { display: block; }
 	}
 }
 
@@ -28,14 +44,36 @@
 	top: 5rem;
 	display: none;
 	width: 700px;
-	height: 500px;
+	height: 394px;
 	margin: 0 auto;
-	background: white;
-	border-radius: 10px;
-	box-shadow: 0 0 10px 0px rgba($black, 0.1);
-	@media (min-width: $width-tablet) { display: block; }
-	@media (min-width: $width-desktop) { 
-		width: 900px;
-	}
+	background: $gray;
+	box-shadow: 0 0 10px 0 rgba($black, .1);
+	z-index: 15;
+	@include media($tablet) { display: block; }
+	@include media($desktop) { width: 900px; height: 506px;}
+}
 
+.header-nav {
+	@include position(absolute, 0 0 null 0);
+	z-index: 50;
+	height: 48px;
+	text-align: left;
+	line-height: 48px;
+	transition: all .2s ease-in-out;
+	&.isSticky {
+		@include media($tablet) {
+			position: fixed;
+			background: $black;
+		}
+	}
+}
+
+
+.nav-main {
+	font-size: 1.5rem;
+	img {
+		display: inline-block;
+		vertical-align: text-top;
+		margin-right: 5px;
+	}
 }

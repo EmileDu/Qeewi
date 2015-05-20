@@ -1,7 +1,7 @@
 # Site settings
 meta:
   title: Qeewi
-  description: > 
+  description: >
     Emile Duval, Front-End Développeur.
   keywords: >
     HTML, CSS, JS, Javascript, Front-end, ESIAJ, HEAJ, Emile, Duval, Stage, Developpeur, Web, albert, jacquard, DWM, Back-end, PHP, jQuery, développement, mobile
@@ -10,19 +10,19 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://qeewi.io" # the base hostname & protocol for your site
 
 # Author
-author: 
+author:
   name: Emile Duval
   mentra: Développeur Front-End
   email: bonjour@emileduval.be
 
-#Google Analytics 
+#Google Analytics
 ga:
   shortname: UA-50282848-2
 
 # Social
 social:
   - icon: twitter
-    url:  https://twitter.com/Qeewi
+    url:  https://twitter.com/QeewiDev
   - icon: github
     url:  https://github.com/EmileDu/Qeewi
 
@@ -41,6 +41,6 @@ collections:
     output: true
     permalink: /casestudy/:title/
 
-exclude : [node_modules, gulpfile.js, package.json]
+exclude : [node_modules, gulpfile.js, package.json, app, build, gulp, ressources]
 
 linked_posts: true

@@ -5,8 +5,6 @@
 	margin: 0 auto;
 	background: white;
 
-	@media (min-width: $width-tablet) { display: block; }
-	@media (min-width: $width-desktop) { 
-		width: 900px;
-	}
+	@include media($tablet) { display: block; }
+	@include media($desktop) { width: 900px; }
 }

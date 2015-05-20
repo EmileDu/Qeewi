@@ -1,32 +1,140 @@
 .form {
+	@include row($display: table);
 	text-align: center;
+	margin: 0 auto;
+	margin-top: 3rem;
+	transition: all .2s ease-in-out;
+	&.isSend {
+		width: 48px;
+		overflow: hidden;
+		.input {
+			width: 24px;
+			padding: 0;
+			visibility: hidden;
+		}
+		.loading {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+	&.isDone, &.isFail {
+		.input {
+			width: 24px;
+			padding: 0;
+			visibility: hidden;
+		}
+		.loading {
+			opacity: 0;
+			visibility: hidden;
+		}
+		.feedback {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
 }
 
 .input {
-	height: 40px;
-	width: 300px;
-	line-height: 40px;
-	padding: 0 2rem;
-	border: none;
-	font-family: $content-font;
-	font-size: 1rem;
 	display: inline-block;
+	height: 3rem;
+	line-height: 3rem;
+	padding: 0 1rem;
+	margin-bottom: 1.5rem;
+	border: none;
+	font-size: 1rem;
+	font-family: $font-family;
+	transition: all .2s ease-in-out;
+	&:last-child { margin-bottom: 0 };
+	@include media($tablet) { margin-bottom: 0; }
 	&:hover, &:focus, &:active {
 		outline: none;
-		border: 2px solid darken($dark-green, 5%);
-		border-right: none;
+	}
+	&:-webkit-autofill {
+		box-shadow: 0 0 0 1000px $white inset;
+		-webkit-text-fill-color: darken($green, 20%);
 	}
 }
 
 	.input--email {
-		width: 100%; 
+		width: 100%;
 		border-radius: 3px;
-		margin-right: -5px;
-		margin-bottom: 20px;
-		color: darken($dark-green, 5%);
-		@media (min-width: $width-tablet) {
-			width: 300px; 
-			margin-bottom: 0;
+		color: darken($green, 20%);
+		margin-top: -2px;
+		@include media($tablet) {
+			@include span-columns(5);
 			border-radius: 3px 0 0 3px;
 		}
+		&:hover, &:focus, &:active {
+			border: 1px solid darken($green, 20%);
+			@include media($tablet) {
+				border-right: none;
+			}
+		}
+	}
+
+	.input--submit {
+		width: 100%;
+		border-radius: 3px;
+		cursor: pointer;
+		background: darken($green, 20%);
+		color: $white;
+		@include media($tablet) {
+			@include span-columns(3);
+			border-radius: 0 3px 3px 0;
+		}
+		&:hover {
+			background: darken($green, 25%);
+		}
+	}
+
+	.loading {
+		opacity: 0;
+		visibility: hidden;
+		@include position(absolute, null 0 0 0);
+		width: 48px;
+		height: 48px;
+		margin: auto;
+		border-radius: 50%;
+		animation: spin 1800ms infinite linear;
+		transition: opacity .2s ease-in-out;
+		&:before, &:after {
+			content: "";
+			@include position(absolute, 0 null null 0);
+			width: 48px;
+			height: 48px;
+			border-top: 2px solid transparent;
+			border-right: 2px solid $white;
+			border-bottom: 2px solid $white;
+			border-left: 2px solid transparent;
+			border-radius: 50%;
+			transform-origin: 50% 50%;
+			animation: spin 1800ms infinite linear 1200ms;
+		}
+		&:after {
+			@include position(absolute, 0 null null 0);
+			border-top: 2px solid $white;
+			border-right: 2px solid transparent;
+			border-bottom: 2px solid transparent;
+			border-left: 2px solid $white;
+			animation: spin 1200ms infinite linear;
+		}
+	}
+
+	.feedback {
+		@include position(absolute, null 0 0 0);
+		margin: auto;
+		width: 100%;
+		height: 48px;
+		text-align: center;
+		visibility: hidden;
+		opacity: 0;
+		transition: opacity .2s ease-in-out;
+		font-size: 1.5rem;
+	}
+
+
+
+	@include keyframes ("spin") {
+		0% { transform: rotateZ(0deg); }
+		100% { transform: rotateZ(359deg); }
 	}
