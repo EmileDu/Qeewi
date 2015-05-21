@@ -7,9 +7,7 @@
   <head>
   	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  	<title>[newsletter] - Merci de votre confiance</title>
-  	<style type="text/css">
-    </style>
+  	<title>[Qeewi.io] - Merci de votre confiance</title>
   </head>
   <body bgcolor="#ffffff" style="font-family: 'Proxima Nova', 'Lato', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 100%; color: #2d2e2c; line-height: 1.5; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: none; width: 100% !important; height: 100%;">
     <table class="body-wrap" bgcolor="#ffffff" style="font-family: 'Proxima Nova', 'Lato', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 100%; color: #2d2e2c; line-height: 1.5; margin: 0; padding: 0px;  width: 100%;">
@@ -19,8 +17,8 @@
             <table style="font-family: 'Proxima Nova', 'Lato', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 100%; color: #2d2e2c; line-height: 1.5; margin: 0 auto; padding: 0; width: 100%;">
               <tr style="font-family: 'Proxima Nova', 'Lato', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 100%; color: #2d2e2c; line-height: 1.5; margin: 0 auto; padding: 0; width: 100%;">
                 <td style="font-family: 'Proxima Nova', 'Lato', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 100%; color: #2d2e2c; line-height: 1.5; margin: 0 auto; padding: 48px 24px 24px 24px; width: 100%; border-bottom: 1px solid #eef3f5;">
-                  <img style="font-family: 'Proxima Nova', 'Lato', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 48px; line-height: 1.5; margin: 0 5px 0 0; padding: 0; display: inline-block;" src="http://qeewi.io/assets/images/qeewi_logo.png" alt="Logo de Qeewi" width="48" height="48" />
-                  <h1 style="font-family: 'Proxima Nova', 'Lato', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 600; color: #2d2e2c; line-height: 1.5; margin: 0; padding: 0; display: inline-block;">Qeewi</h1>
+                  <img style="font-family: 'Proxima Nova', 'Lato', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 48px; line-height: 1.5; margin: 0 5px 0 0; padding: 0; display: inline;" src="http://qeewi.io/assets/images/qeewi_logo.png" alt="Logo de Qeewi" width="48" height="48" />
+                  <h1 style="font-family: 'Proxima Nova', 'Lato', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 600; color: #2d2e2c; line-height: 1.5; margin: 0; padding: 0; display: inline;">Qeewi</h1>
                 </td>
               </tr>
               <tr style="font-family: 'Proxima Nova', 'Lato', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 100%; color: #2d2e2c; line-height: 1.5; margin: 0 auto; padding: 0; width: 100%;">
