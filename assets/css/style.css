@@ -236,18 +236,22 @@ body {
   top: 5rem;
   display: none;
   width: 700px;
-  height: 394px;
+  height: 409px;
   margin: 0 auto;
   background: #eef3f5;
-  box-shadow: 0 0 10px 0 rgba(45, 46, 44, 0.1);
-  z-index: 15; }
+  background-image: url(../images/app_visualisation.png);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 15;
+  box-shadow: 0 0 40px 0 rgba(45, 46, 44, 0.7); }
   @media screen and (min-width: 768px) {
     .app-visu {
       display: block; } }
   @media screen and (min-width: 1024px) {
     .app-visu {
       width: 900px;
-      height: 506px; } }
+      height: 526px; } }
 
 .header-nav {
   position: absolute;
@@ -295,7 +299,7 @@ body {
       height: 400px; }
       .l-main__section--features .feature:nth-child(even) .column {
         float: right; }
-      .l-main__section--features .feature:nth-child(even) img {
+      .l-main__section--features .feature:nth-child(even) .feature__illustration {
         float: right; } }
 .l-main__section--features .column {
   width: 100%;
@@ -318,11 +322,22 @@ body {
 .l-main__section--features .column-el-wrapper {
   display: table-cell;
   vertical-align: middle; }
-.l-main__section--features img {
+.l-main__section--features .feature__illustration {
   max-width: 400px;
   max-height: 400px;
+  min-height: 320px;
+  min-width: 320px;
   width: 100%;
-  height: auto; }
+  height: 100%;
+  background-position: center center;
+  background-size: cover; }
+.l-main__section--features .illustration--rapideproduction {
+  background-image: url("../images/Features/feature1_front.png"), url("../images/Features/feature1_anim.gif"), url("../images/Features/feature1_back.png"); }
+.l-main__section--features .illustration--facileutilisation {
+  background-image: url("../images/Features/feature2_front.png"), url("../images/Features/feature2_anim.gif"); }
+.l-main__section--features .illustration--personnel {
+  background-image: url("../images/Features/feature3_front.png");
+  /* 												url('../images/Features/feature3_anim.gif'); */ }
 
 .l-main__section--newsletter {
   text-align: center;

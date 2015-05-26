@@ -44,13 +44,17 @@
 	top: 5rem;
 	display: none;
 	width: 700px;
-	height: 394px;
+	height: 409px;
 	margin: 0 auto;
 	background: $gray;
-	box-shadow: 0 0 10px 0 rgba($black, .1);
+	background-image: url(../images/app_visualisation.png);
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
 	z-index: 15;
+	box-shadow: 0 0 40px 0 transparentize($black, .3);
 	@include media($tablet) { display: block; }
-	@include media($desktop) { width: 900px; height: 506px;}
+	@include media($desktop) { width: 900px; height: 526px;}
 }
 
 .header-nav {

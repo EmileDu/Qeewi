@@ -4,7 +4,7 @@
 	height: 500px;
 	margin: 0 auto;
 	background: white;
-
+	background-image: url(../images/app_visualisation.png);
 	@include media($tablet) { display: block; }
 	@include media($desktop) { width: 900px; }
 }

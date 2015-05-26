@@ -22,7 +22,7 @@
 				height: 400px;
 				&:nth-child(even) {
 					.column { float: right; }
-					img { float: right; }
+					.feature__illustration { float: right; }
 				}
 			}
 		}
@@ -47,13 +47,33 @@
 			vertical-align: middle;
 		}
 
-		img {
+		.feature__illustration {
 			max-width: 400px;
 			max-height: 400px;
+			min-height: 320px;
+			min-width: 320px;
 			width: 100%;
-			height: auto;
+			height: 100%;
+			background-position: center center;
+			background-size: cover;
 		}
 
+
+		.illustration--rapideproduction {
+			background-image: url('../images/Features/feature1_front.png'),
+												url('../images/Features/feature1_anim.gif'),
+												url('../images/Features/feature1_back.png');
+		}
+
+		.illustration--facileutilisation {
+			background-image: url('../images/Features/feature2_front.png'),
+												url('../images/Features/feature2_anim.gif');
+		}
+
+		.illustration--personnel {
+			background-image: url('../images/Features/feature3_front.png');
+/* 												url('../images/Features/feature3_anim.gif'); */
+		}
 	}
 
 	.l-main__section--newsletter {
