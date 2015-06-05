@@ -882,7 +882,7 @@ webpackJsonp([1],[
 		}, {
 			key: 'render',
 			value: function render() {
-				var classPanel = _classnames2['default']('form-section', 'form-panel', { 'form-panel--open': this.state.isPanelOpen });
+				var classPanel = _classnames2['default']('form-panel', { 'form-panel--open': this.state.isPanelOpen });
 	
 				if (router.getCurrentQuery().path !== undefined) {
 					var pathValue = router.getCurrentQuery().path;
@@ -991,15 +991,16 @@ webpackJsonp([1],[
 							),
 							_react2['default'].createElement(
 								'fieldset',
-								null,
+								{ className: 'form-section', id: 'moreconfig' },
 								_react2['default'].createElement(
 									_componentsInputComponentJsx2['default'],
 									{
-										className: 'form-section__input input input--3col',
+										className: 'form-section__input input input--select input--3col',
 										type: 'select',
 										name: 'input-select-preconfig',
 										id: 'input-select-preconfig',
 										required: false,
+										label: 'Pré-configuration',
 										'default': 'website' },
 									_react2['default'].createElement(
 										'option',
@@ -1020,11 +1021,12 @@ webpackJsonp([1],[
 								_react2['default'].createElement(
 									_componentsInputComponentJsx2['default'],
 									{
-										className: 'form-section__input input input--3col',
+										className: 'form-section__input input input--select input--3col',
 										type: 'select',
 										name: 'input-select-resetcss',
 										id: 'input-select-resetcss',
 										required: false,
+										label: 'Reset CSS',
 										'default': '' },
 									_react2['default'].createElement(
 										'option',
@@ -1045,11 +1047,12 @@ webpackJsonp([1],[
 								_react2['default'].createElement(
 									_componentsInputComponentJsx2['default'],
 									{
-										className: 'form-section__input input input--3col',
+										className: 'form-section__input input input--select input--3col',
 										type: 'select',
 										name: 'input-select-preprocss',
 										id: 'input-select-preprocss',
 										required: false,
+										label: 'Préprocesseur CSS',
 										'default': '' },
 									_react2['default'].createElement(
 										'option',
@@ -1080,11 +1083,12 @@ webpackJsonp([1],[
 								_react2['default'].createElement(
 									_componentsInputComponentJsx2['default'],
 									{
-										className: 'form-section__input input input--3col',
+										className: 'form-section__input input input--select input--3col',
 										type: 'select',
 										name: 'input-select-preprojs',
 										id: 'input-select-preprojs',
 										required: false,
+										label: 'Préprocesseur JS',
 										'default': '' },
 									_react2['default'].createElement(
 										'option',
@@ -1101,6 +1105,25 @@ webpackJsonp([1],[
 										{ value: 'livescript' },
 										'LiveScript'
 									)
+								)
+							),
+							_react2['default'].createElement(
+								'fieldset',
+								{ className: 'form-section', id: 'jsextern' },
+								_react2['default'].createElement(
+									'legend',
+									{ className: 'form-section__title' },
+									'Ressources Javascript'
+								),
+								_react2['default'].createElement(
+									_componentsInputComponentJsx2['default'],
+									{
+										className: 'form-section__input input input--search input--6col',
+										type: 'search',
+										name: 'input-select-jsextern',
+										id: 'input-select-jsextern',
+										required: false },
+									'Rechercger'
 								)
 							)
 						),
@@ -1982,7 +2005,14 @@ webpackJsonp([1],[
 						));
 						break;
 					case 'select':
-						field.push({ input: input });
+						field.push(_react2['default'].createElement(
+							'label',
+							{
+								key: id,
+								className: 'input__label',
+								htmlFor: id },
+							this.props.label
+						), { input: input });
 						break;
 					default:
 						field.push({ input: input }, _react2['default'].createElement(
@@ -2168,6 +2198,10 @@ webpackJsonp([1],[
 	
 	var _iconComponentJsx2 = _interopRequireDefault(_iconComponentJsx);
 	
+	var _inputComponentJsx = __webpack_require__(177);
+	
+	var _inputComponentJsx2 = _interopRequireDefault(_inputComponentJsx);
+	
 	var Element = document.body;
 	
 	var SettingsModal = (function (_React$Component) {
@@ -2241,6 +2275,120 @@ webpackJsonp([1],[
 										'legend',
 										{ className: 'modal__title' },
 										'Configuration par défaut'
+									),
+									_react2['default'].createElement(
+										_inputComponentJsx2['default'],
+										{
+											className: 'form-section__input input input--select input--6col',
+											type: 'select',
+											name: 'input-select-preconfig',
+											id: 'input-select-preconfig',
+											required: false,
+											label: 'Pré-configuration',
+											'default': 'website' },
+										_react2['default'].createElement(
+											'option',
+											{ value: 'website' },
+											'Site Web'
+										),
+										_react2['default'].createElement(
+											'option',
+											{ value: 'webapp' },
+											'Web App'
+										),
+										_react2['default'].createElement(
+											'option',
+											{ value: 'proto' },
+											'Prototype'
+										)
+									),
+									_react2['default'].createElement(
+										_inputComponentJsx2['default'],
+										{
+											className: 'form-section__input input input--select input--6col',
+											type: 'select',
+											name: 'input-select-resetcss',
+											id: 'input-select-resetcss',
+											required: false,
+											label: 'Reset CSS',
+											'default': '' },
+										_react2['default'].createElement(
+											'option',
+											{ value: '' },
+											'Aucun'
+										),
+										_react2['default'].createElement(
+											'option',
+											{ value: 'reset' },
+											'Reset'
+										),
+										_react2['default'].createElement(
+											'option',
+											{ value: 'normalize' },
+											'Normalize'
+										)
+									),
+									_react2['default'].createElement(
+										_inputComponentJsx2['default'],
+										{
+											className: 'form-section__input input input--select input--6col',
+											type: 'select',
+											name: 'input-select-preprocss',
+											id: 'input-select-preprocss',
+											required: false,
+											label: 'Préprocesseur CSS',
+											'default': '' },
+										_react2['default'].createElement(
+											'option',
+											{ value: '' },
+											'Aucun'
+										),
+										_react2['default'].createElement(
+											'option',
+											{ value: 'less' },
+											'LESS'
+										),
+										_react2['default'].createElement(
+											'option',
+											{ value: 'sass' },
+											'SASS'
+										),
+										_react2['default'].createElement(
+											'option',
+											{ value: 'scss' },
+											'SCSS'
+										),
+										_react2['default'].createElement(
+											'option',
+											{ value: 'stylus' },
+											'Stylus'
+										)
+									),
+									_react2['default'].createElement(
+										_inputComponentJsx2['default'],
+										{
+											className: 'form-section__input input input--select input--6col',
+											type: 'select',
+											name: 'input-select-preprojs',
+											id: 'input-select-preprojs',
+											required: false,
+											label: 'Préprocesseur JS',
+											'default': '' },
+										_react2['default'].createElement(
+											'option',
+											{ value: '' },
+											'Aucun'
+										),
+										_react2['default'].createElement(
+											'option',
+											{ value: 'coffeescript' },
+											'CoffeeScript'
+										),
+										_react2['default'].createElement(
+											'option',
+											{ value: 'livescript' },
+											'LiveScript'
+										)
 									)
 								)
 							),

@@ -97,7 +97,7 @@ class NewProject extends React.Component {
 	}
 
 	render() {
-		var classPanel = ClassNames('form-section', 'form-panel', {'form-panel--open': this.state.isPanelOpen})
+		var classPanel = ClassNames('form-panel', {'form-panel--open': this.state.isPanelOpen})
 
 		if (router.getCurrentQuery().path !== undefined) {
 			var pathValue = router.getCurrentQuery().path;
@@ -163,35 +163,38 @@ class NewProject extends React.Component {
 					</fieldset>
 					<div className={classPanel}>
 						<button className="form-panel__button" onClick={this.handleOpenPanel}>Plus d'option</button>
-						<fieldset>
+						<fieldset className="form-section" id="moreconfig">
 							<Input
-								className="form-section__input input input--3col"
+								className="form-section__input input input--select input--3col"
 								type="select"
 								name="input-select-preconfig"
 								id="input-select-preconfig"
 								required={false}
+								label="Pré-configuration"
 								default="website">
 								<option value="website">Site Web</option>
 								<option value="webapp">Web App</option>
 								<option value="proto">Prototype</option>
 							</Input>
 							<Input
-								className="form-section__input input input--3col"
+								className="form-section__input input input--select input--3col"
 								type="select"
 								name="input-select-resetcss"
 								id="input-select-resetcss"
 								required={false}
+								label="Reset CSS"
 								default="">
 								<option value="">Aucun</option>
 								<option value="reset">Reset</option>
 								<option value="normalize">Normalize</option>
 							</Input>
 							<Input
-								className="form-section__input input input--3col"
+								className="form-section__input input input--select input--3col"
 								type="select"
 								name="input-select-preprocss"
 								id="input-select-preprocss"
 								required={false}
+								label="Préprocesseur CSS"
 								default="">
 								<option value="">Aucun</option>
 								<option value="less">LESS</option>
@@ -200,15 +203,27 @@ class NewProject extends React.Component {
 								<option value="stylus">Stylus</option>
 							</Input>
 							<Input
-								className="form-section__input input input--3col"
+								className="form-section__input input input--select input--3col"
 								type="select"
 								name="input-select-preprojs"
 								id="input-select-preprojs"
 								required={false}
+								label="Préprocesseur JS"
 								default="">
 								<option value="">Aucun</option>
 								<option value="coffeescript">CoffeeScript</option>
 								<option value="livescript">LiveScript</option>
+							</Input>
+						</fieldset>
+						<fieldset className="form-section" id="jsextern">
+							<legend className="form-section__title">Ressources Javascript</legend>
+							<Input
+								className="form-section__input input input--search input--6col"
+								type="search"
+								name="input-select-jsextern"
+								id="input-select-jsextern"
+								required={false}>
+								Rechercger
 							</Input>
 						</fieldset>
 					</div>

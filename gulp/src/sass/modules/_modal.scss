@@ -40,3 +40,10 @@
 	font-variant: small-caps;
 	opacity: .7;
 }
+
+.input {
+	@include omega(2n+1);
+	.input__label {
+		color: $black;
+	}
+}

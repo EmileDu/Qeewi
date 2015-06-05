@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import Icon from './icon.component.jsx';
+import Input from './input.component.jsx';
 
 var Element = document.body;
 
@@ -42,6 +43,56 @@ class SettingsModal extends React.Component {
 						<div className="modal__col">
 							<form ref="configdefaultform" id="configdefaultform">
 								<legend className="modal__title">Configuration par défaut</legend>
+									<Input
+										className="form-section__input input input--select input--6col"
+										type="select"
+										name="input-select-preconfig"
+										id="input-select-preconfig"
+										required={false}
+										label="Pré-configuration"
+										default="website">
+										<option value="website">Site Web</option>
+										<option value="webapp">Web App</option>
+										<option value="proto">Prototype</option>
+									</Input>
+									<Input
+										className="form-section__input input input--select input--6col"
+										type="select"
+										name="input-select-resetcss"
+										id="input-select-resetcss"
+										required={false}
+										label="Reset CSS"
+										default="">
+										<option value="">Aucun</option>
+										<option value="reset">Reset</option>
+										<option value="normalize">Normalize</option>
+									</Input>
+									<Input
+										className="form-section__input input input--select input--6col"
+										type="select"
+										name="input-select-preprocss"
+										id="input-select-preprocss"
+										required={false}
+										label="Préprocesseur CSS"
+										default="">
+										<option value="">Aucun</option>
+										<option value="less">LESS</option>
+										<option value="sass">SASS</option>
+										<option value="scss">SCSS</option>
+										<option value="stylus">Stylus</option>
+									</Input>
+									<Input
+										className="form-section__input input input--select input--6col"
+										type="select"
+										name="input-select-preprojs"
+										id="input-select-preprojs"
+										required={false}
+										label="Préprocesseur JS"
+										default="">
+										<option value="">Aucun</option>
+										<option value="coffeescript">CoffeeScript</option>
+										<option value="livescript">LiveScript</option>
+									</Input>
 							</form>
 						</div>
 						<button className="modal__button button--save" onClick={this.closeModal}>Sauvegarder</button>

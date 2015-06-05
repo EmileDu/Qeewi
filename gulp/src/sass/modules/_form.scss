@@ -18,13 +18,17 @@
 	&.form-panel--open {
 		transform: translateX(0);
 	}
+	.form-section {
+		padding-bottom: 3.75rem;
+		&:last-child { padding-bottom: 0; }
+	}
 
 	.form-section__title {
 		color: $white;
-		&:before, &:after {
-			width: 150px;
-			background: transparentize($white, .5);
-		}
+		font-size: 1rem;
+		text-align: left;
+		margin-bottom: 1.5rem;
+		&:before, &:after { display: none; }
 	}
 }
 
@@ -87,6 +91,7 @@
 .input--2row { height: 7.5rem; }
 .input--3col { @include span-columns(3); }
 .input--4col { @include span-columns(4); }
+.input--6col { @include span-columns(6); }
 .input--8col { @include span-columns(8); }
 .input--12col { @include span-columns(12); }
 .input--shit2col { @include shift(2); }
@@ -116,6 +121,21 @@
 		height: 100%;
 		padding: 0 1.25rem;
 		border-radius: 3px;
+	}
+}
+
+.input--select {
+	height: auto;
+	.input__label {
+		font-variant: small-caps;
+		padding: 0;
+		opacity: .7;
+		color: $white;
+		margin-bottom: 1.5rem;
+	}
+	.input__field {
+		@include position(relative);
+		height: 3rem;
 	}
 }
 

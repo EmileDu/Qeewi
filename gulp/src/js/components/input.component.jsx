@@ -114,6 +114,12 @@ class Input extends React.Component {
 				break;
 			case 'select':
 				field.push(
+					<label
+						key={id}
+						className="input__label"
+						htmlFor={id}>
+						{this.props.label}
+					</label>,
 					{input}
 				);
 				break;
