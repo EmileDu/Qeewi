@@ -1,0 +1,6 @@
+// = Grid
+// --------------------
+
+$grid-columns: 12 !global;
+$column: modular-scale(3, 1em, $golden) !default;
+$gutter: modular-scale(1, 1.875em, $golden) !global;

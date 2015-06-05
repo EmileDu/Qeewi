@@ -10,23 +10,18 @@ class Project extends React.Component{
 	render() {
 		var project = this.props.project;
 		var file = project.thumb || "images/"+ this.props.id;
+		var style = {
+			backgroundImage: 'url('+ file +'_portrait_2x.png)'
+		}
 		return (
-			<li className="projects-list__item project">
-				<Link to="DahsboardProject" query={{projectID: project.key, id: this.props.id}}>
-					<Image
-						file={file}
-						format="png"
-						className="project__thumb"
-						alt="screenshot du projet"
-						width="212"
-						height="144"
-						responsiveOption={['1x', '2x']}/>
-					<div className="project__detail">
-						<h2 className="project__title">{project.title}</h2>
-						<p className="project__type">{project.type}<span className="project__version">{project.version}</span></p>
-					</div>
-				</Link>
-			</li>
+			<Link className="project" to="DahsboardProject" query={{projectID: project.key, id: this.props.id}}>
+				<div className="project__thumb" style={style}></div>
+				<div className="project__detail">
+					<h2 className="project__title">{project.title}</h2>
+					<p className="project__type">{project.type}<span className="project__version">{project.version}</span></p>
+					<p className="project__desc">{project.desc}</p>
+				</div>
+			</Link>
 		)
 	}
 };

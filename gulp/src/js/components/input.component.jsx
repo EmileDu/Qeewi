@@ -26,29 +26,17 @@ class Input extends React.Component {
 	getInputType(type){
 		var input = [];
 		switch (type) {
-			case 'checkbox':
+			case 'select':
 				input.push(
-					<input
+					<select
 						key={id}
-						type={this.props.type}
 						name={this.props.name}
-						value={this.props.value}
+						value={this.props.defaultVal}
 						className="input__field"
 						id={id}
-						ref={id}/>
-				);
-				break;
-			case 'radio':
-				input.push(
-					<input
-						key={id}
-						type={this.props.type}
-						name={this.props.name}
-						value={this.props.value}
-						className="input__field"
-						id={id}
-						ref={id}
-						checked={this.props.checked}/>
+						ref={id}>
+						{this.props.children}
+					</select>
 				);
 				break;
 			case 'file':
@@ -122,6 +110,11 @@ class Input extends React.Component {
 							htmlFor={id}>
 							{this.props.children}
 						</label>
+				);
+				break;
+			case 'select':
+				field.push(
+					{input}
 				);
 				break;
 			default:

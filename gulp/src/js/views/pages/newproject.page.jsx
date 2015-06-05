@@ -164,34 +164,52 @@ class NewProject extends React.Component {
 					<div className={classPanel}>
 						<button className="form-panel__button" onClick={this.handleOpenPanel}>Plus d'option</button>
 						<fieldset>
-							<legend className="form-section__title">Pré-configuration</legend>
-							<div className="row">
-								<Input
-									className="form-section__input input input--4col input--radio"
-									type="radio"
-									name="input-preconfig"
-									value="Site Web"
-									id="input-preconfig-siteweb"
-									checked={true}>
-									Site Web
-								</Input>
-								<Input
-									className="form-section__input input input--4col input--radio"
-									type="radio"
-									name="input-preconfig"
-									value="Web Application"
-									id="input-preconfig-webapp">
-									Web Application
-								</Input>
-								<Input
-									className="form-section__input input input--4col input--radio"
-									type="radio"
-									name="input-preconfig"
-									value="Prototype"
-									id="input-preconfig-prototype">
-									Prototype
-								</Input>
-							</div>
+							<Input
+								className="form-section__input input input--3col"
+								type="select"
+								name="input-select-preconfig"
+								id="input-select-preconfig"
+								required={false}
+								default="website">
+								<option value="website">Site Web</option>
+								<option value="webapp">Web App</option>
+								<option value="proto">Prototype</option>
+							</Input>
+							<Input
+								className="form-section__input input input--3col"
+								type="select"
+								name="input-select-resetcss"
+								id="input-select-resetcss"
+								required={false}
+								default="">
+								<option value="">Aucun</option>
+								<option value="reset">Reset</option>
+								<option value="normalize">Normalize</option>
+							</Input>
+							<Input
+								className="form-section__input input input--3col"
+								type="select"
+								name="input-select-preprocss"
+								id="input-select-preprocss"
+								required={false}
+								default="">
+								<option value="">Aucun</option>
+								<option value="less">LESS</option>
+								<option value="sass">SASS</option>
+								<option value="scss">SCSS</option>
+								<option value="stylus">Stylus</option>
+							</Input>
+							<Input
+								className="form-section__input input input--3col"
+								type="select"
+								name="input-select-preprojs"
+								id="input-select-preprojs"
+								required={false}
+								default="">
+								<option value="">Aucun</option>
+								<option value="coffeescript">CoffeeScript</option>
+								<option value="livescript">LiveScript</option>
+							</Input>
 						</fieldset>
 					</div>
 					<input type="file" ref="inputPath" id="input-path" name="input-path" className="form-section__input input input--hidden" onChange={this.handleSubmit}/>

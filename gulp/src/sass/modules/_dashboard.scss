@@ -6,6 +6,10 @@
 	@include position(fixed, 0 null 0 50px);
 	width: 391px;
 	height: 100%;
+
+	background-size: 391px 579px;
+	background-position: center center;
+	background-repeat: no-repeat;
 }
 
 .dashboard__detail {
@@ -23,7 +27,7 @@
 }
 
 .dashboard__type {
-	@include position(relative);
+	@include position(relative, null null null null);
 	display: block;
 	font-size: 0.6875rem;
 	font-family: $font-light;

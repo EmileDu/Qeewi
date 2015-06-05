@@ -15,7 +15,9 @@ class ProjectsList extends React.Component{
 			if (i > 5) {
 				i = 1;
 			}
-			return <Project key={ project.key } project={ project } id={i}/>
+			return 	<li className="projects-list__item">
+								<Project key={ project.key } project={ project } id={i}/>
+							</li>
 		});
 		return (
 			<ul className="projects-list">

@@ -21,6 +21,10 @@ class SettingsModal extends React.Component {
 		this.setState({ modalIsOpen: false});
 	}
 
+	save() {
+
+	}
+
 	render() {
 		return (
 			<div className="modal">
@@ -29,7 +33,19 @@ class SettingsModal extends React.Component {
 					<span className='button__label'>Préférences</span>
 				</button>
 				<Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}>
-					<button onClick={this.closeModal}>Fermer</button>
+					<div className="wrapper">
+						<div className="modal__col">
+							<form ref="skeletonform" id="skeletonform">
+								<legend className="modal__title">Squelette du projet</legend>
+							</form>
+						</div>
+						<div className="modal__col">
+							<form ref="configdefaultform" id="configdefaultform">
+								<legend className="modal__title">Configuration par défaut</legend>
+							</form>
+						</div>
+						<button className="modal__button button--save" onClick={this.closeModal}>Sauvegarder</button>
+					</div>
 				</Modal>
 			</div>
 		)

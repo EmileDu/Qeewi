@@ -38,23 +38,18 @@ class DashboardProject extends React.Component {
 
 	render() {
 		var project = this.state.project;
-		var file = project.thumbportrait || "images/"+id+"_portrait";
+		var file = project.thumbportrait || "images/"+id;
+		var style = {
+			backgroundImage: 'url('+ file +'_portrait_2x.png)'
+		}
 		return (
-			<div className="page dashboard">
+			<div className="page project--dashboard">
 				<h1 className="page__title">Dashboard Project {project.title}</h1>
-				<Image
-					file={file}
-					format="png"
-					className="dashboard__thumb"
-					alt="screenshot du projet"
-					width="391"
-					height="576"
-					responsiveOption={['1x', '2x']}/>
-				<div className="dashboard__detail">
-					<h2 className="dashboard__title">{project.title}</h2>
-					<p className="dashboard__type">{project.type} <span className="dashboard__version">{project.version}</span></p>
-					<p className="dashboard__desc">{project.desc}</p>
-
+				<div className="project__thumb" style={style}></div>
+				<div className="project__detail">
+					<h2 className="project__title">{project.title}</h2>
+					<p className="project__type">{project.type} <span className="project__version">{project.version}</span></p>
+					<p className="project__desc">{project.desc}</p>
 				</div>
 			</div>
 		);

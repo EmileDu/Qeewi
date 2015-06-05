@@ -43,6 +43,8 @@
 	transform: translateX(-62.5%) rotate(-90deg);
 	transition: color .2s ease-in-out;
 	cursor: pointer;
+	font-variant: small-caps;
+	letter-spacing: 1px;
 	&:hover {
 		color: $green;
 	}
@@ -56,6 +58,8 @@
 	width: 100%;
 	margin-bottom: 4.5rem;
 	opacity: .5;
+	font-variant: small-caps;
+
 	&:before, &:after {
 		content: "";
 		display: block;

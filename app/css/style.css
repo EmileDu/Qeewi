@@ -4,15 +4,11 @@
  * @license ISC
  */
 /* Bourbon */
-/* Neat 1.7.0
- * http://neat.bourbon.io
- * Copyright 2012-2014 thoughtbot, inc.
- * MIT License */
 html {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*, *::after, *::before {
   box-sizing: inherit;
 }
 
@@ -198,10 +194,10 @@ textarea:active {
   margin-left: auto;
   margin-right: auto;
 }
-.page:after {
+.page::after {
+  clear: both;
   content: "";
   display: table;
-  clear: both;
 }
 
 .page__title {
@@ -221,10 +217,10 @@ textarea:active {
   display: block;
   margin-bottom: 1.5rem;
 }
-.row:after {
+.row::after {
+  clear: both;
   content: "";
   display: table;
-  clear: both;
 }
 .row:last-child {
   margin-bottom: 0;
@@ -361,10 +357,10 @@ textarea:active {
   padding: 0 30px;
   margin-left: 50px;
 }
-.app__content:after {
+.app__content::after {
+  clear: both;
   content: "";
   display: table;
-  clear: both;
 }
 
 /* Modules */
@@ -373,60 +369,77 @@ textarea:active {
   margin-left: auto;
   margin-right: auto;
 }
-.projects-list:after {
+.projects-list::after {
+  clear: both;
   content: "";
   display: table;
-  clear: both;
 }
 
 .projects-list__item {
   float: left;
   display: block;
-  margin-right: 2.35765%;
-  width: 23.23176%;
+  margin-right: 3.60299%;
+  width: 22.29776%;
   margin-bottom: 24px;
 }
 .projects-list__item:last-child {
   margin-right: 0;
 }
-.projects-list__item:nth-child(4n) {
+.projects-list__item:nth-child(5n) {
   margin-right: 0;
 }
-.projects-list__item:nth-child(4n+1) {
+.projects-list__item:nth-child(5n+1) {
   clear: left;
 }
 
 .project {
   position: relative;
-  height: 144px;
+  color: #2d2e2c;
+  width: 100%;
+}
+.project::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.project:not(.project--dashboard) {
+  min-height: 144px;
   overflow: hidden;
   border-radius: 5px;
-  color: #2d2e2c;
 }
-.project:first-child {
+.project:not(.project--dashboard):first-child {
   display: table;
   color: #2d2e2c;
+  margin-right: 0;
 }
-.project:not(:first-child) {
+.project:not(.project--dashboard):first-child .dropzone {
+  width: 100%;
+}
+.project:not(.project--dashboard):not(:first-child) {
   box-shadow: 2px 0px 4px 0px rgba(45, 46, 44, 0.15);
 }
-.project:hover {
+.project:not(.project--dashboard):hover {
   color: #96c119;
 }
-.project:hover:first-child .dropzone {
+.project:not(.project--dashboard):hover:first-child .dropzone {
   opacity: 1;
 }
 
 .project__thumb {
   position: absolute;
   top: 0;
+  right: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: auto;
   z-index: 0;
+  background-size: 212px 314px;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
-.project__detail {
+.project__detail:not(.project--dashboard) {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -444,15 +457,21 @@ textarea:active {
   height: 16px;
   margin-bottom: 5px;
   color: inherit;
+  text-transform: capitalize;
+  font-weight: 400;
+  letter-spacing: 1px;
 }
 
 .project__type {
+  position: relative;
   display: block;
   width: 100%;
   height: 11px;
   font-family: "HelveticaNeue_Light", Helvetica, Arial, sans-serif;
   font-size: 0.6875rem;
   color: inherit;
+  font-variant: small-caps;
+  letter-spacing: 1px;
 }
 
 .project__version {
@@ -461,8 +480,71 @@ textarea:active {
 }
 .project__version:before {
   display: inline-block;
-  content: ' - v';
+  content: '- v';
   color: inherit;
+  margin-left: 3px;
+}
+
+.project__desc {
+  display: none;
+  font-family: "HelveticaNeue_Light", Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.project--dashboard .project__thumb {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 50px;
+  width: 391px;
+  height: 100%;
+  background-size: 391px 579px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.project--dashboard .project__detail {
+  position: static;
+  float: left;
+  display: block;
+  margin-right: 3.60299%;
+  width: 56.83209%;
+  margin-left: 43.16791%;
+  padding: 0;
+}
+.project--dashboard .project__detail:last-child {
+  margin-right: 0;
+}
+.project--dashboard .project__title {
+  height: auto;
+  font-size: 2.25rem;
+  font-family: "HelveticaNeue_Bold", Helvetica, Arial, sans-serif;
+}
+.project--dashboard .project__type {
+  margin-bottom: 1.5rem;
+}
+.project--dashboard .project__type span {
+  position: relative;
+  z-index: 5;
+  background: #eef3f5;
+}
+.project--dashboard .project__type:after {
+  content: '';
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  margin: auto;
+  background: #2d2e2c;
+}
+.project--dashboard .project__version {
+  padding-right: 10px;
+}
+.project--dashboard .project__desc {
+  display: block;
 }
 
 .dashboard {
@@ -476,14 +558,17 @@ textarea:active {
   left: 50px;
   width: 391px;
   height: 100%;
+  background-size: 391px 579px;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .dashboard__detail {
   float: left;
   display: block;
-  margin-right: 2.35765%;
-  width: 57.35098%;
-  margin-left: 42.64902%;
+  margin-right: 3.60299%;
+  width: 56.83209%;
+  margin-left: 43.16791%;
 }
 .dashboard__detail:last-child {
   margin-right: 0;
@@ -556,6 +641,7 @@ textarea:active {
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 5px;
+  font-weight: 400;
 }
 
 .dropzone__icon {
@@ -584,25 +670,87 @@ textarea:active {
   outline: none;
 }
 
+.button--save {
+  background: #96c119;
+  color: #ffffff;
+  font-size: 1rem;
+  font-family: "HelveticaNeue_Bold", Helvetica, Arial, sans-serif;
+  transition: all .2s ease-in-out;
+}
+.button--save:hover {
+  background: #739413;
+}
+
 .ReactModal__Overlay {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 10;
+  z-index: 100;
   background-color: rgba(45, 46, 44, 0.75);
 }
 
 .ReactModal__Content {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
   position: absolute;
-  top: 30px;
+  top: 24px;
   right: 30px;
-  bottom: 30px;
+  bottom: 24px;
   left: 30px;
   padding: 24px 30px;
-  border-radius: 5px;
+  border-radius: 3px;
   background: #eef3f5;
+}
+.ReactModal__Content::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.ReactModal__Content .wrapper {
+  position: relative;
+  height: 100%;
+}
+
+.modal__button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  float: left;
+  display: block;
+  margin-right: 3.60299%;
+  width: 22.29776%;
+  height: 3rem;
+  border-radius: 3px;
+}
+.modal__button:last-child {
+  margin-right: 0;
+}
+
+.modal__col {
+  float: left;
+  display: block;
+  margin-right: 3.60299%;
+  width: 48.1985%;
+  height: 100%;
+}
+.modal__col:last-child {
+  margin-right: 0;
+}
+.modal__col:nth-child(2n) {
+  margin-right: 0;
+}
+.modal__col:nth-child(2n+1) {
+  clear: left;
+}
+
+.modal__title {
+  font-size: 1.5rem;
+  font-family: "HelveticaNeue_Light", Helvetica, Arial, sans-serif;
+  font-variant: small-caps;
+  opacity: .7;
 }
 
 .form-section {
@@ -611,10 +759,10 @@ textarea:active {
   margin-left: auto;
   margin-right: auto;
 }
-.form-section:after {
+.form-section::after {
+  clear: both;
   content: "";
   display: table;
-  clear: both;
 }
 .form-section .form-section__input:last-child {
   margin-bottom: 0;
@@ -665,6 +813,8 @@ textarea:active {
           transform: translateX(-62.5%) rotate(-90deg);
   transition: color .2s ease-in-out;
   cursor: pointer;
+  font-variant: small-caps;
+  letter-spacing: 1px;
 }
 .form-panel__button:hover {
   color: #96c119;
@@ -678,6 +828,7 @@ textarea:active {
   width: 100%;
   margin-bottom: 4.5rem;
   opacity: .5;
+  font-variant: small-caps;
 }
 .form-section__title:before, .form-section__title:after {
   content: "";
@@ -716,8 +867,8 @@ textarea:active {
 .input--3col {
   float: left;
   display: block;
-  margin-right: 2.35765%;
-  width: 23.23176%;
+  margin-right: 3.60299%;
+  width: 22.29776%;
 }
 .input--3col:last-child {
   margin-right: 0;
@@ -726,8 +877,8 @@ textarea:active {
 .input--4col {
   float: left;
   display: block;
-  margin-right: 2.35765%;
-  width: 31.76157%;
+  margin-right: 3.60299%;
+  width: 30.93134%;
 }
 .input--4col:last-child {
   margin-right: 0;
@@ -736,8 +887,8 @@ textarea:active {
 .input--8col {
   float: left;
   display: block;
-  margin-right: 2.35765%;
-  width: 65.88078%;
+  margin-right: 3.60299%;
+  width: 65.46567%;
 }
 .input--8col:last-child {
   margin-right: 0;
@@ -746,7 +897,7 @@ textarea:active {
 .input--12col {
   float: left;
   display: block;
-  margin-right: 2.35765%;
+  margin-right: 3.60299%;
   width: 100%;
 }
 .input--12col:last-child {
@@ -754,11 +905,11 @@ textarea:active {
 }
 
 .input--shit2col {
-  margin-left: 17.05961%;
+  margin-left: 17.26717%;
 }
 
 .input--shit6col {
-  margin-left: 51.17883%;
+  margin-left: 51.8015%;
 }
 
 .input--dropzone .input__field {
