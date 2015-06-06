@@ -80,6 +80,17 @@ class Input extends React.Component {
 				);
 				break;
 			case 'search':
+				input.push(
+					<input
+						key={id}
+						type={this.props.type}
+						className={classInput}
+						id={id}
+						ref={id}
+						value={value}
+						required={this.props.required}
+						onInput={this.handleChange} />
+				);
 				break;
 			default:
 				input.push(

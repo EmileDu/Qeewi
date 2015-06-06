@@ -32,6 +32,9 @@
 	@include span-columns(6);
 	@include omega(2n);
 	height: 100%;
+	form {
+		@include clearfix();
+	}
 }
 
 .modal__title {
@@ -39,10 +42,12 @@
 	font-family: $font-light;
 	font-variant: small-caps;
 	opacity: .7;
+	margin-bottom: 2.25rem;
 }
 
-.input {
+.input--modal{
 	@include omega(2n+1);
+	margin-bottom: 2.25rem;
 	.input__label {
 		color: $black;
 	}

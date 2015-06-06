@@ -681,88 +681,6 @@ textarea:active {
   background: #739413;
 }
 
-.ReactModal__Overlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 100;
-  background-color: rgba(45, 46, 44, 0.75);
-}
-
-.ReactModal__Content {
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto;
-  position: absolute;
-  top: 24px;
-  right: 30px;
-  bottom: 24px;
-  left: 30px;
-  padding: 24px 30px;
-  border-radius: 3px;
-  background: #eef3f5;
-}
-.ReactModal__Content::after {
-  clear: both;
-  content: "";
-  display: table;
-}
-.ReactModal__Content .wrapper {
-  position: relative;
-  height: 100%;
-}
-
-.modal__button {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  float: left;
-  display: block;
-  margin-right: 3.60299%;
-  width: 22.29776%;
-  height: 3rem;
-  border-radius: 3px;
-}
-.modal__button:last-child {
-  margin-right: 0;
-}
-
-.modal__col {
-  float: left;
-  display: block;
-  margin-right: 3.60299%;
-  width: 48.1985%;
-  height: 100%;
-}
-.modal__col:last-child {
-  margin-right: 0;
-}
-.modal__col:nth-child(2n) {
-  margin-right: 0;
-}
-.modal__col:nth-child(2n+1) {
-  clear: left;
-}
-
-.modal__title {
-  font-size: 1.5rem;
-  font-family: "HelveticaNeue_Light", Helvetica, Arial, sans-serif;
-  font-variant: small-caps;
-  opacity: .7;
-}
-
-.input:nth-child(3n) {
-  margin-right: 0;
-}
-.input:nth-child(3n+1) {
-  clear: left;
-}
-.input .input__label {
-  color: #2d2e2c;
-}
-
 .form-section {
   padding-bottom: 4.5rem;
   max-width: 68em;
@@ -982,6 +900,10 @@ textarea:active {
   height: 3rem;
 }
 
+.input--search .input__field {
+  padding-left: .8rem;
+}
+
 .input--radio {
   margin-bottom: 0;
 }
@@ -1085,4 +1007,95 @@ textarea:active {
           transform: translate3d(0, 0, 0);
   transition: all .3s ease-in-out;
   padding: 1.25rem 0 0.5rem;
+}
+
+.ReactModal__Overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  background-color: rgba(45, 46, 44, 0.75);
+}
+
+.ReactModal__Content {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  top: 24px;
+  right: 30px;
+  bottom: 24px;
+  left: 30px;
+  padding: 24px 30px;
+  border-radius: 3px;
+  background: #eef3f5;
+}
+.ReactModal__Content::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.ReactModal__Content .wrapper {
+  position: relative;
+  height: 100%;
+}
+
+.modal__button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  float: left;
+  display: block;
+  margin-right: 3.60299%;
+  width: 22.29776%;
+  height: 3rem;
+  border-radius: 3px;
+}
+.modal__button:last-child {
+  margin-right: 0;
+}
+
+.modal__col {
+  float: left;
+  display: block;
+  margin-right: 3.60299%;
+  width: 48.1985%;
+  height: 100%;
+}
+.modal__col:last-child {
+  margin-right: 0;
+}
+.modal__col:nth-child(2n) {
+  margin-right: 0;
+}
+.modal__col:nth-child(2n+1) {
+  clear: left;
+}
+.modal__col form::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.modal__title {
+  font-size: 1.5rem;
+  font-family: "HelveticaNeue_Light", Helvetica, Arial, sans-serif;
+  font-variant: small-caps;
+  opacity: .7;
+  margin-bottom: 2.25rem;
+}
+
+.input--modal {
+  margin-bottom: 2.25rem;
+}
+.input--modal:nth-child(3n) {
+  margin-right: 0;
+}
+.input--modal:nth-child(3n+1) {
+  clear: left;
+}
+.input--modal .input__label {
+  color: #2d2e2c;
 }

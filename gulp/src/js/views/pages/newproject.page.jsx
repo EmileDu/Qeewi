@@ -164,67 +164,80 @@ class NewProject extends React.Component {
 					<div className={classPanel}>
 						<button className="form-panel__button" onClick={this.handleOpenPanel}>Plus d'option</button>
 						<fieldset className="form-section" id="moreconfig">
-							<Input
-								className="form-section__input input input--select input--3col"
-								type="select"
-								name="input-select-preconfig"
-								id="input-select-preconfig"
-								required={false}
-								label="Pré-configuration"
-								default="website">
-								<option value="website">Site Web</option>
-								<option value="webapp">Web App</option>
-								<option value="proto">Prototype</option>
-							</Input>
-							<Input
-								className="form-section__input input input--select input--3col"
-								type="select"
-								name="input-select-resetcss"
-								id="input-select-resetcss"
-								required={false}
-								label="Reset CSS"
-								default="">
-								<option value="">Aucun</option>
-								<option value="reset">Reset</option>
-								<option value="normalize">Normalize</option>
-							</Input>
-							<Input
-								className="form-section__input input input--select input--3col"
-								type="select"
-								name="input-select-preprocss"
-								id="input-select-preprocss"
-								required={false}
-								label="Préprocesseur CSS"
-								default="">
-								<option value="">Aucun</option>
-								<option value="less">LESS</option>
-								<option value="sass">SASS</option>
-								<option value="scss">SCSS</option>
-								<option value="stylus">Stylus</option>
-							</Input>
-							<Input
-								className="form-section__input input input--select input--3col"
-								type="select"
-								name="input-select-preprojs"
-								id="input-select-preprojs"
-								required={false}
-								label="Préprocesseur JS"
-								default="">
-								<option value="">Aucun</option>
-								<option value="coffeescript">CoffeeScript</option>
-								<option value="livescript">LiveScript</option>
-							</Input>
+							<div className="row">
+								<Input
+									className="form-section__input input input--select input--3col"
+									type="select"
+									name="input-select-preconfig"
+									id="input-select-preconfig"
+									required={false}
+									label="Pré-configuration"
+									default="website">
+									<option value="website">Site Web</option>
+									<option value="webapp">Web App</option>
+									<option value="proto">Prototype</option>
+								</Input>
+								<Input
+									className="form-section__input input input--select input--3col"
+									type="select"
+									name="input-select-resetcss"
+									id="input-select-resetcss"
+									required={false}
+									label="Reset CSS"
+									default="">
+									<option value="">Aucun</option>
+									<option value="reset">Reset</option>
+									<option value="normalize">Normalize</option>
+								</Input>
+								<Input
+									className="form-section__input input input--select input--3col"
+									type="select"
+									name="input-select-preprocss"
+									id="input-select-preprocss"
+									required={false}
+									label="Préprocesseur CSS"
+									default="">
+									<option value="">Aucun</option>
+									<option value="less">LESS</option>
+									<option value="sass">SASS</option>
+									<option value="scss">SCSS</option>
+									<option value="stylus">Stylus</option>
+								</Input>
+								<Input
+									className="form-section__input input input--select input--3col"
+									type="select"
+									name="input-select-preprojs"
+									id="input-select-preprojs"
+									required={false}
+									label="Préprocesseur JS"
+									default="">
+									<option value="">Aucun</option>
+									<option value="coffeescript">CoffeeScript</option>
+									<option value="livescript">LiveScript</option>
+								</Input>
+							</div>
 						</fieldset>
 						<fieldset className="form-section" id="jsextern">
 							<legend className="form-section__title">Ressources Javascript</legend>
-							<Input
-								className="form-section__input input input--search input--6col"
-								type="search"
-								name="input-select-jsextern"
-								id="input-select-jsextern"
-								required={false}>
-								Rechercger
-							</Input>
+							<div className="row">
+								<Input
+									className="form-section__input input input--search input--6col"
+									type="search"
+									name="input-select-jsextern"
+									id="input-select-jsextern"
+									required={false}>
+									Rechercher sur github
+								</Input>
+								<Input
+									className="form-section__input input input--dropzone input--6col"
+									type="file"
+									name="input-favicon"
+									id="input-favicon"
+									accept="image/*"
+									required={false}>
+									<Dropzone className="input__label__content dropzone">Ressource personnelle</Dropzone>
+								</Input>
+							</div>
 						</fieldset>
 					</div>
 					<input type="file" ref="inputPath" id="input-path" name="input-path" className="form-section__input input input--hidden" onChange={this.handleSubmit}/>

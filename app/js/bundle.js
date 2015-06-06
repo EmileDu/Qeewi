@@ -993,117 +993,121 @@ webpackJsonp([1],[
 								'fieldset',
 								{ className: 'form-section', id: 'moreconfig' },
 								_react2['default'].createElement(
-									_componentsInputComponentJsx2['default'],
-									{
-										className: 'form-section__input input input--select input--3col',
-										type: 'select',
-										name: 'input-select-preconfig',
-										id: 'input-select-preconfig',
-										required: false,
-										label: 'Pré-configuration',
-										'default': 'website' },
+									'div',
+									{ className: 'row' },
 									_react2['default'].createElement(
-										'option',
-										{ value: 'website' },
-										'Site Web'
+										_componentsInputComponentJsx2['default'],
+										{
+											className: 'form-section__input input input--select input--3col',
+											type: 'select',
+											name: 'input-select-preconfig',
+											id: 'input-select-preconfig',
+											required: false,
+											label: 'Pré-configuration',
+											'default': 'website' },
+										_react2['default'].createElement(
+											'option',
+											{ value: 'website' },
+											'Site Web'
+										),
+										_react2['default'].createElement(
+											'option',
+											{ value: 'webapp' },
+											'Web App'
+										),
+										_react2['default'].createElement(
+											'option',
+											{ value: 'proto' },
+											'Prototype'
+										)
 									),
 									_react2['default'].createElement(
-										'option',
-										{ value: 'webapp' },
-										'Web App'
+										_componentsInputComponentJsx2['default'],
+										{
+											className: 'form-section__input input input--select input--3col',
+											type: 'select',
+											name: 'input-select-resetcss',
+											id: 'input-select-resetcss',
+											required: false,
+											label: 'Reset CSS',
+											'default': '' },
+										_react2['default'].createElement(
+											'option',
+											{ value: '' },
+											'Aucun'
+										),
+										_react2['default'].createElement(
+											'option',
+											{ value: 'reset' },
+											'Reset'
+										),
+										_react2['default'].createElement(
+											'option',
+											{ value: 'normalize' },
+											'Normalize'
+										)
 									),
 									_react2['default'].createElement(
-										'option',
-										{ value: 'proto' },
-										'Prototype'
-									)
-								),
-								_react2['default'].createElement(
-									_componentsInputComponentJsx2['default'],
-									{
-										className: 'form-section__input input input--select input--3col',
-										type: 'select',
-										name: 'input-select-resetcss',
-										id: 'input-select-resetcss',
-										required: false,
-										label: 'Reset CSS',
-										'default': '' },
-									_react2['default'].createElement(
-										'option',
-										{ value: '' },
-										'Aucun'
+										_componentsInputComponentJsx2['default'],
+										{
+											className: 'form-section__input input input--select input--3col',
+											type: 'select',
+											name: 'input-select-preprocss',
+											id: 'input-select-preprocss',
+											required: false,
+											label: 'Préprocesseur CSS',
+											'default': '' },
+										_react2['default'].createElement(
+											'option',
+											{ value: '' },
+											'Aucun'
+										),
+										_react2['default'].createElement(
+											'option',
+											{ value: 'less' },
+											'LESS'
+										),
+										_react2['default'].createElement(
+											'option',
+											{ value: 'sass' },
+											'SASS'
+										),
+										_react2['default'].createElement(
+											'option',
+											{ value: 'scss' },
+											'SCSS'
+										),
+										_react2['default'].createElement(
+											'option',
+											{ value: 'stylus' },
+											'Stylus'
+										)
 									),
 									_react2['default'].createElement(
-										'option',
-										{ value: 'reset' },
-										'Reset'
-									),
-									_react2['default'].createElement(
-										'option',
-										{ value: 'normalize' },
-										'Normalize'
-									)
-								),
-								_react2['default'].createElement(
-									_componentsInputComponentJsx2['default'],
-									{
-										className: 'form-section__input input input--select input--3col',
-										type: 'select',
-										name: 'input-select-preprocss',
-										id: 'input-select-preprocss',
-										required: false,
-										label: 'Préprocesseur CSS',
-										'default': '' },
-									_react2['default'].createElement(
-										'option',
-										{ value: '' },
-										'Aucun'
-									),
-									_react2['default'].createElement(
-										'option',
-										{ value: 'less' },
-										'LESS'
-									),
-									_react2['default'].createElement(
-										'option',
-										{ value: 'sass' },
-										'SASS'
-									),
-									_react2['default'].createElement(
-										'option',
-										{ value: 'scss' },
-										'SCSS'
-									),
-									_react2['default'].createElement(
-										'option',
-										{ value: 'stylus' },
-										'Stylus'
-									)
-								),
-								_react2['default'].createElement(
-									_componentsInputComponentJsx2['default'],
-									{
-										className: 'form-section__input input input--select input--3col',
-										type: 'select',
-										name: 'input-select-preprojs',
-										id: 'input-select-preprojs',
-										required: false,
-										label: 'Préprocesseur JS',
-										'default': '' },
-									_react2['default'].createElement(
-										'option',
-										{ value: '' },
-										'Aucun'
-									),
-									_react2['default'].createElement(
-										'option',
-										{ value: 'coffeescript' },
-										'CoffeeScript'
-									),
-									_react2['default'].createElement(
-										'option',
-										{ value: 'livescript' },
-										'LiveScript'
+										_componentsInputComponentJsx2['default'],
+										{
+											className: 'form-section__input input input--select input--3col',
+											type: 'select',
+											name: 'input-select-preprojs',
+											id: 'input-select-preprojs',
+											required: false,
+											label: 'Préprocesseur JS',
+											'default': '' },
+										_react2['default'].createElement(
+											'option',
+											{ value: '' },
+											'Aucun'
+										),
+										_react2['default'].createElement(
+											'option',
+											{ value: 'coffeescript' },
+											'CoffeeScript'
+										),
+										_react2['default'].createElement(
+											'option',
+											{ value: 'livescript' },
+											'LiveScript'
+										)
 									)
 								)
 							),
@@ -1116,14 +1120,33 @@ webpackJsonp([1],[
 									'Ressources Javascript'
 								),
 								_react2['default'].createElement(
-									_componentsInputComponentJsx2['default'],
-									{
-										className: 'form-section__input input input--search input--6col',
-										type: 'search',
-										name: 'input-select-jsextern',
-										id: 'input-select-jsextern',
-										required: false },
-									'Rechercger'
+									'div',
+									{ className: 'row' },
+									_react2['default'].createElement(
+										_componentsInputComponentJsx2['default'],
+										{
+											className: 'form-section__input input input--search input--6col',
+											type: 'search',
+											name: 'input-select-jsextern',
+											id: 'input-select-jsextern',
+											required: false },
+										'Rechercher sur github'
+									),
+									_react2['default'].createElement(
+										_componentsInputComponentJsx2['default'],
+										{
+											className: 'form-section__input input input--dropzone input--6col',
+											type: 'file',
+											name: 'input-favicon',
+											id: 'input-favicon',
+											accept: 'image/*',
+											required: false },
+										_react2['default'].createElement(
+											_componentsDropzoneComponentJsx2['default'],
+											{ className: 'input__label__content dropzone' },
+											'Ressource personnelle'
+										)
+									)
 								)
 							)
 						),
@@ -1974,6 +1997,15 @@ webpackJsonp([1],[
 							onInput: this.handleChange }));
 						break;
 					case 'search':
+						input.push(_react2['default'].createElement('input', {
+							key: id,
+							type: this.props.type,
+							className: classInput,
+							id: id,
+							ref: id,
+							value: value,
+							required: this.props.required,
+							onInput: this.handleChange }));
 						break;
 					default:
 						input.push(_react2['default'].createElement('input', {
@@ -2279,7 +2311,7 @@ webpackJsonp([1],[
 									_react2['default'].createElement(
 										_inputComponentJsx2['default'],
 										{
-											className: 'form-section__input input input--select input--6col',
+											className: 'form-section__input input input--modal input--select input--6col',
 											type: 'select',
 											name: 'input-select-preconfig',
 											id: 'input-select-preconfig',
@@ -2305,7 +2337,7 @@ webpackJsonp([1],[
 									_react2['default'].createElement(
 										_inputComponentJsx2['default'],
 										{
-											className: 'form-section__input input input--select input--6col',
+											className: 'form-section__input input input--modal input--select input--6col',
 											type: 'select',
 											name: 'input-select-resetcss',
 											id: 'input-select-resetcss',
@@ -2331,7 +2363,7 @@ webpackJsonp([1],[
 									_react2['default'].createElement(
 										_inputComponentJsx2['default'],
 										{
-											className: 'form-section__input input input--select input--6col',
+											className: 'form-section__input input input--modal input--select input--6col',
 											type: 'select',
 											name: 'input-select-preprocss',
 											id: 'input-select-preprocss',
@@ -2367,7 +2399,7 @@ webpackJsonp([1],[
 									_react2['default'].createElement(
 										_inputComponentJsx2['default'],
 										{
-											className: 'form-section__input input input--select input--6col',
+											className: 'form-section__input input input--modal input--select input--6col',
 											type: 'select',
 											name: 'input-select-preprojs',
 											id: 'input-select-preprojs',

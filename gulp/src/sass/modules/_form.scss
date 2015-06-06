@@ -138,7 +138,9 @@
 		height: 3rem;
 	}
 }
-
+.input--search {
+	.input__field { padding-left: .8rem; }
+}
 .input--radio {
 	margin-bottom: 0;
 	.input__field {

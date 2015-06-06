@@ -44,7 +44,7 @@ class SettingsModal extends React.Component {
 							<form ref="configdefaultform" id="configdefaultform">
 								<legend className="modal__title">Configuration par défaut</legend>
 									<Input
-										className="form-section__input input input--select input--6col"
+										className="form-section__input input input--modal input--select input--6col"
 										type="select"
 										name="input-select-preconfig"
 										id="input-select-preconfig"
@@ -56,7 +56,7 @@ class SettingsModal extends React.Component {
 										<option value="proto">Prototype</option>
 									</Input>
 									<Input
-										className="form-section__input input input--select input--6col"
+										className="form-section__input input input--modal input--select input--6col"
 										type="select"
 										name="input-select-resetcss"
 										id="input-select-resetcss"
@@ -68,7 +68,7 @@ class SettingsModal extends React.Component {
 										<option value="normalize">Normalize</option>
 									</Input>
 									<Input
-										className="form-section__input input input--select input--6col"
+										className="form-section__input input input--modal input--select input--6col"
 										type="select"
 										name="input-select-preprocss"
 										id="input-select-preprocss"
@@ -82,7 +82,7 @@ class SettingsModal extends React.Component {
 										<option value="stylus">Stylus</option>
 									</Input>
 									<Input
-										className="form-section__input input input--select input--6col"
+										className="form-section__input input input--modal input--select input--6col"
 										type="select"
 										name="input-select-preprojs"
 										id="input-select-preprojs"
