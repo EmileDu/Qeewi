@@ -18,7 +18,7 @@ var data = {
 	"resetcss": "",
 	"preprocss": "",
 	"preprojs": "",
-	"author": ""
+	"author": null
 }
 
 var tray;
@@ -29,9 +29,12 @@ app.init = function() {
 	this.initMenu(MenuTemplate);
 
 	app.node.fs.exists(app.node.gui.App.dataPath + '/data/settings.json', function(exists){
-		if (!exists) {
-			app.node.fs.writeFile(app.node.gui.App.dataPath + '/data/settings.json', JSON.stringify(data), function(err){
-				if (err) throw err;
+		if (exists == false) {
+			console.log('coucou');
+			app.node.fs.mkdir(app.node.gui.App.dataPath + '/data', function() {
+				app.node.fs.writeFile(app.node.gui.App.dataPath + '/data/settings.json', JSON.stringify(data), function(err){
+					if (err) throw err;
+				});
 			});
 		}
 	});

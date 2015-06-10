@@ -2,7 +2,7 @@ import shortid from 'shortid';
 import fs from 'fs';
 import gui from 'nw.gui';
 
-var path = gui.App.dataPath+'/data/projet_exemple';
+var path = gui.App.dataPath+'/data';
 var data = {
 	"title":"Projet d'exemple",
 	"type":"Site Web",
@@ -18,16 +18,27 @@ var data = {
 }
 
 var projects = [
-	{key: shortid.generate(), path: path}
+	{key: shortid.generate(), path: path+'/project_exemple'}
 ];
 
 module.exports = {
 	init() {
+		fs.exists(path + '/project_exemple/.qeewi', function(exists){
+			if (exists == false) {
+				console.log('this file doesn\'t exist');
+				fs.mkdir(path+'/project_exemple', function(){
+					console.log(path+'/project_exemple created');
+					fs.writeFile(path + '/project_exemple/.qeewi', JSON.stringify(data), function(err){
+						if (err) throw err;
+						console.log(path + '/project_exemple/.qeewi created');
+					});
+				})
+			}
+		});
+
 		localStorage.clear();
 		localStorage.setItem('projects', JSON.stringify(projects));
-		fs.writeFile(path + '/.qeewi', JSON.stringify(data), function(err){
-			if (err) throw err;
-			console.log('init successfull');
-		});
+
+
 	}
 };

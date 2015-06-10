@@ -15,6 +15,7 @@ class MoreOptions extends React.Component {
 		super(props);
 		this.handleOpenPanel = this.handleOpenPanel.bind(this);
 		this.handleChange = this.handleChange.bind(this);
+		this.selectChange = this.selectChange.bind(this);
 		this.state = { isPanelOpen: false, value: null, isFilled: false, preconfig: 'Site Web', resetcss: '', preprocss: '', preprojs: ''  };
 	}
 
@@ -78,7 +79,8 @@ class MoreOptions extends React.Component {
 							id="input-preconfig"
 							required={false}
 							label="Pré-configuration"
-							default={this.state.preconfig}>
+							default={this.state.preconfig}
+							onInput={this.selectChange}>
 							<option value="Site Web">Site Web</option>
 							<option value="Web App">Web App</option>
 							<option value="Prototype">Prototype</option>
@@ -90,7 +92,8 @@ class MoreOptions extends React.Component {
 							id="input-resetcss"
 							required={false}
 							label="Reset CSS"
-							default={this.state.resetcss}>
+							default={this.state.resetcss}
+							onInput={this.selectChange}>
 							<option value="">Aucun</option>
 							<option value="reset">Reset</option>
 							<option value="normalize">Normalize</option>
@@ -102,7 +105,8 @@ class MoreOptions extends React.Component {
 							id="input-preprocss"
 							required={false}
 							label="Préprocesseur CSS"
-							default={this.state.preprocss}>
+							default={this.state.preprocss}
+							onInput={this.selectChange}>
 							<option value="">Aucun</option>
 							<option value="less">LESS</option>
 							<option value="sass">SASS</option>
@@ -116,7 +120,8 @@ class MoreOptions extends React.Component {
 							id="input-preprojs"
 							required={false}
 							label="Préprocesseur JS"
-							default={this.state.preprojs}>
+							default={this.state.preprojs}
+							onInput={this.selectChange}>
 							<option value="">Aucun</option>
 							<option value="coffeescript">CoffeeScript</option>
 							<option value="livescript">LiveScript</option>

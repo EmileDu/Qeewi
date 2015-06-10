@@ -11,46 +11,46 @@ webpackJsonp([1],[
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRouter = __webpack_require__(4);
+	var _reactRouter = __webpack_require__(5);
 	
 	var _reactRouter2 = _interopRequireDefault(_reactRouter);
 	
-	var _lodash = __webpack_require__(3);
+	var _lodash = __webpack_require__(2);
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
 	
-	var _routes = __webpack_require__(38);
+	var _routes = __webpack_require__(33);
 	
 	var _routes2 = _interopRequireDefault(_routes);
 	
-	var _ProjectsDataJs = __webpack_require__(39);
+	var _ProjectsDataJs = __webpack_require__(34);
 	
 	var _ProjectsDataJs2 = _interopRequireDefault(_ProjectsDataJs);
 	
-	var _menusJs = __webpack_require__(40);
+	var _menusJs = __webpack_require__(35);
 	
 	var _menusJs2 = _interopRequireDefault(_menusJs);
 	
-	var _nwAppmenu = __webpack_require__(95);
+	var _nwAppmenu = __webpack_require__(93);
 	
 	var _nwAppmenu2 = _interopRequireDefault(_nwAppmenu);
 	
 	var app = {};
 	app.node = {};
-	app.node.fs = __webpack_require__(35);
-	app.node.gui = __webpack_require__(36);
-	app.node.os = __webpack_require__(37);
+	app.node.fs = __webpack_require__(9);
+	app.node.gui = __webpack_require__(10);
+	app.node.os = __webpack_require__(11);
 	
 	var data = {
 		'preconfig': 'Site Web',
 		'resetcss': '',
 		'preprocss': '',
 		'preprojs': '',
-		'author': ''
+		'author': null
 	};
 	
 	var tray;
@@ -61,9 +61,12 @@ webpackJsonp([1],[
 		this.initMenu(_menusJs2['default']);
 	
 		app.node.fs.exists(app.node.gui.App.dataPath + '/data/settings.json', function (exists) {
-			if (!exists) {
-				app.node.fs.writeFile(app.node.gui.App.dataPath + '/data/settings.json', JSON.stringify(data), function (err) {
-					if (err) throw err;
+			if (exists == false) {
+				console.log('coucou');
+				app.node.fs.mkdir(app.node.gui.App.dataPath + '/data', function () {
+					app.node.fs.writeFile(app.node.gui.App.dataPath + '/data/settings.json', JSON.stringify(data), function (err) {
+						if (err) throw err;
+					});
 				});
 			}
 		});
@@ -118,9 +121,24 @@ webpackJsonp([1],[
 /* 6 */,
 /* 7 */,
 /* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = require("fs");
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = require("nw.gui");
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = require("os");
+
+/***/ },
 /* 12 */,
 /* 13 */,
 /* 14 */,
@@ -142,56 +160,36 @@ webpackJsonp([1],[
 /* 30 */,
 /* 31 */,
 /* 32 */,
-/* 33 */,
-/* 34 */,
-/* 35 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = require("fs");
-
-/***/ },
-/* 36 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = require("nw.gui");
-
-/***/ },
-/* 37 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = require("os");
-
-/***/ },
-/* 38 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRouter = __webpack_require__(4);
+	var _reactRouter = __webpack_require__(5);
 	
-	var _viewsContainersAppContainerJsx = __webpack_require__(97);
+	var _viewsContainersAppContainerJsx = __webpack_require__(158);
 	
 	var _viewsContainersAppContainerJsx2 = _interopRequireDefault(_viewsContainersAppContainerJsx);
 	
-	var _viewsPagesHomePageJsx = __webpack_require__(98);
+	var _viewsPagesHomePageJsx = __webpack_require__(159);
 	
 	var _viewsPagesHomePageJsx2 = _interopRequireDefault(_viewsPagesHomePageJsx);
 	
-	var _viewsPagesDashboardprojectPageJsx = __webpack_require__(99);
+	var _viewsPagesDashboardprojectPageJsx = __webpack_require__(160);
 	
 	var _viewsPagesDashboardprojectPageJsx2 = _interopRequireDefault(_viewsPagesDashboardprojectPageJsx);
 	
-	var _viewsPagesNewprojectPageJsx = __webpack_require__(100);
+	var _viewsPagesNewprojectPageJsx = __webpack_require__(161);
 	
 	var _viewsPagesNewprojectPageJsx2 = _interopRequireDefault(_viewsPagesNewprojectPageJsx);
 	
-	var _viewsPagesNotfoundPageJsx = __webpack_require__(101);
+	var _viewsPagesNotfoundPageJsx = __webpack_require__(162);
 	
 	var _viewsPagesNotfoundPageJsx2 = _interopRequireDefault(_viewsPagesNotfoundPageJsx);
 	
@@ -208,26 +206,26 @@ webpackJsonp([1],[
 	module.exports = routes;
 
 /***/ },
-/* 39 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _shortid = __webpack_require__(6);
+	var _shortid = __webpack_require__(7);
 	
 	var _shortid2 = _interopRequireDefault(_shortid);
 	
-	var _fs = __webpack_require__(35);
+	var _fs = __webpack_require__(9);
 	
 	var _fs2 = _interopRequireDefault(_fs);
 	
-	var _nwGui = __webpack_require__(36);
+	var _nwGui = __webpack_require__(10);
 	
 	var _nwGui2 = _interopRequireDefault(_nwGui);
 	
-	var path = _nwGui2['default'].App.dataPath + '/data/projet_exemple';
+	var path = _nwGui2['default'].App.dataPath + '/data';
 	var data = {
 		'title': 'Projet d\'exemple',
 		'type': 'Site Web',
@@ -242,26 +240,35 @@ webpackJsonp([1],[
 		}
 	};
 	
-	var projects = [{ key: _shortid2['default'].generate(), path: path }];
+	var projects = [{ key: _shortid2['default'].generate(), path: path + '/project_exemple' }];
 	
 	module.exports = {
 		init: function init() {
+			_fs2['default'].exists(path + '/project_exemple/.qeewi', function (exists) {
+				if (exists == false) {
+					console.log('this file doesn\'t exist');
+					_fs2['default'].mkdir(path + '/project_exemple', function () {
+						console.log(path + '/project_exemple created');
+						_fs2['default'].writeFile(path + '/project_exemple/.qeewi', JSON.stringify(data), function (err) {
+							if (err) throw err;
+							console.log(path + '/project_exemple/.qeewi created');
+						});
+					});
+				}
+			});
+	
 			localStorage.clear();
 			localStorage.setItem('projects', JSON.stringify(projects));
-			_fs2['default'].writeFile(path + '/.qeewi', JSON.stringify(data), function (err) {
-				if (err) throw err;
-				console.log('init successfull');
-			});
 		}
 	};
 
 /***/ },
-/* 40 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var gui = __webpack_require__(36);
+	var gui = __webpack_require__(10);
 	
 	var menu = {
 		'': {
@@ -312,6 +319,11 @@ webpackJsonp([1],[
 	module.exports = menu;
 
 /***/ },
+/* 36 */,
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */,
 /* 41 */,
 /* 42 */,
 /* 43 */,
@@ -364,12 +376,10 @@ webpackJsonp([1],[
 /* 90 */,
 /* 91 */,
 /* 92 */,
-/* 93 */,
-/* 94 */,
-/* 95 */
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var gui = window.nwDispatcher.nwGui || __webpack_require__(36);
+	var gui = window.nwDispatcher.nwGui || __webpack_require__(10);
 	
 	function Object_forEach (object, callback) {
 	  for (var key in object) {
@@ -461,8 +471,71 @@ webpackJsonp([1],[
 	module.exports = AppMenu;
 
 /***/ },
+/* 94 */,
+/* 95 */,
 /* 96 */,
-/* 97 */
+/* 97 */,
+/* 98 */,
+/* 99 */,
+/* 100 */,
+/* 101 */,
+/* 102 */,
+/* 103 */,
+/* 104 */,
+/* 105 */,
+/* 106 */,
+/* 107 */,
+/* 108 */,
+/* 109 */,
+/* 110 */,
+/* 111 */,
+/* 112 */,
+/* 113 */,
+/* 114 */,
+/* 115 */,
+/* 116 */,
+/* 117 */,
+/* 118 */,
+/* 119 */,
+/* 120 */,
+/* 121 */,
+/* 122 */,
+/* 123 */,
+/* 124 */,
+/* 125 */,
+/* 126 */,
+/* 127 */,
+/* 128 */,
+/* 129 */,
+/* 130 */,
+/* 131 */,
+/* 132 */,
+/* 133 */,
+/* 134 */,
+/* 135 */,
+/* 136 */,
+/* 137 */,
+/* 138 */,
+/* 139 */,
+/* 140 */,
+/* 141 */,
+/* 142 */,
+/* 143 */,
+/* 144 */,
+/* 145 */,
+/* 146 */,
+/* 147 */,
+/* 148 */,
+/* 149 */,
+/* 150 */,
+/* 151 */,
+/* 152 */,
+/* 153 */,
+/* 154 */,
+/* 155 */,
+/* 156 */,
+/* 157 */,
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -483,13 +556,13 @@ webpackJsonp([1],[
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRouter = __webpack_require__(4);
+	var _reactRouter = __webpack_require__(5);
 	
-	var _partialsHeaderPartialJsx = __webpack_require__(172);
+	var _partialsHeaderPartialJsx = __webpack_require__(216);
 	
 	var _partialsHeaderPartialJsx2 = _interopRequireDefault(_partialsHeaderPartialJsx);
 	
@@ -533,7 +606,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 98 */
+/* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -554,19 +627,19 @@ webpackJsonp([1],[
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _componentsProjectsListComponentJsx = __webpack_require__(173);
+	var _componentsProjectsListComponentJsx = __webpack_require__(217);
 	
 	var _componentsProjectsListComponentJsx2 = _interopRequireDefault(_componentsProjectsListComponentJsx);
 	
-	var _storesAppStoreJsx = __webpack_require__(174);
+	var _storesAppStoreJsx = __webpack_require__(218);
 	
 	var _storesAppStoreJsx2 = _interopRequireDefault(_storesAppStoreJsx);
 	
-	var _actionsAppActionJsx = __webpack_require__(175);
+	var _actionsAppActionJsx = __webpack_require__(219);
 	
 	var _actionsAppActionJsx2 = _interopRequireDefault(_actionsAppActionJsx);
 	
@@ -628,7 +701,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 99 */
+/* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -649,23 +722,23 @@ webpackJsonp([1],[
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _lodash = __webpack_require__(3);
+	var _lodash = __webpack_require__(2);
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
 	
-	var _storesAppStoreJsx = __webpack_require__(174);
+	var _storesAppStoreJsx = __webpack_require__(218);
 	
 	var _storesAppStoreJsx2 = _interopRequireDefault(_storesAppStoreJsx);
 	
-	var _actionsAppActionJsx = __webpack_require__(175);
+	var _actionsAppActionJsx = __webpack_require__(219);
 	
 	var _actionsAppActionJsx2 = _interopRequireDefault(_actionsAppActionJsx);
 	
-	var _componentsImageComponentJsx = __webpack_require__(176);
+	var _componentsImageComponentJsx = __webpack_require__(220);
 	
 	var _componentsImageComponentJsx2 = _interopRequireDefault(_componentsImageComponentJsx);
 	
@@ -766,7 +839,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 100 */
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -787,39 +860,39 @@ webpackJsonp([1],[
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _componentsDropzoneComponentJsx = __webpack_require__(177);
+	var _componentsDropzoneComponentJsx = __webpack_require__(221);
 	
 	var _componentsDropzoneComponentJsx2 = _interopRequireDefault(_componentsDropzoneComponentJsx);
 	
-	var _lodash = __webpack_require__(3);
+	var _lodash = __webpack_require__(2);
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
 	
-	var _fs = __webpack_require__(35);
+	var _fs = __webpack_require__(9);
 	
 	var _fs2 = _interopRequireDefault(_fs);
 	
-	var _nwGui = __webpack_require__(36);
+	var _nwGui = __webpack_require__(10);
 	
 	var _nwGui2 = _interopRequireDefault(_nwGui);
 	
-	var _storesAppStoreJsx = __webpack_require__(174);
+	var _storesAppStoreJsx = __webpack_require__(218);
 	
 	var _storesAppStoreJsx2 = _interopRequireDefault(_storesAppStoreJsx);
 	
-	var _actionsAppActionJsx = __webpack_require__(175);
+	var _actionsAppActionJsx = __webpack_require__(219);
 	
 	var _actionsAppActionJsx2 = _interopRequireDefault(_actionsAppActionJsx);
 	
-	var _componentsInputComponentJsx = __webpack_require__(178);
+	var _componentsInputComponentJsx = __webpack_require__(222);
 	
 	var _componentsInputComponentJsx2 = _interopRequireDefault(_componentsInputComponentJsx);
 	
-	var _partialsMoreOptionsPartialJsx = __webpack_require__(179);
+	var _partialsMoreOptionsPartialJsx = __webpack_require__(223);
 	
 	var _partialsMoreOptionsPartialJsx2 = _interopRequireDefault(_partialsMoreOptionsPartialJsx);
 	
@@ -1090,7 +1163,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 101 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1111,7 +1184,7 @@ webpackJsonp([1],[
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
@@ -1149,67 +1222,6 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 102 */,
-/* 103 */,
-/* 104 */,
-/* 105 */,
-/* 106 */,
-/* 107 */,
-/* 108 */,
-/* 109 */,
-/* 110 */,
-/* 111 */,
-/* 112 */,
-/* 113 */,
-/* 114 */,
-/* 115 */,
-/* 116 */,
-/* 117 */,
-/* 118 */,
-/* 119 */,
-/* 120 */,
-/* 121 */,
-/* 122 */,
-/* 123 */,
-/* 124 */,
-/* 125 */,
-/* 126 */,
-/* 127 */,
-/* 128 */,
-/* 129 */,
-/* 130 */,
-/* 131 */,
-/* 132 */,
-/* 133 */,
-/* 134 */,
-/* 135 */,
-/* 136 */,
-/* 137 */,
-/* 138 */,
-/* 139 */,
-/* 140 */,
-/* 141 */,
-/* 142 */,
-/* 143 */,
-/* 144 */,
-/* 145 */,
-/* 146 */,
-/* 147 */,
-/* 148 */,
-/* 149 */,
-/* 150 */,
-/* 151 */,
-/* 152 */,
-/* 153 */,
-/* 154 */,
-/* 155 */,
-/* 156 */,
-/* 157 */,
-/* 158 */,
-/* 159 */,
-/* 160 */,
-/* 161 */,
-/* 162 */,
 /* 163 */,
 /* 164 */,
 /* 165 */,
@@ -1219,7 +1231,51 @@ webpackJsonp([1],[
 /* 169 */,
 /* 170 */,
 /* 171 */,
-/* 172 */
+/* 172 */,
+/* 173 */,
+/* 174 */,
+/* 175 */,
+/* 176 */,
+/* 177 */,
+/* 178 */,
+/* 179 */,
+/* 180 */,
+/* 181 */,
+/* 182 */,
+/* 183 */,
+/* 184 */,
+/* 185 */,
+/* 186 */,
+/* 187 */,
+/* 188 */,
+/* 189 */,
+/* 190 */,
+/* 191 */,
+/* 192 */,
+/* 193 */,
+/* 194 */,
+/* 195 */,
+/* 196 */,
+/* 197 */,
+/* 198 */,
+/* 199 */,
+/* 200 */,
+/* 201 */,
+/* 202 */,
+/* 203 */,
+/* 204 */,
+/* 205 */,
+/* 206 */,
+/* 207 */,
+/* 208 */,
+/* 209 */,
+/* 210 */,
+/* 211 */,
+/* 212 */,
+/* 213 */,
+/* 214 */,
+/* 215 */,
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1240,44 +1296,44 @@ webpackJsonp([1],[
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRouter = __webpack_require__(4);
+	var _reactRouter = __webpack_require__(5);
 	
-	var _componentsSettingsModalComponentJsx = __webpack_require__(226);
+	var _componentsSettingsModalComponentJsx = __webpack_require__(244);
 	
 	var _componentsSettingsModalComponentJsx2 = _interopRequireDefault(_componentsSettingsModalComponentJsx);
 	
 	// import Search from '../../components/search.component.jsx';
 	// import FormNavigation from '../../components/formNavigation.component.jsx';
 	
-	var _componentsFormValidateComponentJsx = __webpack_require__(227);
+	var _componentsFormValidateComponentJsx = __webpack_require__(245);
 	
 	var _componentsFormValidateComponentJsx2 = _interopRequireDefault(_componentsFormValidateComponentJsx);
 	
-	var _componentsFormCloseComponentJsx = __webpack_require__(228);
+	var _componentsFormCloseComponentJsx = __webpack_require__(246);
 	
 	var _componentsFormCloseComponentJsx2 = _interopRequireDefault(_componentsFormCloseComponentJsx);
 	
-	var _componentsReturnComponentJsx = __webpack_require__(229);
+	var _componentsReturnComponentJsx = __webpack_require__(247);
 	
 	var _componentsReturnComponentJsx2 = _interopRequireDefault(_componentsReturnComponentJsx);
 	
-	var _componentsUpdateprojectComponentJsx = __webpack_require__(230);
+	var _componentsUpdateprojectComponentJsx = __webpack_require__(248);
 	
 	var _componentsUpdateprojectComponentJsx2 = _interopRequireDefault(_componentsUpdateprojectComponentJsx);
 	
-	var _componentsEditprojectComponentJsx = __webpack_require__(231);
+	var _componentsEditprojectComponentJsx = __webpack_require__(249);
 	
 	var _componentsEditprojectComponentJsx2 = _interopRequireDefault(_componentsEditprojectComponentJsx);
 	
-	var _componentsDeleteprojectComponentJsx = __webpack_require__(232);
+	var _componentsDeleteprojectComponentJsx = __webpack_require__(250);
 	
 	var _componentsDeleteprojectComponentJsx2 = _interopRequireDefault(_componentsDeleteprojectComponentJsx);
 	
-	var _componentsExportprojectComponentJsx = __webpack_require__(233);
+	var _componentsExportprojectComponentJsx = __webpack_require__(251);
 	
 	var _componentsExportprojectComponentJsx2 = _interopRequireDefault(_componentsExportprojectComponentJsx);
 	
@@ -1329,7 +1385,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 173 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1350,19 +1406,19 @@ webpackJsonp([1],[
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _projectComponentJsx = __webpack_require__(252);
+	var _projectComponentJsx = __webpack_require__(253);
 	
 	var _projectComponentJsx2 = _interopRequireDefault(_projectComponentJsx);
 	
-	var _newProjectComponentJsx = __webpack_require__(253);
+	var _newProjectComponentJsx = __webpack_require__(254);
 	
 	var _newProjectComponentJsx2 = _interopRequireDefault(_newProjectComponentJsx);
 	
-	var _lodash = __webpack_require__(3);
+	var _lodash = __webpack_require__(2);
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
 	
@@ -1409,7 +1465,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 174 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1424,35 +1480,35 @@ webpackJsonp([1],[
 	
 	var _reflux2 = _interopRequireDefault(_reflux);
 	
-	var _actionsAppActionJsx = __webpack_require__(175);
+	var _actionsAppActionJsx = __webpack_require__(219);
 	
 	var _actionsAppActionJsx2 = _interopRequireDefault(_actionsAppActionJsx);
 	
-	var _lodash = __webpack_require__(3);
+	var _lodash = __webpack_require__(2);
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
 	
-	var _shortid = __webpack_require__(6);
+	var _shortid = __webpack_require__(7);
 	
 	var _shortid2 = _interopRequireDefault(_shortid);
 	
-	var _jsondir = __webpack_require__(261);
+	var _jsondir = __webpack_require__(264);
 	
 	var _jsondir2 = _interopRequireDefault(_jsondir);
 	
-	var _fs = __webpack_require__(35);
+	var _fs = __webpack_require__(9);
 	
 	var _fs2 = _interopRequireDefault(_fs);
 	
-	var _nwGui = __webpack_require__(36);
+	var _nwGui = __webpack_require__(10);
 	
 	var _nwGui2 = _interopRequireDefault(_nwGui);
 	
-	var _archiver = __webpack_require__(259);
+	var _archiver = __webpack_require__(267);
 	
 	var _archiver2 = _interopRequireDefault(_archiver);
 	
-	var _Handlebars = __webpack_require__(258);
+	var _Handlebars = __webpack_require__(262);
 	
 	var _Handlebars2 = _interopRequireDefault(_Handlebars);
 	
@@ -1677,7 +1733,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 175 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1692,19 +1748,19 @@ webpackJsonp([1],[
 	
 	var _reflux2 = _interopRequireDefault(_reflux);
 	
-	var _lodash = __webpack_require__(3);
+	var _lodash = __webpack_require__(2);
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
 	
-	var _shortid = __webpack_require__(6);
+	var _shortid = __webpack_require__(7);
 	
 	var _shortid2 = _interopRequireDefault(_shortid);
 	
-	var _fs = __webpack_require__(35);
+	var _fs = __webpack_require__(9);
 	
 	var _fs2 = _interopRequireDefault(_fs);
 	
-	var _nwGui = __webpack_require__(36);
+	var _nwGui = __webpack_require__(10);
 	
 	var _nwGui2 = _interopRequireDefault(_nwGui);
 	
@@ -1750,7 +1806,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 176 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1771,15 +1827,15 @@ webpackJsonp([1],[
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 	
-	var _reactAddons = __webpack_require__(234);
+	var _reactAddons = __webpack_require__(252);
 	
 	var _reactAddons2 = _interopRequireDefault(_reactAddons);
 	
-	var _classnames = __webpack_require__(257);
+	var _classnames = __webpack_require__(263);
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _lodash = __webpack_require__(3);
+	var _lodash = __webpack_require__(2);
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
 	
@@ -1822,7 +1878,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 177 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1843,15 +1899,15 @@ webpackJsonp([1],[
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _iconComponentJsx = __webpack_require__(254);
+	var _iconComponentJsx = __webpack_require__(255);
 	
 	var _iconComponentJsx2 = _interopRequireDefault(_iconComponentJsx);
 	
-	var _classnames = __webpack_require__(257);
+	var _classnames = __webpack_require__(263);
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
@@ -1918,7 +1974,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 178 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1939,15 +1995,15 @@ webpackJsonp([1],[
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _lodash = __webpack_require__(3);
+	var _lodash = __webpack_require__(2);
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
 	
-	var _classnames = __webpack_require__(257);
+	var _classnames = __webpack_require__(263);
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
@@ -2001,7 +2057,7 @@ webpackJsonp([1],[
 								className: 'input__field',
 								id: id,
 								ref: id,
-								onInput: this.handleChange },
+								onInput: this.props.onInput || this.handleChange },
 							this.props.children
 						));
 						break;
@@ -2156,7 +2212,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 179 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2177,31 +2233,31 @@ webpackJsonp([1],[
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _lodash = __webpack_require__(3);
+	var _lodash = __webpack_require__(2);
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
 	
-	var _fs = __webpack_require__(35);
+	var _fs = __webpack_require__(9);
 	
 	var _fs2 = _interopRequireDefault(_fs);
 	
-	var _nwGui = __webpack_require__(36);
+	var _nwGui = __webpack_require__(10);
 	
 	var _nwGui2 = _interopRequireDefault(_nwGui);
 	
-	var _classnames = __webpack_require__(257);
+	var _classnames = __webpack_require__(263);
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _componentsInputComponentJsx = __webpack_require__(178);
+	var _componentsInputComponentJsx = __webpack_require__(222);
 	
 	var _componentsInputComponentJsx2 = _interopRequireDefault(_componentsInputComponentJsx);
 	
-	var _componentsDropzoneComponentJsx = __webpack_require__(177);
+	var _componentsDropzoneComponentJsx = __webpack_require__(221);
 	
 	var _componentsDropzoneComponentJsx2 = _interopRequireDefault(_componentsDropzoneComponentJsx);
 	
@@ -2216,6 +2272,7 @@ webpackJsonp([1],[
 			_get(Object.getPrototypeOf(MoreOptions.prototype), 'constructor', this).call(this, props);
 			this.handleOpenPanel = this.handleOpenPanel.bind(this);
 			this.handleChange = this.handleChange.bind(this);
+			this.selectChange = this.selectChange.bind(this);
 			this.state = { isPanelOpen: false, value: null, isFilled: false, preconfig: 'Site Web', resetcss: '', preprocss: '', preprojs: '' };
 		}
 	
@@ -2298,7 +2355,8 @@ webpackJsonp([1],[
 									id: 'input-preconfig',
 									required: false,
 									label: 'Pré-configuration',
-									'default': this.state.preconfig },
+									'default': this.state.preconfig,
+									onInput: this.selectChange },
 								_react2['default'].createElement(
 									'option',
 									{ value: 'Site Web' },
@@ -2324,7 +2382,8 @@ webpackJsonp([1],[
 									id: 'input-resetcss',
 									required: false,
 									label: 'Reset CSS',
-									'default': this.state.resetcss },
+									'default': this.state.resetcss,
+									onInput: this.selectChange },
 								_react2['default'].createElement(
 									'option',
 									{ value: '' },
@@ -2350,7 +2409,8 @@ webpackJsonp([1],[
 									id: 'input-preprocss',
 									required: false,
 									label: 'Préprocesseur CSS',
-									'default': this.state.preprocss },
+									'default': this.state.preprocss,
+									onInput: this.selectChange },
 								_react2['default'].createElement(
 									'option',
 									{ value: '' },
@@ -2386,7 +2446,8 @@ webpackJsonp([1],[
 									id: 'input-preprojs',
 									required: false,
 									label: 'Préprocesseur JS',
-									'default': this.state.preprojs },
+									'default': this.state.preprojs,
+									onInput: this.selectChange },
 								_react2['default'].createElement(
 									'option',
 									{ value: '' },
@@ -2460,53 +2521,27 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 180 */,
-/* 181 */,
-/* 182 */,
-/* 183 */,
-/* 184 */,
-/* 185 */,
-/* 186 */,
-/* 187 */,
-/* 188 */,
-/* 189 */,
-/* 190 */,
-/* 191 */,
-/* 192 */,
-/* 193 */,
-/* 194 */,
-/* 195 */,
-/* 196 */,
-/* 197 */,
-/* 198 */,
-/* 199 */,
-/* 200 */,
-/* 201 */,
-/* 202 */,
-/* 203 */,
-/* 204 */,
-/* 205 */,
-/* 206 */,
-/* 207 */,
-/* 208 */,
-/* 209 */,
-/* 210 */,
-/* 211 */,
-/* 212 */,
-/* 213 */,
-/* 214 */,
-/* 215 */,
-/* 216 */,
-/* 217 */,
-/* 218 */,
-/* 219 */,
-/* 220 */,
-/* 221 */,
-/* 222 */,
-/* 223 */,
 /* 224 */,
 /* 225 */,
-/* 226 */
+/* 226 */,
+/* 227 */,
+/* 228 */,
+/* 229 */,
+/* 230 */,
+/* 231 */,
+/* 232 */,
+/* 233 */,
+/* 234 */,
+/* 235 */,
+/* 236 */,
+/* 237 */,
+/* 238 */,
+/* 239 */,
+/* 240 */,
+/* 241 */,
+/* 242 */,
+/* 243 */,
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2527,35 +2562,35 @@ webpackJsonp([1],[
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactModal = __webpack_require__(5);
+	var _reactModal = __webpack_require__(4);
 	
 	var _reactModal2 = _interopRequireDefault(_reactModal);
 	
-	var _lodash = __webpack_require__(3);
+	var _lodash = __webpack_require__(2);
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
 	
-	var _fs = __webpack_require__(35);
+	var _fs = __webpack_require__(9);
 	
 	var _fs2 = _interopRequireDefault(_fs);
 	
-	var _nwGui = __webpack_require__(36);
+	var _nwGui = __webpack_require__(10);
 	
 	var _nwGui2 = _interopRequireDefault(_nwGui);
 	
-	var _iconComponentJsx = __webpack_require__(254);
+	var _iconComponentJsx = __webpack_require__(255);
 	
 	var _iconComponentJsx2 = _interopRequireDefault(_iconComponentJsx);
 	
-	var _inputComponentJsx = __webpack_require__(178);
+	var _inputComponentJsx = __webpack_require__(222);
 	
 	var _inputComponentJsx2 = _interopRequireDefault(_inputComponentJsx);
 	
-	var _dropzoneComponentJsx = __webpack_require__(177);
+	var _dropzoneComponentJsx = __webpack_require__(221);
 	
 	var _dropzoneComponentJsx2 = _interopRequireDefault(_dropzoneComponentJsx);
 	
@@ -2836,7 +2871,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 227 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2857,19 +2892,19 @@ webpackJsonp([1],[
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _storesAppStoreJsx = __webpack_require__(174);
+	var _storesAppStoreJsx = __webpack_require__(218);
 	
 	var _storesAppStoreJsx2 = _interopRequireDefault(_storesAppStoreJsx);
 	
-	var _actionsAppActionJsx = __webpack_require__(175);
+	var _actionsAppActionJsx = __webpack_require__(219);
 	
 	var _actionsAppActionJsx2 = _interopRequireDefault(_actionsAppActionJsx);
 	
-	var _iconComponentJsx = __webpack_require__(254);
+	var _iconComponentJsx = __webpack_require__(255);
 	
 	var _iconComponentJsx2 = _interopRequireDefault(_iconComponentJsx);
 	
@@ -2929,7 +2964,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 228 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2950,13 +2985,13 @@ webpackJsonp([1],[
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRouter = __webpack_require__(4);
+	var _reactRouter = __webpack_require__(5);
 	
-	var _iconComponentJsx = __webpack_require__(254);
+	var _iconComponentJsx = __webpack_require__(255);
 	
 	var _iconComponentJsx2 = _interopRequireDefault(_iconComponentJsx);
 	
@@ -2994,7 +3029,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 229 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3015,15 +3050,15 @@ webpackJsonp([1],[
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRouter = __webpack_require__(4);
+	var _reactRouter = __webpack_require__(5);
 	
 	var _reactRouter2 = _interopRequireDefault(_reactRouter);
 	
-	var _iconComponentJsx = __webpack_require__(254);
+	var _iconComponentJsx = __webpack_require__(255);
 	
 	var _iconComponentJsx2 = _interopRequireDefault(_iconComponentJsx);
 	
@@ -3070,7 +3105,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 230 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3091,11 +3126,11 @@ webpackJsonp([1],[
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _iconComponentJsx = __webpack_require__(254);
+	var _iconComponentJsx = __webpack_require__(255);
 	
 	var _iconComponentJsx2 = _interopRequireDefault(_iconComponentJsx);
 	
@@ -3133,7 +3168,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 231 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3154,15 +3189,15 @@ webpackJsonp([1],[
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRouter = __webpack_require__(4);
+	var _reactRouter = __webpack_require__(5);
 	
 	var _reactRouter2 = _interopRequireDefault(_reactRouter);
 	
-	var _iconComponentJsx = __webpack_require__(254);
+	var _iconComponentJsx = __webpack_require__(255);
 	
 	var _iconComponentJsx2 = _interopRequireDefault(_iconComponentJsx);
 	
@@ -3200,7 +3235,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 232 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3221,19 +3256,19 @@ webpackJsonp([1],[
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _iconComponentJsx = __webpack_require__(254);
+	var _iconComponentJsx = __webpack_require__(255);
 	
 	var _iconComponentJsx2 = _interopRequireDefault(_iconComponentJsx);
 	
-	var _storesAppStoreJsx = __webpack_require__(174);
+	var _storesAppStoreJsx = __webpack_require__(218);
 	
 	var _storesAppStoreJsx2 = _interopRequireDefault(_storesAppStoreJsx);
 	
-	var _actionsAppActionJsx = __webpack_require__(175);
+	var _actionsAppActionJsx = __webpack_require__(219);
 	
 	var _actionsAppActionJsx2 = _interopRequireDefault(_actionsAppActionJsx);
 	
@@ -3290,7 +3325,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 233 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3311,19 +3346,19 @@ webpackJsonp([1],[
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _iconComponentJsx = __webpack_require__(254);
+	var _iconComponentJsx = __webpack_require__(255);
 	
 	var _iconComponentJsx2 = _interopRequireDefault(_iconComponentJsx);
 	
-	var _storesAppStoreJsx = __webpack_require__(174);
+	var _storesAppStoreJsx = __webpack_require__(218);
 	
 	var _storesAppStoreJsx2 = _interopRequireDefault(_storesAppStoreJsx);
 	
-	var _actionsAppActionJsx = __webpack_require__(175);
+	var _actionsAppActionJsx = __webpack_require__(219);
 	
 	var _actionsAppActionJsx2 = _interopRequireDefault(_actionsAppActionJsx);
 	
@@ -3380,31 +3415,14 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 234 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(264);
+	module.exports = __webpack_require__(266);
 
 
 /***/ },
-/* 235 */,
-/* 236 */,
-/* 237 */,
-/* 238 */,
-/* 239 */,
-/* 240 */,
-/* 241 */,
-/* 242 */,
-/* 243 */,
-/* 244 */,
-/* 245 */,
-/* 246 */,
-/* 247 */,
-/* 248 */,
-/* 249 */,
-/* 250 */,
-/* 251 */,
-/* 252 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3425,13 +3443,13 @@ webpackJsonp([1],[
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRouter = __webpack_require__(4);
+	var _reactRouter = __webpack_require__(5);
 	
-	var _imageComponentJsx = __webpack_require__(176);
+	var _imageComponentJsx = __webpack_require__(220);
 	
 	var _imageComponentJsx2 = _interopRequireDefault(_imageComponentJsx);
 	
@@ -3495,7 +3513,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 253 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3516,17 +3534,17 @@ webpackJsonp([1],[
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRouter = __webpack_require__(4);
+	var _reactRouter = __webpack_require__(5);
 	
-	var _iconComponentJsx = __webpack_require__(254);
+	var _iconComponentJsx = __webpack_require__(255);
 	
 	var _iconComponentJsx2 = _interopRequireDefault(_iconComponentJsx);
 	
-	var _dropzoneComponentJsx = __webpack_require__(177);
+	var _dropzoneComponentJsx = __webpack_require__(221);
 	
 	var _dropzoneComponentJsx2 = _interopRequireDefault(_dropzoneComponentJsx);
 	
@@ -3614,7 +3632,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 254 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3635,11 +3653,11 @@ webpackJsonp([1],[
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 	
-	var _reactAddons = __webpack_require__(234);
+	var _reactAddons = __webpack_require__(252);
 	
 	var _reactAddons2 = _interopRequireDefault(_reactAddons);
 	
-	var _classnames = __webpack_require__(257);
+	var _classnames = __webpack_require__(263);
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
@@ -3675,9 +3693,44 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 255 */,
 /* 256 */,
-/* 257 */
+/* 257 */,
+/* 258 */,
+/* 259 */,
+/* 260 */,
+/* 261 */,
+/* 262 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// USAGE:
+	// var handlebars = require('handlebars');
+	/* eslint-disable no-var */
+	
+	// var local = handlebars.create();
+	
+	var handlebars = __webpack_require__(271)['default'];
+	
+	var printer = __webpack_require__(272);
+	handlebars.PrintVisitor = printer.PrintVisitor;
+	handlebars.print = printer.print;
+	
+	module.exports = handlebars;
+	
+	// Publish a Node.js require() handler for .handlebars and .hbs files
+	function extension(module, filename) {
+	  var fs = __webpack_require__(9);
+	  var templateString = fs.readFileSync(filename, 'utf8');
+	  module.exports = handlebars.compile(templateString);
+	}
+	/* istanbul ignore else */
+	if ("function" !== 'undefined' && (void 0)) {
+	  (void 0)['.handlebars'] = extension;
+	  (void 0)['.hbs'] = extension;
+	}
+
+
+/***/ },
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -3730,95 +3783,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 258 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// USAGE:
-	// var handlebars = require('handlebars');
-	/* eslint-disable no-var */
-	
-	// var local = handlebars.create();
-	
-	var handlebars = __webpack_require__(271)['default'];
-	
-	var printer = __webpack_require__(272);
-	handlebars.PrintVisitor = printer.PrintVisitor;
-	handlebars.print = printer.print;
-	
-	module.exports = handlebars;
-	
-	// Publish a Node.js require() handler for .handlebars and .hbs files
-	function extension(module, filename) {
-	  var fs = __webpack_require__(35);
-	  var templateString = fs.readFileSync(filename, 'utf8');
-	  module.exports = handlebars.compile(templateString);
-	}
-	/* istanbul ignore else */
-	if ("function" !== 'undefined' && (void 0)) {
-	  (void 0)['.handlebars'] = extension;
-	  (void 0)['.hbs'] = extension;
-	}
-
-
-/***/ },
-/* 259 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * node-archiver
-	 *
-	 * Copyright (c) 2012-2014 Chris Talkington, contributors.
-	 * Licensed under the MIT license.
-	 * https://github.com/archiverjs/node-archiver/blob/master/LICENSE-MIT
-	 */
-	var ArchiverCore = __webpack_require__(274);
-	var formats = {};
-	
-	var archiver = module.exports = function(format, options) {
-	  return archiver.create(format, options);
-	};
-	
-	archiver.create = function(format, options) {
-	  if (formats[format]) {
-	    var instance = new ArchiverCore(options);
-	    instance.setFormat(format);
-	    instance.setModule(new formats[format](options));
-	
-	    return instance;
-	  } else {
-	    throw new Error('create(' + format + '): format not registered');
-	  }
-	};
-	
-	archiver.registerFormat = function(format, module) {
-	  if (formats[format]) {
-	    throw new Error('register(' + format + '): format already registered');
-	  }
-	
-	  if (typeof module !== 'function') {
-	    throw new Error('register(' + format + '): format module invalid');
-	  }
-	
-	  if (typeof module.prototype.append !== 'function' || typeof module.prototype.finalize !== 'function') {
-	    throw new Error('register(' + format + '): format module missing methods');
-	  }
-	
-	  formats[format] = module;
-	
-	  // backwards compat - to be removed in 0.14
-	  var compatName = 'create' + format.charAt(0).toUpperCase() + format.slice(1);
-	  archiver[compatName] = function(options) {
-	    return archiver.create(format, options);
-	  };
-	};
-	
-	archiver.registerFormat('zip', __webpack_require__(275));
-	archiver.registerFormat('tar', __webpack_require__(276));
-	archiver.registerFormat('json', __webpack_require__(277));
-
-/***/ },
-/* 260 */,
-/* 261 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3830,12 +3795,12 @@ webpackJsonp([1],[
 	
 	'use strict';
 	
-	var PATH = __webpack_require__(270);
-	var FS = __webpack_require__(296);
-	var xtend = __webpack_require__(295);
-	var rimraf = __webpack_require__(298);
+	var PATH = __webpack_require__(281);
+	var FS = __webpack_require__(314);
+	var xtend = __webpack_require__(302);
+	var rimraf = __webpack_require__(308);
 	
-	var File = __webpack_require__(273).File;
+	var File = __webpack_require__(287).File;
 	
 	var knownAttributes = Object.freeze([
 	  '-name',
@@ -4226,9 +4191,8 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 262 */,
-/* 263 */,
-/* 264 */
+/* 265 */,
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4251,18 +4215,18 @@ webpackJsonp([1],[
 	
 	'use strict';
 	
-	var LinkedStateMixin = __webpack_require__(280);
-	var React = __webpack_require__(7);
+	var LinkedStateMixin = __webpack_require__(273);
+	var React = __webpack_require__(8);
 	var ReactComponentWithPureRenderMixin =
-	  __webpack_require__(281);
-	var ReactCSSTransitionGroup = __webpack_require__(282);
-	var ReactFragment = __webpack_require__(103);
-	var ReactTransitionGroup = __webpack_require__(283);
-	var ReactUpdates = __webpack_require__(157);
+	  __webpack_require__(274);
+	var ReactCSSTransitionGroup = __webpack_require__(275);
+	var ReactFragment = __webpack_require__(108);
+	var ReactTransitionGroup = __webpack_require__(276);
+	var ReactUpdates = __webpack_require__(153);
 	
-	var cx = __webpack_require__(166);
-	var cloneWithProps = __webpack_require__(284);
-	var update = __webpack_require__(285);
+	var cx = __webpack_require__(169);
+	var cloneWithProps = __webpack_require__(277);
+	var update = __webpack_require__(278);
 	
 	React.addons = {
 	  CSSTransitionGroup: ReactCSSTransitionGroup,
@@ -4278,25 +4242,73 @@ webpackJsonp([1],[
 	};
 	
 	if ("production" !== process.env.NODE_ENV) {
-	  React.addons.Perf = __webpack_require__(148);
-	  React.addons.TestUtils = __webpack_require__(286);
+	  React.addons.Perf = __webpack_require__(140);
+	  React.addons.TestUtils = __webpack_require__(279);
 	}
 	
 	module.exports = React;
 
 
 /***/ },
-/* 265 */,
-/* 266 */,
-/* 267 */,
-/* 268 */,
-/* 269 */,
-/* 270 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = require("path");
+	/**
+	 * node-archiver
+	 *
+	 * Copyright (c) 2012-2014 Chris Talkington, contributors.
+	 * Licensed under the MIT license.
+	 * https://github.com/archiverjs/node-archiver/blob/master/LICENSE-MIT
+	 */
+	var ArchiverCore = __webpack_require__(280);
+	var formats = {};
+	
+	var archiver = module.exports = function(format, options) {
+	  return archiver.create(format, options);
+	};
+	
+	archiver.create = function(format, options) {
+	  if (formats[format]) {
+	    var instance = new ArchiverCore(options);
+	    instance.setFormat(format);
+	    instance.setModule(new formats[format](options));
+	
+	    return instance;
+	  } else {
+	    throw new Error('create(' + format + '): format not registered');
+	  }
+	};
+	
+	archiver.registerFormat = function(format, module) {
+	  if (formats[format]) {
+	    throw new Error('register(' + format + '): format already registered');
+	  }
+	
+	  if (typeof module !== 'function') {
+	    throw new Error('register(' + format + '): format module invalid');
+	  }
+	
+	  if (typeof module.prototype.append !== 'function' || typeof module.prototype.finalize !== 'function') {
+	    throw new Error('register(' + format + '): format module missing methods');
+	  }
+	
+	  formats[format] = module;
+	
+	  // backwards compat - to be removed in 0.14
+	  var compatName = 'create' + format.charAt(0).toUpperCase() + format.slice(1);
+	  archiver[compatName] = function(options) {
+	    return archiver.create(format, options);
+	  };
+	};
+	
+	archiver.registerFormat('zip', __webpack_require__(282));
+	archiver.registerFormat('tar', __webpack_require__(283));
+	archiver.registerFormat('json', __webpack_require__(284));
 
 /***/ },
+/* 268 */,
+/* 269 */,
+/* 270 */,
 /* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -4539,1176 +4551,6 @@ webpackJsonp([1],[
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
-	 * @fileOverview Contains the File class.
-	 *
-	 * @author Daniel Imhoff
-	 */
-	
-	'use strict';
-	
-	var PATH = __webpack_require__(270);
-	var FS = __webpack_require__(296);
-	var mkdirp = __webpack_require__(306);
-	var uidNumber = __webpack_require__(321);
-	
-	var Exception = function(message) {
-	  this.message = message;
-	  this.name = 'Exception';
-	};
-	
-	Exception.prototype = Object.create(Error.prototype);
-	
-	/**
-	 * A File represents any regular, directory, or symlink file.
-	 *
-	 * @param {object} options
-	 */
-	var File = function(options) {
-	  options = options || {};
-	
-	  this.path = PATH.resolve(PATH.normalize(options.path));
-	  this.exists = FS.existsSync(this.path);
-	  this.umask = 'umask' in options ? options.umask : File.UMASK;
-	
-	  if (this.exists) {
-	    this.stats = this.getStats();
-	    this.type = this.getType();
-	    this.mode = this.stats.mode & 511; // 511 == 0777
-	    this.uid = this.stats.uid;
-	    this.gid = this.stats.gid;
-	  }
-	  else {
-	    this.owner = options.owner;
-	    this.group = options.group;
-	
-	    if ('exists' in options && options.exists) {
-	      throw new File.FileMissingException('File was expected to exist, but does not.');
-	    }
-	
-	    if ('type' in options) {
-	      if (options.type in File.Types) {
-	        this.type = File.Types[options.type];
-	      }
-	      else {
-	        throw new File.UnknownFileTypeException('Unknown file type: ' + options.type + '.');
-	      }
-	    }
-	    else {
-	      throw new File.MissingRequiredParameterException('"type" is required for nonexistent files.');
-	    }
-	
-	    switch (this.type) {
-	    case File.Types.file:
-	      this.content = 'content' in options ? options.content : '';
-	
-	      break;
-	    case File.Types.symlink:
-	      if ('dest' in options) {
-	        this.dest = options.dest;
-	      }
-	      else {
-	        throw new File.MissingRequiredParameterException('"dest" is a required option for symlink files.');
-	      }
-	
-	      break;
-	    }
-	
-	    this.mode = File.interpretMode(options.mode, options.type, this.umask);
-	  }
-	};
-	
-	File.UnknownFileTypeException = function(message) {
-	  Exception.call(this, message || 'Unknown file type.');
-	};
-	
-	File.UnknownFileTypeException.prototype = Object.create(Exception.prototype);
-	
-	File.FileExistsException = function(message) {
-	  Exception.call(this, message || 'File already exists.');
-	};
-	
-	File.FileExistsException.prototype = Object.create(Exception.prototype);
-	
-	File.FileMissingException = function(message) {
-	  Exception.call(this, message || 'File does not exist.');
-	};
-	
-	File.FileMissingException.prototype = Object.create(Exception.prototype);
-	
-	File.MissingRequiredParameterException = function(message) {
-	  Exception.call(this, message || 'Missing required parameter.');
-	};
-	
-	File.MissingRequiredParameterException.prototype = Object.create(Exception.prototype);
-	
-	File.IncorrectFileTypeException = function(message) {
-	  Exception.call(this, message || 'Incorrect file type.');
-	};
-	
-	File.IncorrectFileTypeException.prototype = Object.create(Exception.prototype);
-	
-	File.UMASK = process.umask();
-	File.DIRECTORY_SEPARATOR = PATH.sep;
-	
-	File.Types = Object.freeze({
-	  'file': 0,
-	  'f': 0,
-	  '-': 0,
-	  'directory': 1,
-	  'dir': 1,
-	  'd': 1,
-	  'symbolic link': 2,
-	  'symlink': 2,
-	  'l': 2
-	});
-	
-	/**
-	 * Given an interpretable string or number, this function will return the
-	 * decimal format representing the permission mode on Unix systems. If mode is
-	 * omitted, type is required. In that case, it returns the default permission
-	 * mode for that file type with a given umask (or 022 if not specified).
-	 *
-	 * @param  {mixed} mode Examples: 'rw-r--r--', 'rwxr-xr-x', 0644, 0755
-	 * @param  {string} type Valid strings found in File.Types.
-	 * @param  {number} umask
-	 * @return {number} Decimal representation of permission mode.
-	 */
-	File.interpretMode = function(mode, type, umask) {
-	  switch (typeof mode) {
-	  case 'undefined':
-	    if (typeof type !== 'undefined' && type in File.Types) {
-	      type = File.Types[type];
-	
-	      if (typeof umask === 'undefined') {
-	        umask = File.UMASK;
-	      }
-	
-	      if (type === File.Types.symlink) {
-	        return 511; // 511 == 0777
-	      }
-	
-	      return (type === File.Types.directory ? 511 : 438) - umask; // 511 == 0777, 438 == 0666
-	    }
-	
-	    break;
-	  case 'string':
-	    switch (mode.length) {
-	    case 10:
-	      mode = mode.substring(1);
-	      /* falls through */
-	    case 9:
-	      var modeParts = mode.match(/[r-][w-][xstST-]/g),
-	          decMode = 0;
-	
-	      if (!modeParts || modeParts.length !== 3) {
-	        return false;
-	      }
-	
-	      for (var power = 0; power <= 2; ++power) {
-	        var modePartsChars = modeParts[2 - power].split(''),
-	            decModeAddition = 0;
-	
-	        if (modePartsChars[0] === 'r') {
-	          decModeAddition += 4;
-	        }
-	
-	        if (modePartsChars[1] === 'w') {
-	          decModeAddition += 2;
-	        }
-	
-	        if (['x', 's', 't', 'S', 'T'].indexOf(modePartsChars[2]) !== -1) {
-	          // uppercase indicates the x bit is not set
-	          if (/[a-z]/.test(modePartsChars[2])) {
-	            decModeAddition += 1;
-	          }
-	
-	          switch (modePartsChars[2].toLowerCase()) {
-	          case 's': // setuid/setgid bit
-	            switch (power) {
-	            case 2:
-	              decMode += 4 * Math.pow(8, 3); // setuid flag in high-order octal digit
-	              break;
-	            case 1:
-	              decMode += 2 * Math.pow(8, 3); // setgid flag in high-order octal digit
-	              break;
-	            }
-	
-	            break;
-	          case 't': // sticky bit
-	            decMode += Math.pow(8, 3); // sticky flag in high-order octal digit
-	            break;
-	          }
-	        }
-	
-	        decMode += decModeAddition * Math.pow(8, power);
-	      }
-	
-	      return decMode;
-	    case 3:
-	      var octal = parseInt(mode, 8);
-	
-	      if (!isNaN(octal) && octal >= 0 && octal <= 511) {
-	        return octal;
-	      }
-	
-	      break;
-	    }
-	
-	    break;
-	  case 'number':
-	    if (mode >= 0 && mode <= 511) { // 511 == 0777
-	      return mode; // Seems good to me.
-	    }
-	
-	    break;
-	  }
-	
-	  return false;
-	};
-	
-	/**
-	 * Returns the FS.Stats object associated with this File.
-	 *
-	 * @return {FS.Stats}
-	 */
-	File.prototype.getStats = function() {
-	  if (typeof this.stats === 'undefined') {
-	    if (!this.exists) {
-	      throw new File.FileMissingException('Cannot get stats of nonexistent file.');
-	    }
-	
-	    this.stats = FS.lstatSync(this.path);
-	  }
-	
-	  return this.stats;
-	};
-	
-	/**
-	 * Returns the file type of this File the File.Types enumeration.
-	 *
-	 * @return {number}
-	 */
-	File.prototype.getType = function() {
-	  if (typeof this.type === 'undefined') {
-	    if (typeof this.stats === 'undefined') {
-	      this.stats = this.getStats();
-	    }
-	
-	    if (this.stats.isFile()) {
-	      this.type = File.Types.file;
-	    }
-	    else if (this.stats.isDirectory()) {
-	      this.type = File.Types.directory;
-	    }
-	    else if (this.stats.isSymbolicLink()) {
-	      this.type = File.Types.symlink;
-	    }
-	  }
-	
-	  return this.type;
-	};
-	
-	/**
-	 * Returns the file path.
-	 *
-	 * @return {string}
-	 */
-	File.prototype.getPath = function() {
-	  return this.path;
-	};
-	
-	/**
-	 * Returns whether or not this file exists.
-	 *
-	 * @return {bool}
-	 */
-	File.prototype.doesExist = function() {
-	  return this.exists;
-	};
-	
-	/**
-	 * Returns the contents of the file.
-	 *
-	 * @return {string}
-	 */
-	File.prototype.getContent = function() {
-	  if (this.type !== File.Types.file) {
-	    throw new File.IncorrectFileTypeException('Cannot get content of nonnormal file.');
-	  }
-	
-	  if (typeof this.content === 'undefined') {
-	    this.content = FS.readFileSync(this.path, { encoding: 'utf8' });
-	  }
-	
-	  return this.content;
-	};
-	
-	/**
-	 * Returns the destination of the file.
-	 *
-	 * @return {string}
-	 */
-	File.prototype.getDest = function() {
-	  if (this.type !== File.Types.symlink) {
-	    throw new File.IncorrectFileTypeException('Cannot get destination of nonsymlink file.');
-	  }
-	
-	  if (typeof this.dest === 'undefined') {
-	    this.dest = FS.readlinkSync(this.path);
-	  }
-	
-	  return this.dest;
-	};
-	
-	/**
-	 * Creates this File on the filesystem using given information.
-	 *
-	 * @param  {Function} callback
-	 */
-	File.prototype.create = function(callback) {
-	  if (this.exists) {
-	    return callback(new File.FileExistsException("File already exists."));
-	  }
-	
-	  var self = this;
-	
-	  var done = function(err) {
-	    if (err) return callback(err);
-	    self.exists = true;
-	    callback();
-	  };
-	
-	  var op = function() {
-	    switch (self.type) {
-	    case File.Types.file:
-	      FS.writeFile(self.path, self.content, function(err) {
-	        if (err) return callback(err);
-	        self.chmod(function(err) {
-	          if (err) return callback(err);
-	          self.chown(done);
-	        });
-	      });
-	
-	      break;
-	    case File.Types.directory:
-	      FS.mkdir(self.path, function(err) {
-	        if (err) return callback(err);
-	        self.chmod(function(err) {
-	          if (err) return callback(err);
-	          self.chown(done);
-	        });
-	      });
-	
-	      break;
-	    case File.Types.symlink:
-	      FS.symlink(self.dest, self.path, done);
-	
-	      break;
-	    }
-	  };
-	
-	  var pos = this.path.lastIndexOf(File.DIRECTORY_SEPARATOR);
-	
-	  if (pos !== -1) {
-	    mkdirp(this.path.substring(0, pos), function(err) {
-	      if (err) return callback(err);
-	      op();
-	    });
-	  }
-	  else {
-	    op();
-	  }
-	};
-	
-	/**
-	 * Removes the file.
-	 *
-	 * @param  {Function} callback
-	 */
-	File.prototype.remove = function(callback) {
-	  var self = this;
-	
-	  var done = function(err) {
-	    if (err) return callback(err);
-	    self.exists = false;
-	    callback();
-	  };
-	
-	  if (this.type === File.Types.directory) {
-	    FS.rmdir(this.path, done);
-	  }
-	  else {
-	    FS.unlink(this.path, done);
-	  }
-	};
-	
-	/**
-	 * Changes the permissions mode of this file to stored data.
-	 *
-	 * @param  {Function} callback
-	 */
-	File.prototype.chmod = function(callback) {
-	  FS.chmod(this.path, this.mode, function(err) {
-	    if (err) callback(err);
-	    callback();
-	  });
-	};
-	
-	/**
-	 * Changes the owner and group of this file to stored data using the uidNumber
-	 * package.
-	 *
-	 * @param  {Function} callback
-	 */
-	File.prototype.chown = function(callback) {
-	  var self = this;
-	
-	  if ('owner' in this || 'group' in this) {
-	    uidNumber('owner' in this ? this.owner : process.getuid(), 'group' in this ? this.group : process.getgid(), function(err, uid, gid) {
-	      if (err) callback(err);
-	      FS.chown(self.path, uid, gid, function(err) {
-	        if (err) callback(err);
-	        callback();
-	      });
-	    });
-	  }
-	  else {
-	    callback();
-	  }
-	};
-	
-	module.exports.File = File;
-	
-
-
-/***/ },
-/* 274 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * node-archiver
-	 *
-	 * Copyright (c) 2012-2014 Chris Talkington, contributors.
-	 * Licensed under the MIT license.
-	 * https://github.com/archiverjs/node-archiver/blob/master/LICENSE-MIT
-	 */
-	var fs = __webpack_require__(35);
-	var inherits = __webpack_require__(287).inherits;
-	var Transform = __webpack_require__(324).Transform;
-	
-	var async = __webpack_require__(323);
-	
-	var util = __webpack_require__(299);
-	
-	var Archiver = module.exports = function(options) {
-	  if (!(this instanceof Archiver)) {
-	    return new Archiver(options);
-	  }
-	
-	  options = this.options = util.defaults(options, {
-	    highWaterMark: 1024 * 1024,
-	    statConcurrency: 4
-	  });
-	
-	  Transform.call(this, options);
-	
-	  this._entries = [];
-	  this._format = false;
-	  this._module = false;
-	  this._pending = 0;
-	  this._pointer = 0;
-	
-	  this._queue = async.queue(this._onQueueTask.bind(this), 1);
-	  this._queue.drain = this._onQueueDrain.bind(this);
-	
-	  this._statQueue = async.queue(this._onStatQueueTask.bind(this), options.statConcurrency);
-	
-	  this._state = {
-	    aborted: false,
-	    finalize: false,
-	    finalizing: false,
-	    finalized: false,
-	    modulePiped: false
-	  };
-	};
-	
-	inherits(Archiver, Transform);
-	
-	Archiver.prototype._abort = function() {
-	  this._state.aborted = true;
-	  this._queue.kill();
-	  this._statQueue.kill();
-	
-	  if (this._queue.idle()) {
-	    this._shutdown();
-	  }
-	};
-	
-	Archiver.prototype._append = function(filepath, data) {
-	  data = data || {};
-	
-	  var task = {
-	    source: null,
-	    filepath: filepath
-	  };
-	
-	  if (!data.name) {
-	    data.name = filepath;
-	  }
-	
-	  data.sourcePath = filepath;
-	  task.data = data;
-	
-	  if (data.stats && data.stats instanceof fs.Stats) {
-	    task = this._updateQueueTaskWithStats(task, data.stats);
-	    this._queue.push(task);
-	  } else {
-	    this._statQueue.push(task);
-	  }
-	};
-	
-	Archiver.prototype._finalize = function() {
-	  if (this._state.finalizing || this._state.finalized || this._state.aborted) {
-	    return;
-	  }
-	
-	  this._state.finalizing = true;
-	
-	  this._moduleFinalize();
-	
-	  this._state.finalizing = false;
-	  this._state.finalized = true;
-	};
-	
-	Archiver.prototype._maybeFinalize = function() {
-	  if (this._state.finalizing || this._state.finalized || this._state.aborted) {
-	    return false;
-	  }
-	
-	  if (this._state.finalize && this._pending === 0 && this._queue.idle() && this._statQueue.idle()) {
-	    this._finalize();
-	    return true;
-	  }
-	
-	  return false;
-	};
-	
-	Archiver.prototype._moduleAppend = function(source, data, callback) {
-	  if (this._state.aborted) {
-	    callback();
-	    return;
-	  }
-	
-	  this._module.append(source, data, function(err) {
-	    this._task = null;
-	
-	    if (this._state.aborted) {
-	      this._shutdown();
-	      return;
-	    }
-	
-	    if (err) {
-	      this.emit('error', err);
-	      setImmediate(callback);
-	      return;
-	    }
-	
-	    this.emit('entry', data);
-	    this._entries.push(data);
-	
-	    setImmediate(callback);
-	  }.bind(this));
-	};
-	
-	Archiver.prototype._moduleFinalize = function() {
-	  if (typeof this._module.finalize === 'function') {
-	    this._module.finalize();
-	  } else if (typeof this._module.end === 'function') {
-	    this._module.end();
-	  } else {
-	    this.emit('error', new Error('module: no suitable finalize/end method found'));
-	    return;
-	  }
-	};
-	
-	Archiver.prototype._modulePipe = function() {
-	  this._module.on('error', this._onModuleError.bind(this));
-	  this._module.pipe(this);
-	  this._state.modulePiped = true;
-	};
-	
-	Archiver.prototype._moduleSupports = function(key) {
-	  if (!this._module.supports || !this._module.supports[key]) {
-	    return false;
-	  }
-	
-	  return this._module.supports[key];
-	};
-	
-	Archiver.prototype._moduleUnpipe = function() {
-	  this._module.unpipe(this);
-	  this._state.modulePiped = false;
-	};
-	
-	Archiver.prototype._normalizeEntryData = function(data, stats) {
-	  data = util.defaults(data, {
-	    type: 'file',
-	    name: null,
-	    date: null,
-	    mode: null,
-	    sourcePath: null,
-	    stats: false
-	  });
-	
-	  if (stats && data.stats === false) {
-	    data.stats = stats;
-	  }
-	
-	  var isDir = data.type === 'directory';
-	
-	  if (data.name) {
-	    data.name = util.sanitizePath(data.name);
-	
-	    if (data.name.slice(-1) === '/') {
-	      isDir = true;
-	      data.type = 'directory';
-	    } else if (isDir) {
-	      data.name += '/';
-	    }
-	  }
-	
-	  if (typeof data.mode === 'number') {
-	    data.mode &= 0777;
-	  } else if (data.stats && data.mode === null) {
-	    data.mode = data.stats.mode & 0777;
-	  } else if (data.mode === null) {
-	    data.mode = isDir ? 0755 : 0644;
-	  }
-	
-	  if (data.stats && data.date === null) {
-	    data.date = data.stats.mtime;
-	  } else {
-	    data.date = util.dateify(data.date);
-	  }
-	
-	  return data;
-	};
-	
-	Archiver.prototype._onModuleError = function(err) {
-	  this.emit('error', err);
-	};
-	
-	Archiver.prototype._onQueueDrain = function() {
-	  if (this._state.finalizing || this._state.finalized || this._state.aborted) {
-	    return;
-	  }
-	
-	  if (this._state.finalize && this._pending === 0 && this._queue.idle() && this._statQueue.idle()) {
-	    this._finalize();
-	    return;
-	  }
-	};
-	
-	Archiver.prototype._onQueueTask = function(task, callback) {
-	  if (this._state.finalizing || this._state.finalized || this._state.aborted) {
-	    callback();
-	    return;
-	  }
-	
-	  this._task = task;
-	  this._moduleAppend(task.source, task.data, callback);
-	};
-	
-	Archiver.prototype._onStatQueueTask = function(task, callback) {
-	  if (this._state.finalizing || this._state.finalized || this._state.aborted) {
-	    callback();
-	    return;
-	  }
-	
-	  fs.stat(task.filepath, function(err, stats) {
-	    if (this._state.aborted) {
-	      setImmediate(callback);
-	      return;
-	    }
-	
-	    if (err) {
-	      this.emit('error', err);
-	      setImmediate(callback);
-	      return;
-	    }
-	
-	    task = this._updateQueueTaskWithStats(task, stats);
-	
-	    if (task.source !== null) {
-	      this._queue.push(task);
-	      setImmediate(callback);
-	    } else {
-	      this.emit('error', new Error('unsupported entry: ' + task.filepath));
-	      setImmediate(callback);
-	      return;
-	    }
-	  }.bind(this));
-	};
-	
-	Archiver.prototype._shutdown = function() {
-	  this._moduleUnpipe();
-	  this.end();
-	};
-	
-	Archiver.prototype._transform = function(chunk, encoding, callback) {
-	  if (chunk) {
-	    this._pointer += chunk.length;
-	  }
-	
-	  callback(null, chunk);
-	};
-	
-	Archiver.prototype._updateQueueTaskWithStats = function(task, stats) {
-	  if (stats.isFile()) {
-	    task.data.type = 'file';
-	    task.data.sourceType = 'stream';
-	    task.source = util.lazyReadStream(task.filepath);
-	  } else if (stats.isDirectory() && this._moduleSupports('directory')) {
-	    task.data.name = util.trailingSlashIt(task.data.name);
-	    task.data.type = 'directory';
-	    task.data.sourcePath = util.trailingSlashIt(task.filepath);
-	    task.data.sourceType = 'buffer';
-	    task.source = new Buffer(0);
-	  } else {
-	    return task;
-	  }
-	
-	  task.data = this._normalizeEntryData(task.data, stats);
-	  return task;
-	};
-	
-	Archiver.prototype.abort = function() {
-	  if (this._state.aborted || this._state.finalized) {
-	    return this;
-	  }
-	
-	  this._abort();
-	
-	  return this;
-	};
-	
-	Archiver.prototype.append = function(source, data) {
-	  if (this._state.finalize || this._state.aborted) {
-	    this.emit('error', new Error('append: queue closed'));
-	    return this;
-	  }
-	
-	  data = this._normalizeEntryData(data);
-	
-	  if (typeof data.name !== 'string' || data.name.length === 0) {
-	    this.emit('error', new Error('append: entry name must be a non-empty string value'));
-	    return this;
-	  }
-	
-	  if (data.type === 'directory' && !this._moduleSupports('directory')) {
-	    this.emit('error', new Error('append: entries of "directory" type not currently supported by this module'));
-	    return this;
-	  }
-	
-	  source = util.normalizeInputSource(source);
-	
-	  if (Buffer.isBuffer(source)) {
-	    data.sourceType = 'buffer';
-	  } else if (util.isStream(source)) {
-	    data.sourceType = 'stream';
-	  } else {
-	    this.emit('error', new Error('append: input source must be valid Stream or Buffer instance'));
-	    return this;
-	  }
-	
-	  this._queue.push({
-	    data: data,
-	    source: source
-	  });
-	
-	  return this;
-	};
-	
-	Archiver.prototype.bulk = function(mappings) {
-	  if (this._state.finalize || this._state.aborted) {
-	    this.emit('error', new Error('bulk: queue closed'));
-	    return this;
-	  }
-	
-	  if (!Array.isArray(mappings)) {
-	    mappings = [mappings];
-	  }
-	
-	  var self = this;
-	  var files = util.file.normalizeFilesArray(mappings);
-	
-	  files.forEach(function(file){
-	    var isExpandedPair = file.orig.expand || false;
-	    var fileData = file.data || {};
-	
-	    file.src.forEach(function(filepath) {
-	      var data = util._.extend({}, fileData);
-	      data.name = isExpandedPair ? util.unixifyPath(file.dest) : util.unixifyPath(file.dest || '', filepath);
-	
-	      if (data.name === '.') {
-	        return;
-	      }
-	
-	      self._append(filepath, data);
-	    });
-	  });
-	
-	  return this;
-	};
-	
-	Archiver.prototype.directory = function(dirpath, destpath, data) {
-	  if (this._state.finalize || this._state.aborted) {
-	    this.emit('error', new Error('directory: queue closed'));
-	    return this;
-	  }
-	
-	  if (typeof dirpath !== 'string' || dirpath.length === 0) {
-	    this.emit('error', new Error('directory: dirpath must be a non-empty string value'));
-	    return this;
-	  }
-	
-	  this._pending++;
-	
-	  if (destpath === false) {
-	    destpath = '';
-	  } else if (typeof destpath !== 'string'){
-	    destpath = dirpath;
-	  }
-	
-	  if (typeof data !== 'object') {
-	    data = {};
-	  }
-	
-	  var self = this;
-	
-	  util.walkdir(dirpath, function(err, results) {
-	    if (err) {
-	      self.emit('error', err);
-	    } else {
-	      results.forEach(function(file) {
-	        var entryData = util._.extend({}, data);
-	        entryData.name = util.sanitizePath(destpath, file.relative);
-	        entryData.stats = file.stats;
-	
-	        self._append(file.path, entryData);
-	      });
-	    }
-	
-	    self._pending--;
-	    self._maybeFinalize();
-	  });
-	
-	  return this;
-	};
-	
-	Archiver.prototype.file = function(filepath, data) {
-	  if (this._state.finalize || this._state.aborted) {
-	    this.emit('error', new Error('file: queue closed'));
-	    return this;
-	  }
-	
-	  if (typeof filepath !== 'string' || filepath.length === 0) {
-	    this.emit('error', new Error('file: filepath must be a non-empty string value'));
-	    return this;
-	  }
-	
-	  this._append(filepath, data);
-	
-	  return this;
-	};
-	
-	Archiver.prototype.finalize = function() {
-	  if (this._state.aborted) {
-	    this.emit('error', new Error('finalize: archive was aborted'));
-	    return this;
-	  }
-	
-	  if (this._state.finalize) {
-	    this.emit('error', new Error('finalize: archive already finalizing'));
-	    return this;
-	  }
-	
-	  this._state.finalize = true;
-	
-	  if (this._pending === 0 && this._queue.idle() && this._statQueue.idle()) {
-	    this._finalize();
-	  }
-	
-	  return this;
-	};
-	
-	Archiver.prototype.setFormat = function(format) {
-	  if (this._format) {
-	    this.emit('error', new Error('format: archive format already set'));
-	    return this;
-	  }
-	
-	  this._format = format;
-	
-	  return this;
-	};
-	
-	Archiver.prototype.setModule = function(module) {
-	  if (this._state.aborted) {
-	    this.emit('error', new Error('module: archive was aborted'));
-	    return this;
-	  }
-	
-	  if (this._state.module) {
-	    this.emit('error', new Error('module: module already set'));
-	    return this;
-	  }
-	
-	  this._module = module;
-	  this._modulePipe();
-	
-	  return this;
-	};
-	
-	Archiver.prototype.pointer = function() {
-	  return this._pointer;
-	};
-
-/***/ },
-/* 275 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * node-archiver
-	 *
-	 * Copyright (c) 2012-2014 Chris Talkington, contributors.
-	 * Licensed under the MIT license.
-	 * https://github.com/archiverjs/node-archiver/blob/master/LICENSE-MIT
-	 */
-	var engine = __webpack_require__(325);
-	var util = __webpack_require__(299);
-	
-	var Zip = module.exports = function(options) {
-	  if (!(this instanceof Zip)) {
-	    return new Zip(options);
-	  }
-	
-	  options = this.options = util.defaults(options, {
-	    comment: '',
-	    forceUTC: false,
-	    store: false
-	  });
-	
-	  this.supports = {
-	    directory: true
-	  };
-	
-	  this.engine = new engine(options);
-	};
-	
-	Zip.prototype.append = function(source, data, callback) {
-	  this.engine.entry(source, data, callback);
-	};
-	
-	Zip.prototype.finalize = function() {
-	  this.engine.finalize();
-	};
-	
-	Zip.prototype.on = function() {
-	  return this.engine.on.apply(this.engine, arguments);
-	};
-	
-	Zip.prototype.pipe = function() {
-	  return this.engine.pipe.apply(this.engine, arguments);
-	};
-	
-	Zip.prototype.unpipe = function() {
-	  return this.engine.unpipe.apply(this.engine, arguments);
-	};
-
-/***/ },
-/* 276 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * node-archiver
-	 *
-	 * Copyright (c) 2012-2014 Chris Talkington, contributors.
-	 * Licensed under the MIT license.
-	 * https://github.com/archiverjs/node-archiver/blob/master/LICENSE-MIT
-	 */
-	var zlib = __webpack_require__(297);
-	
-	var engine = __webpack_require__(320);
-	var util = __webpack_require__(299);
-	
-	var Tar = module.exports = function(options) {
-	  if (!(this instanceof Tar)) {
-	    return new Tar(options);
-	  }
-	
-	  options = this.options = util.defaults(options, {
-	    gzip: false
-	  });
-	
-	  if (typeof options.gzipOptions !== 'object') {
-	    options.gzipOptions = {};
-	  }
-	
-	  this.supports = {
-	    directory: true
-	  };
-	
-	  this.engine = engine.pack(options);
-	  this.compressor = false;
-	
-	  if (options.gzip) {
-	    this.compressor = zlib.createGzip(options.gzipOptions);
-	    this.compressor.on('error', this._onCompressorError.bind(this));
-	  }
-	};
-	
-	Tar.prototype._onCompressorError = function(err) {
-	  this.engine.emit('error', err);
-	};
-	
-	Tar.prototype.append = function(source, data, callback) {
-	  var self = this;
-	
-	  data.mtime = data.date;
-	
-	  function append(err, sourceBuffer) {
-	    if (err) {
-	      callback(err);
-	      return;
-	    }
-	
-	    self.engine.entry(data, sourceBuffer, function(err) {
-	      callback(err, data);
-	    });
-	  }
-	
-	  if (data.sourceType === 'buffer') {
-	    append(null, source);
-	  } else if (data.sourceType === 'stream' && data._stats) {
-	    data.size = data._stats.size;
-	
-	    var entry = self.engine.entry(data, function(err) {
-	      callback(err, data);
-	    });
-	
-	    source.pipe(entry);
-	  } else if (data.sourceType === 'stream') {
-	    util.collectStream(source, append);
-	  }
-	};
-	
-	Tar.prototype.finalize = function() {
-	  this.engine.finalize();
-	};
-	
-	Tar.prototype.on = function() {
-	  return this.engine.on.apply(this.engine, arguments);
-	};
-	
-	Tar.prototype.pipe = function(destination, options) {
-	  if (this.compressor) {
-	    return this.engine.pipe.apply(this.engine, [this.compressor]).pipe(destination, options);
-	  } else {
-	    return this.engine.pipe.apply(this.engine, arguments);
-	  }
-	};
-	
-	Tar.prototype.unpipe = function() {
-	  if (this.compressor) {
-	    return this.compressor.unpipe.apply(this.compressor, arguments);
-	  } else {
-	    return this.engine.unpipe.apply(this.engine, arguments);
-	  }
-	};
-
-/***/ },
-/* 277 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * node-archiver
-	 *
-	 * Copyright (c) 2012-2014 Chris Talkington, contributors.
-	 * Licensed under the MIT license.
-	 * https://github.com/archiverjs/node-archiver/blob/master/LICENSE-MIT
-	 */
-	var inherits = __webpack_require__(287).inherits;
-	var Transform = __webpack_require__(324).Transform;
-	
-	var crc32 = __webpack_require__(313);
-	var util = __webpack_require__(299);
-	
-	var Json = module.exports = function(options) {
-	  if (!(this instanceof Json)) {
-	    return new Json(options);
-	  }
-	
-	  options = this.options = util.defaults(options, {});
-	
-	  Transform.call(this, options);
-	
-	  this.supports = {
-	    directory: true
-	  };
-	
-	  this.files = [];
-	};
-	
-	inherits(Json, Transform);
-	
-	Json.prototype._transform = function(chunk, encoding, callback) {
-	  callback(null, chunk);
-	};
-	
-	Json.prototype._writeStringified = function() {
-	  var fileString = JSON.stringify(this.files);
-	  this.write(fileString);
-	};
-	
-	Json.prototype.append = function(source, data, callback) {
-	  var self = this;
-	
-	  data.crc32 = 0;
-	
-	  function onend(err, sourceBuffer) {
-	    if (err) {
-	      callback(err);
-	      return;
-	    }
-	
-	    data.size = sourceBuffer.length || 0;
-	    data.crc32 = crc32.unsigned(sourceBuffer);
-	
-	    self.files.push(data);
-	
-	    callback(null, data);
-	  }
-	
-	  if (data.sourceType === 'buffer') {
-	    onend(null, source);
-	  } else if (data.sourceType === 'stream') {
-	    util.collectStream(source, onend);
-	  }
-	};
-	
-	Json.prototype.finalize = function() {
-	  this._writeStringified();
-	  this.end();
-	};
-
-/***/ },
-/* 278 */,
-/* 279 */,
-/* 280 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
 	 * Copyright 2013-2015, Facebook, Inc.
 	 * All rights reserved.
 	 *
@@ -5722,8 +4564,8 @@ webpackJsonp([1],[
 	
 	'use strict';
 	
-	var ReactLink = __webpack_require__(301);
-	var ReactStateSetters = __webpack_require__(303);
+	var ReactLink = __webpack_require__(296);
+	var ReactStateSetters = __webpack_require__(297);
 	
 	/**
 	 * A simple mixin around ReactLink.forState().
@@ -5750,7 +4592,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 281 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5766,7 +4608,7 @@ webpackJsonp([1],[
 	
 	'use strict';
 	
-	var shallowEqual = __webpack_require__(206);
+	var shallowEqual = __webpack_require__(197);
 	
 	/**
 	 * If your React component's render function is "pure", e.g. it will render the
@@ -5803,7 +4645,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 282 */
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5820,15 +4662,15 @@ webpackJsonp([1],[
 	
 	'use strict';
 	
-	var React = __webpack_require__(7);
+	var React = __webpack_require__(8);
 	
-	var assign = __webpack_require__(43);
+	var assign = __webpack_require__(71);
 	
 	var ReactTransitionGroup = React.createFactory(
-	  __webpack_require__(283)
+	  __webpack_require__(276)
 	);
 	var ReactCSSTransitionGroupChild = React.createFactory(
-	  __webpack_require__(300)
+	  __webpack_require__(295)
 	);
 	
 	var ReactCSSTransitionGroup = React.createClass({
@@ -5877,7 +4719,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 283 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5893,12 +4735,12 @@ webpackJsonp([1],[
 	
 	'use strict';
 	
-	var React = __webpack_require__(7);
-	var ReactTransitionChildMapping = __webpack_require__(305);
+	var React = __webpack_require__(8);
+	var ReactTransitionChildMapping = __webpack_require__(298);
 	
-	var assign = __webpack_require__(43);
-	var cloneWithProps = __webpack_require__(284);
-	var emptyFunction = __webpack_require__(162);
+	var assign = __webpack_require__(71);
+	var cloneWithProps = __webpack_require__(277);
+	var emptyFunction = __webpack_require__(163);
 	
 	var ReactTransitionGroup = React.createClass({
 	  displayName: 'ReactTransitionGroup',
@@ -6111,7 +4953,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 284 */
+/* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -6128,11 +4970,11 @@ webpackJsonp([1],[
 	
 	'use strict';
 	
-	var ReactElement = __webpack_require__(52);
-	var ReactPropTransferer = __webpack_require__(304);
+	var ReactElement = __webpack_require__(76);
+	var ReactPropTransferer = __webpack_require__(301);
 	
-	var keyOf = __webpack_require__(112);
-	var warning = __webpack_require__(66);
+	var keyOf = __webpack_require__(106);
+	var warning = __webpack_require__(87);
 	
 	var CHILDREN_PROP = keyOf({children: null});
 	
@@ -6172,7 +5014,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 285 */
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -6190,9 +5032,9 @@ webpackJsonp([1],[
 	
 	'use strict';
 	
-	var assign = __webpack_require__(43);
-	var keyOf = __webpack_require__(112);
-	var invariant = __webpack_require__(44);
+	var assign = __webpack_require__(71);
+	var keyOf = __webpack_require__(106);
+	var invariant = __webpack_require__(78);
 	var hasOwnProperty = {}.hasOwnProperty;
 	
 	function shallowCopy(x) {
@@ -6345,7 +5187,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 286 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -6361,21 +5203,21 @@ webpackJsonp([1],[
 	
 	'use strict';
 	
-	var EventConstants = __webpack_require__(114);
-	var EventPluginHub = __webpack_require__(188);
-	var EventPropagators = __webpack_require__(184);
-	var React = __webpack_require__(7);
-	var ReactElement = __webpack_require__(52);
-	var ReactEmptyComponent = __webpack_require__(156);
-	var ReactBrowserEventEmitter = __webpack_require__(155);
-	var ReactCompositeComponent = __webpack_require__(211);
-	var ReactInstanceHandles = __webpack_require__(57);
-	var ReactInstanceMap = __webpack_require__(107);
-	var ReactMount = __webpack_require__(58);
-	var ReactUpdates = __webpack_require__(157);
-	var SyntheticEvent = __webpack_require__(189);
+	var EventConstants = __webpack_require__(98);
+	var EventPluginHub = __webpack_require__(179);
+	var EventPropagators = __webpack_require__(175);
+	var React = __webpack_require__(8);
+	var ReactElement = __webpack_require__(76);
+	var ReactEmptyComponent = __webpack_require__(152);
+	var ReactBrowserEventEmitter = __webpack_require__(151);
+	var ReactCompositeComponent = __webpack_require__(209);
+	var ReactInstanceHandles = __webpack_require__(65);
+	var ReactInstanceMap = __webpack_require__(100);
+	var ReactMount = __webpack_require__(66);
+	var ReactUpdates = __webpack_require__(153);
+	var SyntheticEvent = __webpack_require__(180);
 	
-	var assign = __webpack_require__(43);
+	var assign = __webpack_require__(71);
 	
 	var topLevelTypes = EventConstants.topLevelTypes;
 	
@@ -6859,10 +5701,1180 @@ webpackJsonp([1],[
 
 
 /***/ },
+/* 280 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * node-archiver
+	 *
+	 * Copyright (c) 2012-2014 Chris Talkington, contributors.
+	 * Licensed under the MIT license.
+	 * https://github.com/archiverjs/node-archiver/blob/master/LICENSE-MIT
+	 */
+	var fs = __webpack_require__(9);
+	var inherits = __webpack_require__(299).inherits;
+	var Transform = __webpack_require__(326).Transform;
+	
+	var async = __webpack_require__(328);
+	
+	var util = __webpack_require__(303);
+	
+	var Archiver = module.exports = function(options) {
+	  if (!(this instanceof Archiver)) {
+	    return new Archiver(options);
+	  }
+	
+	  options = this.options = util.defaults(options, {
+	    highWaterMark: 1024 * 1024,
+	    statConcurrency: 4
+	  });
+	
+	  Transform.call(this, options);
+	
+	  this._entries = [];
+	  this._format = false;
+	  this._module = false;
+	  this._pending = 0;
+	  this._pointer = 0;
+	
+	  this._queue = async.queue(this._onQueueTask.bind(this), 1);
+	  this._queue.drain = this._onQueueDrain.bind(this);
+	
+	  this._statQueue = async.queue(this._onStatQueueTask.bind(this), options.statConcurrency);
+	
+	  this._state = {
+	    aborted: false,
+	    finalize: false,
+	    finalizing: false,
+	    finalized: false,
+	    modulePiped: false
+	  };
+	};
+	
+	inherits(Archiver, Transform);
+	
+	Archiver.prototype._abort = function() {
+	  this._state.aborted = true;
+	  this._queue.kill();
+	  this._statQueue.kill();
+	
+	  if (this._queue.idle()) {
+	    this._shutdown();
+	  }
+	};
+	
+	Archiver.prototype._append = function(filepath, data) {
+	  data = data || {};
+	
+	  var task = {
+	    source: null,
+	    filepath: filepath
+	  };
+	
+	  if (!data.name) {
+	    data.name = filepath;
+	  }
+	
+	  data.sourcePath = filepath;
+	  task.data = data;
+	
+	  if (data.stats && data.stats instanceof fs.Stats) {
+	    task = this._updateQueueTaskWithStats(task, data.stats);
+	    this._queue.push(task);
+	  } else {
+	    this._statQueue.push(task);
+	  }
+	};
+	
+	Archiver.prototype._finalize = function() {
+	  if (this._state.finalizing || this._state.finalized || this._state.aborted) {
+	    return;
+	  }
+	
+	  this._state.finalizing = true;
+	
+	  this._moduleFinalize();
+	
+	  this._state.finalizing = false;
+	  this._state.finalized = true;
+	};
+	
+	Archiver.prototype._maybeFinalize = function() {
+	  if (this._state.finalizing || this._state.finalized || this._state.aborted) {
+	    return false;
+	  }
+	
+	  if (this._state.finalize && this._pending === 0 && this._queue.idle() && this._statQueue.idle()) {
+	    this._finalize();
+	    return true;
+	  }
+	
+	  return false;
+	};
+	
+	Archiver.prototype._moduleAppend = function(source, data, callback) {
+	  if (this._state.aborted) {
+	    callback();
+	    return;
+	  }
+	
+	  this._module.append(source, data, function(err) {
+	    this._task = null;
+	
+	    if (this._state.aborted) {
+	      this._shutdown();
+	      return;
+	    }
+	
+	    if (err) {
+	      this.emit('error', err);
+	      setImmediate(callback);
+	      return;
+	    }
+	
+	    this.emit('entry', data);
+	    this._entries.push(data);
+	
+	    setImmediate(callback);
+	  }.bind(this));
+	};
+	
+	Archiver.prototype._moduleFinalize = function() {
+	  if (typeof this._module.finalize === 'function') {
+	    this._module.finalize();
+	  } else if (typeof this._module.end === 'function') {
+	    this._module.end();
+	  } else {
+	    this.emit('error', new Error('module: no suitable finalize/end method found'));
+	    return;
+	  }
+	};
+	
+	Archiver.prototype._modulePipe = function() {
+	  this._module.on('error', this._onModuleError.bind(this));
+	  this._module.pipe(this);
+	  this._state.modulePiped = true;
+	};
+	
+	Archiver.prototype._moduleSupports = function(key) {
+	  if (!this._module.supports || !this._module.supports[key]) {
+	    return false;
+	  }
+	
+	  return this._module.supports[key];
+	};
+	
+	Archiver.prototype._moduleUnpipe = function() {
+	  this._module.unpipe(this);
+	  this._state.modulePiped = false;
+	};
+	
+	Archiver.prototype._normalizeEntryData = function(data, stats) {
+	  data = util.defaults(data, {
+	    type: 'file',
+	    name: null,
+	    date: null,
+	    mode: null,
+	    sourcePath: null,
+	    stats: false
+	  });
+	
+	  if (stats && data.stats === false) {
+	    data.stats = stats;
+	  }
+	
+	  var isDir = data.type === 'directory';
+	
+	  if (data.name) {
+	    data.name = util.sanitizePath(data.name);
+	
+	    if (data.name.slice(-1) === '/') {
+	      isDir = true;
+	      data.type = 'directory';
+	    } else if (isDir) {
+	      data.name += '/';
+	    }
+	  }
+	
+	  if (typeof data.mode === 'number') {
+	    data.mode &= 0777;
+	  } else if (data.stats && data.mode === null) {
+	    data.mode = data.stats.mode & 0777;
+	  } else if (data.mode === null) {
+	    data.mode = isDir ? 0755 : 0644;
+	  }
+	
+	  if (data.stats && data.date === null) {
+	    data.date = data.stats.mtime;
+	  } else {
+	    data.date = util.dateify(data.date);
+	  }
+	
+	  return data;
+	};
+	
+	Archiver.prototype._onModuleError = function(err) {
+	  this.emit('error', err);
+	};
+	
+	Archiver.prototype._onQueueDrain = function() {
+	  if (this._state.finalizing || this._state.finalized || this._state.aborted) {
+	    return;
+	  }
+	
+	  if (this._state.finalize && this._pending === 0 && this._queue.idle() && this._statQueue.idle()) {
+	    this._finalize();
+	    return;
+	  }
+	};
+	
+	Archiver.prototype._onQueueTask = function(task, callback) {
+	  if (this._state.finalizing || this._state.finalized || this._state.aborted) {
+	    callback();
+	    return;
+	  }
+	
+	  this._task = task;
+	  this._moduleAppend(task.source, task.data, callback);
+	};
+	
+	Archiver.prototype._onStatQueueTask = function(task, callback) {
+	  if (this._state.finalizing || this._state.finalized || this._state.aborted) {
+	    callback();
+	    return;
+	  }
+	
+	  fs.stat(task.filepath, function(err, stats) {
+	    if (this._state.aborted) {
+	      setImmediate(callback);
+	      return;
+	    }
+	
+	    if (err) {
+	      this.emit('error', err);
+	      setImmediate(callback);
+	      return;
+	    }
+	
+	    task = this._updateQueueTaskWithStats(task, stats);
+	
+	    if (task.source !== null) {
+	      this._queue.push(task);
+	      setImmediate(callback);
+	    } else {
+	      this.emit('error', new Error('unsupported entry: ' + task.filepath));
+	      setImmediate(callback);
+	      return;
+	    }
+	  }.bind(this));
+	};
+	
+	Archiver.prototype._shutdown = function() {
+	  this._moduleUnpipe();
+	  this.end();
+	};
+	
+	Archiver.prototype._transform = function(chunk, encoding, callback) {
+	  if (chunk) {
+	    this._pointer += chunk.length;
+	  }
+	
+	  callback(null, chunk);
+	};
+	
+	Archiver.prototype._updateQueueTaskWithStats = function(task, stats) {
+	  if (stats.isFile()) {
+	    task.data.type = 'file';
+	    task.data.sourceType = 'stream';
+	    task.source = util.lazyReadStream(task.filepath);
+	  } else if (stats.isDirectory() && this._moduleSupports('directory')) {
+	    task.data.name = util.trailingSlashIt(task.data.name);
+	    task.data.type = 'directory';
+	    task.data.sourcePath = util.trailingSlashIt(task.filepath);
+	    task.data.sourceType = 'buffer';
+	    task.source = new Buffer(0);
+	  } else {
+	    return task;
+	  }
+	
+	  task.data = this._normalizeEntryData(task.data, stats);
+	  return task;
+	};
+	
+	Archiver.prototype.abort = function() {
+	  if (this._state.aborted || this._state.finalized) {
+	    return this;
+	  }
+	
+	  this._abort();
+	
+	  return this;
+	};
+	
+	Archiver.prototype.append = function(source, data) {
+	  if (this._state.finalize || this._state.aborted) {
+	    this.emit('error', new Error('append: queue closed'));
+	    return this;
+	  }
+	
+	  data = this._normalizeEntryData(data);
+	
+	  if (typeof data.name !== 'string' || data.name.length === 0) {
+	    this.emit('error', new Error('append: entry name must be a non-empty string value'));
+	    return this;
+	  }
+	
+	  if (data.type === 'directory' && !this._moduleSupports('directory')) {
+	    this.emit('error', new Error('append: entries of "directory" type not currently supported by this module'));
+	    return this;
+	  }
+	
+	  source = util.normalizeInputSource(source);
+	
+	  if (Buffer.isBuffer(source)) {
+	    data.sourceType = 'buffer';
+	  } else if (util.isStream(source)) {
+	    data.sourceType = 'stream';
+	  } else {
+	    this.emit('error', new Error('append: input source must be valid Stream or Buffer instance'));
+	    return this;
+	  }
+	
+	  this._queue.push({
+	    data: data,
+	    source: source
+	  });
+	
+	  return this;
+	};
+	
+	Archiver.prototype.bulk = function(mappings) {
+	  if (this._state.finalize || this._state.aborted) {
+	    this.emit('error', new Error('bulk: queue closed'));
+	    return this;
+	  }
+	
+	  if (!Array.isArray(mappings)) {
+	    mappings = [mappings];
+	  }
+	
+	  var self = this;
+	  var files = util.file.normalizeFilesArray(mappings);
+	
+	  files.forEach(function(file){
+	    var isExpandedPair = file.orig.expand || false;
+	    var fileData = file.data || {};
+	
+	    file.src.forEach(function(filepath) {
+	      var data = util._.extend({}, fileData);
+	      data.name = isExpandedPair ? util.unixifyPath(file.dest) : util.unixifyPath(file.dest || '', filepath);
+	
+	      if (data.name === '.') {
+	        return;
+	      }
+	
+	      self._append(filepath, data);
+	    });
+	  });
+	
+	  return this;
+	};
+	
+	Archiver.prototype.directory = function(dirpath, destpath, data) {
+	  if (this._state.finalize || this._state.aborted) {
+	    this.emit('error', new Error('directory: queue closed'));
+	    return this;
+	  }
+	
+	  if (typeof dirpath !== 'string' || dirpath.length === 0) {
+	    this.emit('error', new Error('directory: dirpath must be a non-empty string value'));
+	    return this;
+	  }
+	
+	  this._pending++;
+	
+	  if (destpath === false) {
+	    destpath = '';
+	  } else if (typeof destpath !== 'string'){
+	    destpath = dirpath;
+	  }
+	
+	  if (typeof data !== 'object') {
+	    data = {};
+	  }
+	
+	  var self = this;
+	
+	  util.walkdir(dirpath, function(err, results) {
+	    if (err) {
+	      self.emit('error', err);
+	    } else {
+	      results.forEach(function(file) {
+	        var entryData = util._.extend({}, data);
+	        entryData.name = util.sanitizePath(destpath, file.relative);
+	        entryData.stats = file.stats;
+	
+	        self._append(file.path, entryData);
+	      });
+	    }
+	
+	    self._pending--;
+	    self._maybeFinalize();
+	  });
+	
+	  return this;
+	};
+	
+	Archiver.prototype.file = function(filepath, data) {
+	  if (this._state.finalize || this._state.aborted) {
+	    this.emit('error', new Error('file: queue closed'));
+	    return this;
+	  }
+	
+	  if (typeof filepath !== 'string' || filepath.length === 0) {
+	    this.emit('error', new Error('file: filepath must be a non-empty string value'));
+	    return this;
+	  }
+	
+	  this._append(filepath, data);
+	
+	  return this;
+	};
+	
+	Archiver.prototype.finalize = function() {
+	  if (this._state.aborted) {
+	    this.emit('error', new Error('finalize: archive was aborted'));
+	    return this;
+	  }
+	
+	  if (this._state.finalize) {
+	    this.emit('error', new Error('finalize: archive already finalizing'));
+	    return this;
+	  }
+	
+	  this._state.finalize = true;
+	
+	  if (this._pending === 0 && this._queue.idle() && this._statQueue.idle()) {
+	    this._finalize();
+	  }
+	
+	  return this;
+	};
+	
+	Archiver.prototype.setFormat = function(format) {
+	  if (this._format) {
+	    this.emit('error', new Error('format: archive format already set'));
+	    return this;
+	  }
+	
+	  this._format = format;
+	
+	  return this;
+	};
+	
+	Archiver.prototype.setModule = function(module) {
+	  if (this._state.aborted) {
+	    this.emit('error', new Error('module: archive was aborted'));
+	    return this;
+	  }
+	
+	  if (this._state.module) {
+	    this.emit('error', new Error('module: module already set'));
+	    return this;
+	  }
+	
+	  this._module = module;
+	  this._modulePipe();
+	
+	  return this;
+	};
+	
+	Archiver.prototype.pointer = function() {
+	  return this._pointer;
+	};
+
+/***/ },
+/* 281 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = require("path");
+
+/***/ },
+/* 282 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * node-archiver
+	 *
+	 * Copyright (c) 2012-2014 Chris Talkington, contributors.
+	 * Licensed under the MIT license.
+	 * https://github.com/archiverjs/node-archiver/blob/master/LICENSE-MIT
+	 */
+	var engine = __webpack_require__(325);
+	var util = __webpack_require__(303);
+	
+	var Zip = module.exports = function(options) {
+	  if (!(this instanceof Zip)) {
+	    return new Zip(options);
+	  }
+	
+	  options = this.options = util.defaults(options, {
+	    comment: '',
+	    forceUTC: false,
+	    store: false
+	  });
+	
+	  this.supports = {
+	    directory: true
+	  };
+	
+	  this.engine = new engine(options);
+	};
+	
+	Zip.prototype.append = function(source, data, callback) {
+	  this.engine.entry(source, data, callback);
+	};
+	
+	Zip.prototype.finalize = function() {
+	  this.engine.finalize();
+	};
+	
+	Zip.prototype.on = function() {
+	  return this.engine.on.apply(this.engine, arguments);
+	};
+	
+	Zip.prototype.pipe = function() {
+	  return this.engine.pipe.apply(this.engine, arguments);
+	};
+	
+	Zip.prototype.unpipe = function() {
+	  return this.engine.unpipe.apply(this.engine, arguments);
+	};
+
+/***/ },
+/* 283 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * node-archiver
+	 *
+	 * Copyright (c) 2012-2014 Chris Talkington, contributors.
+	 * Licensed under the MIT license.
+	 * https://github.com/archiverjs/node-archiver/blob/master/LICENSE-MIT
+	 */
+	var zlib = __webpack_require__(300);
+	
+	var engine = __webpack_require__(323);
+	var util = __webpack_require__(303);
+	
+	var Tar = module.exports = function(options) {
+	  if (!(this instanceof Tar)) {
+	    return new Tar(options);
+	  }
+	
+	  options = this.options = util.defaults(options, {
+	    gzip: false
+	  });
+	
+	  if (typeof options.gzipOptions !== 'object') {
+	    options.gzipOptions = {};
+	  }
+	
+	  this.supports = {
+	    directory: true
+	  };
+	
+	  this.engine = engine.pack(options);
+	  this.compressor = false;
+	
+	  if (options.gzip) {
+	    this.compressor = zlib.createGzip(options.gzipOptions);
+	    this.compressor.on('error', this._onCompressorError.bind(this));
+	  }
+	};
+	
+	Tar.prototype._onCompressorError = function(err) {
+	  this.engine.emit('error', err);
+	};
+	
+	Tar.prototype.append = function(source, data, callback) {
+	  var self = this;
+	
+	  data.mtime = data.date;
+	
+	  function append(err, sourceBuffer) {
+	    if (err) {
+	      callback(err);
+	      return;
+	    }
+	
+	    self.engine.entry(data, sourceBuffer, function(err) {
+	      callback(err, data);
+	    });
+	  }
+	
+	  if (data.sourceType === 'buffer') {
+	    append(null, source);
+	  } else if (data.sourceType === 'stream' && data._stats) {
+	    data.size = data._stats.size;
+	
+	    var entry = self.engine.entry(data, function(err) {
+	      callback(err, data);
+	    });
+	
+	    source.pipe(entry);
+	  } else if (data.sourceType === 'stream') {
+	    util.collectStream(source, append);
+	  }
+	};
+	
+	Tar.prototype.finalize = function() {
+	  this.engine.finalize();
+	};
+	
+	Tar.prototype.on = function() {
+	  return this.engine.on.apply(this.engine, arguments);
+	};
+	
+	Tar.prototype.pipe = function(destination, options) {
+	  if (this.compressor) {
+	    return this.engine.pipe.apply(this.engine, [this.compressor]).pipe(destination, options);
+	  } else {
+	    return this.engine.pipe.apply(this.engine, arguments);
+	  }
+	};
+	
+	Tar.prototype.unpipe = function() {
+	  if (this.compressor) {
+	    return this.compressor.unpipe.apply(this.compressor, arguments);
+	  } else {
+	    return this.engine.unpipe.apply(this.engine, arguments);
+	  }
+	};
+
+/***/ },
+/* 284 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * node-archiver
+	 *
+	 * Copyright (c) 2012-2014 Chris Talkington, contributors.
+	 * Licensed under the MIT license.
+	 * https://github.com/archiverjs/node-archiver/blob/master/LICENSE-MIT
+	 */
+	var inherits = __webpack_require__(299).inherits;
+	var Transform = __webpack_require__(326).Transform;
+	
+	var crc32 = __webpack_require__(320);
+	var util = __webpack_require__(303);
+	
+	var Json = module.exports = function(options) {
+	  if (!(this instanceof Json)) {
+	    return new Json(options);
+	  }
+	
+	  options = this.options = util.defaults(options, {});
+	
+	  Transform.call(this, options);
+	
+	  this.supports = {
+	    directory: true
+	  };
+	
+	  this.files = [];
+	};
+	
+	inherits(Json, Transform);
+	
+	Json.prototype._transform = function(chunk, encoding, callback) {
+	  callback(null, chunk);
+	};
+	
+	Json.prototype._writeStringified = function() {
+	  var fileString = JSON.stringify(this.files);
+	  this.write(fileString);
+	};
+	
+	Json.prototype.append = function(source, data, callback) {
+	  var self = this;
+	
+	  data.crc32 = 0;
+	
+	  function onend(err, sourceBuffer) {
+	    if (err) {
+	      callback(err);
+	      return;
+	    }
+	
+	    data.size = sourceBuffer.length || 0;
+	    data.crc32 = crc32.unsigned(sourceBuffer);
+	
+	    self.files.push(data);
+	
+	    callback(null, data);
+	  }
+	
+	  if (data.sourceType === 'buffer') {
+	    onend(null, source);
+	  } else if (data.sourceType === 'stream') {
+	    util.collectStream(source, onend);
+	  }
+	};
+	
+	Json.prototype.finalize = function() {
+	  this._writeStringified();
+	  this.end();
+	};
+
+/***/ },
+/* 285 */,
+/* 286 */,
 /* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = require("util");
+	/**
+	 * @fileOverview Contains the File class.
+	 *
+	 * @author Daniel Imhoff
+	 */
+	
+	'use strict';
+	
+	var PATH = __webpack_require__(281);
+	var FS = __webpack_require__(314);
+	var mkdirp = __webpack_require__(317);
+	var uidNumber = __webpack_require__(327);
+	
+	var Exception = function(message) {
+	  this.message = message;
+	  this.name = 'Exception';
+	};
+	
+	Exception.prototype = Object.create(Error.prototype);
+	
+	/**
+	 * A File represents any regular, directory, or symlink file.
+	 *
+	 * @param {object} options
+	 */
+	var File = function(options) {
+	  options = options || {};
+	
+	  this.path = PATH.resolve(PATH.normalize(options.path));
+	  this.exists = FS.existsSync(this.path);
+	  this.umask = 'umask' in options ? options.umask : File.UMASK;
+	
+	  if (this.exists) {
+	    this.stats = this.getStats();
+	    this.type = this.getType();
+	    this.mode = this.stats.mode & 511; // 511 == 0777
+	    this.uid = this.stats.uid;
+	    this.gid = this.stats.gid;
+	  }
+	  else {
+	    this.owner = options.owner;
+	    this.group = options.group;
+	
+	    if ('exists' in options && options.exists) {
+	      throw new File.FileMissingException('File was expected to exist, but does not.');
+	    }
+	
+	    if ('type' in options) {
+	      if (options.type in File.Types) {
+	        this.type = File.Types[options.type];
+	      }
+	      else {
+	        throw new File.UnknownFileTypeException('Unknown file type: ' + options.type + '.');
+	      }
+	    }
+	    else {
+	      throw new File.MissingRequiredParameterException('"type" is required for nonexistent files.');
+	    }
+	
+	    switch (this.type) {
+	    case File.Types.file:
+	      this.content = 'content' in options ? options.content : '';
+	
+	      break;
+	    case File.Types.symlink:
+	      if ('dest' in options) {
+	        this.dest = options.dest;
+	      }
+	      else {
+	        throw new File.MissingRequiredParameterException('"dest" is a required option for symlink files.');
+	      }
+	
+	      break;
+	    }
+	
+	    this.mode = File.interpretMode(options.mode, options.type, this.umask);
+	  }
+	};
+	
+	File.UnknownFileTypeException = function(message) {
+	  Exception.call(this, message || 'Unknown file type.');
+	};
+	
+	File.UnknownFileTypeException.prototype = Object.create(Exception.prototype);
+	
+	File.FileExistsException = function(message) {
+	  Exception.call(this, message || 'File already exists.');
+	};
+	
+	File.FileExistsException.prototype = Object.create(Exception.prototype);
+	
+	File.FileMissingException = function(message) {
+	  Exception.call(this, message || 'File does not exist.');
+	};
+	
+	File.FileMissingException.prototype = Object.create(Exception.prototype);
+	
+	File.MissingRequiredParameterException = function(message) {
+	  Exception.call(this, message || 'Missing required parameter.');
+	};
+	
+	File.MissingRequiredParameterException.prototype = Object.create(Exception.prototype);
+	
+	File.IncorrectFileTypeException = function(message) {
+	  Exception.call(this, message || 'Incorrect file type.');
+	};
+	
+	File.IncorrectFileTypeException.prototype = Object.create(Exception.prototype);
+	
+	File.UMASK = process.umask();
+	File.DIRECTORY_SEPARATOR = PATH.sep;
+	
+	File.Types = Object.freeze({
+	  'file': 0,
+	  'f': 0,
+	  '-': 0,
+	  'directory': 1,
+	  'dir': 1,
+	  'd': 1,
+	  'symbolic link': 2,
+	  'symlink': 2,
+	  'l': 2
+	});
+	
+	/**
+	 * Given an interpretable string or number, this function will return the
+	 * decimal format representing the permission mode on Unix systems. If mode is
+	 * omitted, type is required. In that case, it returns the default permission
+	 * mode for that file type with a given umask (or 022 if not specified).
+	 *
+	 * @param  {mixed} mode Examples: 'rw-r--r--', 'rwxr-xr-x', 0644, 0755
+	 * @param  {string} type Valid strings found in File.Types.
+	 * @param  {number} umask
+	 * @return {number} Decimal representation of permission mode.
+	 */
+	File.interpretMode = function(mode, type, umask) {
+	  switch (typeof mode) {
+	  case 'undefined':
+	    if (typeof type !== 'undefined' && type in File.Types) {
+	      type = File.Types[type];
+	
+	      if (typeof umask === 'undefined') {
+	        umask = File.UMASK;
+	      }
+	
+	      if (type === File.Types.symlink) {
+	        return 511; // 511 == 0777
+	      }
+	
+	      return (type === File.Types.directory ? 511 : 438) - umask; // 511 == 0777, 438 == 0666
+	    }
+	
+	    break;
+	  case 'string':
+	    switch (mode.length) {
+	    case 10:
+	      mode = mode.substring(1);
+	      /* falls through */
+	    case 9:
+	      var modeParts = mode.match(/[r-][w-][xstST-]/g),
+	          decMode = 0;
+	
+	      if (!modeParts || modeParts.length !== 3) {
+	        return false;
+	      }
+	
+	      for (var power = 0; power <= 2; ++power) {
+	        var modePartsChars = modeParts[2 - power].split(''),
+	            decModeAddition = 0;
+	
+	        if (modePartsChars[0] === 'r') {
+	          decModeAddition += 4;
+	        }
+	
+	        if (modePartsChars[1] === 'w') {
+	          decModeAddition += 2;
+	        }
+	
+	        if (['x', 's', 't', 'S', 'T'].indexOf(modePartsChars[2]) !== -1) {
+	          // uppercase indicates the x bit is not set
+	          if (/[a-z]/.test(modePartsChars[2])) {
+	            decModeAddition += 1;
+	          }
+	
+	          switch (modePartsChars[2].toLowerCase()) {
+	          case 's': // setuid/setgid bit
+	            switch (power) {
+	            case 2:
+	              decMode += 4 * Math.pow(8, 3); // setuid flag in high-order octal digit
+	              break;
+	            case 1:
+	              decMode += 2 * Math.pow(8, 3); // setgid flag in high-order octal digit
+	              break;
+	            }
+	
+	            break;
+	          case 't': // sticky bit
+	            decMode += Math.pow(8, 3); // sticky flag in high-order octal digit
+	            break;
+	          }
+	        }
+	
+	        decMode += decModeAddition * Math.pow(8, power);
+	      }
+	
+	      return decMode;
+	    case 3:
+	      var octal = parseInt(mode, 8);
+	
+	      if (!isNaN(octal) && octal >= 0 && octal <= 511) {
+	        return octal;
+	      }
+	
+	      break;
+	    }
+	
+	    break;
+	  case 'number':
+	    if (mode >= 0 && mode <= 511) { // 511 == 0777
+	      return mode; // Seems good to me.
+	    }
+	
+	    break;
+	  }
+	
+	  return false;
+	};
+	
+	/**
+	 * Returns the FS.Stats object associated with this File.
+	 *
+	 * @return {FS.Stats}
+	 */
+	File.prototype.getStats = function() {
+	  if (typeof this.stats === 'undefined') {
+	    if (!this.exists) {
+	      throw new File.FileMissingException('Cannot get stats of nonexistent file.');
+	    }
+	
+	    this.stats = FS.lstatSync(this.path);
+	  }
+	
+	  return this.stats;
+	};
+	
+	/**
+	 * Returns the file type of this File the File.Types enumeration.
+	 *
+	 * @return {number}
+	 */
+	File.prototype.getType = function() {
+	  if (typeof this.type === 'undefined') {
+	    if (typeof this.stats === 'undefined') {
+	      this.stats = this.getStats();
+	    }
+	
+	    if (this.stats.isFile()) {
+	      this.type = File.Types.file;
+	    }
+	    else if (this.stats.isDirectory()) {
+	      this.type = File.Types.directory;
+	    }
+	    else if (this.stats.isSymbolicLink()) {
+	      this.type = File.Types.symlink;
+	    }
+	  }
+	
+	  return this.type;
+	};
+	
+	/**
+	 * Returns the file path.
+	 *
+	 * @return {string}
+	 */
+	File.prototype.getPath = function() {
+	  return this.path;
+	};
+	
+	/**
+	 * Returns whether or not this file exists.
+	 *
+	 * @return {bool}
+	 */
+	File.prototype.doesExist = function() {
+	  return this.exists;
+	};
+	
+	/**
+	 * Returns the contents of the file.
+	 *
+	 * @return {string}
+	 */
+	File.prototype.getContent = function() {
+	  if (this.type !== File.Types.file) {
+	    throw new File.IncorrectFileTypeException('Cannot get content of nonnormal file.');
+	  }
+	
+	  if (typeof this.content === 'undefined') {
+	    this.content = FS.readFileSync(this.path, { encoding: 'utf8' });
+	  }
+	
+	  return this.content;
+	};
+	
+	/**
+	 * Returns the destination of the file.
+	 *
+	 * @return {string}
+	 */
+	File.prototype.getDest = function() {
+	  if (this.type !== File.Types.symlink) {
+	    throw new File.IncorrectFileTypeException('Cannot get destination of nonsymlink file.');
+	  }
+	
+	  if (typeof this.dest === 'undefined') {
+	    this.dest = FS.readlinkSync(this.path);
+	  }
+	
+	  return this.dest;
+	};
+	
+	/**
+	 * Creates this File on the filesystem using given information.
+	 *
+	 * @param  {Function} callback
+	 */
+	File.prototype.create = function(callback) {
+	  if (this.exists) {
+	    return callback(new File.FileExistsException("File already exists."));
+	  }
+	
+	  var self = this;
+	
+	  var done = function(err) {
+	    if (err) return callback(err);
+	    self.exists = true;
+	    callback();
+	  };
+	
+	  var op = function() {
+	    switch (self.type) {
+	    case File.Types.file:
+	      FS.writeFile(self.path, self.content, function(err) {
+	        if (err) return callback(err);
+	        self.chmod(function(err) {
+	          if (err) return callback(err);
+	          self.chown(done);
+	        });
+	      });
+	
+	      break;
+	    case File.Types.directory:
+	      FS.mkdir(self.path, function(err) {
+	        if (err) return callback(err);
+	        self.chmod(function(err) {
+	          if (err) return callback(err);
+	          self.chown(done);
+	        });
+	      });
+	
+	      break;
+	    case File.Types.symlink:
+	      FS.symlink(self.dest, self.path, done);
+	
+	      break;
+	    }
+	  };
+	
+	  var pos = this.path.lastIndexOf(File.DIRECTORY_SEPARATOR);
+	
+	  if (pos !== -1) {
+	    mkdirp(this.path.substring(0, pos), function(err) {
+	      if (err) return callback(err);
+	      op();
+	    });
+	  }
+	  else {
+	    op();
+	  }
+	};
+	
+	/**
+	 * Removes the file.
+	 *
+	 * @param  {Function} callback
+	 */
+	File.prototype.remove = function(callback) {
+	  var self = this;
+	
+	  var done = function(err) {
+	    if (err) return callback(err);
+	    self.exists = false;
+	    callback();
+	  };
+	
+	  if (this.type === File.Types.directory) {
+	    FS.rmdir(this.path, done);
+	  }
+	  else {
+	    FS.unlink(this.path, done);
+	  }
+	};
+	
+	/**
+	 * Changes the permissions mode of this file to stored data.
+	 *
+	 * @param  {Function} callback
+	 */
+	File.prototype.chmod = function(callback) {
+	  FS.chmod(this.path, this.mode, function(err) {
+	    if (err) callback(err);
+	    callback();
+	  });
+	};
+	
+	/**
+	 * Changes the owner and group of this file to stored data using the uidNumber
+	 * package.
+	 *
+	 * @param  {Function} callback
+	 */
+	File.prototype.chown = function(callback) {
+	  var self = this;
+	
+	  if ('owner' in this || 'group' in this) {
+	    uidNumber('owner' in this ? this.owner : process.getuid(), 'group' in this ? this.group : process.getgid(), function(err, uid, gid) {
+	      if (err) callback(err);
+	      FS.chown(self.path, uid, gid, function(err) {
+	        if (err) callback(err);
+	        callback();
+	      });
+	    });
+	  }
+	  else {
+	    callback();
+	  }
+	};
+	
+	module.exports.File = File;
+	
+
 
 /***/ },
 /* 288 */
@@ -6874,26 +6886,26 @@ webpackJsonp([1],[
 	
 	exports.__esModule = true;
 	
-	var _import = __webpack_require__(308);
+	var _import = __webpack_require__(304);
 	
 	var base = _interopRequireWildcard(_import);
 	
 	// Each of these augment the Handlebars object. No need to setup here.
 	// (This is done to easily share code between commonjs and browse envs)
 	
-	var _SafeString = __webpack_require__(309);
+	var _SafeString = __webpack_require__(305);
 	
 	var _SafeString2 = _interopRequireWildcard(_SafeString);
 	
-	var _Exception = __webpack_require__(310);
+	var _Exception = __webpack_require__(306);
 	
 	var _Exception2 = _interopRequireWildcard(_Exception);
 	
-	var _import2 = __webpack_require__(311);
+	var _import2 = __webpack_require__(307);
 	
 	var Utils = _interopRequireWildcard(_import2);
 	
-	var _import3 = __webpack_require__(312);
+	var _import3 = __webpack_require__(309);
 	
 	var runtime = _interopRequireWildcard(_import3);
 	
@@ -7097,7 +7109,7 @@ webpackJsonp([1],[
 	exports.__esModule = true;
 	exports.parse = parse;
 	
-	var _parser = __webpack_require__(314);
+	var _parser = __webpack_require__(310);
 	
 	var _parser2 = _interopRequireWildcard(_parser);
 	
@@ -7105,15 +7117,15 @@ webpackJsonp([1],[
 	
 	var _AST2 = _interopRequireWildcard(_AST);
 	
-	var _WhitespaceControl = __webpack_require__(315);
+	var _WhitespaceControl = __webpack_require__(311);
 	
 	var _WhitespaceControl2 = _interopRequireWildcard(_WhitespaceControl);
 	
-	var _import = __webpack_require__(316);
+	var _import = __webpack_require__(312);
 	
 	var Helpers = _interopRequireWildcard(_import);
 	
-	var _extend = __webpack_require__(311);
+	var _extend = __webpack_require__(307);
 	
 	exports.parser = _parser2['default'];
 	
@@ -7150,11 +7162,11 @@ webpackJsonp([1],[
 	exports.precompile = precompile;
 	exports.compile = compile;
 	
-	var _Exception = __webpack_require__(310);
+	var _Exception = __webpack_require__(306);
 	
 	var _Exception2 = _interopRequireWildcard(_Exception);
 	
-	var _isArray$indexOf = __webpack_require__(311);
+	var _isArray$indexOf = __webpack_require__(307);
 	
 	var _AST = __webpack_require__(289);
 	
@@ -7679,15 +7691,15 @@ webpackJsonp([1],[
 	
 	exports.__esModule = true;
 	
-	var _COMPILER_REVISION$REVISION_CHANGES = __webpack_require__(308);
+	var _COMPILER_REVISION$REVISION_CHANGES = __webpack_require__(304);
 	
-	var _Exception = __webpack_require__(310);
+	var _Exception = __webpack_require__(306);
 	
 	var _Exception2 = _interopRequireWildcard(_Exception);
 	
-	var _isArray = __webpack_require__(311);
+	var _isArray = __webpack_require__(307);
 	
-	var _CodeGen = __webpack_require__(317);
+	var _CodeGen = __webpack_require__(313);
 	
 	var _CodeGen2 = _interopRequireWildcard(_CodeGen);
 	
@@ -8746,7 +8758,7 @@ webpackJsonp([1],[
 	
 	exports.__esModule = true;
 	
-	var _Exception = __webpack_require__(310);
+	var _Exception = __webpack_require__(306);
 	
 	var _Exception2 = _interopRequireWildcard(_Exception);
 	
@@ -8900,8 +8912,580 @@ webpackJsonp([1],[
 /* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @typechecks
+	 * @providesModule ReactCSSTransitionGroupChild
+	 */
+	
+	'use strict';
+	
+	var React = __webpack_require__(8);
+	
+	var CSSCore = __webpack_require__(315);
+	var ReactTransitionEvents = __webpack_require__(316);
+	
+	var onlyChild = __webpack_require__(73);
+	var warning = __webpack_require__(87);
+	
+	// We don't remove the element from the DOM until we receive an animationend or
+	// transitionend event. If the user screws up and forgets to add an animation
+	// their node will be stuck in the DOM forever, so we detect if an animation
+	// does not start and if it doesn't, we just call the end listener immediately.
+	var TICK = 17;
+	var NO_EVENT_TIMEOUT = 5000;
+	
+	var noEventListener = null;
+	
+	
+	if ("production" !== process.env.NODE_ENV) {
+	  noEventListener = function() {
+	    ("production" !== process.env.NODE_ENV ? warning(
+	      false,
+	      'transition(): tried to perform an animation without ' +
+	      'an animationend or transitionend event after timeout (' +
+	      '%sms). You should either disable this ' +
+	      'transition in JS or add a CSS animation/transition.',
+	      NO_EVENT_TIMEOUT
+	    ) : null);
+	  };
+	}
+	
+	var ReactCSSTransitionGroupChild = React.createClass({
+	  displayName: 'ReactCSSTransitionGroupChild',
+	
+	  transition: function(animationType, finishCallback) {
+	    var node = this.getDOMNode();
+	    var className = this.props.name + '-' + animationType;
+	    var activeClassName = className + '-active';
+	    var noEventTimeout = null;
+	
+	    var endListener = function(e) {
+	      if (e && e.target !== node) {
+	        return;
+	      }
+	      if ("production" !== process.env.NODE_ENV) {
+	        clearTimeout(noEventTimeout);
+	      }
+	
+	      CSSCore.removeClass(node, className);
+	      CSSCore.removeClass(node, activeClassName);
+	
+	      ReactTransitionEvents.removeEndEventListener(node, endListener);
+	
+	      // Usually this optional callback is used for informing an owner of
+	      // a leave animation and telling it to remove the child.
+	      if (finishCallback) {
+	        finishCallback();
+	      }
+	    };
+	
+	    ReactTransitionEvents.addEndEventListener(node, endListener);
+	
+	    CSSCore.addClass(node, className);
+	
+	    // Need to do this to actually trigger a transition.
+	    this.queueClass(activeClassName);
+	
+	    if ("production" !== process.env.NODE_ENV) {
+	      noEventTimeout = setTimeout(noEventListener, NO_EVENT_TIMEOUT);
+	    }
+	  },
+	
+	  queueClass: function(className) {
+	    this.classNameQueue.push(className);
+	
+	    if (!this.timeout) {
+	      this.timeout = setTimeout(this.flushClassNameQueue, TICK);
+	    }
+	  },
+	
+	  flushClassNameQueue: function() {
+	    if (this.isMounted()) {
+	      this.classNameQueue.forEach(
+	        CSSCore.addClass.bind(CSSCore, this.getDOMNode())
+	      );
+	    }
+	    this.classNameQueue.length = 0;
+	    this.timeout = null;
+	  },
+	
+	  componentWillMount: function() {
+	    this.classNameQueue = [];
+	  },
+	
+	  componentWillUnmount: function() {
+	    if (this.timeout) {
+	      clearTimeout(this.timeout);
+	    }
+	  },
+	
+	  componentWillAppear: function(done) {
+	    if (this.props.appear) {
+	      this.transition('appear', done);
+	    } else {
+	      done();
+	    }
+	  },
+	
+	  componentWillEnter: function(done) {
+	    if (this.props.enter) {
+	      this.transition('enter', done);
+	    } else {
+	      done();
+	    }
+	  },
+	
+	  componentWillLeave: function(done) {
+	    if (this.props.leave) {
+	      this.transition('leave', done);
+	    } else {
+	      done();
+	    }
+	  },
+	
+	  render: function() {
+	    return onlyChild(this.props.children);
+	  }
+	});
+	
+	module.exports = ReactCSSTransitionGroupChild;
+
+
+/***/ },
+/* 296 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule ReactLink
+	 * @typechecks static-only
+	 */
+	
+	'use strict';
+	
+	/**
+	 * ReactLink encapsulates a common pattern in which a component wants to modify
+	 * a prop received from its parent. ReactLink allows the parent to pass down a
+	 * value coupled with a callback that, when invoked, expresses an intent to
+	 * modify that value. For example:
+	 *
+	 * React.createClass({
+	 *   getInitialState: function() {
+	 *     return {value: ''};
+	 *   },
+	 *   render: function() {
+	 *     var valueLink = new ReactLink(this.state.value, this._handleValueChange);
+	 *     return <input valueLink={valueLink} />;
+	 *   },
+	 *   this._handleValueChange: function(newValue) {
+	 *     this.setState({value: newValue});
+	 *   }
+	 * });
+	 *
+	 * We have provided some sugary mixins to make the creation and
+	 * consumption of ReactLink easier; see LinkedValueUtils and LinkedStateMixin.
+	 */
+	
+	var React = __webpack_require__(8);
+	
+	/**
+	 * @param {*} value current value of the link
+	 * @param {function} requestChange callback to request a change
+	 */
+	function ReactLink(value, requestChange) {
+	  this.value = value;
+	  this.requestChange = requestChange;
+	}
+	
+	/**
+	 * Creates a PropType that enforces the ReactLink API and optionally checks the
+	 * type of the value being passed inside the link. Example:
+	 *
+	 * MyComponent.propTypes = {
+	 *   tabIndexLink: ReactLink.PropTypes.link(React.PropTypes.number)
+	 * }
+	 */
+	function createLinkTypeChecker(linkType) {
+	  var shapes = {
+	    value: typeof linkType === 'undefined' ?
+	      React.PropTypes.any.isRequired :
+	      linkType.isRequired,
+	    requestChange: React.PropTypes.func.isRequired
+	  };
+	  return React.PropTypes.shape(shapes);
+	}
+	
+	ReactLink.PropTypes = {
+	  link: createLinkTypeChecker
+	};
+	
+	module.exports = ReactLink;
+
+
+/***/ },
+/* 297 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule ReactStateSetters
+	 */
+	
+	'use strict';
+	
+	var ReactStateSetters = {
+	  /**
+	   * Returns a function that calls the provided function, and uses the result
+	   * of that to set the component's state.
+	   *
+	   * @param {ReactCompositeComponent} component
+	   * @param {function} funcReturningState Returned callback uses this to
+	   *                                      determine how to update state.
+	   * @return {function} callback that when invoked uses funcReturningState to
+	   *                    determined the object literal to setState.
+	   */
+	  createStateSetter: function(component, funcReturningState) {
+	    return function(a, b, c, d, e, f) {
+	      var partialState = funcReturningState.call(component, a, b, c, d, e, f);
+	      if (partialState) {
+	        component.setState(partialState);
+	      }
+	    };
+	  },
+	
+	  /**
+	   * Returns a single-argument callback that can be used to update a single
+	   * key in the component's state.
+	   *
+	   * Note: this is memoized function, which makes it inexpensive to call.
+	   *
+	   * @param {ReactCompositeComponent} component
+	   * @param {string} key The key in the state that you should update.
+	   * @return {function} callback of 1 argument which calls setState() with
+	   *                    the provided keyName and callback argument.
+	   */
+	  createStateKeySetter: function(component, key) {
+	    // Memoize the setters.
+	    var cache = component.__keySetters || (component.__keySetters = {});
+	    return cache[key] || (cache[key] = createStateKeySetter(component, key));
+	  }
+	};
+	
+	function createStateKeySetter(component, key) {
+	  // Partial state is allocated outside of the function closure so it can be
+	  // reused with every call, avoiding memory allocation when this function
+	  // is called.
+	  var partialState = {};
+	  return function stateKeySetter(value) {
+	    partialState[key] = value;
+	    component.setState(partialState);
+	  };
+	}
+	
+	ReactStateSetters.Mixin = {
+	  /**
+	   * Returns a function that calls the provided function, and uses the result
+	   * of that to set the component's state.
+	   *
+	   * For example, these statements are equivalent:
+	   *
+	   *   this.setState({x: 1});
+	   *   this.createStateSetter(function(xValue) {
+	   *     return {x: xValue};
+	   *   })(1);
+	   *
+	   * @param {function} funcReturningState Returned callback uses this to
+	   *                                      determine how to update state.
+	   * @return {function} callback that when invoked uses funcReturningState to
+	   *                    determined the object literal to setState.
+	   */
+	  createStateSetter: function(funcReturningState) {
+	    return ReactStateSetters.createStateSetter(this, funcReturningState);
+	  },
+	
+	  /**
+	   * Returns a single-argument callback that can be used to update a single
+	   * key in the component's state.
+	   *
+	   * For example, these statements are equivalent:
+	   *
+	   *   this.setState({x: 1});
+	   *   this.createStateKeySetter('x')(1);
+	   *
+	   * Note: this is memoized function, which makes it inexpensive to call.
+	   *
+	   * @param {string} key The key in the state that you should update.
+	   * @return {function} callback of 1 argument which calls setState() with
+	   *                    the provided keyName and callback argument.
+	   */
+	  createStateKeySetter: function(key) {
+	    return ReactStateSetters.createStateKeySetter(this, key);
+	  }
+	};
+	
+	module.exports = ReactStateSetters;
+
+
+/***/ },
+/* 298 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @typechecks static-only
+	 * @providesModule ReactTransitionChildMapping
+	 */
+	
+	'use strict';
+	
+	var ReactChildren = __webpack_require__(57);
+	var ReactFragment = __webpack_require__(108);
+	
+	var ReactTransitionChildMapping = {
+	  /**
+	   * Given `this.props.children`, return an object mapping key to child. Just
+	   * simple syntactic sugar around ReactChildren.map().
+	   *
+	   * @param {*} children `this.props.children`
+	   * @return {object} Mapping of key to child
+	   */
+	  getChildMapping: function(children) {
+	    if (!children) {
+	      return children;
+	    }
+	    return ReactFragment.extract(ReactChildren.map(children, function(child) {
+	      return child;
+	    }));
+	  },
+	
+	  /**
+	   * When you're adding or removing children some may be added or removed in the
+	   * same render pass. We want to show *both* since we want to simultaneously
+	   * animate elements in and out. This function takes a previous set of keys
+	   * and a new set of keys and merges them with its best guess of the correct
+	   * ordering. In the future we may expose some of the utilities in
+	   * ReactMultiChild to make this easy, but for now React itself does not
+	   * directly have this concept of the union of prevChildren and nextChildren
+	   * so we implement it here.
+	   *
+	   * @param {object} prev prev children as returned from
+	   * `ReactTransitionChildMapping.getChildMapping()`.
+	   * @param {object} next next children as returned from
+	   * `ReactTransitionChildMapping.getChildMapping()`.
+	   * @return {object} a key set that contains all keys in `prev` and all keys
+	   * in `next` in a reasonable order.
+	   */
+	  mergeChildMappings: function(prev, next) {
+	    prev = prev || {};
+	    next = next || {};
+	
+	    function getValueForKey(key) {
+	      if (next.hasOwnProperty(key)) {
+	        return next[key];
+	      } else {
+	        return prev[key];
+	      }
+	    }
+	
+	    // For each key of `next`, the list of keys to insert before that key in
+	    // the combined list
+	    var nextKeysPending = {};
+	
+	    var pendingKeys = [];
+	    for (var prevKey in prev) {
+	      if (next.hasOwnProperty(prevKey)) {
+	        if (pendingKeys.length) {
+	          nextKeysPending[prevKey] = pendingKeys;
+	          pendingKeys = [];
+	        }
+	      } else {
+	        pendingKeys.push(prevKey);
+	      }
+	    }
+	
+	    var i;
+	    var childMapping = {};
+	    for (var nextKey in next) {
+	      if (nextKeysPending.hasOwnProperty(nextKey)) {
+	        for (i = 0; i < nextKeysPending[nextKey].length; i++) {
+	          var pendingNextKey = nextKeysPending[nextKey][i];
+	          childMapping[nextKeysPending[nextKey][i]] = getValueForKey(
+	            pendingNextKey
+	          );
+	        }
+	      }
+	      childMapping[nextKey] = getValueForKey(nextKey);
+	    }
+	
+	    // Finally, add the keys which didn't appear before any key in `next`
+	    for (i = 0; i < pendingKeys.length; i++) {
+	      childMapping[pendingKeys[i]] = getValueForKey(pendingKeys[i]);
+	    }
+	
+	    return childMapping;
+	  }
+	};
+	
+	module.exports = ReactTransitionChildMapping;
+
+
+/***/ },
+/* 299 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = require("util");
+
+/***/ },
+/* 300 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = require("zlib");
+
+/***/ },
+/* 301 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule ReactPropTransferer
+	 */
+	
+	'use strict';
+	
+	var assign = __webpack_require__(71);
+	var emptyFunction = __webpack_require__(163);
+	var joinClasses = __webpack_require__(319);
+	
+	/**
+	 * Creates a transfer strategy that will merge prop values using the supplied
+	 * `mergeStrategy`. If a prop was previously unset, this just sets it.
+	 *
+	 * @param {function} mergeStrategy
+	 * @return {function}
+	 */
+	function createTransferStrategy(mergeStrategy) {
+	  return function(props, key, value) {
+	    if (!props.hasOwnProperty(key)) {
+	      props[key] = value;
+	    } else {
+	      props[key] = mergeStrategy(props[key], value);
+	    }
+	  };
+	}
+	
+	var transferStrategyMerge = createTransferStrategy(function(a, b) {
+	  // `merge` overrides the first object's (`props[key]` above) keys using the
+	  // second object's (`value`) keys. An object's style's existing `propA` would
+	  // get overridden. Flip the order here.
+	  return assign({}, b, a);
+	});
+	
+	/**
+	 * Transfer strategies dictate how props are transferred by `transferPropsTo`.
+	 * NOTE: if you add any more exceptions to this list you should be sure to
+	 * update `cloneWithProps()` accordingly.
+	 */
+	var TransferStrategies = {
+	  /**
+	   * Never transfer `children`.
+	   */
+	  children: emptyFunction,
+	  /**
+	   * Transfer the `className` prop by merging them.
+	   */
+	  className: createTransferStrategy(joinClasses),
+	  /**
+	   * Transfer the `style` prop (which is an object) by merging them.
+	   */
+	  style: transferStrategyMerge
+	};
+	
+	/**
+	 * Mutates the first argument by transferring the properties from the second
+	 * argument.
+	 *
+	 * @param {object} props
+	 * @param {object} newProps
+	 * @return {object}
+	 */
+	function transferInto(props, newProps) {
+	  for (var thisKey in newProps) {
+	    if (!newProps.hasOwnProperty(thisKey)) {
+	      continue;
+	    }
+	
+	    var transferStrategy = TransferStrategies[thisKey];
+	
+	    if (transferStrategy && TransferStrategies.hasOwnProperty(thisKey)) {
+	      transferStrategy(props, thisKey, newProps[thisKey]);
+	    } else if (!props.hasOwnProperty(thisKey)) {
+	      props[thisKey] = newProps[thisKey];
+	    }
+	  }
+	  return props;
+	}
+	
+	/**
+	 * ReactPropTransferer are capable of transferring props to another component
+	 * using a `transferPropsTo` method.
+	 *
+	 * @class ReactPropTransferer
+	 */
+	var ReactPropTransferer = {
+	
+	  /**
+	   * Merge two props objects using TransferStrategies.
+	   *
+	   * @param {object} oldProps original props (they take precedence)
+	   * @param {object} newProps new props to merge in
+	   * @return {object} a new object containing both sets of props merged.
+	   */
+	  mergeProps: function(oldProps, newProps) {
+	    return transferInto(assign({}, oldProps), newProps);
+	  }
+	
+	};
+	
+	module.exports = ReactPropTransferer;
+
+
+/***/ },
+/* 302 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var Keys = __webpack_require__(332)
-	var hasKeys = __webpack_require__(318)
+	var hasKeys = __webpack_require__(322)
 	
 	module.exports = extend
 	
@@ -8928,433 +9512,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 296 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// Monkey-patching the fs module.
-	// It's ugly, but there is simply no other way to do this.
-	var fs = module.exports = __webpack_require__(35)
-	
-	var assert = __webpack_require__(307)
-	
-	// fix up some busted stuff, mostly on windows and old nodes
-	__webpack_require__(322)
-	
-	// The EMFILE enqueuing stuff
-	
-	var util = __webpack_require__(287)
-	
-	function noop () {}
-	
-	var debug = noop
-	if (util.debuglog)
-	  debug = util.debuglog('gfs')
-	else if (/\bgfs\b/i.test(process.env.NODE_DEBUG || ''))
-	  debug = function() {
-	    var m = util.format.apply(util, arguments)
-	    m = 'GFS: ' + m.split(/\n/).join('\nGFS: ')
-	    console.error(m)
-	  }
-	
-	if (/\bgfs\b/i.test(process.env.NODE_DEBUG || '')) {
-	  process.on('exit', function() {
-	    debug('fds', fds)
-	    debug(queue)
-	    assert.equal(queue.length, 0)
-	  })
-	}
-	
-	
-	var originalOpen = fs.open
-	fs.open = open
-	
-	function open(path, flags, mode, cb) {
-	  if (typeof mode === "function") cb = mode, mode = null
-	  if (typeof cb !== "function") cb = noop
-	  new OpenReq(path, flags, mode, cb)
-	}
-	
-	function OpenReq(path, flags, mode, cb) {
-	  this.path = path
-	  this.flags = flags
-	  this.mode = mode
-	  this.cb = cb
-	  Req.call(this)
-	}
-	
-	util.inherits(OpenReq, Req)
-	
-	OpenReq.prototype.process = function() {
-	  originalOpen.call(fs, this.path, this.flags, this.mode, this.done)
-	}
-	
-	var fds = {}
-	OpenReq.prototype.done = function(er, fd) {
-	  debug('open done', er, fd)
-	  if (fd)
-	    fds['fd' + fd] = this.path
-	  Req.prototype.done.call(this, er, fd)
-	}
-	
-	
-	var originalReaddir = fs.readdir
-	fs.readdir = readdir
-	
-	function readdir(path, cb) {
-	  if (typeof cb !== "function") cb = noop
-	  new ReaddirReq(path, cb)
-	}
-	
-	function ReaddirReq(path, cb) {
-	  this.path = path
-	  this.cb = cb
-	  Req.call(this)
-	}
-	
-	util.inherits(ReaddirReq, Req)
-	
-	ReaddirReq.prototype.process = function() {
-	  originalReaddir.call(fs, this.path, this.done)
-	}
-	
-	ReaddirReq.prototype.done = function(er, files) {
-	  if (files && files.sort)
-	    files = files.sort()
-	  Req.prototype.done.call(this, er, files)
-	  onclose()
-	}
-	
-	
-	var originalClose = fs.close
-	fs.close = close
-	
-	function close (fd, cb) {
-	  debug('close', fd)
-	  if (typeof cb !== "function") cb = noop
-	  delete fds['fd' + fd]
-	  originalClose.call(fs, fd, function(er) {
-	    onclose()
-	    cb(er)
-	  })
-	}
-	
-	
-	var originalCloseSync = fs.closeSync
-	fs.closeSync = closeSync
-	
-	function closeSync (fd) {
-	  try {
-	    return originalCloseSync(fd)
-	  } finally {
-	    onclose()
-	  }
-	}
-	
-	
-	// Req class
-	function Req () {
-	  // start processing
-	  this.done = this.done.bind(this)
-	  this.failures = 0
-	  this.process()
-	}
-	
-	Req.prototype.done = function (er, result) {
-	  var tryAgain = false
-	  if (er) {
-	    var code = er.code
-	    var tryAgain = code === "EMFILE"
-	    if (process.platform === "win32")
-	      tryAgain = tryAgain || code === "OK"
-	  }
-	
-	  if (tryAgain) {
-	    this.failures ++
-	    enqueue(this)
-	  } else {
-	    var cb = this.cb
-	    cb(er, result)
-	  }
-	}
-	
-	var queue = []
-	
-	function enqueue(req) {
-	  queue.push(req)
-	  debug('enqueue %d %s', queue.length, req.constructor.name, req)
-	}
-	
-	function onclose() {
-	  var req = queue.shift()
-	  if (req) {
-	    debug('process', req.constructor.name, req)
-	    req.process()
-	  }
-	}
-
-
-/***/ },
-/* 297 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = require("zlib");
-
-/***/ },
-/* 298 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = rimraf
-	rimraf.sync = rimrafSync
-	
-	var assert = __webpack_require__(307)
-	var path = __webpack_require__(270)
-	var fs = __webpack_require__(35)
-	
-	// for EMFILE handling
-	var timeout = 0
-	exports.EMFILE_MAX = 1000
-	exports.BUSYTRIES_MAX = 3
-	
-	var isWindows = (process.platform === "win32")
-	
-	function defaults (options) {
-	  var methods = [
-	    'unlink',
-	    'chmod',
-	    'stat',
-	    'rmdir',
-	    'readdir'
-	  ]
-	  methods.forEach(function(m) {
-	    options[m] = options[m] || fs[m]
-	    m = m + 'Sync'
-	    options[m] = options[m] || fs[m]
-	  })
-	}
-	
-	function rimraf (p, options, cb) {
-	  if (typeof options === 'function') {
-	    cb = options
-	    options = {}
-	  }
-	  assert(p)
-	  assert(options)
-	  assert(typeof cb === 'function')
-	
-	  defaults(options)
-	
-	  if (!cb) throw new Error("No callback passed to rimraf()")
-	
-	  var busyTries = 0
-	  rimraf_(p, options, function CB (er) {
-	    if (er) {
-	      if (isWindows && (er.code === "EBUSY" || er.code === "ENOTEMPTY") &&
-	          busyTries < exports.BUSYTRIES_MAX) {
-	        busyTries ++
-	        var time = busyTries * 100
-	        // try again, with the same exact callback as this one.
-	        return setTimeout(function () {
-	          rimraf_(p, options, CB)
-	        }, time)
-	      }
-	
-	      // this one won't happen if graceful-fs is used.
-	      if (er.code === "EMFILE" && timeout < exports.EMFILE_MAX) {
-	        return setTimeout(function () {
-	          rimraf_(p, options, CB)
-	        }, timeout ++)
-	      }
-	
-	      // already gone
-	      if (er.code === "ENOENT") er = null
-	    }
-	
-	    timeout = 0
-	    cb(er)
-	  })
-	}
-	
-	// Two possible strategies.
-	// 1. Assume it's a file.  unlink it, then do the dir stuff on EPERM or EISDIR
-	// 2. Assume it's a directory.  readdir, then do the file stuff on ENOTDIR
-	//
-	// Both result in an extra syscall when you guess wrong.  However, there
-	// are likely far more normal files in the world than directories.  This
-	// is based on the assumption that a the average number of files per
-	// directory is >= 1.
-	//
-	// If anyone ever complains about this, then I guess the strategy could
-	// be made configurable somehow.  But until then, YAGNI.
-	function rimraf_ (p, options, cb) {
-	  assert(p)
-	  assert(options)
-	  assert(typeof cb === 'function')
-	
-	  options.unlink(p, function (er) {
-	    if (er) {
-	      if (er.code === "ENOENT")
-	        return cb(null)
-	      if (er.code === "EPERM")
-	        return (isWindows)
-	          ? fixWinEPERM(p, options, er, cb)
-	          : rmdir(p, options, er, cb)
-	      if (er.code === "EISDIR")
-	        return rmdir(p, options, er, cb)
-	    }
-	    return cb(er)
-	  })
-	}
-	
-	function fixWinEPERM (p, options, er, cb) {
-	  assert(p)
-	  assert(options)
-	  assert(typeof cb === 'function')
-	  if (er)
-	    assert(er instanceof Error)
-	
-	  options.chmod(p, 666, function (er2) {
-	    if (er2)
-	      cb(er2.code === "ENOENT" ? null : er)
-	    else
-	      options.stat(p, function(er3, stats) {
-	        if (er3)
-	          cb(er3.code === "ENOENT" ? null : er)
-	        else if (stats.isDirectory())
-	          rmdir(p, options, er, cb)
-	        else
-	          options.unlink(p, cb)
-	      })
-	  })
-	}
-	
-	function fixWinEPERMSync (p, options, er) {
-	  assert(p)
-	  assert(options)
-	  if (er)
-	    assert(er instanceof Error)
-	
-	  try {
-	    options.chmodSync(p, 666)
-	  } catch (er2) {
-	    if (er2.code === "ENOENT")
-	      return
-	    else
-	      throw er
-	  }
-	
-	  try {
-	    var stats = options.statSync(p)
-	  } catch (er3) {
-	    if (er3.code === "ENOENT")
-	      return
-	    else
-	      throw er
-	  }
-	
-	  if (stats.isDirectory())
-	    rmdirSync(p, options, er)
-	  else
-	    options.unlinkSync(p)
-	}
-	
-	function rmdir (p, options, originalEr, cb) {
-	  assert(p)
-	  assert(options)
-	  if (originalEr)
-	    assert(originalEr instanceof Error)
-	  assert(typeof cb === 'function')
-	
-	  // try to rmdir first, and only readdir on ENOTEMPTY or EEXIST (SunOS)
-	  // if we guessed wrong, and it's not a directory, then
-	  // raise the original error.
-	  options.rmdir(p, function (er) {
-	    if (er && (er.code === "ENOTEMPTY" || er.code === "EEXIST" || er.code === "EPERM"))
-	      rmkids(p, options, cb)
-	    else if (er && er.code === "ENOTDIR")
-	      cb(originalEr)
-	    else
-	      cb(er)
-	  })
-	}
-	
-	function rmkids(p, options, cb) {
-	  assert(p)
-	  assert(options)
-	  assert(typeof cb === 'function')
-	
-	  options.readdir(p, function (er, files) {
-	    if (er)
-	      return cb(er)
-	    var n = files.length
-	    if (n === 0)
-	      return options.rmdir(p, cb)
-	    var errState
-	    files.forEach(function (f) {
-	      rimraf(path.join(p, f), options, function (er) {
-	        if (errState)
-	          return
-	        if (er)
-	          return cb(errState = er)
-	        if (--n === 0)
-	          options.rmdir(p, cb)
-	      })
-	    })
-	  })
-	}
-	
-	// this looks simpler, and is strictly *faster*, but will
-	// tie up the JavaScript thread and fail on excessively
-	// deep directory trees.
-	function rimrafSync (p, options) {
-	  options = options || {}
-	  defaults(options)
-	
-	  assert(p)
-	  assert(options)
-	
-	  try {
-	    options.unlinkSync(p)
-	  } catch (er) {
-	    if (er.code === "ENOENT")
-	      return
-	    if (er.code === "EPERM")
-	      return isWindows ? fixWinEPERMSync(p, options, er) : rmdirSync(p, options, er)
-	    if (er.code !== "EISDIR")
-	      throw er
-	    rmdirSync(p, options, er)
-	  }
-	}
-	
-	function rmdirSync (p, options, originalEr) {
-	  assert(p)
-	  assert(options)
-	  if (originalEr)
-	    assert(originalEr instanceof Error)
-	
-	  try {
-	    options.rmdirSync(p)
-	  } catch (er) {
-	    if (er.code === "ENOENT")
-	      return
-	    if (er.code === "ENOTDIR")
-	      throw originalEr
-	    if (er.code === "ENOTEMPTY" || er.code === "EEXIST" || er.code === "EPERM")
-	      rmkidsSync(p, options)
-	  }
-	}
-	
-	function rmkidsSync (p, options) {
-	  assert(p)
-	  assert(options)
-	  options.readdirSync(p).forEach(function (f) {
-	    rimrafSync(path.join(p, f), options)
-	  })
-	  options.rmdirSync(p, options)
-	}
-
-
-/***/ },
-/* 299 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -9364,17 +9522,17 @@ webpackJsonp([1],[
 	 * Licensed under the MIT license.
 	 * https://github.com/archiverjs/node-archiver/blob/master/LICENSE-MIT
 	 */
-	var fs = __webpack_require__(35);
-	var path = __webpack_require__(270);
+	var fs = __webpack_require__(9);
+	var path = __webpack_require__(281);
 	
-	var Stream = __webpack_require__(319).Stream;
-	var PassThrough = __webpack_require__(324).PassThrough;
+	var Stream = __webpack_require__(318).Stream;
+	var PassThrough = __webpack_require__(326).PassThrough;
 	
 	var util = module.exports = {};
 	
-	util._ = __webpack_require__(337);
-	util.lazystream = __webpack_require__(338);
-	util.file = __webpack_require__(326);
+	util._ = __webpack_require__(331);
+	util.lazystream = __webpack_require__(334);
+	util.file = __webpack_require__(324);
 	
 	util.collectStream = function(source, callback) {
 	  var collection = [];
@@ -9508,662 +9666,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 300 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @typechecks
-	 * @providesModule ReactCSSTransitionGroupChild
-	 */
-	
-	'use strict';
-	
-	var React = __webpack_require__(7);
-	
-	var CSSCore = __webpack_require__(327);
-	var ReactTransitionEvents = __webpack_require__(328);
-	
-	var onlyChild = __webpack_require__(64);
-	var warning = __webpack_require__(66);
-	
-	// We don't remove the element from the DOM until we receive an animationend or
-	// transitionend event. If the user screws up and forgets to add an animation
-	// their node will be stuck in the DOM forever, so we detect if an animation
-	// does not start and if it doesn't, we just call the end listener immediately.
-	var TICK = 17;
-	var NO_EVENT_TIMEOUT = 5000;
-	
-	var noEventListener = null;
-	
-	
-	if ("production" !== process.env.NODE_ENV) {
-	  noEventListener = function() {
-	    ("production" !== process.env.NODE_ENV ? warning(
-	      false,
-	      'transition(): tried to perform an animation without ' +
-	      'an animationend or transitionend event after timeout (' +
-	      '%sms). You should either disable this ' +
-	      'transition in JS or add a CSS animation/transition.',
-	      NO_EVENT_TIMEOUT
-	    ) : null);
-	  };
-	}
-	
-	var ReactCSSTransitionGroupChild = React.createClass({
-	  displayName: 'ReactCSSTransitionGroupChild',
-	
-	  transition: function(animationType, finishCallback) {
-	    var node = this.getDOMNode();
-	    var className = this.props.name + '-' + animationType;
-	    var activeClassName = className + '-active';
-	    var noEventTimeout = null;
-	
-	    var endListener = function(e) {
-	      if (e && e.target !== node) {
-	        return;
-	      }
-	      if ("production" !== process.env.NODE_ENV) {
-	        clearTimeout(noEventTimeout);
-	      }
-	
-	      CSSCore.removeClass(node, className);
-	      CSSCore.removeClass(node, activeClassName);
-	
-	      ReactTransitionEvents.removeEndEventListener(node, endListener);
-	
-	      // Usually this optional callback is used for informing an owner of
-	      // a leave animation and telling it to remove the child.
-	      if (finishCallback) {
-	        finishCallback();
-	      }
-	    };
-	
-	    ReactTransitionEvents.addEndEventListener(node, endListener);
-	
-	    CSSCore.addClass(node, className);
-	
-	    // Need to do this to actually trigger a transition.
-	    this.queueClass(activeClassName);
-	
-	    if ("production" !== process.env.NODE_ENV) {
-	      noEventTimeout = setTimeout(noEventListener, NO_EVENT_TIMEOUT);
-	    }
-	  },
-	
-	  queueClass: function(className) {
-	    this.classNameQueue.push(className);
-	
-	    if (!this.timeout) {
-	      this.timeout = setTimeout(this.flushClassNameQueue, TICK);
-	    }
-	  },
-	
-	  flushClassNameQueue: function() {
-	    if (this.isMounted()) {
-	      this.classNameQueue.forEach(
-	        CSSCore.addClass.bind(CSSCore, this.getDOMNode())
-	      );
-	    }
-	    this.classNameQueue.length = 0;
-	    this.timeout = null;
-	  },
-	
-	  componentWillMount: function() {
-	    this.classNameQueue = [];
-	  },
-	
-	  componentWillUnmount: function() {
-	    if (this.timeout) {
-	      clearTimeout(this.timeout);
-	    }
-	  },
-	
-	  componentWillAppear: function(done) {
-	    if (this.props.appear) {
-	      this.transition('appear', done);
-	    } else {
-	      done();
-	    }
-	  },
-	
-	  componentWillEnter: function(done) {
-	    if (this.props.enter) {
-	      this.transition('enter', done);
-	    } else {
-	      done();
-	    }
-	  },
-	
-	  componentWillLeave: function(done) {
-	    if (this.props.leave) {
-	      this.transition('leave', done);
-	    } else {
-	      done();
-	    }
-	  },
-	
-	  render: function() {
-	    return onlyChild(this.props.children);
-	  }
-	});
-	
-	module.exports = ReactCSSTransitionGroupChild;
-
-
-/***/ },
-/* 301 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule ReactLink
-	 * @typechecks static-only
-	 */
-	
-	'use strict';
-	
-	/**
-	 * ReactLink encapsulates a common pattern in which a component wants to modify
-	 * a prop received from its parent. ReactLink allows the parent to pass down a
-	 * value coupled with a callback that, when invoked, expresses an intent to
-	 * modify that value. For example:
-	 *
-	 * React.createClass({
-	 *   getInitialState: function() {
-	 *     return {value: ''};
-	 *   },
-	 *   render: function() {
-	 *     var valueLink = new ReactLink(this.state.value, this._handleValueChange);
-	 *     return <input valueLink={valueLink} />;
-	 *   },
-	 *   this._handleValueChange: function(newValue) {
-	 *     this.setState({value: newValue});
-	 *   }
-	 * });
-	 *
-	 * We have provided some sugary mixins to make the creation and
-	 * consumption of ReactLink easier; see LinkedValueUtils and LinkedStateMixin.
-	 */
-	
-	var React = __webpack_require__(7);
-	
-	/**
-	 * @param {*} value current value of the link
-	 * @param {function} requestChange callback to request a change
-	 */
-	function ReactLink(value, requestChange) {
-	  this.value = value;
-	  this.requestChange = requestChange;
-	}
-	
-	/**
-	 * Creates a PropType that enforces the ReactLink API and optionally checks the
-	 * type of the value being passed inside the link. Example:
-	 *
-	 * MyComponent.propTypes = {
-	 *   tabIndexLink: ReactLink.PropTypes.link(React.PropTypes.number)
-	 * }
-	 */
-	function createLinkTypeChecker(linkType) {
-	  var shapes = {
-	    value: typeof linkType === 'undefined' ?
-	      React.PropTypes.any.isRequired :
-	      linkType.isRequired,
-	    requestChange: React.PropTypes.func.isRequired
-	  };
-	  return React.PropTypes.shape(shapes);
-	}
-	
-	ReactLink.PropTypes = {
-	  link: createLinkTypeChecker
-	};
-	
-	module.exports = ReactLink;
-
-
-/***/ },
-/* 302 */,
-/* 303 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule ReactStateSetters
-	 */
-	
-	'use strict';
-	
-	var ReactStateSetters = {
-	  /**
-	   * Returns a function that calls the provided function, and uses the result
-	   * of that to set the component's state.
-	   *
-	   * @param {ReactCompositeComponent} component
-	   * @param {function} funcReturningState Returned callback uses this to
-	   *                                      determine how to update state.
-	   * @return {function} callback that when invoked uses funcReturningState to
-	   *                    determined the object literal to setState.
-	   */
-	  createStateSetter: function(component, funcReturningState) {
-	    return function(a, b, c, d, e, f) {
-	      var partialState = funcReturningState.call(component, a, b, c, d, e, f);
-	      if (partialState) {
-	        component.setState(partialState);
-	      }
-	    };
-	  },
-	
-	  /**
-	   * Returns a single-argument callback that can be used to update a single
-	   * key in the component's state.
-	   *
-	   * Note: this is memoized function, which makes it inexpensive to call.
-	   *
-	   * @param {ReactCompositeComponent} component
-	   * @param {string} key The key in the state that you should update.
-	   * @return {function} callback of 1 argument which calls setState() with
-	   *                    the provided keyName and callback argument.
-	   */
-	  createStateKeySetter: function(component, key) {
-	    // Memoize the setters.
-	    var cache = component.__keySetters || (component.__keySetters = {});
-	    return cache[key] || (cache[key] = createStateKeySetter(component, key));
-	  }
-	};
-	
-	function createStateKeySetter(component, key) {
-	  // Partial state is allocated outside of the function closure so it can be
-	  // reused with every call, avoiding memory allocation when this function
-	  // is called.
-	  var partialState = {};
-	  return function stateKeySetter(value) {
-	    partialState[key] = value;
-	    component.setState(partialState);
-	  };
-	}
-	
-	ReactStateSetters.Mixin = {
-	  /**
-	   * Returns a function that calls the provided function, and uses the result
-	   * of that to set the component's state.
-	   *
-	   * For example, these statements are equivalent:
-	   *
-	   *   this.setState({x: 1});
-	   *   this.createStateSetter(function(xValue) {
-	   *     return {x: xValue};
-	   *   })(1);
-	   *
-	   * @param {function} funcReturningState Returned callback uses this to
-	   *                                      determine how to update state.
-	   * @return {function} callback that when invoked uses funcReturningState to
-	   *                    determined the object literal to setState.
-	   */
-	  createStateSetter: function(funcReturningState) {
-	    return ReactStateSetters.createStateSetter(this, funcReturningState);
-	  },
-	
-	  /**
-	   * Returns a single-argument callback that can be used to update a single
-	   * key in the component's state.
-	   *
-	   * For example, these statements are equivalent:
-	   *
-	   *   this.setState({x: 1});
-	   *   this.createStateKeySetter('x')(1);
-	   *
-	   * Note: this is memoized function, which makes it inexpensive to call.
-	   *
-	   * @param {string} key The key in the state that you should update.
-	   * @return {function} callback of 1 argument which calls setState() with
-	   *                    the provided keyName and callback argument.
-	   */
-	  createStateKeySetter: function(key) {
-	    return ReactStateSetters.createStateKeySetter(this, key);
-	  }
-	};
-	
-	module.exports = ReactStateSetters;
-
-
-/***/ },
 /* 304 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule ReactPropTransferer
-	 */
-	
-	'use strict';
-	
-	var assign = __webpack_require__(43);
-	var emptyFunction = __webpack_require__(162);
-	var joinClasses = __webpack_require__(329);
-	
-	/**
-	 * Creates a transfer strategy that will merge prop values using the supplied
-	 * `mergeStrategy`. If a prop was previously unset, this just sets it.
-	 *
-	 * @param {function} mergeStrategy
-	 * @return {function}
-	 */
-	function createTransferStrategy(mergeStrategy) {
-	  return function(props, key, value) {
-	    if (!props.hasOwnProperty(key)) {
-	      props[key] = value;
-	    } else {
-	      props[key] = mergeStrategy(props[key], value);
-	    }
-	  };
-	}
-	
-	var transferStrategyMerge = createTransferStrategy(function(a, b) {
-	  // `merge` overrides the first object's (`props[key]` above) keys using the
-	  // second object's (`value`) keys. An object's style's existing `propA` would
-	  // get overridden. Flip the order here.
-	  return assign({}, b, a);
-	});
-	
-	/**
-	 * Transfer strategies dictate how props are transferred by `transferPropsTo`.
-	 * NOTE: if you add any more exceptions to this list you should be sure to
-	 * update `cloneWithProps()` accordingly.
-	 */
-	var TransferStrategies = {
-	  /**
-	   * Never transfer `children`.
-	   */
-	  children: emptyFunction,
-	  /**
-	   * Transfer the `className` prop by merging them.
-	   */
-	  className: createTransferStrategy(joinClasses),
-	  /**
-	   * Transfer the `style` prop (which is an object) by merging them.
-	   */
-	  style: transferStrategyMerge
-	};
-	
-	/**
-	 * Mutates the first argument by transferring the properties from the second
-	 * argument.
-	 *
-	 * @param {object} props
-	 * @param {object} newProps
-	 * @return {object}
-	 */
-	function transferInto(props, newProps) {
-	  for (var thisKey in newProps) {
-	    if (!newProps.hasOwnProperty(thisKey)) {
-	      continue;
-	    }
-	
-	    var transferStrategy = TransferStrategies[thisKey];
-	
-	    if (transferStrategy && TransferStrategies.hasOwnProperty(thisKey)) {
-	      transferStrategy(props, thisKey, newProps[thisKey]);
-	    } else if (!props.hasOwnProperty(thisKey)) {
-	      props[thisKey] = newProps[thisKey];
-	    }
-	  }
-	  return props;
-	}
-	
-	/**
-	 * ReactPropTransferer are capable of transferring props to another component
-	 * using a `transferPropsTo` method.
-	 *
-	 * @class ReactPropTransferer
-	 */
-	var ReactPropTransferer = {
-	
-	  /**
-	   * Merge two props objects using TransferStrategies.
-	   *
-	   * @param {object} oldProps original props (they take precedence)
-	   * @param {object} newProps new props to merge in
-	   * @return {object} a new object containing both sets of props merged.
-	   */
-	  mergeProps: function(oldProps, newProps) {
-	    return transferInto(assign({}, oldProps), newProps);
-	  }
-	
-	};
-	
-	module.exports = ReactPropTransferer;
-
-
-/***/ },
-/* 305 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @typechecks static-only
-	 * @providesModule ReactTransitionChildMapping
-	 */
-	
-	'use strict';
-	
-	var ReactChildren = __webpack_require__(45);
-	var ReactFragment = __webpack_require__(103);
-	
-	var ReactTransitionChildMapping = {
-	  /**
-	   * Given `this.props.children`, return an object mapping key to child. Just
-	   * simple syntactic sugar around ReactChildren.map().
-	   *
-	   * @param {*} children `this.props.children`
-	   * @return {object} Mapping of key to child
-	   */
-	  getChildMapping: function(children) {
-	    if (!children) {
-	      return children;
-	    }
-	    return ReactFragment.extract(ReactChildren.map(children, function(child) {
-	      return child;
-	    }));
-	  },
-	
-	  /**
-	   * When you're adding or removing children some may be added or removed in the
-	   * same render pass. We want to show *both* since we want to simultaneously
-	   * animate elements in and out. This function takes a previous set of keys
-	   * and a new set of keys and merges them with its best guess of the correct
-	   * ordering. In the future we may expose some of the utilities in
-	   * ReactMultiChild to make this easy, but for now React itself does not
-	   * directly have this concept of the union of prevChildren and nextChildren
-	   * so we implement it here.
-	   *
-	   * @param {object} prev prev children as returned from
-	   * `ReactTransitionChildMapping.getChildMapping()`.
-	   * @param {object} next next children as returned from
-	   * `ReactTransitionChildMapping.getChildMapping()`.
-	   * @return {object} a key set that contains all keys in `prev` and all keys
-	   * in `next` in a reasonable order.
-	   */
-	  mergeChildMappings: function(prev, next) {
-	    prev = prev || {};
-	    next = next || {};
-	
-	    function getValueForKey(key) {
-	      if (next.hasOwnProperty(key)) {
-	        return next[key];
-	      } else {
-	        return prev[key];
-	      }
-	    }
-	
-	    // For each key of `next`, the list of keys to insert before that key in
-	    // the combined list
-	    var nextKeysPending = {};
-	
-	    var pendingKeys = [];
-	    for (var prevKey in prev) {
-	      if (next.hasOwnProperty(prevKey)) {
-	        if (pendingKeys.length) {
-	          nextKeysPending[prevKey] = pendingKeys;
-	          pendingKeys = [];
-	        }
-	      } else {
-	        pendingKeys.push(prevKey);
-	      }
-	    }
-	
-	    var i;
-	    var childMapping = {};
-	    for (var nextKey in next) {
-	      if (nextKeysPending.hasOwnProperty(nextKey)) {
-	        for (i = 0; i < nextKeysPending[nextKey].length; i++) {
-	          var pendingNextKey = nextKeysPending[nextKey][i];
-	          childMapping[nextKeysPending[nextKey][i]] = getValueForKey(
-	            pendingNextKey
-	          );
-	        }
-	      }
-	      childMapping[nextKey] = getValueForKey(nextKey);
-	    }
-	
-	    // Finally, add the keys which didn't appear before any key in `next`
-	    for (i = 0; i < pendingKeys.length; i++) {
-	      childMapping[pendingKeys[i]] = getValueForKey(pendingKeys[i]);
-	    }
-	
-	    return childMapping;
-	  }
-	};
-	
-	module.exports = ReactTransitionChildMapping;
-
-
-/***/ },
-/* 306 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var path = __webpack_require__(270);
-	var fs = __webpack_require__(35);
-	
-	module.exports = mkdirP.mkdirp = mkdirP.mkdirP = mkdirP;
-	
-	function mkdirP (p, mode, f, made) {
-	    if (typeof mode === 'function' || mode === undefined) {
-	        f = mode;
-	        mode = 0777 & (~process.umask());
-	    }
-	    if (!made) made = null;
-	
-	    var cb = f || function () {};
-	    if (typeof mode === 'string') mode = parseInt(mode, 8);
-	    p = path.resolve(p);
-	
-	    fs.mkdir(p, mode, function (er) {
-	        if (!er) {
-	            made = made || p;
-	            return cb(null, made);
-	        }
-	        switch (er.code) {
-	            case 'ENOENT':
-	                mkdirP(path.dirname(p), mode, function (er, made) {
-	                    if (er) cb(er, made);
-	                    else mkdirP(p, mode, cb, made);
-	                });
-	                break;
-	
-	            // In the case of any other error, just see if there's a dir
-	            // there already.  If so, then hooray!  If not, then something
-	            // is borked.
-	            default:
-	                fs.stat(p, function (er2, stat) {
-	                    // if the stat fails, then that's super weird.
-	                    // let the original error be the failure reason.
-	                    if (er2 || !stat.isDirectory()) cb(er, made)
-	                    else cb(null, made);
-	                });
-	                break;
-	        }
-	    });
-	}
-	
-	mkdirP.sync = function sync (p, mode, made) {
-	    if (mode === undefined) {
-	        mode = 0777 & (~process.umask());
-	    }
-	    if (!made) made = null;
-	
-	    if (typeof mode === 'string') mode = parseInt(mode, 8);
-	    p = path.resolve(p);
-	
-	    try {
-	        fs.mkdirSync(p, mode);
-	        made = made || p;
-	    }
-	    catch (err0) {
-	        switch (err0.code) {
-	            case 'ENOENT' :
-	                made = sync(path.dirname(p), mode, made);
-	                sync(p, mode, made);
-	                break;
-	
-	            // In the case of any other error, just see if there's a dir
-	            // there already.  If so, then hooray!  If not, then something
-	            // is borked.
-	            default:
-	                var stat;
-	                try {
-	                    stat = fs.statSync(p);
-	                }
-	                catch (err1) {
-	                    throw err0;
-	                }
-	                if (!stat.isDirectory()) throw err0;
-	                break;
-	        }
-	    }
-	
-	    return made;
-	};
-
-
-/***/ },
-/* 307 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = require("assert");
-
-/***/ },
-/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10174,11 +9677,11 @@ webpackJsonp([1],[
 	exports.HandlebarsEnvironment = HandlebarsEnvironment;
 	exports.createFrame = createFrame;
 	
-	var _import = __webpack_require__(311);
+	var _import = __webpack_require__(307);
 	
 	var Utils = _interopRequireWildcard(_import);
 	
-	var _Exception = __webpack_require__(310);
+	var _Exception = __webpack_require__(306);
 	
 	var _Exception2 = _interopRequireWildcard(_Exception);
 	
@@ -10441,7 +9944,7 @@ webpackJsonp([1],[
 	/* [args, ]options */
 
 /***/ },
-/* 309 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10460,7 +9963,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 310 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10503,7 +10006,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 311 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10622,7 +10125,261 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 312 */
+/* 308 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = rimraf
+	rimraf.sync = rimrafSync
+	
+	var assert = __webpack_require__(321)
+	var path = __webpack_require__(281)
+	var fs = __webpack_require__(9)
+	
+	// for EMFILE handling
+	var timeout = 0
+	exports.EMFILE_MAX = 1000
+	exports.BUSYTRIES_MAX = 3
+	
+	var isWindows = (process.platform === "win32")
+	
+	function defaults (options) {
+	  var methods = [
+	    'unlink',
+	    'chmod',
+	    'stat',
+	    'rmdir',
+	    'readdir'
+	  ]
+	  methods.forEach(function(m) {
+	    options[m] = options[m] || fs[m]
+	    m = m + 'Sync'
+	    options[m] = options[m] || fs[m]
+	  })
+	}
+	
+	function rimraf (p, options, cb) {
+	  if (typeof options === 'function') {
+	    cb = options
+	    options = {}
+	  }
+	  assert(p)
+	  assert(options)
+	  assert(typeof cb === 'function')
+	
+	  defaults(options)
+	
+	  if (!cb) throw new Error("No callback passed to rimraf()")
+	
+	  var busyTries = 0
+	  rimraf_(p, options, function CB (er) {
+	    if (er) {
+	      if (isWindows && (er.code === "EBUSY" || er.code === "ENOTEMPTY") &&
+	          busyTries < exports.BUSYTRIES_MAX) {
+	        busyTries ++
+	        var time = busyTries * 100
+	        // try again, with the same exact callback as this one.
+	        return setTimeout(function () {
+	          rimraf_(p, options, CB)
+	        }, time)
+	      }
+	
+	      // this one won't happen if graceful-fs is used.
+	      if (er.code === "EMFILE" && timeout < exports.EMFILE_MAX) {
+	        return setTimeout(function () {
+	          rimraf_(p, options, CB)
+	        }, timeout ++)
+	      }
+	
+	      // already gone
+	      if (er.code === "ENOENT") er = null
+	    }
+	
+	    timeout = 0
+	    cb(er)
+	  })
+	}
+	
+	// Two possible strategies.
+	// 1. Assume it's a file.  unlink it, then do the dir stuff on EPERM or EISDIR
+	// 2. Assume it's a directory.  readdir, then do the file stuff on ENOTDIR
+	//
+	// Both result in an extra syscall when you guess wrong.  However, there
+	// are likely far more normal files in the world than directories.  This
+	// is based on the assumption that a the average number of files per
+	// directory is >= 1.
+	//
+	// If anyone ever complains about this, then I guess the strategy could
+	// be made configurable somehow.  But until then, YAGNI.
+	function rimraf_ (p, options, cb) {
+	  assert(p)
+	  assert(options)
+	  assert(typeof cb === 'function')
+	
+	  options.unlink(p, function (er) {
+	    if (er) {
+	      if (er.code === "ENOENT")
+	        return cb(null)
+	      if (er.code === "EPERM")
+	        return (isWindows)
+	          ? fixWinEPERM(p, options, er, cb)
+	          : rmdir(p, options, er, cb)
+	      if (er.code === "EISDIR")
+	        return rmdir(p, options, er, cb)
+	    }
+	    return cb(er)
+	  })
+	}
+	
+	function fixWinEPERM (p, options, er, cb) {
+	  assert(p)
+	  assert(options)
+	  assert(typeof cb === 'function')
+	  if (er)
+	    assert(er instanceof Error)
+	
+	  options.chmod(p, 666, function (er2) {
+	    if (er2)
+	      cb(er2.code === "ENOENT" ? null : er)
+	    else
+	      options.stat(p, function(er3, stats) {
+	        if (er3)
+	          cb(er3.code === "ENOENT" ? null : er)
+	        else if (stats.isDirectory())
+	          rmdir(p, options, er, cb)
+	        else
+	          options.unlink(p, cb)
+	      })
+	  })
+	}
+	
+	function fixWinEPERMSync (p, options, er) {
+	  assert(p)
+	  assert(options)
+	  if (er)
+	    assert(er instanceof Error)
+	
+	  try {
+	    options.chmodSync(p, 666)
+	  } catch (er2) {
+	    if (er2.code === "ENOENT")
+	      return
+	    else
+	      throw er
+	  }
+	
+	  try {
+	    var stats = options.statSync(p)
+	  } catch (er3) {
+	    if (er3.code === "ENOENT")
+	      return
+	    else
+	      throw er
+	  }
+	
+	  if (stats.isDirectory())
+	    rmdirSync(p, options, er)
+	  else
+	    options.unlinkSync(p)
+	}
+	
+	function rmdir (p, options, originalEr, cb) {
+	  assert(p)
+	  assert(options)
+	  if (originalEr)
+	    assert(originalEr instanceof Error)
+	  assert(typeof cb === 'function')
+	
+	  // try to rmdir first, and only readdir on ENOTEMPTY or EEXIST (SunOS)
+	  // if we guessed wrong, and it's not a directory, then
+	  // raise the original error.
+	  options.rmdir(p, function (er) {
+	    if (er && (er.code === "ENOTEMPTY" || er.code === "EEXIST" || er.code === "EPERM"))
+	      rmkids(p, options, cb)
+	    else if (er && er.code === "ENOTDIR")
+	      cb(originalEr)
+	    else
+	      cb(er)
+	  })
+	}
+	
+	function rmkids(p, options, cb) {
+	  assert(p)
+	  assert(options)
+	  assert(typeof cb === 'function')
+	
+	  options.readdir(p, function (er, files) {
+	    if (er)
+	      return cb(er)
+	    var n = files.length
+	    if (n === 0)
+	      return options.rmdir(p, cb)
+	    var errState
+	    files.forEach(function (f) {
+	      rimraf(path.join(p, f), options, function (er) {
+	        if (errState)
+	          return
+	        if (er)
+	          return cb(errState = er)
+	        if (--n === 0)
+	          options.rmdir(p, cb)
+	      })
+	    })
+	  })
+	}
+	
+	// this looks simpler, and is strictly *faster*, but will
+	// tie up the JavaScript thread and fail on excessively
+	// deep directory trees.
+	function rimrafSync (p, options) {
+	  options = options || {}
+	  defaults(options)
+	
+	  assert(p)
+	  assert(options)
+	
+	  try {
+	    options.unlinkSync(p)
+	  } catch (er) {
+	    if (er.code === "ENOENT")
+	      return
+	    if (er.code === "EPERM")
+	      return isWindows ? fixWinEPERMSync(p, options, er) : rmdirSync(p, options, er)
+	    if (er.code !== "EISDIR")
+	      throw er
+	    rmdirSync(p, options, er)
+	  }
+	}
+	
+	function rmdirSync (p, options, originalEr) {
+	  assert(p)
+	  assert(options)
+	  if (originalEr)
+	    assert(originalEr instanceof Error)
+	
+	  try {
+	    options.rmdirSync(p)
+	  } catch (er) {
+	    if (er.code === "ENOENT")
+	      return
+	    if (er.code === "ENOTDIR")
+	      throw originalEr
+	    if (er.code === "ENOTEMPTY" || er.code === "EEXIST" || er.code === "EPERM")
+	      rmkidsSync(p, options)
+	  }
+	}
+	
+	function rmkidsSync (p, options) {
+	  assert(p)
+	  assert(options)
+	  options.readdirSync(p).forEach(function (f) {
+	    rimrafSync(path.join(p, f), options)
+	  })
+	  options.rmdirSync(p, options)
+	}
+
+
+/***/ },
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10640,15 +10397,15 @@ webpackJsonp([1],[
 	exports.invokePartial = invokePartial;
 	exports.noop = noop;
 	
-	var _import = __webpack_require__(311);
+	var _import = __webpack_require__(307);
 	
 	var Utils = _interopRequireWildcard(_import);
 	
-	var _Exception = __webpack_require__(310);
+	var _Exception = __webpack_require__(306);
 	
 	var _Exception2 = _interopRequireWildcard(_Exception);
 	
-	var _COMPILER_REVISION$REVISION_CHANGES$createFrame = __webpack_require__(308);
+	var _COMPILER_REVISION$REVISION_CHANGES$createFrame = __webpack_require__(304);
 	
 	function checkRevision(compilerInfo) {
 	  var compilerRevision = compilerInfo && compilerInfo[0] || 1,
@@ -10859,104 +10616,7 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 313 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Buffer = __webpack_require__(330).Buffer;
-	
-	var CRC_TABLE = [
-	  0x00000000, 0x77073096, 0xee0e612c, 0x990951ba, 0x076dc419,
-	  0x706af48f, 0xe963a535, 0x9e6495a3, 0x0edb8832, 0x79dcb8a4,
-	  0xe0d5e91e, 0x97d2d988, 0x09b64c2b, 0x7eb17cbd, 0xe7b82d07,
-	  0x90bf1d91, 0x1db71064, 0x6ab020f2, 0xf3b97148, 0x84be41de,
-	  0x1adad47d, 0x6ddde4eb, 0xf4d4b551, 0x83d385c7, 0x136c9856,
-	  0x646ba8c0, 0xfd62f97a, 0x8a65c9ec, 0x14015c4f, 0x63066cd9,
-	  0xfa0f3d63, 0x8d080df5, 0x3b6e20c8, 0x4c69105e, 0xd56041e4,
-	  0xa2677172, 0x3c03e4d1, 0x4b04d447, 0xd20d85fd, 0xa50ab56b,
-	  0x35b5a8fa, 0x42b2986c, 0xdbbbc9d6, 0xacbcf940, 0x32d86ce3,
-	  0x45df5c75, 0xdcd60dcf, 0xabd13d59, 0x26d930ac, 0x51de003a,
-	  0xc8d75180, 0xbfd06116, 0x21b4f4b5, 0x56b3c423, 0xcfba9599,
-	  0xb8bda50f, 0x2802b89e, 0x5f058808, 0xc60cd9b2, 0xb10be924,
-	  0x2f6f7c87, 0x58684c11, 0xc1611dab, 0xb6662d3d, 0x76dc4190,
-	  0x01db7106, 0x98d220bc, 0xefd5102a, 0x71b18589, 0x06b6b51f,
-	  0x9fbfe4a5, 0xe8b8d433, 0x7807c9a2, 0x0f00f934, 0x9609a88e,
-	  0xe10e9818, 0x7f6a0dbb, 0x086d3d2d, 0x91646c97, 0xe6635c01,
-	  0x6b6b51f4, 0x1c6c6162, 0x856530d8, 0xf262004e, 0x6c0695ed,
-	  0x1b01a57b, 0x8208f4c1, 0xf50fc457, 0x65b0d9c6, 0x12b7e950,
-	  0x8bbeb8ea, 0xfcb9887c, 0x62dd1ddf, 0x15da2d49, 0x8cd37cf3,
-	  0xfbd44c65, 0x4db26158, 0x3ab551ce, 0xa3bc0074, 0xd4bb30e2,
-	  0x4adfa541, 0x3dd895d7, 0xa4d1c46d, 0xd3d6f4fb, 0x4369e96a,
-	  0x346ed9fc, 0xad678846, 0xda60b8d0, 0x44042d73, 0x33031de5,
-	  0xaa0a4c5f, 0xdd0d7cc9, 0x5005713c, 0x270241aa, 0xbe0b1010,
-	  0xc90c2086, 0x5768b525, 0x206f85b3, 0xb966d409, 0xce61e49f,
-	  0x5edef90e, 0x29d9c998, 0xb0d09822, 0xc7d7a8b4, 0x59b33d17,
-	  0x2eb40d81, 0xb7bd5c3b, 0xc0ba6cad, 0xedb88320, 0x9abfb3b6,
-	  0x03b6e20c, 0x74b1d29a, 0xead54739, 0x9dd277af, 0x04db2615,
-	  0x73dc1683, 0xe3630b12, 0x94643b84, 0x0d6d6a3e, 0x7a6a5aa8,
-	  0xe40ecf0b, 0x9309ff9d, 0x0a00ae27, 0x7d079eb1, 0xf00f9344,
-	  0x8708a3d2, 0x1e01f268, 0x6906c2fe, 0xf762575d, 0x806567cb,
-	  0x196c3671, 0x6e6b06e7, 0xfed41b76, 0x89d32be0, 0x10da7a5a,
-	  0x67dd4acc, 0xf9b9df6f, 0x8ebeeff9, 0x17b7be43, 0x60b08ed5,
-	  0xd6d6a3e8, 0xa1d1937e, 0x38d8c2c4, 0x4fdff252, 0xd1bb67f1,
-	  0xa6bc5767, 0x3fb506dd, 0x48b2364b, 0xd80d2bda, 0xaf0a1b4c,
-	  0x36034af6, 0x41047a60, 0xdf60efc3, 0xa867df55, 0x316e8eef,
-	  0x4669be79, 0xcb61b38c, 0xbc66831a, 0x256fd2a0, 0x5268e236,
-	  0xcc0c7795, 0xbb0b4703, 0x220216b9, 0x5505262f, 0xc5ba3bbe,
-	  0xb2bd0b28, 0x2bb45a92, 0x5cb36a04, 0xc2d7ffa7, 0xb5d0cf31,
-	  0x2cd99e8b, 0x5bdeae1d, 0x9b64c2b0, 0xec63f226, 0x756aa39c,
-	  0x026d930a, 0x9c0906a9, 0xeb0e363f, 0x72076785, 0x05005713,
-	  0x95bf4a82, 0xe2b87a14, 0x7bb12bae, 0x0cb61b38, 0x92d28e9b,
-	  0xe5d5be0d, 0x7cdcefb7, 0x0bdbdf21, 0x86d3d2d4, 0xf1d4e242,
-	  0x68ddb3f8, 0x1fda836e, 0x81be16cd, 0xf6b9265b, 0x6fb077e1,
-	  0x18b74777, 0x88085ae6, 0xff0f6a70, 0x66063bca, 0x11010b5c,
-	  0x8f659eff, 0xf862ae69, 0x616bffd3, 0x166ccf45, 0xa00ae278,
-	  0xd70dd2ee, 0x4e048354, 0x3903b3c2, 0xa7672661, 0xd06016f7,
-	  0x4969474d, 0x3e6e77db, 0xaed16a4a, 0xd9d65adc, 0x40df0b66,
-	  0x37d83bf0, 0xa9bcae53, 0xdebb9ec5, 0x47b2cf7f, 0x30b5ffe9,
-	  0xbdbdf21c, 0xcabac28a, 0x53b39330, 0x24b4a3a6, 0xbad03605,
-	  0xcdd70693, 0x54de5729, 0x23d967bf, 0xb3667a2e, 0xc4614ab8,
-	  0x5d681b02, 0x2a6f2b94, 0xb40bbe37, 0xc30c8ea1, 0x5a05df1b,
-	  0x2d02ef8d
-	];
-	
-	if (typeof Int32Array !== 'undefined')
-	  CRC_TABLE = new Int32Array(CRC_TABLE);
-	
-	function bufferizeInt(num) {
-	  var tmp = Buffer(4);
-	  tmp.writeInt32BE(num, 0);
-	  return tmp;
-	}
-	
-	function _crc32(buf, previous) {
-	  if (!Buffer.isBuffer(buf)) {
-	    buf = Buffer(buf);
-	  }
-	  if (Buffer.isBuffer(previous)) {
-	    previous = previous.readUInt32BE(0);
-	  }
-	  var crc = ~~previous ^ -1;
-	  for (var n = 0; n < buf.length; n++) {
-	    crc = CRC_TABLE[(crc ^ buf[n]) & 0xff] ^ (crc >>> 8);
-	  }
-	  return (crc ^ -1);
-	}
-	
-	function crc32() {
-	  return bufferizeInt(_crc32.apply(null, arguments));
-	}
-	crc32.signed = function () {
-	  return _crc32.apply(null, arguments);
-	};
-	crc32.unsigned = function () {
-	  return _crc32.apply(null, arguments) >>> 0;
-	};
-	
-	module.exports = crc32;
-
-
-/***/ },
-/* 314 */
+/* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -11639,7 +11299,7 @@ webpackJsonp([1],[
 	module.exports = exports["default"];
 
 /***/ },
-/* 315 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11856,7 +11516,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 316 */
+/* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11873,7 +11533,7 @@ webpackJsonp([1],[
 	exports.prepareRawBlock = prepareRawBlock;
 	exports.prepareBlock = prepareBlock;
 	
-	var _Exception = __webpack_require__(310);
+	var _Exception = __webpack_require__(306);
 	
 	var _Exception2 = _interopRequireWildcard(_Exception);
 	
@@ -11992,7 +11652,7 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 317 */
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12000,7 +11660,7 @@ webpackJsonp([1],[
 	exports.__esModule = true;
 	/*global define */
 	
-	var _isArray = __webpack_require__(311);
+	var _isArray = __webpack_require__(307);
 	
 	var SourceNode = undefined;
 	
@@ -12161,7 +11821,644 @@ webpackJsonp([1],[
 	/* NOP */
 
 /***/ },
+/* 314 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// Monkey-patching the fs module.
+	// It's ugly, but there is simply no other way to do this.
+	var fs = module.exports = __webpack_require__(9)
+	
+	var assert = __webpack_require__(321)
+	
+	// fix up some busted stuff, mostly on windows and old nodes
+	__webpack_require__(329)
+	
+	// The EMFILE enqueuing stuff
+	
+	var util = __webpack_require__(299)
+	
+	function noop () {}
+	
+	var debug = noop
+	if (util.debuglog)
+	  debug = util.debuglog('gfs')
+	else if (/\bgfs\b/i.test(process.env.NODE_DEBUG || ''))
+	  debug = function() {
+	    var m = util.format.apply(util, arguments)
+	    m = 'GFS: ' + m.split(/\n/).join('\nGFS: ')
+	    console.error(m)
+	  }
+	
+	if (/\bgfs\b/i.test(process.env.NODE_DEBUG || '')) {
+	  process.on('exit', function() {
+	    debug('fds', fds)
+	    debug(queue)
+	    assert.equal(queue.length, 0)
+	  })
+	}
+	
+	
+	var originalOpen = fs.open
+	fs.open = open
+	
+	function open(path, flags, mode, cb) {
+	  if (typeof mode === "function") cb = mode, mode = null
+	  if (typeof cb !== "function") cb = noop
+	  new OpenReq(path, flags, mode, cb)
+	}
+	
+	function OpenReq(path, flags, mode, cb) {
+	  this.path = path
+	  this.flags = flags
+	  this.mode = mode
+	  this.cb = cb
+	  Req.call(this)
+	}
+	
+	util.inherits(OpenReq, Req)
+	
+	OpenReq.prototype.process = function() {
+	  originalOpen.call(fs, this.path, this.flags, this.mode, this.done)
+	}
+	
+	var fds = {}
+	OpenReq.prototype.done = function(er, fd) {
+	  debug('open done', er, fd)
+	  if (fd)
+	    fds['fd' + fd] = this.path
+	  Req.prototype.done.call(this, er, fd)
+	}
+	
+	
+	var originalReaddir = fs.readdir
+	fs.readdir = readdir
+	
+	function readdir(path, cb) {
+	  if (typeof cb !== "function") cb = noop
+	  new ReaddirReq(path, cb)
+	}
+	
+	function ReaddirReq(path, cb) {
+	  this.path = path
+	  this.cb = cb
+	  Req.call(this)
+	}
+	
+	util.inherits(ReaddirReq, Req)
+	
+	ReaddirReq.prototype.process = function() {
+	  originalReaddir.call(fs, this.path, this.done)
+	}
+	
+	ReaddirReq.prototype.done = function(er, files) {
+	  if (files && files.sort)
+	    files = files.sort()
+	  Req.prototype.done.call(this, er, files)
+	  onclose()
+	}
+	
+	
+	var originalClose = fs.close
+	fs.close = close
+	
+	function close (fd, cb) {
+	  debug('close', fd)
+	  if (typeof cb !== "function") cb = noop
+	  delete fds['fd' + fd]
+	  originalClose.call(fs, fd, function(er) {
+	    onclose()
+	    cb(er)
+	  })
+	}
+	
+	
+	var originalCloseSync = fs.closeSync
+	fs.closeSync = closeSync
+	
+	function closeSync (fd) {
+	  try {
+	    return originalCloseSync(fd)
+	  } finally {
+	    onclose()
+	  }
+	}
+	
+	
+	// Req class
+	function Req () {
+	  // start processing
+	  this.done = this.done.bind(this)
+	  this.failures = 0
+	  this.process()
+	}
+	
+	Req.prototype.done = function (er, result) {
+	  var tryAgain = false
+	  if (er) {
+	    var code = er.code
+	    var tryAgain = code === "EMFILE"
+	    if (process.platform === "win32")
+	      tryAgain = tryAgain || code === "OK"
+	  }
+	
+	  if (tryAgain) {
+	    this.failures ++
+	    enqueue(this)
+	  } else {
+	    var cb = this.cb
+	    cb(er, result)
+	  }
+	}
+	
+	var queue = []
+	
+	function enqueue(req) {
+	  queue.push(req)
+	  debug('enqueue %d %s', queue.length, req.constructor.name, req)
+	}
+	
+	function onclose() {
+	  var req = queue.shift()
+	  if (req) {
+	    debug('process', req.constructor.name, req)
+	    req.process()
+	  }
+	}
+
+
+/***/ },
+/* 315 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule CSSCore
+	 * @typechecks
+	 */
+	
+	var invariant = __webpack_require__(78);
+	
+	/**
+	 * The CSSCore module specifies the API (and implements most of the methods)
+	 * that should be used when dealing with the display of elements (via their
+	 * CSS classes and visibility on screen. It is an API focused on mutating the
+	 * display and not reading it as no logical state should be encoded in the
+	 * display of elements.
+	 */
+	
+	var CSSCore = {
+	
+	  /**
+	   * Adds the class passed in to the element if it doesn't already have it.
+	   *
+	   * @param {DOMElement} element the element to set the class on
+	   * @param {string} className the CSS className
+	   * @return {DOMElement} the element passed in
+	   */
+	  addClass: function(element, className) {
+	    ("production" !== process.env.NODE_ENV ? invariant(
+	      !/\s/.test(className),
+	      'CSSCore.addClass takes only a single class name. "%s" contains ' +
+	      'multiple classes.', className
+	    ) : invariant(!/\s/.test(className)));
+	
+	    if (className) {
+	      if (element.classList) {
+	        element.classList.add(className);
+	      } else if (!CSSCore.hasClass(element, className)) {
+	        element.className = element.className + ' ' + className;
+	      }
+	    }
+	    return element;
+	  },
+	
+	  /**
+	   * Removes the class passed in from the element
+	   *
+	   * @param {DOMElement} element the element to set the class on
+	   * @param {string} className the CSS className
+	   * @return {DOMElement} the element passed in
+	   */
+	  removeClass: function(element, className) {
+	    ("production" !== process.env.NODE_ENV ? invariant(
+	      !/\s/.test(className),
+	      'CSSCore.removeClass takes only a single class name. "%s" contains ' +
+	      'multiple classes.', className
+	    ) : invariant(!/\s/.test(className)));
+	
+	    if (className) {
+	      if (element.classList) {
+	        element.classList.remove(className);
+	      } else if (CSSCore.hasClass(element, className)) {
+	        element.className = element.className
+	          .replace(new RegExp('(^|\\s)' + className + '(?:\\s|$)', 'g'), '$1')
+	          .replace(/\s+/g, ' ') // multiple spaces to one
+	          .replace(/^\s*|\s*$/g, ''); // trim the ends
+	      }
+	    }
+	    return element;
+	  },
+	
+	  /**
+	   * Helper to add or remove a class from an element based on a condition.
+	   *
+	   * @param {DOMElement} element the element to set the class on
+	   * @param {string} className the CSS className
+	   * @param {*} bool condition to whether to add or remove the class
+	   * @return {DOMElement} the element passed in
+	   */
+	  conditionClass: function(element, className, bool) {
+	    return (bool ? CSSCore.addClass : CSSCore.removeClass)(element, className);
+	  },
+	
+	  /**
+	   * Tests whether the element has the class specified.
+	   *
+	   * @param {DOMNode|DOMWindow} element the element to set the class on
+	   * @param {string} className the CSS className
+	   * @return {boolean} true if the element has the class, false if not
+	   */
+	  hasClass: function(element, className) {
+	    ("production" !== process.env.NODE_ENV ? invariant(
+	      !/\s/.test(className),
+	      'CSS.hasClass takes only a single class name.'
+	    ) : invariant(!/\s/.test(className)));
+	    if (element.classList) {
+	      return !!className && element.classList.contains(className);
+	    }
+	    return (' ' + element.className + ' ').indexOf(' ' + className + ' ') > -1;
+	  }
+	
+	};
+	
+	module.exports = CSSCore;
+
+
+/***/ },
+/* 316 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule ReactTransitionEvents
+	 */
+	
+	'use strict';
+	
+	var ExecutionEnvironment = __webpack_require__(74);
+	
+	/**
+	 * EVENT_NAME_MAP is used to determine which event fired when a
+	 * transition/animation ends, based on the style property used to
+	 * define that event.
+	 */
+	var EVENT_NAME_MAP = {
+	  transitionend: {
+	    'transition': 'transitionend',
+	    'WebkitTransition': 'webkitTransitionEnd',
+	    'MozTransition': 'mozTransitionEnd',
+	    'OTransition': 'oTransitionEnd',
+	    'msTransition': 'MSTransitionEnd'
+	  },
+	
+	  animationend: {
+	    'animation': 'animationend',
+	    'WebkitAnimation': 'webkitAnimationEnd',
+	    'MozAnimation': 'mozAnimationEnd',
+	    'OAnimation': 'oAnimationEnd',
+	    'msAnimation': 'MSAnimationEnd'
+	  }
+	};
+	
+	var endEvents = [];
+	
+	function detectEvents() {
+	  var testEl = document.createElement('div');
+	  var style = testEl.style;
+	
+	  // On some platforms, in particular some releases of Android 4.x,
+	  // the un-prefixed "animation" and "transition" properties are defined on the
+	  // style object but the events that fire will still be prefixed, so we need
+	  // to check if the un-prefixed events are useable, and if not remove them
+	  // from the map
+	  if (!('AnimationEvent' in window)) {
+	    delete EVENT_NAME_MAP.animationend.animation;
+	  }
+	
+	  if (!('TransitionEvent' in window)) {
+	    delete EVENT_NAME_MAP.transitionend.transition;
+	  }
+	
+	  for (var baseEventName in EVENT_NAME_MAP) {
+	    var baseEvents = EVENT_NAME_MAP[baseEventName];
+	    for (var styleName in baseEvents) {
+	      if (styleName in style) {
+	        endEvents.push(baseEvents[styleName]);
+	        break;
+	      }
+	    }
+	  }
+	}
+	
+	if (ExecutionEnvironment.canUseDOM) {
+	  detectEvents();
+	}
+	
+	// We use the raw {add|remove}EventListener() call because EventListener
+	// does not know how to remove event listeners and we really should
+	// clean up. Also, these events are not triggered in older browsers
+	// so we should be A-OK here.
+	
+	function addEventListener(node, eventName, eventListener) {
+	  node.addEventListener(eventName, eventListener, false);
+	}
+	
+	function removeEventListener(node, eventName, eventListener) {
+	  node.removeEventListener(eventName, eventListener, false);
+	}
+	
+	var ReactTransitionEvents = {
+	  addEndEventListener: function(node, eventListener) {
+	    if (endEvents.length === 0) {
+	      // If CSS transitions are not supported, trigger an "end animation"
+	      // event immediately.
+	      window.setTimeout(eventListener, 0);
+	      return;
+	    }
+	    endEvents.forEach(function(endEvent) {
+	      addEventListener(node, endEvent, eventListener);
+	    });
+	  },
+	
+	  removeEndEventListener: function(node, eventListener) {
+	    if (endEvents.length === 0) {
+	      return;
+	    }
+	    endEvents.forEach(function(endEvent) {
+	      removeEventListener(node, endEvent, eventListener);
+	    });
+	  }
+	};
+	
+	module.exports = ReactTransitionEvents;
+
+
+/***/ },
+/* 317 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var path = __webpack_require__(281);
+	var fs = __webpack_require__(9);
+	
+	module.exports = mkdirP.mkdirp = mkdirP.mkdirP = mkdirP;
+	
+	function mkdirP (p, mode, f, made) {
+	    if (typeof mode === 'function' || mode === undefined) {
+	        f = mode;
+	        mode = 0777 & (~process.umask());
+	    }
+	    if (!made) made = null;
+	
+	    var cb = f || function () {};
+	    if (typeof mode === 'string') mode = parseInt(mode, 8);
+	    p = path.resolve(p);
+	
+	    fs.mkdir(p, mode, function (er) {
+	        if (!er) {
+	            made = made || p;
+	            return cb(null, made);
+	        }
+	        switch (er.code) {
+	            case 'ENOENT':
+	                mkdirP(path.dirname(p), mode, function (er, made) {
+	                    if (er) cb(er, made);
+	                    else mkdirP(p, mode, cb, made);
+	                });
+	                break;
+	
+	            // In the case of any other error, just see if there's a dir
+	            // there already.  If so, then hooray!  If not, then something
+	            // is borked.
+	            default:
+	                fs.stat(p, function (er2, stat) {
+	                    // if the stat fails, then that's super weird.
+	                    // let the original error be the failure reason.
+	                    if (er2 || !stat.isDirectory()) cb(er, made)
+	                    else cb(null, made);
+	                });
+	                break;
+	        }
+	    });
+	}
+	
+	mkdirP.sync = function sync (p, mode, made) {
+	    if (mode === undefined) {
+	        mode = 0777 & (~process.umask());
+	    }
+	    if (!made) made = null;
+	
+	    if (typeof mode === 'string') mode = parseInt(mode, 8);
+	    p = path.resolve(p);
+	
+	    try {
+	        fs.mkdirSync(p, mode);
+	        made = made || p;
+	    }
+	    catch (err0) {
+	        switch (err0.code) {
+	            case 'ENOENT' :
+	                made = sync(path.dirname(p), mode, made);
+	                sync(p, mode, made);
+	                break;
+	
+	            // In the case of any other error, just see if there's a dir
+	            // there already.  If so, then hooray!  If not, then something
+	            // is borked.
+	            default:
+	                var stat;
+	                try {
+	                    stat = fs.statSync(p);
+	                }
+	                catch (err1) {
+	                    throw err0;
+	                }
+	                if (!stat.isDirectory()) throw err0;
+	                break;
+	        }
+	    }
+	
+	    return made;
+	};
+
+
+/***/ },
 /* 318 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = require("stream");
+
+/***/ },
+/* 319 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule joinClasses
+	 * @typechecks static-only
+	 */
+	
+	'use strict';
+	
+	/**
+	 * Combines multiple className strings into one.
+	 * http://jsperf.com/joinclasses-args-vs-array
+	 *
+	 * @param {...?string} classes
+	 * @return {string}
+	 */
+	function joinClasses(className/*, ... */) {
+	  if (!className) {
+	    className = '';
+	  }
+	  var nextClass;
+	  var argLength = arguments.length;
+	  if (argLength > 1) {
+	    for (var ii = 1; ii < argLength; ii++) {
+	      nextClass = arguments[ii];
+	      if (nextClass) {
+	        className = (className ? className + ' ' : '') + nextClass;
+	      }
+	    }
+	  }
+	  return className;
+	}
+	
+	module.exports = joinClasses;
+
+
+/***/ },
+/* 320 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Buffer = __webpack_require__(330).Buffer;
+	
+	var CRC_TABLE = [
+	  0x00000000, 0x77073096, 0xee0e612c, 0x990951ba, 0x076dc419,
+	  0x706af48f, 0xe963a535, 0x9e6495a3, 0x0edb8832, 0x79dcb8a4,
+	  0xe0d5e91e, 0x97d2d988, 0x09b64c2b, 0x7eb17cbd, 0xe7b82d07,
+	  0x90bf1d91, 0x1db71064, 0x6ab020f2, 0xf3b97148, 0x84be41de,
+	  0x1adad47d, 0x6ddde4eb, 0xf4d4b551, 0x83d385c7, 0x136c9856,
+	  0x646ba8c0, 0xfd62f97a, 0x8a65c9ec, 0x14015c4f, 0x63066cd9,
+	  0xfa0f3d63, 0x8d080df5, 0x3b6e20c8, 0x4c69105e, 0xd56041e4,
+	  0xa2677172, 0x3c03e4d1, 0x4b04d447, 0xd20d85fd, 0xa50ab56b,
+	  0x35b5a8fa, 0x42b2986c, 0xdbbbc9d6, 0xacbcf940, 0x32d86ce3,
+	  0x45df5c75, 0xdcd60dcf, 0xabd13d59, 0x26d930ac, 0x51de003a,
+	  0xc8d75180, 0xbfd06116, 0x21b4f4b5, 0x56b3c423, 0xcfba9599,
+	  0xb8bda50f, 0x2802b89e, 0x5f058808, 0xc60cd9b2, 0xb10be924,
+	  0x2f6f7c87, 0x58684c11, 0xc1611dab, 0xb6662d3d, 0x76dc4190,
+	  0x01db7106, 0x98d220bc, 0xefd5102a, 0x71b18589, 0x06b6b51f,
+	  0x9fbfe4a5, 0xe8b8d433, 0x7807c9a2, 0x0f00f934, 0x9609a88e,
+	  0xe10e9818, 0x7f6a0dbb, 0x086d3d2d, 0x91646c97, 0xe6635c01,
+	  0x6b6b51f4, 0x1c6c6162, 0x856530d8, 0xf262004e, 0x6c0695ed,
+	  0x1b01a57b, 0x8208f4c1, 0xf50fc457, 0x65b0d9c6, 0x12b7e950,
+	  0x8bbeb8ea, 0xfcb9887c, 0x62dd1ddf, 0x15da2d49, 0x8cd37cf3,
+	  0xfbd44c65, 0x4db26158, 0x3ab551ce, 0xa3bc0074, 0xd4bb30e2,
+	  0x4adfa541, 0x3dd895d7, 0xa4d1c46d, 0xd3d6f4fb, 0x4369e96a,
+	  0x346ed9fc, 0xad678846, 0xda60b8d0, 0x44042d73, 0x33031de5,
+	  0xaa0a4c5f, 0xdd0d7cc9, 0x5005713c, 0x270241aa, 0xbe0b1010,
+	  0xc90c2086, 0x5768b525, 0x206f85b3, 0xb966d409, 0xce61e49f,
+	  0x5edef90e, 0x29d9c998, 0xb0d09822, 0xc7d7a8b4, 0x59b33d17,
+	  0x2eb40d81, 0xb7bd5c3b, 0xc0ba6cad, 0xedb88320, 0x9abfb3b6,
+	  0x03b6e20c, 0x74b1d29a, 0xead54739, 0x9dd277af, 0x04db2615,
+	  0x73dc1683, 0xe3630b12, 0x94643b84, 0x0d6d6a3e, 0x7a6a5aa8,
+	  0xe40ecf0b, 0x9309ff9d, 0x0a00ae27, 0x7d079eb1, 0xf00f9344,
+	  0x8708a3d2, 0x1e01f268, 0x6906c2fe, 0xf762575d, 0x806567cb,
+	  0x196c3671, 0x6e6b06e7, 0xfed41b76, 0x89d32be0, 0x10da7a5a,
+	  0x67dd4acc, 0xf9b9df6f, 0x8ebeeff9, 0x17b7be43, 0x60b08ed5,
+	  0xd6d6a3e8, 0xa1d1937e, 0x38d8c2c4, 0x4fdff252, 0xd1bb67f1,
+	  0xa6bc5767, 0x3fb506dd, 0x48b2364b, 0xd80d2bda, 0xaf0a1b4c,
+	  0x36034af6, 0x41047a60, 0xdf60efc3, 0xa867df55, 0x316e8eef,
+	  0x4669be79, 0xcb61b38c, 0xbc66831a, 0x256fd2a0, 0x5268e236,
+	  0xcc0c7795, 0xbb0b4703, 0x220216b9, 0x5505262f, 0xc5ba3bbe,
+	  0xb2bd0b28, 0x2bb45a92, 0x5cb36a04, 0xc2d7ffa7, 0xb5d0cf31,
+	  0x2cd99e8b, 0x5bdeae1d, 0x9b64c2b0, 0xec63f226, 0x756aa39c,
+	  0x026d930a, 0x9c0906a9, 0xeb0e363f, 0x72076785, 0x05005713,
+	  0x95bf4a82, 0xe2b87a14, 0x7bb12bae, 0x0cb61b38, 0x92d28e9b,
+	  0xe5d5be0d, 0x7cdcefb7, 0x0bdbdf21, 0x86d3d2d4, 0xf1d4e242,
+	  0x68ddb3f8, 0x1fda836e, 0x81be16cd, 0xf6b9265b, 0x6fb077e1,
+	  0x18b74777, 0x88085ae6, 0xff0f6a70, 0x66063bca, 0x11010b5c,
+	  0x8f659eff, 0xf862ae69, 0x616bffd3, 0x166ccf45, 0xa00ae278,
+	  0xd70dd2ee, 0x4e048354, 0x3903b3c2, 0xa7672661, 0xd06016f7,
+	  0x4969474d, 0x3e6e77db, 0xaed16a4a, 0xd9d65adc, 0x40df0b66,
+	  0x37d83bf0, 0xa9bcae53, 0xdebb9ec5, 0x47b2cf7f, 0x30b5ffe9,
+	  0xbdbdf21c, 0xcabac28a, 0x53b39330, 0x24b4a3a6, 0xbad03605,
+	  0xcdd70693, 0x54de5729, 0x23d967bf, 0xb3667a2e, 0xc4614ab8,
+	  0x5d681b02, 0x2a6f2b94, 0xb40bbe37, 0xc30c8ea1, 0x5a05df1b,
+	  0x2d02ef8d
+	];
+	
+	if (typeof Int32Array !== 'undefined')
+	  CRC_TABLE = new Int32Array(CRC_TABLE);
+	
+	function bufferizeInt(num) {
+	  var tmp = Buffer(4);
+	  tmp.writeInt32BE(num, 0);
+	  return tmp;
+	}
+	
+	function _crc32(buf, previous) {
+	  if (!Buffer.isBuffer(buf)) {
+	    buf = Buffer(buf);
+	  }
+	  if (Buffer.isBuffer(previous)) {
+	    previous = previous.readUInt32BE(0);
+	  }
+	  var crc = ~~previous ^ -1;
+	  for (var n = 0; n < buf.length; n++) {
+	    crc = CRC_TABLE[(crc ^ buf[n]) & 0xff] ^ (crc >>> 8);
+	  }
+	  return (crc ^ -1);
+	}
+	
+	function crc32() {
+	  return bufferizeInt(_crc32.apply(null, arguments));
+	}
+	crc32.signed = function () {
+	  return _crc32.apply(null, arguments);
+	};
+	crc32.unsigned = function () {
+	  return _crc32.apply(null, arguments) >>> 0;
+	};
+	
+	module.exports = crc32;
+
+
+/***/ },
+/* 321 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = require("assert");
+
+/***/ },
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = hasKeys
@@ -12174,20 +12471,354 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 319 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = require("stream");
+	exports.extract = __webpack_require__(335)
+	exports.pack = __webpack_require__(336)
 
 /***/ },
-/* 320 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports.extract = __webpack_require__(334)
-	exports.pack = __webpack_require__(335)
+	/**
+	 * node-archiver
+	 *
+	 * Copyright (c) 2012-2014 Chris Talkington, contributors.
+	 * Licensed under the MIT license.
+	 * https://github.com/archiverjs/node-archiver/blob/master/LICENSE-MIT
+	 */
+	var fs = __webpack_require__(9);
+	var path = __webpack_require__(281);
+	
+	var _ = __webpack_require__(331);
+	var glob = __webpack_require__(345);
+	
+	var file = module.exports = {};
+	
+	var pathSeparatorRe = /[\/\\]/g;
+	
+	// Process specified wildcard glob patterns or filenames against a
+	// callback, excluding and uniquing files in the result set.
+	var processPatterns = function(patterns, fn) {
+	  // Filepaths to return.
+	  var result = [];
+	  // Iterate over flattened patterns array.
+	  _.flatten(patterns).forEach(function(pattern) {
+	    // If the first character is ! it should be omitted
+	    var exclusion = pattern.indexOf('!') === 0;
+	    // If the pattern is an exclusion, remove the !
+	    if (exclusion) { pattern = pattern.slice(1); }
+	    // Find all matching files for this pattern.
+	    var matches = fn(pattern);
+	    if (exclusion) {
+	      // If an exclusion, remove matching files.
+	      result = _.difference(result, matches);
+	    } else {
+	      // Otherwise add matching files.
+	      result = _.union(result, matches);
+	    }
+	  });
+	  return result;
+	};
+	
+	// True if the file path exists.
+	file.exists = function() {
+	  var filepath = path.join.apply(path, arguments);
+	  return fs.existsSync(filepath);
+	};
+	
+	// Return an array of all file paths that match the given wildcard patterns.
+	file.expand = function() {
+	  var args = _.toArray(arguments);
+	  // If the first argument is an options object, save those options to pass
+	  // into the File.prototype.glob.sync method.
+	  var options = _.isPlainObject(args[0]) ? args.shift() : {};
+	  // Use the first argument if it's an Array, otherwise convert the arguments
+	  // object to an array and use that.
+	  var patterns = Array.isArray(args[0]) ? args[0] : args;
+	  // Return empty set if there are no patterns or filepaths.
+	  if (patterns.length === 0) { return []; }
+	  // Return all matching filepaths.
+	  var matches = processPatterns(patterns, function(pattern) {
+	    // Find all matching files for this pattern.
+	    return glob.sync(pattern, options);
+	  });
+	  // Filter result set?
+	  if (options.filter) {
+	    matches = matches.filter(function(filepath) {
+	      filepath = path.join(options.cwd || '', filepath);
+	      try {
+	        if (typeof options.filter === 'function') {
+	          return options.filter(filepath);
+	        } else {
+	          // If the file is of the right type and exists, this should work.
+	          return fs.statSync(filepath)[options.filter]();
+	        }
+	      } catch(e) {
+	        // Otherwise, it's probably not the right type.
+	        return false;
+	      }
+	    });
+	  }
+	  return matches;
+	};
+	
+	// Build a multi task "files" object dynamically.
+	file.expandMapping = function(patterns, destBase, options) {
+	  options = _.defaults({}, options, {
+	    rename: function(destBase, destPath) {
+	      return path.join(destBase || '', destPath);
+	    }
+	  });
+	  var files = [];
+	  var fileByDest = {};
+	  // Find all files matching pattern, using passed-in options.
+	  file.expand(options, patterns).forEach(function(src) {
+	    var destPath = src;
+	    // Flatten?
+	    if (options.flatten) {
+	      destPath = path.basename(destPath);
+	    }
+	    // Change the extension?
+	    if (options.ext) {
+	      destPath = destPath.replace(/(\.[^\/]*)?$/, options.ext);
+	    }
+	    // Generate destination filename.
+	    var dest = options.rename(destBase, destPath, options);
+	    // Prepend cwd to src path if necessary.
+	    if (options.cwd) { src = path.join(options.cwd, src); }
+	    // Normalize filepaths to be unix-style.
+	    dest = dest.replace(pathSeparatorRe, '/');
+	    src = src.replace(pathSeparatorRe, '/');
+	    // Map correct src path to dest path.
+	    if (fileByDest[dest]) {
+	      // If dest already exists, push this src onto that dest's src array.
+	      fileByDest[dest].src.push(src);
+	    } else {
+	      // Otherwise create a new src-dest file mapping object.
+	      files.push({
+	        src: [src],
+	        dest: dest,
+	      });
+	      // And store a reference for later use.
+	      fileByDest[dest] = files[files.length - 1];
+	    }
+	  });
+	  return files;
+	};
+	
+	// reusing bits of grunt's multi-task source normalization
+	file.normalizeFilesArray = function(data) {
+	  var files = [];
+	
+	  data.forEach(function(obj) {
+	    var prop;
+	    if ('src' in obj || 'dest' in obj) {
+	      files.push(obj);
+	    }
+	  });
+	
+	  if (files.length === 0) {
+	    return [];
+	  }
+	
+	  files = _(files).chain().forEach(function(obj) {
+	    if (!('src' in obj) || !obj.src) { return; }
+	    // Normalize .src properties to flattened array.
+	    if (Array.isArray(obj.src)) {
+	      obj.src = _.flatten(obj.src);
+	    } else {
+	      obj.src = [obj.src];
+	    }
+	  }).map(function(obj) {
+	    // Build options object, removing unwanted properties.
+	    var expandOptions = _.extend({}, obj);
+	    delete expandOptions.src;
+	    delete expandOptions.dest;
+	
+	    // Expand file mappings.
+	    if (obj.expand) {
+	      return file.expandMapping(obj.src, obj.dest, expandOptions).map(function(mapObj) {
+	        // Copy obj properties to result.
+	        var result = _.extend({}, obj);
+	        // Make a clone of the orig obj available.
+	        result.orig = _.extend({}, obj);
+	        // Set .src and .dest, processing both as templates.
+	        result.src = mapObj.src;
+	        result.dest = mapObj.dest;
+	        // Remove unwanted properties.
+	        ['expand', 'cwd', 'flatten', 'rename', 'ext'].forEach(function(prop) {
+	          delete result[prop];
+	        });
+	        return result;
+	      });
+	    }
+	
+	    // Copy obj properties to result, adding an .orig property.
+	    var result = _.extend({}, obj);
+	    // Make a clone of the orig obj available.
+	    result.orig = _.extend({}, obj);
+	
+	    if ('src' in result) {
+	      // Expose an expand-on-demand getter method as .src.
+	      Object.defineProperty(result, 'src', {
+	        enumerable: true,
+	        get: function fn() {
+	          var src;
+	          if (!('result' in fn)) {
+	            src = obj.src;
+	            // If src is an array, flatten it. Otherwise, make it into an array.
+	            src = Array.isArray(src) ? _.flatten(src) : [src];
+	            // Expand src files, memoizing result.
+	            fn.result = file.expand(expandOptions, src);
+	          }
+	          return fn.result;
+	        }
+	      });
+	    }
+	
+	    if ('dest' in result) {
+	      result.dest = obj.dest;
+	    }
+	
+	    return result;
+	  }).flatten().value();
+	
+	  return files;
+	};
 
 /***/ },
-/* 321 */
+/* 325 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * node-zip-stream
+	 *
+	 * Copyright (c) 2014 Chris Talkington, contributors.
+	 * Licensed under the MIT license.
+	 * https://github.com/archiverjs/node-zip-stream/blob/master/LICENSE-MIT
+	 */
+	var inherits = __webpack_require__(299).inherits;
+	
+	var ZipArchiveOutputStream = __webpack_require__(350).ZipArchiveOutputStream;
+	var ZipArchiveEntry = __webpack_require__(350).ZipArchiveEntry;
+	
+	var util = __webpack_require__(338);
+	
+	var ZipStream = module.exports = function(options) {
+	  if (!(this instanceof ZipStream)) {
+	    return new ZipStream(options);
+	  }
+	
+	  options = this.options = options || {};
+	  options.zlib = options.zlib || {};
+	
+	  ZipArchiveOutputStream.call(this, options);
+	
+	  if (typeof options.level === 'number' && options.level >= 0) {
+	    options.zlib.level = options.level;
+	    delete options.level;
+	  }
+	
+	  if (options.zlib.level && options.zlib.level === 0) {
+	    options.store = true;
+	  }
+	
+	  if (options.comment && options.comment.length > 0) {
+	    this.setComment(options.comment);
+	  }
+	};
+	
+	inherits(ZipStream, ZipArchiveOutputStream);
+	
+	ZipStream.prototype._normalizeFileData = function(data) {
+	  data = util.defaults(data, {
+	    type: 'file',
+	    name: null,
+	    date: null,
+	    mode: null,
+	    store: this.options.store,
+	    comment: ''
+	  });
+	
+	  var isDir = data.type === 'directory';
+	
+	  if (data.name) {
+	    data.name = util.sanitizePath(data.name);
+	
+	    if (data.name.slice(-1) === '/') {
+	      isDir = true;
+	      data.type = 'directory';
+	    } else if (isDir) {
+	      data.name += '/';
+	    }
+	  }
+	
+	  if (isDir) {
+	    data.store = true;
+	  }
+	
+	  data.date = util.dateify(data.date);
+	
+	  return data;
+	};
+	
+	ZipStream.prototype.entry = function(source, data, callback) {
+	  if (typeof callback !== 'function') {
+	    callback = this._emitErrorCallback.bind(this);
+	  }
+	
+	  data = this._normalizeFileData(data);
+	
+	  if (data.type !== 'file' && data.type !== 'directory') {
+	    callback(new Error(data.type + ' entries not currently supported'));
+	    return;
+	  }
+	
+	  if (typeof data.name !== 'string' || data.name.length === 0) {
+	    callback(new Error('entry name must be a non-empty string value'));
+	    return;
+	  }
+	
+	  var entry = new ZipArchiveEntry(data.name);
+	  entry.setTime(data.date);
+	
+	  if (data.store) {
+	    entry.setMethod(0);
+	  }
+	
+	  if (data.comment.length > 0) {
+	    entry.setComment(data.comment);
+	  }
+	
+	  if (typeof data.mode === 'number') {
+	    entry.setUnixMode(data.mode);
+	  }
+	
+	  return ZipArchiveOutputStream.prototype.entry.call(this, entry, source, callback);
+	};
+	
+	ZipStream.prototype.finalize = function() {
+	  this.finish();
+	};
+
+/***/ },
+/* 326 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Stream = __webpack_require__(318); // hack to fix a circular dependency issue when used with browserify
+	exports = module.exports = __webpack_require__(339);
+	exports.Stream = Stream;
+	exports.Readable = exports;
+	exports.Writable = __webpack_require__(340);
+	exports.Duplex = __webpack_require__(341);
+	exports.Transform = __webpack_require__(342);
+	exports.PassThrough = __webpack_require__(343);
+
+
+/***/ },
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = uidNumber
@@ -12198,8 +12829,8 @@ webpackJsonp([1],[
 	// because otherwise node would be running as that user from this
 	// point on.
 	
-	var child_process = __webpack_require__(331)
-	  , path = __webpack_require__(270)
+	var child_process = __webpack_require__(333)
+	  , path = __webpack_require__(281)
 	  , uidSupport = process.getuid && process.setuid
 	  , uidCache = {}
 	  , gidCache = {}
@@ -12220,7 +12851,7 @@ webpackJsonp([1],[
 	    return process.nextTick(cb.bind(null, null, uid, gid))
 	  }
 	
-	  var getter = /*require.resolve*/(336)
+	  var getter = /*require.resolve*/(344)
 	
 	  child_process.execFile( process.execPath
 	                        , [getter, uid, gid]
@@ -12247,241 +12878,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 322 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var fs = __webpack_require__(35)
-	var constants = __webpack_require__(333)
-	
-	var origCwd = process.cwd
-	var cwd = null
-	process.cwd = function() {
-	  if (!cwd)
-	    cwd = origCwd.call(process)
-	  return cwd
-	}
-	var chdir = process.chdir
-	process.chdir = function(d) {
-	  cwd = null
-	  chdir.call(process, d)
-	}
-	
-	// (re-)implement some things that are known busted or missing.
-	
-	// lchmod, broken prior to 0.6.2
-	// back-port the fix here.
-	if (constants.hasOwnProperty('O_SYMLINK') &&
-	    process.version.match(/^v0\.6\.[0-2]|^v0\.5\./)) {
-	  fs.lchmod = function (path, mode, callback) {
-	    callback = callback || noop
-	    fs.open( path
-	           , constants.O_WRONLY | constants.O_SYMLINK
-	           , mode
-	           , function (err, fd) {
-	      if (err) {
-	        callback(err)
-	        return
-	      }
-	      // prefer to return the chmod error, if one occurs,
-	      // but still try to close, and report closing errors if they occur.
-	      fs.fchmod(fd, mode, function (err) {
-	        fs.close(fd, function(err2) {
-	          callback(err || err2)
-	        })
-	      })
-	    })
-	  }
-	
-	  fs.lchmodSync = function (path, mode) {
-	    var fd = fs.openSync(path, constants.O_WRONLY | constants.O_SYMLINK, mode)
-	
-	    // prefer to return the chmod error, if one occurs,
-	    // but still try to close, and report closing errors if they occur.
-	    var err, err2
-	    try {
-	      var ret = fs.fchmodSync(fd, mode)
-	    } catch (er) {
-	      err = er
-	    }
-	    try {
-	      fs.closeSync(fd)
-	    } catch (er) {
-	      err2 = er
-	    }
-	    if (err || err2) throw (err || err2)
-	    return ret
-	  }
-	}
-	
-	
-	// lutimes implementation, or no-op
-	if (!fs.lutimes) {
-	  if (constants.hasOwnProperty("O_SYMLINK")) {
-	    fs.lutimes = function (path, at, mt, cb) {
-	      fs.open(path, constants.O_SYMLINK, function (er, fd) {
-	        cb = cb || noop
-	        if (er) return cb(er)
-	        fs.futimes(fd, at, mt, function (er) {
-	          fs.close(fd, function (er2) {
-	            return cb(er || er2)
-	          })
-	        })
-	      })
-	    }
-	
-	    fs.lutimesSync = function (path, at, mt) {
-	      var fd = fs.openSync(path, constants.O_SYMLINK)
-	        , err
-	        , err2
-	        , ret
-	
-	      try {
-	        var ret = fs.futimesSync(fd, at, mt)
-	      } catch (er) {
-	        err = er
-	      }
-	      try {
-	        fs.closeSync(fd)
-	      } catch (er) {
-	        err2 = er
-	      }
-	      if (err || err2) throw (err || err2)
-	      return ret
-	    }
-	
-	  } else if (fs.utimensat && constants.hasOwnProperty("AT_SYMLINK_NOFOLLOW")) {
-	    // maybe utimensat will be bound soonish?
-	    fs.lutimes = function (path, at, mt, cb) {
-	      fs.utimensat(path, at, mt, constants.AT_SYMLINK_NOFOLLOW, cb)
-	    }
-	
-	    fs.lutimesSync = function (path, at, mt) {
-	      return fs.utimensatSync(path, at, mt, constants.AT_SYMLINK_NOFOLLOW)
-	    }
-	
-	  } else {
-	    fs.lutimes = function (_a, _b, _c, cb) { process.nextTick(cb) }
-	    fs.lutimesSync = function () {}
-	  }
-	}
-	
-	
-	// https://github.com/isaacs/node-graceful-fs/issues/4
-	// Chown should not fail on einval or eperm if non-root.
-	
-	fs.chown = chownFix(fs.chown)
-	fs.fchown = chownFix(fs.fchown)
-	fs.lchown = chownFix(fs.lchown)
-	
-	fs.chownSync = chownFixSync(fs.chownSync)
-	fs.fchownSync = chownFixSync(fs.fchownSync)
-	fs.lchownSync = chownFixSync(fs.lchownSync)
-	
-	function chownFix (orig) {
-	  if (!orig) return orig
-	  return function (target, uid, gid, cb) {
-	    return orig.call(fs, target, uid, gid, function (er, res) {
-	      if (chownErOk(er)) er = null
-	      cb(er, res)
-	    })
-	  }
-	}
-	
-	function chownFixSync (orig) {
-	  if (!orig) return orig
-	  return function (target, uid, gid) {
-	    try {
-	      return orig.call(fs, target, uid, gid)
-	    } catch (er) {
-	      if (!chownErOk(er)) throw er
-	    }
-	  }
-	}
-	
-	function chownErOk (er) {
-	  // if there's no getuid, or if getuid() is something other than 0,
-	  // and the error is EINVAL or EPERM, then just ignore it.
-	  // This specific case is a silent failure in cp, install, tar,
-	  // and most other unix tools that manage permissions.
-	  // When running as root, or if other types of errors are encountered,
-	  // then it's strict.
-	  if (!er || (!process.getuid || process.getuid() !== 0)
-	      && (er.code === "EINVAL" || er.code === "EPERM")) return true
-	}
-	
-	
-	// if lchmod/lchown do not exist, then make them no-ops
-	if (!fs.lchmod) {
-	  fs.lchmod = function (path, mode, cb) {
-	    process.nextTick(cb)
-	  }
-	  fs.lchmodSync = function () {}
-	}
-	if (!fs.lchown) {
-	  fs.lchown = function (path, uid, gid, cb) {
-	    process.nextTick(cb)
-	  }
-	  fs.lchownSync = function () {}
-	}
-	
-	
-	
-	// on Windows, A/V software can lock the directory, causing this
-	// to fail with an EACCES or EPERM if the directory contains newly
-	// created files.  Try again on failure, for up to 1 second.
-	if (process.platform === "win32") {
-	  var rename_ = fs.rename
-	  fs.rename = function rename (from, to, cb) {
-	    var start = Date.now()
-	    rename_(from, to, function CB (er) {
-	      if (er
-	          && (er.code === "EACCES" || er.code === "EPERM")
-	          && Date.now() - start < 1000) {
-	        return rename_(from, to, CB)
-	      }
-	      cb(er)
-	    })
-	  }
-	}
-	
-	
-	// if read() returns EAGAIN, then just try it again.
-	var read = fs.read
-	fs.read = function (fd, buffer, offset, length, position, callback_) {
-	  var callback
-	  if (callback_ && typeof callback_ === 'function') {
-	    var eagCounter = 0
-	    callback = function (er, _, __) {
-	      if (er && er.code === 'EAGAIN' && eagCounter < 10) {
-	        eagCounter ++
-	        return read.call(fs, fd, buffer, offset, length, position, callback)
-	      }
-	      callback_.apply(this, arguments)
-	    }
-	  }
-	  return read.call(fs, fd, buffer, offset, length, position, callback)
-	}
-	
-	var readSync = fs.readSync
-	fs.readSync = function (fd, buffer, offset, length, position) {
-	  var eagCounter = 0
-	  while (true) {
-	    try {
-	      return readSync.call(fs, fd, buffer, offset, length, position)
-	    } catch (er) {
-	      if (er.code === 'EAGAIN' && eagCounter < 10) {
-	        eagCounter ++
-	        continue
-	      }
-	      throw er
-	    }
-	  }
-	}
-	
-
-
-/***/ },
-/* 323 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -13610,617 +14007,237 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 324 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Stream = __webpack_require__(319); // hack to fix a circular dependency issue when used with browserify
-	exports = module.exports = __webpack_require__(339);
-	exports.Stream = Stream;
-	exports.Readable = exports;
-	exports.Writable = __webpack_require__(340);
-	exports.Duplex = __webpack_require__(341);
-	exports.Transform = __webpack_require__(343);
-	exports.PassThrough = __webpack_require__(342);
-
-
-/***/ },
-/* 325 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * node-zip-stream
-	 *
-	 * Copyright (c) 2014 Chris Talkington, contributors.
-	 * Licensed under the MIT license.
-	 * https://github.com/archiverjs/node-zip-stream/blob/master/LICENSE-MIT
-	 */
-	var inherits = __webpack_require__(287).inherits;
-	
-	var ZipArchiveOutputStream = __webpack_require__(350).ZipArchiveOutputStream;
-	var ZipArchiveEntry = __webpack_require__(350).ZipArchiveEntry;
-	
-	var util = __webpack_require__(344);
-	
-	var ZipStream = module.exports = function(options) {
-	  if (!(this instanceof ZipStream)) {
-	    return new ZipStream(options);
-	  }
-	
-	  options = this.options = options || {};
-	  options.zlib = options.zlib || {};
-	
-	  ZipArchiveOutputStream.call(this, options);
-	
-	  if (typeof options.level === 'number' && options.level >= 0) {
-	    options.zlib.level = options.level;
-	    delete options.level;
-	  }
-	
-	  if (options.zlib.level && options.zlib.level === 0) {
-	    options.store = true;
-	  }
-	
-	  if (options.comment && options.comment.length > 0) {
-	    this.setComment(options.comment);
-	  }
-	};
-	
-	inherits(ZipStream, ZipArchiveOutputStream);
-	
-	ZipStream.prototype._normalizeFileData = function(data) {
-	  data = util.defaults(data, {
-	    type: 'file',
-	    name: null,
-	    date: null,
-	    mode: null,
-	    store: this.options.store,
-	    comment: ''
-	  });
-	
-	  var isDir = data.type === 'directory';
-	
-	  if (data.name) {
-	    data.name = util.sanitizePath(data.name);
-	
-	    if (data.name.slice(-1) === '/') {
-	      isDir = true;
-	      data.type = 'directory';
-	    } else if (isDir) {
-	      data.name += '/';
-	    }
-	  }
-	
-	  if (isDir) {
-	    data.store = true;
-	  }
-	
-	  data.date = util.dateify(data.date);
-	
-	  return data;
-	};
-	
-	ZipStream.prototype.entry = function(source, data, callback) {
-	  if (typeof callback !== 'function') {
-	    callback = this._emitErrorCallback.bind(this);
-	  }
-	
-	  data = this._normalizeFileData(data);
-	
-	  if (data.type !== 'file' && data.type !== 'directory') {
-	    callback(new Error(data.type + ' entries not currently supported'));
-	    return;
-	  }
-	
-	  if (typeof data.name !== 'string' || data.name.length === 0) {
-	    callback(new Error('entry name must be a non-empty string value'));
-	    return;
-	  }
-	
-	  var entry = new ZipArchiveEntry(data.name);
-	  entry.setTime(data.date);
-	
-	  if (data.store) {
-	    entry.setMethod(0);
-	  }
-	
-	  if (data.comment.length > 0) {
-	    entry.setComment(data.comment);
-	  }
-	
-	  if (typeof data.mode === 'number') {
-	    entry.setUnixMode(data.mode);
-	  }
-	
-	  return ZipArchiveOutputStream.prototype.entry.call(this, entry, source, callback);
-	};
-	
-	ZipStream.prototype.finalize = function() {
-	  this.finish();
-	};
-
-/***/ },
-/* 326 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * node-archiver
-	 *
-	 * Copyright (c) 2012-2014 Chris Talkington, contributors.
-	 * Licensed under the MIT license.
-	 * https://github.com/archiverjs/node-archiver/blob/master/LICENSE-MIT
-	 */
-	var fs = __webpack_require__(35);
-	var path = __webpack_require__(270);
-	
-	var _ = __webpack_require__(337);
-	var glob = __webpack_require__(349);
-	
-	var file = module.exports = {};
-	
-	var pathSeparatorRe = /[\/\\]/g;
-	
-	// Process specified wildcard glob patterns or filenames against a
-	// callback, excluding and uniquing files in the result set.
-	var processPatterns = function(patterns, fn) {
-	  // Filepaths to return.
-	  var result = [];
-	  // Iterate over flattened patterns array.
-	  _.flatten(patterns).forEach(function(pattern) {
-	    // If the first character is ! it should be omitted
-	    var exclusion = pattern.indexOf('!') === 0;
-	    // If the pattern is an exclusion, remove the !
-	    if (exclusion) { pattern = pattern.slice(1); }
-	    // Find all matching files for this pattern.
-	    var matches = fn(pattern);
-	    if (exclusion) {
-	      // If an exclusion, remove matching files.
-	      result = _.difference(result, matches);
-	    } else {
-	      // Otherwise add matching files.
-	      result = _.union(result, matches);
-	    }
-	  });
-	  return result;
-	};
-	
-	// True if the file path exists.
-	file.exists = function() {
-	  var filepath = path.join.apply(path, arguments);
-	  return fs.existsSync(filepath);
-	};
-	
-	// Return an array of all file paths that match the given wildcard patterns.
-	file.expand = function() {
-	  var args = _.toArray(arguments);
-	  // If the first argument is an options object, save those options to pass
-	  // into the File.prototype.glob.sync method.
-	  var options = _.isPlainObject(args[0]) ? args.shift() : {};
-	  // Use the first argument if it's an Array, otherwise convert the arguments
-	  // object to an array and use that.
-	  var patterns = Array.isArray(args[0]) ? args[0] : args;
-	  // Return empty set if there are no patterns or filepaths.
-	  if (patterns.length === 0) { return []; }
-	  // Return all matching filepaths.
-	  var matches = processPatterns(patterns, function(pattern) {
-	    // Find all matching files for this pattern.
-	    return glob.sync(pattern, options);
-	  });
-	  // Filter result set?
-	  if (options.filter) {
-	    matches = matches.filter(function(filepath) {
-	      filepath = path.join(options.cwd || '', filepath);
-	      try {
-	        if (typeof options.filter === 'function') {
-	          return options.filter(filepath);
-	        } else {
-	          // If the file is of the right type and exists, this should work.
-	          return fs.statSync(filepath)[options.filter]();
-	        }
-	      } catch(e) {
-	        // Otherwise, it's probably not the right type.
-	        return false;
-	      }
-	    });
-	  }
-	  return matches;
-	};
-	
-	// Build a multi task "files" object dynamically.
-	file.expandMapping = function(patterns, destBase, options) {
-	  options = _.defaults({}, options, {
-	    rename: function(destBase, destPath) {
-	      return path.join(destBase || '', destPath);
-	    }
-	  });
-	  var files = [];
-	  var fileByDest = {};
-	  // Find all files matching pattern, using passed-in options.
-	  file.expand(options, patterns).forEach(function(src) {
-	    var destPath = src;
-	    // Flatten?
-	    if (options.flatten) {
-	      destPath = path.basename(destPath);
-	    }
-	    // Change the extension?
-	    if (options.ext) {
-	      destPath = destPath.replace(/(\.[^\/]*)?$/, options.ext);
-	    }
-	    // Generate destination filename.
-	    var dest = options.rename(destBase, destPath, options);
-	    // Prepend cwd to src path if necessary.
-	    if (options.cwd) { src = path.join(options.cwd, src); }
-	    // Normalize filepaths to be unix-style.
-	    dest = dest.replace(pathSeparatorRe, '/');
-	    src = src.replace(pathSeparatorRe, '/');
-	    // Map correct src path to dest path.
-	    if (fileByDest[dest]) {
-	      // If dest already exists, push this src onto that dest's src array.
-	      fileByDest[dest].src.push(src);
-	    } else {
-	      // Otherwise create a new src-dest file mapping object.
-	      files.push({
-	        src: [src],
-	        dest: dest,
-	      });
-	      // And store a reference for later use.
-	      fileByDest[dest] = files[files.length - 1];
-	    }
-	  });
-	  return files;
-	};
-	
-	// reusing bits of grunt's multi-task source normalization
-	file.normalizeFilesArray = function(data) {
-	  var files = [];
-	
-	  data.forEach(function(obj) {
-	    var prop;
-	    if ('src' in obj || 'dest' in obj) {
-	      files.push(obj);
-	    }
-	  });
-	
-	  if (files.length === 0) {
-	    return [];
-	  }
-	
-	  files = _(files).chain().forEach(function(obj) {
-	    if (!('src' in obj) || !obj.src) { return; }
-	    // Normalize .src properties to flattened array.
-	    if (Array.isArray(obj.src)) {
-	      obj.src = _.flatten(obj.src);
-	    } else {
-	      obj.src = [obj.src];
-	    }
-	  }).map(function(obj) {
-	    // Build options object, removing unwanted properties.
-	    var expandOptions = _.extend({}, obj);
-	    delete expandOptions.src;
-	    delete expandOptions.dest;
-	
-	    // Expand file mappings.
-	    if (obj.expand) {
-	      return file.expandMapping(obj.src, obj.dest, expandOptions).map(function(mapObj) {
-	        // Copy obj properties to result.
-	        var result = _.extend({}, obj);
-	        // Make a clone of the orig obj available.
-	        result.orig = _.extend({}, obj);
-	        // Set .src and .dest, processing both as templates.
-	        result.src = mapObj.src;
-	        result.dest = mapObj.dest;
-	        // Remove unwanted properties.
-	        ['expand', 'cwd', 'flatten', 'rename', 'ext'].forEach(function(prop) {
-	          delete result[prop];
-	        });
-	        return result;
-	      });
-	    }
-	
-	    // Copy obj properties to result, adding an .orig property.
-	    var result = _.extend({}, obj);
-	    // Make a clone of the orig obj available.
-	    result.orig = _.extend({}, obj);
-	
-	    if ('src' in result) {
-	      // Expose an expand-on-demand getter method as .src.
-	      Object.defineProperty(result, 'src', {
-	        enumerable: true,
-	        get: function fn() {
-	          var src;
-	          if (!('result' in fn)) {
-	            src = obj.src;
-	            // If src is an array, flatten it. Otherwise, make it into an array.
-	            src = Array.isArray(src) ? _.flatten(src) : [src];
-	            // Expand src files, memoizing result.
-	            fn.result = file.expand(expandOptions, src);
-	          }
-	          return fn.result;
-	        }
-	      });
-	    }
-	
-	    if ('dest' in result) {
-	      result.dest = obj.dest;
-	    }
-	
-	    return result;
-	  }).flatten().value();
-	
-	  return files;
-	};
-
-/***/ },
-/* 327 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule CSSCore
-	 * @typechecks
-	 */
-	
-	var invariant = __webpack_require__(44);
-	
-	/**
-	 * The CSSCore module specifies the API (and implements most of the methods)
-	 * that should be used when dealing with the display of elements (via their
-	 * CSS classes and visibility on screen. It is an API focused on mutating the
-	 * display and not reading it as no logical state should be encoded in the
-	 * display of elements.
-	 */
-	
-	var CSSCore = {
-	
-	  /**
-	   * Adds the class passed in to the element if it doesn't already have it.
-	   *
-	   * @param {DOMElement} element the element to set the class on
-	   * @param {string} className the CSS className
-	   * @return {DOMElement} the element passed in
-	   */
-	  addClass: function(element, className) {
-	    ("production" !== process.env.NODE_ENV ? invariant(
-	      !/\s/.test(className),
-	      'CSSCore.addClass takes only a single class name. "%s" contains ' +
-	      'multiple classes.', className
-	    ) : invariant(!/\s/.test(className)));
-	
-	    if (className) {
-	      if (element.classList) {
-	        element.classList.add(className);
-	      } else if (!CSSCore.hasClass(element, className)) {
-	        element.className = element.className + ' ' + className;
-	      }
-	    }
-	    return element;
-	  },
-	
-	  /**
-	   * Removes the class passed in from the element
-	   *
-	   * @param {DOMElement} element the element to set the class on
-	   * @param {string} className the CSS className
-	   * @return {DOMElement} the element passed in
-	   */
-	  removeClass: function(element, className) {
-	    ("production" !== process.env.NODE_ENV ? invariant(
-	      !/\s/.test(className),
-	      'CSSCore.removeClass takes only a single class name. "%s" contains ' +
-	      'multiple classes.', className
-	    ) : invariant(!/\s/.test(className)));
-	
-	    if (className) {
-	      if (element.classList) {
-	        element.classList.remove(className);
-	      } else if (CSSCore.hasClass(element, className)) {
-	        element.className = element.className
-	          .replace(new RegExp('(^|\\s)' + className + '(?:\\s|$)', 'g'), '$1')
-	          .replace(/\s+/g, ' ') // multiple spaces to one
-	          .replace(/^\s*|\s*$/g, ''); // trim the ends
-	      }
-	    }
-	    return element;
-	  },
-	
-	  /**
-	   * Helper to add or remove a class from an element based on a condition.
-	   *
-	   * @param {DOMElement} element the element to set the class on
-	   * @param {string} className the CSS className
-	   * @param {*} bool condition to whether to add or remove the class
-	   * @return {DOMElement} the element passed in
-	   */
-	  conditionClass: function(element, className, bool) {
-	    return (bool ? CSSCore.addClass : CSSCore.removeClass)(element, className);
-	  },
-	
-	  /**
-	   * Tests whether the element has the class specified.
-	   *
-	   * @param {DOMNode|DOMWindow} element the element to set the class on
-	   * @param {string} className the CSS className
-	   * @return {boolean} true if the element has the class, false if not
-	   */
-	  hasClass: function(element, className) {
-	    ("production" !== process.env.NODE_ENV ? invariant(
-	      !/\s/.test(className),
-	      'CSS.hasClass takes only a single class name.'
-	    ) : invariant(!/\s/.test(className)));
-	    if (element.classList) {
-	      return !!className && element.classList.contains(className);
-	    }
-	    return (' ' + element.className + ' ').indexOf(' ' + className + ' ') > -1;
-	  }
-	
-	};
-	
-	module.exports = CSSCore;
-
-
-/***/ },
-/* 328 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule ReactTransitionEvents
-	 */
-	
-	'use strict';
-	
-	var ExecutionEnvironment = __webpack_require__(65);
-	
-	/**
-	 * EVENT_NAME_MAP is used to determine which event fired when a
-	 * transition/animation ends, based on the style property used to
-	 * define that event.
-	 */
-	var EVENT_NAME_MAP = {
-	  transitionend: {
-	    'transition': 'transitionend',
-	    'WebkitTransition': 'webkitTransitionEnd',
-	    'MozTransition': 'mozTransitionEnd',
-	    'OTransition': 'oTransitionEnd',
-	    'msTransition': 'MSTransitionEnd'
-	  },
-	
-	  animationend: {
-	    'animation': 'animationend',
-	    'WebkitAnimation': 'webkitAnimationEnd',
-	    'MozAnimation': 'mozAnimationEnd',
-	    'OAnimation': 'oAnimationEnd',
-	    'msAnimation': 'MSAnimationEnd'
-	  }
-	};
-	
-	var endEvents = [];
-	
-	function detectEvents() {
-	  var testEl = document.createElement('div');
-	  var style = testEl.style;
-	
-	  // On some platforms, in particular some releases of Android 4.x,
-	  // the un-prefixed "animation" and "transition" properties are defined on the
-	  // style object but the events that fire will still be prefixed, so we need
-	  // to check if the un-prefixed events are useable, and if not remove them
-	  // from the map
-	  if (!('AnimationEvent' in window)) {
-	    delete EVENT_NAME_MAP.animationend.animation;
-	  }
-	
-	  if (!('TransitionEvent' in window)) {
-	    delete EVENT_NAME_MAP.transitionend.transition;
-	  }
-	
-	  for (var baseEventName in EVENT_NAME_MAP) {
-	    var baseEvents = EVENT_NAME_MAP[baseEventName];
-	    for (var styleName in baseEvents) {
-	      if (styleName in style) {
-	        endEvents.push(baseEvents[styleName]);
-	        break;
-	      }
-	    }
-	  }
-	}
-	
-	if (ExecutionEnvironment.canUseDOM) {
-	  detectEvents();
-	}
-	
-	// We use the raw {add|remove}EventListener() call because EventListener
-	// does not know how to remove event listeners and we really should
-	// clean up. Also, these events are not triggered in older browsers
-	// so we should be A-OK here.
-	
-	function addEventListener(node, eventName, eventListener) {
-	  node.addEventListener(eventName, eventListener, false);
-	}
-	
-	function removeEventListener(node, eventName, eventListener) {
-	  node.removeEventListener(eventName, eventListener, false);
-	}
-	
-	var ReactTransitionEvents = {
-	  addEndEventListener: function(node, eventListener) {
-	    if (endEvents.length === 0) {
-	      // If CSS transitions are not supported, trigger an "end animation"
-	      // event immediately.
-	      window.setTimeout(eventListener, 0);
-	      return;
-	    }
-	    endEvents.forEach(function(endEvent) {
-	      addEventListener(node, endEvent, eventListener);
-	    });
-	  },
-	
-	  removeEndEventListener: function(node, eventListener) {
-	    if (endEvents.length === 0) {
-	      return;
-	    }
-	    endEvents.forEach(function(endEvent) {
-	      removeEventListener(node, endEvent, eventListener);
-	    });
-	  }
-	};
-	
-	module.exports = ReactTransitionEvents;
-
-
-/***/ },
 /* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule joinClasses
-	 * @typechecks static-only
-	 */
+	var fs = __webpack_require__(9)
+	var constants = __webpack_require__(337)
 	
-	'use strict';
-	
-	/**
-	 * Combines multiple className strings into one.
-	 * http://jsperf.com/joinclasses-args-vs-array
-	 *
-	 * @param {...?string} classes
-	 * @return {string}
-	 */
-	function joinClasses(className/*, ... */) {
-	  if (!className) {
-	    className = '';
-	  }
-	  var nextClass;
-	  var argLength = arguments.length;
-	  if (argLength > 1) {
-	    for (var ii = 1; ii < argLength; ii++) {
-	      nextClass = arguments[ii];
-	      if (nextClass) {
-	        className = (className ? className + ' ' : '') + nextClass;
-	      }
-	    }
-	  }
-	  return className;
+	var origCwd = process.cwd
+	var cwd = null
+	process.cwd = function() {
+	  if (!cwd)
+	    cwd = origCwd.call(process)
+	  return cwd
+	}
+	var chdir = process.chdir
+	process.chdir = function(d) {
+	  cwd = null
+	  chdir.call(process, d)
 	}
 	
-	module.exports = joinClasses;
+	// (re-)implement some things that are known busted or missing.
+	
+	// lchmod, broken prior to 0.6.2
+	// back-port the fix here.
+	if (constants.hasOwnProperty('O_SYMLINK') &&
+	    process.version.match(/^v0\.6\.[0-2]|^v0\.5\./)) {
+	  fs.lchmod = function (path, mode, callback) {
+	    callback = callback || noop
+	    fs.open( path
+	           , constants.O_WRONLY | constants.O_SYMLINK
+	           , mode
+	           , function (err, fd) {
+	      if (err) {
+	        callback(err)
+	        return
+	      }
+	      // prefer to return the chmod error, if one occurs,
+	      // but still try to close, and report closing errors if they occur.
+	      fs.fchmod(fd, mode, function (err) {
+	        fs.close(fd, function(err2) {
+	          callback(err || err2)
+	        })
+	      })
+	    })
+	  }
+	
+	  fs.lchmodSync = function (path, mode) {
+	    var fd = fs.openSync(path, constants.O_WRONLY | constants.O_SYMLINK, mode)
+	
+	    // prefer to return the chmod error, if one occurs,
+	    // but still try to close, and report closing errors if they occur.
+	    var err, err2
+	    try {
+	      var ret = fs.fchmodSync(fd, mode)
+	    } catch (er) {
+	      err = er
+	    }
+	    try {
+	      fs.closeSync(fd)
+	    } catch (er) {
+	      err2 = er
+	    }
+	    if (err || err2) throw (err || err2)
+	    return ret
+	  }
+	}
+	
+	
+	// lutimes implementation, or no-op
+	if (!fs.lutimes) {
+	  if (constants.hasOwnProperty("O_SYMLINK")) {
+	    fs.lutimes = function (path, at, mt, cb) {
+	      fs.open(path, constants.O_SYMLINK, function (er, fd) {
+	        cb = cb || noop
+	        if (er) return cb(er)
+	        fs.futimes(fd, at, mt, function (er) {
+	          fs.close(fd, function (er2) {
+	            return cb(er || er2)
+	          })
+	        })
+	      })
+	    }
+	
+	    fs.lutimesSync = function (path, at, mt) {
+	      var fd = fs.openSync(path, constants.O_SYMLINK)
+	        , err
+	        , err2
+	        , ret
+	
+	      try {
+	        var ret = fs.futimesSync(fd, at, mt)
+	      } catch (er) {
+	        err = er
+	      }
+	      try {
+	        fs.closeSync(fd)
+	      } catch (er) {
+	        err2 = er
+	      }
+	      if (err || err2) throw (err || err2)
+	      return ret
+	    }
+	
+	  } else if (fs.utimensat && constants.hasOwnProperty("AT_SYMLINK_NOFOLLOW")) {
+	    // maybe utimensat will be bound soonish?
+	    fs.lutimes = function (path, at, mt, cb) {
+	      fs.utimensat(path, at, mt, constants.AT_SYMLINK_NOFOLLOW, cb)
+	    }
+	
+	    fs.lutimesSync = function (path, at, mt) {
+	      return fs.utimensatSync(path, at, mt, constants.AT_SYMLINK_NOFOLLOW)
+	    }
+	
+	  } else {
+	    fs.lutimes = function (_a, _b, _c, cb) { process.nextTick(cb) }
+	    fs.lutimesSync = function () {}
+	  }
+	}
+	
+	
+	// https://github.com/isaacs/node-graceful-fs/issues/4
+	// Chown should not fail on einval or eperm if non-root.
+	
+	fs.chown = chownFix(fs.chown)
+	fs.fchown = chownFix(fs.fchown)
+	fs.lchown = chownFix(fs.lchown)
+	
+	fs.chownSync = chownFixSync(fs.chownSync)
+	fs.fchownSync = chownFixSync(fs.fchownSync)
+	fs.lchownSync = chownFixSync(fs.lchownSync)
+	
+	function chownFix (orig) {
+	  if (!orig) return orig
+	  return function (target, uid, gid, cb) {
+	    return orig.call(fs, target, uid, gid, function (er, res) {
+	      if (chownErOk(er)) er = null
+	      cb(er, res)
+	    })
+	  }
+	}
+	
+	function chownFixSync (orig) {
+	  if (!orig) return orig
+	  return function (target, uid, gid) {
+	    try {
+	      return orig.call(fs, target, uid, gid)
+	    } catch (er) {
+	      if (!chownErOk(er)) throw er
+	    }
+	  }
+	}
+	
+	function chownErOk (er) {
+	  // if there's no getuid, or if getuid() is something other than 0,
+	  // and the error is EINVAL or EPERM, then just ignore it.
+	  // This specific case is a silent failure in cp, install, tar,
+	  // and most other unix tools that manage permissions.
+	  // When running as root, or if other types of errors are encountered,
+	  // then it's strict.
+	  if (!er || (!process.getuid || process.getuid() !== 0)
+	      && (er.code === "EINVAL" || er.code === "EPERM")) return true
+	}
+	
+	
+	// if lchmod/lchown do not exist, then make them no-ops
+	if (!fs.lchmod) {
+	  fs.lchmod = function (path, mode, cb) {
+	    process.nextTick(cb)
+	  }
+	  fs.lchmodSync = function () {}
+	}
+	if (!fs.lchown) {
+	  fs.lchown = function (path, uid, gid, cb) {
+	    process.nextTick(cb)
+	  }
+	  fs.lchownSync = function () {}
+	}
+	
+	
+	
+	// on Windows, A/V software can lock the directory, causing this
+	// to fail with an EACCES or EPERM if the directory contains newly
+	// created files.  Try again on failure, for up to 1 second.
+	if (process.platform === "win32") {
+	  var rename_ = fs.rename
+	  fs.rename = function rename (from, to, cb) {
+	    var start = Date.now()
+	    rename_(from, to, function CB (er) {
+	      if (er
+	          && (er.code === "EACCES" || er.code === "EPERM")
+	          && Date.now() - start < 1000) {
+	        return rename_(from, to, CB)
+	      }
+	      cb(er)
+	    })
+	  }
+	}
+	
+	
+	// if read() returns EAGAIN, then just try it again.
+	var read = fs.read
+	fs.read = function (fd, buffer, offset, length, position, callback_) {
+	  var callback
+	  if (callback_ && typeof callback_ === 'function') {
+	    var eagCounter = 0
+	    callback = function (er, _, __) {
+	      if (er && er.code === 'EAGAIN' && eagCounter < 10) {
+	        eagCounter ++
+	        return read.call(fs, fd, buffer, offset, length, position, callback)
+	      }
+	      callback_.apply(this, arguments)
+	    }
+	  }
+	  return read.call(fs, fd, buffer, offset, length, position, callback)
+	}
+	
+	var readSync = fs.readSync
+	fs.readSync = function (fd, buffer, offset, length, position) {
+	  var eagCounter = 0
+	  while (true) {
+	    try {
+	      return readSync.call(fs, fd, buffer, offset, length, position)
+	    } catch (er) {
+	      if (er.code === 'EAGAIN' && eagCounter < 10) {
+	        eagCounter ++
+	        continue
+	      }
+	      throw er
+	    }
+	  }
+	}
+	
 
 
 /***/ },
@@ -14231,508 +14248,6 @@ webpackJsonp([1],[
 
 /***/ },
 /* 331 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = require("child_process");
-
-/***/ },
-/* 332 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = Object.keys || __webpack_require__(346);
-	
-
-
-/***/ },
-/* 333 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = require("constants");
-
-/***/ },
-/* 334 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var util = __webpack_require__(287)
-	var bl = __webpack_require__(352)
-	var xtend = __webpack_require__(354)
-	var headers = __webpack_require__(345)
-	
-	var Writable = __webpack_require__(324).Writable
-	var PassThrough = __webpack_require__(324).PassThrough
-	
-	var noop = function() {}
-	
-	var overflow = function(size) {
-	  size &= 511
-	  return size && 512 - size
-	}
-	
-	var emptyStream = function(self, offset) {
-	  var s = new Source(self, offset)
-	  s.end()
-	  return s
-	}
-	
-	var mixinPax = function(header, pax) {
-	  if (pax.path) header.name = pax.path
-	  if (pax.linkpath) header.linkname = pax.linkpath
-	  return header
-	}
-	
-	var Source = function(self, offset) {
-	  this._parent = self
-	  this.offset = offset
-	  PassThrough.call(this)
-	}
-	
-	util.inherits(Source, PassThrough)
-	
-	Source.prototype.destroy = function(err) {
-	  this._parent.destroy(err)
-	}
-	
-	var Extract = function(opts) {
-	  if (!(this instanceof Extract)) return new Extract(opts)
-	  Writable.call(this, opts)
-	
-	  this._offset = 0
-	  this._buffer = bl()
-	  this._missing = 0
-	  this._onparse = noop
-	  this._header = null
-	  this._stream = null
-	  this._overflow = null
-	  this._cb = null
-	  this._locked = false
-	  this._destroyed = false
-	  this._pax = null
-	  this._paxGlobal = null
-	  this._gnuLongPath = null
-	  this._gnuLongLinkPath = null
-	
-	  var self = this
-	  var b = self._buffer
-	
-	  var oncontinue = function() {
-	    self._continue()
-	  }
-	
-	  var onunlock = function(err) {
-	    self._locked = false
-	    if (err) return self.destroy(err)
-	    if (!self._stream) oncontinue()
-	  }
-	
-	  var onstreamend = function() {
-	    self._stream = null
-	    var drain = overflow(self._header.size)
-	    if (drain) self._parse(drain, ondrain)
-	    else self._parse(512, onheader)
-	    if (!self._locked) oncontinue()
-	  }
-	
-	  var ondrain = function() {
-	    self._buffer.consume(overflow(self._header.size))
-	    self._parse(512, onheader)
-	    oncontinue()
-	  }
-	
-	  var onpaxglobalheader = function() {
-	    var size = self._header.size
-	    self._paxGlobal = headers.decodePax(b.slice(0, size))
-	    b.consume(size)
-	    onstreamend()
-	  }
-	
-	  var onpaxheader = function() {
-	    var size = self._header.size
-	    self._pax = headers.decodePax(b.slice(0, size))
-	    if (self._paxGlobal) self._pax = xtend(self._paxGlobal, self._pax)
-	    b.consume(size)
-	    onstreamend()
-	  }
-	
-	  var ongnulongpath = function() {
-	    var size = self._header.size
-	    this._gnuLongPath = headers.decodeLongPath(b.slice(0, size))
-	    b.consume(size)
-	    onstreamend()
-	  }
-	
-	  var ongnulonglinkpath = function() {
-	    var size = self._header.size
-	    this._gnuLongLinkPath = headers.decodeLongPath(b.slice(0, size))
-	    b.consume(size)
-	    onstreamend()
-	  }
-	
-	  var onheader = function() {
-	    var offset = self._offset
-	    var header
-	    try {
-	      header = self._header = headers.decode(b.slice(0, 512))
-	    } catch (err) {
-	      self.emit('error', err)
-	    }
-	    b.consume(512)
-	
-	    if (!header) {
-	      self._parse(512, onheader)
-	      oncontinue()
-	      return
-	    }
-	    if (header.type === 'gnu-long-path') {
-	      self._parse(header.size, ongnulongpath)
-	      oncontinue()
-	      return
-	    }
-	    if (header.type === 'gnu-long-link-path') {
-	      self._parse(header.size, ongnulonglinkpath)
-	      oncontinue()
-	      return
-	    }
-	    if (header.type === 'pax-global-header') {
-	      self._parse(header.size, onpaxglobalheader)
-	      oncontinue()
-	      return
-	    }
-	    if (header.type === 'pax-header') {
-	      self._parse(header.size, onpaxheader)
-	      oncontinue()
-	      return
-	    }
-	
-	    if (self._gnuLongPath) {
-	      header.name = self._gnuLongPath
-	      self._gnuLongPath = null
-	    }
-	
-	    if (self._gnuLongLinkPath) {
-	      header.linkname = self._gnuLongLinkPath
-	      self._gnuLongLinkPath = null
-	    }
-	
-	    if (self._pax) {
-	      self._header = header = mixinPax(header, self._pax)
-	      self._pax = null
-	    }
-	
-	    self._locked = true
-	
-	    if (!header.size) {
-	      self._parse(512, onheader)
-	      self.emit('entry', header, emptyStream(self, offset), onunlock)
-	      return
-	    }
-	
-	    self._stream = new Source(self, offset)
-	
-	    self.emit('entry', header, self._stream, onunlock)
-	    self._parse(header.size, onstreamend)
-	    oncontinue()
-	  }
-	
-	  this._parse(512, onheader)
-	}
-	
-	util.inherits(Extract, Writable)
-	
-	Extract.prototype.destroy = function(err) {
-	  if (this._destroyed) return
-	  this._destroyed = true
-	
-	  if (err) this.emit('error', err)
-	  this.emit('close')
-	  if (this._stream) this._stream.emit('close')
-	}
-	
-	Extract.prototype._parse = function(size, onparse) {
-	  if (this._destroyed) return
-	  this._offset += size
-	  this._missing = size
-	  this._onparse = onparse
-	}
-	
-	Extract.prototype._continue = function(err) {
-	  if (this._destroyed) return
-	  var cb = this._cb
-	  this._cb = noop
-	  if (this._overflow) this._write(this._overflow, undefined, cb)
-	  else cb()
-	}
-	
-	Extract.prototype._write = function(data, enc, cb) {
-	  if (this._destroyed) return
-	
-	  var s = this._stream
-	  var b = this._buffer
-	  var missing = this._missing
-	
-	  // we do not reach end-of-chunk now. just forward it
-	
-	  if (data.length < missing) {
-	    this._missing -= data.length
-	    this._overflow = null
-	    if (s) return s.write(data, cb)
-	    b.append(data)
-	    return cb()
-	  }
-	
-	  // end-of-chunk. the parser should call cb.
-	
-	  this._cb = cb
-	  this._missing = 0
-	
-	  var overflow = null
-	  if (data.length > missing) {
-	    overflow = data.slice(missing)
-	    data = data.slice(0, missing)
-	  }
-	
-	  if (s) s.end(data)
-	  else b.append(data)
-	
-	  this._overflow = overflow
-	  this._onparse()
-	}
-	
-	module.exports = Extract
-
-
-/***/ },
-/* 335 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var util = __webpack_require__(287)
-	var eos = __webpack_require__(351)
-	var headers = __webpack_require__(345)
-	
-	var Readable = __webpack_require__(324).Readable
-	var Writable = __webpack_require__(324).Writable
-	var PassThrough = __webpack_require__(324).PassThrough
-	
-	var END_OF_TAR = new Buffer(1024)
-	END_OF_TAR.fill(0)
-	
-	var noop = function() {}
-	
-	var overflow = function(self, size) {
-	  size &= 511
-	  if (size) self.push(END_OF_TAR.slice(0, 512 - size))
-	}
-	
-	var Sink = function(to) {
-	  Writable.call(this)
-	  this.written = 0
-	  this._to = to
-	  this._destroyed = false
-	}
-	
-	util.inherits(Sink, Writable)
-	
-	Sink.prototype._write = function(data, enc, cb) {
-	  this.written += data.length
-	  if (this._to.push(data)) return cb()
-	  this._to._drain = cb
-	}
-	
-	Sink.prototype.destroy = function() {
-	  if (this._destroyed) return
-	  this._destroyed = true
-	  this.emit('close')
-	}
-	
-	var Void = function() {
-	  Writable.call(this)
-	  this._destroyed = false
-	}
-	
-	util.inherits(Void, Writable)
-	
-	Void.prototype._write = function(data, enc, cb) {
-	  cb(new Error('No body allowed for this entry'))
-	}
-	
-	Void.prototype.destroy = function() {
-	  if (this._destroyed) return
-	  this._destroyed = true
-	  this.emit('close')
-	}
-	
-	var Pack = function(opts) {
-	  if (!(this instanceof Pack)) return new Pack(opts)
-	  Readable.call(this, opts)
-	
-	  this._drain = noop
-	  this._finalized = false
-	  this._finalizing = false
-	  this._destroyed = false
-	  this._stream = null
-	}
-	
-	util.inherits(Pack, Readable)
-	
-	Pack.prototype.entry = function(header, buffer, callback) {
-	  if (this._stream) throw new Error('already piping an entry')
-	  if (this._finalized || this._destroyed) return
-	
-	  if (typeof buffer === 'function') {
-	    callback = buffer
-	    buffer = null
-	  }
-	
-	  if (!callback) callback = noop
-	
-	  var self = this
-	
-	  if (!header.size)  header.size = 0
-	  if (!header.type)  header.type = 'file'
-	  if (!header.mode)  header.mode = header.type === 'directory' ? 0755 : 0644
-	  if (!header.uid)   header.uid = 0
-	  if (!header.gid)   header.gid = 0
-	  if (!header.mtime) header.mtime = new Date()
-	
-	  if (typeof buffer === 'string') buffer = new Buffer(buffer)
-	  if (Buffer.isBuffer(buffer)) {
-	    header.size = buffer.length
-	    this._encode(header)
-	    this.push(buffer)
-	    overflow(self, header.size)
-	    process.nextTick(callback)
-	    return new Void()
-	  }
-	  if (header.type !== 'file' && header.type !== 'contigious-file') {
-	    this._encode(header)
-	    process.nextTick(callback)
-	    return new Void()
-	  }
-	
-	  var sink = new Sink(this)
-	
-	  this._encode(header)
-	  this._stream = sink
-	
-	  eos(sink, function(err) {
-	    self._stream = null
-	
-	    if (err) { // stream was closed
-	      self.destroy()
-	      return callback(err)
-	    }
-	
-	    if (sink.written !== header.size) { // corrupting tar
-	      self.destroy()
-	      return callback(new Error('size mismatch'))
-	    }
-	
-	    overflow(self, header.size)
-	    if (self._finalizing) self.finalize()
-	    callback()
-	  })
-	
-	  return sink
-	}
-	
-	Pack.prototype.finalize = function() {
-	  if (this._stream) {
-	    this._finalizing = true
-	    return
-	  }
-	
-	  if (this._finalized) return
-	  this._finalized = true
-	  this.push(END_OF_TAR)
-	  this.push(null)
-	}
-	
-	Pack.prototype.destroy = function(err) {
-	  if (this._destroyed) return
-	  this._destroyed = true
-	
-	  if (err) this.emit('error', err)
-	  this.emit('close')
-	  if (this._stream && this._stream.destroy) this._stream.destroy()
-	}
-	
-	Pack.prototype._encode = function(header) {
-	  var buf = headers.encode(header)
-	  if (buf) this.push(buf)
-	  else this._encodePax(header)
-	}
-	
-	Pack.prototype._encodePax = function(header) {
-	  var paxHeader = headers.encodePax({
-	    name: header.name,
-	    linkname: header.linkname
-	  })
-	
-	  var newHeader = {
-	    name: 'PaxHeader',
-	    mode: header.mode,
-	    uid: header.uid,
-	    gid: header.gid,
-	    size: paxHeader.length,
-	    mtime: header.mtime,
-	    type: 'pax-header',
-	    linkname: header.linkname && 'PaxHeader',
-	    uname: header.uname,
-	    gname: header.gname,
-	    devmajor: header.devmajor,
-	    devminor: header.devminor
-	  }
-	
-	  this.push(headers.encode(newHeader))
-	  this.push(paxHeader)
-	  overflow(this, paxHeader.length)
-	
-	  newHeader.size = header.size
-	  newHeader.type = header.type
-	  this.push(headers.encode(newHeader))
-	}
-	
-	Pack.prototype._read = function(n) {
-	  var drain = this._drain
-	  this._drain = noop
-	  drain()
-	}
-	
-	module.exports = Pack
-
-
-/***/ },
-/* 336 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(module) {if (module !== __webpack_require__.c[0]) {
-	  throw new Error("This file should not be loaded with require()")
-	}
-	
-	if (!process.getuid || !process.getgid) {
-	  throw new Error("this file should not be called without uid/gid support")
-	}
-	
-	var argv = process.argv.slice(2)
-	  , user = argv[0] || process.getuid()
-	  , group = argv[1] || process.getgid()
-	
-	if (!isNaN(user)) user = +user
-	if (!isNaN(group)) group = +group
-	
-	console.error([user, group])
-	
-	try {
-	  process.setgid(group)
-	  process.setuid(user)
-	  console.log(JSON.stringify({uid:+process.getuid(), gid:+process.getgid()}))
-	} catch (ex) {
-	  console.log(JSON.stringify({error:ex.message,errno:ex.errno}))
-	}
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(41)(module)))
-
-/***/ },
-/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module) {/**
@@ -25978,15 +25493,29 @@ webpackJsonp([1],[
 	  }
 	}.call(this));
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(41)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(54)(module)))
 
 /***/ },
-/* 338 */
+/* 332 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = Object.keys || __webpack_require__(347);
+	
+
+
+/***/ },
+/* 333 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = require("child_process");
+
+/***/ },
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	var util = __webpack_require__(287);
-	var PassThrough = __webpack_require__(319).PassThrough || __webpack_require__(348);
+	var util = __webpack_require__(299);
+	var PassThrough = __webpack_require__(318).PassThrough || __webpack_require__(349);
 	
 	module.exports = {
 	  Readable: Readable,
@@ -26039,6 +25568,571 @@ webpackJsonp([1],[
 
 
 /***/ },
+/* 335 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var util = __webpack_require__(299)
+	var bl = __webpack_require__(360)
+	var xtend = __webpack_require__(357)
+	var headers = __webpack_require__(348)
+	
+	var Writable = __webpack_require__(326).Writable
+	var PassThrough = __webpack_require__(326).PassThrough
+	
+	var noop = function() {}
+	
+	var overflow = function(size) {
+	  size &= 511
+	  return size && 512 - size
+	}
+	
+	var emptyStream = function(self, offset) {
+	  var s = new Source(self, offset)
+	  s.end()
+	  return s
+	}
+	
+	var mixinPax = function(header, pax) {
+	  if (pax.path) header.name = pax.path
+	  if (pax.linkpath) header.linkname = pax.linkpath
+	  return header
+	}
+	
+	var Source = function(self, offset) {
+	  this._parent = self
+	  this.offset = offset
+	  PassThrough.call(this)
+	}
+	
+	util.inherits(Source, PassThrough)
+	
+	Source.prototype.destroy = function(err) {
+	  this._parent.destroy(err)
+	}
+	
+	var Extract = function(opts) {
+	  if (!(this instanceof Extract)) return new Extract(opts)
+	  Writable.call(this, opts)
+	
+	  this._offset = 0
+	  this._buffer = bl()
+	  this._missing = 0
+	  this._onparse = noop
+	  this._header = null
+	  this._stream = null
+	  this._overflow = null
+	  this._cb = null
+	  this._locked = false
+	  this._destroyed = false
+	  this._pax = null
+	  this._paxGlobal = null
+	  this._gnuLongPath = null
+	  this._gnuLongLinkPath = null
+	
+	  var self = this
+	  var b = self._buffer
+	
+	  var oncontinue = function() {
+	    self._continue()
+	  }
+	
+	  var onunlock = function(err) {
+	    self._locked = false
+	    if (err) return self.destroy(err)
+	    if (!self._stream) oncontinue()
+	  }
+	
+	  var onstreamend = function() {
+	    self._stream = null
+	    var drain = overflow(self._header.size)
+	    if (drain) self._parse(drain, ondrain)
+	    else self._parse(512, onheader)
+	    if (!self._locked) oncontinue()
+	  }
+	
+	  var ondrain = function() {
+	    self._buffer.consume(overflow(self._header.size))
+	    self._parse(512, onheader)
+	    oncontinue()
+	  }
+	
+	  var onpaxglobalheader = function() {
+	    var size = self._header.size
+	    self._paxGlobal = headers.decodePax(b.slice(0, size))
+	    b.consume(size)
+	    onstreamend()
+	  }
+	
+	  var onpaxheader = function() {
+	    var size = self._header.size
+	    self._pax = headers.decodePax(b.slice(0, size))
+	    if (self._paxGlobal) self._pax = xtend(self._paxGlobal, self._pax)
+	    b.consume(size)
+	    onstreamend()
+	  }
+	
+	  var ongnulongpath = function() {
+	    var size = self._header.size
+	    this._gnuLongPath = headers.decodeLongPath(b.slice(0, size))
+	    b.consume(size)
+	    onstreamend()
+	  }
+	
+	  var ongnulonglinkpath = function() {
+	    var size = self._header.size
+	    this._gnuLongLinkPath = headers.decodeLongPath(b.slice(0, size))
+	    b.consume(size)
+	    onstreamend()
+	  }
+	
+	  var onheader = function() {
+	    var offset = self._offset
+	    var header
+	    try {
+	      header = self._header = headers.decode(b.slice(0, 512))
+	    } catch (err) {
+	      self.emit('error', err)
+	    }
+	    b.consume(512)
+	
+	    if (!header) {
+	      self._parse(512, onheader)
+	      oncontinue()
+	      return
+	    }
+	    if (header.type === 'gnu-long-path') {
+	      self._parse(header.size, ongnulongpath)
+	      oncontinue()
+	      return
+	    }
+	    if (header.type === 'gnu-long-link-path') {
+	      self._parse(header.size, ongnulonglinkpath)
+	      oncontinue()
+	      return
+	    }
+	    if (header.type === 'pax-global-header') {
+	      self._parse(header.size, onpaxglobalheader)
+	      oncontinue()
+	      return
+	    }
+	    if (header.type === 'pax-header') {
+	      self._parse(header.size, onpaxheader)
+	      oncontinue()
+	      return
+	    }
+	
+	    if (self._gnuLongPath) {
+	      header.name = self._gnuLongPath
+	      self._gnuLongPath = null
+	    }
+	
+	    if (self._gnuLongLinkPath) {
+	      header.linkname = self._gnuLongLinkPath
+	      self._gnuLongLinkPath = null
+	    }
+	
+	    if (self._pax) {
+	      self._header = header = mixinPax(header, self._pax)
+	      self._pax = null
+	    }
+	
+	    self._locked = true
+	
+	    if (!header.size) {
+	      self._parse(512, onheader)
+	      self.emit('entry', header, emptyStream(self, offset), onunlock)
+	      return
+	    }
+	
+	    self._stream = new Source(self, offset)
+	
+	    self.emit('entry', header, self._stream, onunlock)
+	    self._parse(header.size, onstreamend)
+	    oncontinue()
+	  }
+	
+	  this._parse(512, onheader)
+	}
+	
+	util.inherits(Extract, Writable)
+	
+	Extract.prototype.destroy = function(err) {
+	  if (this._destroyed) return
+	  this._destroyed = true
+	
+	  if (err) this.emit('error', err)
+	  this.emit('close')
+	  if (this._stream) this._stream.emit('close')
+	}
+	
+	Extract.prototype._parse = function(size, onparse) {
+	  if (this._destroyed) return
+	  this._offset += size
+	  this._missing = size
+	  this._onparse = onparse
+	}
+	
+	Extract.prototype._continue = function(err) {
+	  if (this._destroyed) return
+	  var cb = this._cb
+	  this._cb = noop
+	  if (this._overflow) this._write(this._overflow, undefined, cb)
+	  else cb()
+	}
+	
+	Extract.prototype._write = function(data, enc, cb) {
+	  if (this._destroyed) return
+	
+	  var s = this._stream
+	  var b = this._buffer
+	  var missing = this._missing
+	
+	  // we do not reach end-of-chunk now. just forward it
+	
+	  if (data.length < missing) {
+	    this._missing -= data.length
+	    this._overflow = null
+	    if (s) return s.write(data, cb)
+	    b.append(data)
+	    return cb()
+	  }
+	
+	  // end-of-chunk. the parser should call cb.
+	
+	  this._cb = cb
+	  this._missing = 0
+	
+	  var overflow = null
+	  if (data.length > missing) {
+	    overflow = data.slice(missing)
+	    data = data.slice(0, missing)
+	  }
+	
+	  if (s) s.end(data)
+	  else b.append(data)
+	
+	  this._overflow = overflow
+	  this._onparse()
+	}
+	
+	module.exports = Extract
+
+
+/***/ },
+/* 336 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var util = __webpack_require__(299)
+	var eos = __webpack_require__(353)
+	var headers = __webpack_require__(348)
+	
+	var Readable = __webpack_require__(326).Readable
+	var Writable = __webpack_require__(326).Writable
+	var PassThrough = __webpack_require__(326).PassThrough
+	
+	var END_OF_TAR = new Buffer(1024)
+	END_OF_TAR.fill(0)
+	
+	var noop = function() {}
+	
+	var overflow = function(self, size) {
+	  size &= 511
+	  if (size) self.push(END_OF_TAR.slice(0, 512 - size))
+	}
+	
+	var Sink = function(to) {
+	  Writable.call(this)
+	  this.written = 0
+	  this._to = to
+	  this._destroyed = false
+	}
+	
+	util.inherits(Sink, Writable)
+	
+	Sink.prototype._write = function(data, enc, cb) {
+	  this.written += data.length
+	  if (this._to.push(data)) return cb()
+	  this._to._drain = cb
+	}
+	
+	Sink.prototype.destroy = function() {
+	  if (this._destroyed) return
+	  this._destroyed = true
+	  this.emit('close')
+	}
+	
+	var Void = function() {
+	  Writable.call(this)
+	  this._destroyed = false
+	}
+	
+	util.inherits(Void, Writable)
+	
+	Void.prototype._write = function(data, enc, cb) {
+	  cb(new Error('No body allowed for this entry'))
+	}
+	
+	Void.prototype.destroy = function() {
+	  if (this._destroyed) return
+	  this._destroyed = true
+	  this.emit('close')
+	}
+	
+	var Pack = function(opts) {
+	  if (!(this instanceof Pack)) return new Pack(opts)
+	  Readable.call(this, opts)
+	
+	  this._drain = noop
+	  this._finalized = false
+	  this._finalizing = false
+	  this._destroyed = false
+	  this._stream = null
+	}
+	
+	util.inherits(Pack, Readable)
+	
+	Pack.prototype.entry = function(header, buffer, callback) {
+	  if (this._stream) throw new Error('already piping an entry')
+	  if (this._finalized || this._destroyed) return
+	
+	  if (typeof buffer === 'function') {
+	    callback = buffer
+	    buffer = null
+	  }
+	
+	  if (!callback) callback = noop
+	
+	  var self = this
+	
+	  if (!header.size)  header.size = 0
+	  if (!header.type)  header.type = 'file'
+	  if (!header.mode)  header.mode = header.type === 'directory' ? 0755 : 0644
+	  if (!header.uid)   header.uid = 0
+	  if (!header.gid)   header.gid = 0
+	  if (!header.mtime) header.mtime = new Date()
+	
+	  if (typeof buffer === 'string') buffer = new Buffer(buffer)
+	  if (Buffer.isBuffer(buffer)) {
+	    header.size = buffer.length
+	    this._encode(header)
+	    this.push(buffer)
+	    overflow(self, header.size)
+	    process.nextTick(callback)
+	    return new Void()
+	  }
+	  if (header.type !== 'file' && header.type !== 'contigious-file') {
+	    this._encode(header)
+	    process.nextTick(callback)
+	    return new Void()
+	  }
+	
+	  var sink = new Sink(this)
+	
+	  this._encode(header)
+	  this._stream = sink
+	
+	  eos(sink, function(err) {
+	    self._stream = null
+	
+	    if (err) { // stream was closed
+	      self.destroy()
+	      return callback(err)
+	    }
+	
+	    if (sink.written !== header.size) { // corrupting tar
+	      self.destroy()
+	      return callback(new Error('size mismatch'))
+	    }
+	
+	    overflow(self, header.size)
+	    if (self._finalizing) self.finalize()
+	    callback()
+	  })
+	
+	  return sink
+	}
+	
+	Pack.prototype.finalize = function() {
+	  if (this._stream) {
+	    this._finalizing = true
+	    return
+	  }
+	
+	  if (this._finalized) return
+	  this._finalized = true
+	  this.push(END_OF_TAR)
+	  this.push(null)
+	}
+	
+	Pack.prototype.destroy = function(err) {
+	  if (this._destroyed) return
+	  this._destroyed = true
+	
+	  if (err) this.emit('error', err)
+	  this.emit('close')
+	  if (this._stream && this._stream.destroy) this._stream.destroy()
+	}
+	
+	Pack.prototype._encode = function(header) {
+	  var buf = headers.encode(header)
+	  if (buf) this.push(buf)
+	  else this._encodePax(header)
+	}
+	
+	Pack.prototype._encodePax = function(header) {
+	  var paxHeader = headers.encodePax({
+	    name: header.name,
+	    linkname: header.linkname
+	  })
+	
+	  var newHeader = {
+	    name: 'PaxHeader',
+	    mode: header.mode,
+	    uid: header.uid,
+	    gid: header.gid,
+	    size: paxHeader.length,
+	    mtime: header.mtime,
+	    type: 'pax-header',
+	    linkname: header.linkname && 'PaxHeader',
+	    uname: header.uname,
+	    gname: header.gname,
+	    devmajor: header.devmajor,
+	    devminor: header.devminor
+	  }
+	
+	  this.push(headers.encode(newHeader))
+	  this.push(paxHeader)
+	  overflow(this, paxHeader.length)
+	
+	  newHeader.size = header.size
+	  newHeader.type = header.type
+	  this.push(headers.encode(newHeader))
+	}
+	
+	Pack.prototype._read = function(n) {
+	  var drain = this._drain
+	  this._drain = noop
+	  drain()
+	}
+	
+	module.exports = Pack
+
+
+/***/ },
+/* 337 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = require("constants");
+
+/***/ },
+/* 338 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * node-zip-stream
+	 *
+	 * Copyright (c) 2014 Chris Talkington, contributors.
+	 * Licensed under the MIT license.
+	 * https://github.com/archiverjs/node-zip-stream/blob/master/LICENSE-MIT
+	 */
+	var fs = __webpack_require__(9);
+	var path = __webpack_require__(281);
+	
+	var Stream = __webpack_require__(318).Stream;
+	var PassThrough = __webpack_require__(326).PassThrough;
+	
+	var _ = __webpack_require__(331);
+	
+	var util = module.exports = {};
+	
+	util.convertDateTimeDos = function(input) {
+	  return new Date(
+	    ((input >> 25) & 0x7f) + 1980,
+	    ((input >> 21) & 0x0f) - 1,
+	    (input >> 16) & 0x1f,
+	    (input >> 11) & 0x1f,
+	    (input >> 5) & 0x3f,
+	    (input & 0x1f) << 1
+	  );
+	};
+	
+	util.dateify = function(dateish) {
+	  dateish = dateish || new Date();
+	
+	  if (dateish instanceof Date) {
+	    dateish = dateish;
+	  } else if (typeof dateish === 'string') {
+	    dateish = new Date(dateish);
+	  } else {
+	    dateish = new Date();
+	  }
+	
+	  return dateish;
+	};
+	
+	// this is slightly different from lodash version
+	util.defaults = function(object, source, guard) {
+	  var args = arguments;
+	  args[0] = args[0] || {};
+	
+	  return _.defaults.apply(_, args);
+	};
+	
+	util.dosDateTime = function(d, utc) {
+	  d = (d instanceof Date) ? d : util.dateify(d);
+	  utc = utc || false;
+	
+	  var year = utc ? d.getUTCFullYear() : d.getFullYear();
+	
+	  if (year < 1980) {
+	    return 2162688; // 1980-1-1 00:00:00
+	  } else if (year >= 2044) {
+	    return 2141175677; // 2043-12-31 23:59:58
+	  }
+	
+	  var val = {
+	    year: year,
+	    month: utc ? d.getUTCMonth() : d.getMonth(),
+	    date: utc ? d.getUTCDate() : d.getDate(),
+	    hours: utc ? d.getUTCHours() : d.getHours(),
+	    minutes: utc ? d.getUTCMinutes() : d.getMinutes(),
+	    seconds: utc ? d.getUTCSeconds() : d.getSeconds()
+	  };
+	
+	  return ((val.year-1980) << 25) | ((val.month+1) << 21) | (val.date << 16) |
+	    (val.hours << 11) | (val.minutes << 5) | (val.seconds / 2);
+	};
+	
+	util.isStream = function(source) {
+	  return source instanceof Stream;
+	};
+	
+	util.normalizeInputSource = function(source) {
+	  if (source === null) {
+	    return new Buffer(0);
+	  } else if (typeof source === 'string') {
+	    return new Buffer(source);
+	  } else if (util.isStream(source) && !source._readableState) {
+	    var normalized = new PassThrough();
+	    source.pipe(normalized);
+	
+	    return normalized;
+	  }
+	
+	  return source;
+	};
+	
+	util.sanitizePath = function() {
+	  var filepath = path.join.apply(path, arguments);
+	  return filepath.replace(/\\/g, '/').replace(/:/g, '').replace(/^\/+/, '');
+	};
+	
+	util.unixifyPath = function() {
+	  var filepath = path.join.apply(path, arguments);
+	  return filepath.replace(/\\/g, '/');
+	};
+
+/***/ },
 /* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -26066,7 +26160,7 @@ webpackJsonp([1],[
 	module.exports = Readable;
 	
 	/*<replacement>*/
-	var isArray = __webpack_require__(357);
+	var isArray = __webpack_require__(358);
 	/*</replacement>*/
 	
 	
@@ -26076,7 +26170,7 @@ webpackJsonp([1],[
 	
 	Readable.ReadableState = ReadableState;
 	
-	var EE = __webpack_require__(347).EventEmitter;
+	var EE = __webpack_require__(346).EventEmitter;
 	
 	/*<replacement>*/
 	if (!EE.listenerCount) EE.listenerCount = function(emitter, type) {
@@ -26084,11 +26178,11 @@ webpackJsonp([1],[
 	};
 	/*</replacement>*/
 	
-	var Stream = __webpack_require__(319);
+	var Stream = __webpack_require__(318);
 	
 	/*<replacement>*/
-	var util = __webpack_require__(360);
-	util.inherits = __webpack_require__(361);
+	var util = __webpack_require__(359);
+	util.inherits = __webpack_require__(365);
 	/*</replacement>*/
 	
 	var StringDecoder;
@@ -26157,7 +26251,7 @@ webpackJsonp([1],[
 	  this.encoding = null;
 	  if (options.encoding) {
 	    if (!StringDecoder)
-	      StringDecoder = __webpack_require__(353).StringDecoder;
+	      StringDecoder = __webpack_require__(354).StringDecoder;
 	    this.decoder = new StringDecoder(options.encoding);
 	    this.encoding = options.encoding;
 	  }
@@ -26258,7 +26352,7 @@ webpackJsonp([1],[
 	// backwards compatibility.
 	Readable.prototype.setEncoding = function(enc) {
 	  if (!StringDecoder)
-	    StringDecoder = __webpack_require__(353).StringDecoder;
+	    StringDecoder = __webpack_require__(354).StringDecoder;
 	  this._readableState.decoder = new StringDecoder(enc);
 	  this._readableState.encoding = enc;
 	};
@@ -27065,11 +27159,11 @@ webpackJsonp([1],[
 	
 	
 	/*<replacement>*/
-	var util = __webpack_require__(360);
-	util.inherits = __webpack_require__(361);
+	var util = __webpack_require__(359);
+	util.inherits = __webpack_require__(365);
 	/*</replacement>*/
 	
-	var Stream = __webpack_require__(319);
+	var Stream = __webpack_require__(318);
 	
 	util.inherits(Writable, Stream);
 	
@@ -27460,8 +27554,8 @@ webpackJsonp([1],[
 	
 	
 	/*<replacement>*/
-	var util = __webpack_require__(360);
-	util.inherits = __webpack_require__(361);
+	var util = __webpack_require__(359);
+	util.inherits = __webpack_require__(365);
 	/*</replacement>*/
 	
 	var Readable = __webpack_require__(339);
@@ -27538,58 +27632,6 @@ webpackJsonp([1],[
 	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 	// USE OR OTHER DEALINGS IN THE SOFTWARE.
 	
-	// a passthrough stream.
-	// basically just the most minimal sort of Transform stream.
-	// Every written chunk gets output as-is.
-	
-	module.exports = PassThrough;
-	
-	var Transform = __webpack_require__(343);
-	
-	/*<replacement>*/
-	var util = __webpack_require__(360);
-	util.inherits = __webpack_require__(361);
-	/*</replacement>*/
-	
-	util.inherits(PassThrough, Transform);
-	
-	function PassThrough(options) {
-	  if (!(this instanceof PassThrough))
-	    return new PassThrough(options);
-	
-	  Transform.call(this, options);
-	}
-	
-	PassThrough.prototype._transform = function(chunk, encoding, cb) {
-	  cb(null, chunk);
-	};
-
-
-/***/ },
-/* 343 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// Copyright Joyent, Inc. and other Node contributors.
-	//
-	// Permission is hereby granted, free of charge, to any person obtaining a
-	// copy of this software and associated documentation files (the
-	// "Software"), to deal in the Software without restriction, including
-	// without limitation the rights to use, copy, modify, merge, publish,
-	// distribute, sublicense, and/or sell copies of the Software, and to permit
-	// persons to whom the Software is furnished to do so, subject to the
-	// following conditions:
-	//
-	// The above copyright notice and this permission notice shall be included
-	// in all copies or substantial portions of the Software.
-	//
-	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-	// USE OR OTHER DEALINGS IN THE SOFTWARE.
-	
 	
 	// a transform stream is a readable/writable stream where you do
 	// something with the data.  Sometimes it's called a "filter",
@@ -27638,8 +27680,8 @@ webpackJsonp([1],[
 	var Duplex = __webpack_require__(341);
 	
 	/*<replacement>*/
-	var util = __webpack_require__(360);
-	util.inherits = __webpack_require__(361);
+	var util = __webpack_require__(359);
+	util.inherits = __webpack_require__(365);
 	/*</replacement>*/
 	
 	util.inherits(Transform, Duplex);
@@ -27782,434 +27824,90 @@ webpackJsonp([1],[
 
 
 /***/ },
+/* 343 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// Copyright Joyent, Inc. and other Node contributors.
+	//
+	// Permission is hereby granted, free of charge, to any person obtaining a
+	// copy of this software and associated documentation files (the
+	// "Software"), to deal in the Software without restriction, including
+	// without limitation the rights to use, copy, modify, merge, publish,
+	// distribute, sublicense, and/or sell copies of the Software, and to permit
+	// persons to whom the Software is furnished to do so, subject to the
+	// following conditions:
+	//
+	// The above copyright notice and this permission notice shall be included
+	// in all copies or substantial portions of the Software.
+	//
+	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+	// USE OR OTHER DEALINGS IN THE SOFTWARE.
+	
+	// a passthrough stream.
+	// basically just the most minimal sort of Transform stream.
+	// Every written chunk gets output as-is.
+	
+	module.exports = PassThrough;
+	
+	var Transform = __webpack_require__(342);
+	
+	/*<replacement>*/
+	var util = __webpack_require__(359);
+	util.inherits = __webpack_require__(365);
+	/*</replacement>*/
+	
+	util.inherits(PassThrough, Transform);
+	
+	function PassThrough(options) {
+	  if (!(this instanceof PassThrough))
+	    return new PassThrough(options);
+	
+	  Transform.call(this, options);
+	}
+	
+	PassThrough.prototype._transform = function(chunk, encoding, cb) {
+	  cb(null, chunk);
+	};
+
+
+/***/ },
 /* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/**
-	 * node-zip-stream
-	 *
-	 * Copyright (c) 2014 Chris Talkington, contributors.
-	 * Licensed under the MIT license.
-	 * https://github.com/archiverjs/node-zip-stream/blob/master/LICENSE-MIT
-	 */
-	var fs = __webpack_require__(35);
-	var path = __webpack_require__(270);
+	/* WEBPACK VAR INJECTION */(function(module) {if (module !== __webpack_require__.c[0]) {
+	  throw new Error("This file should not be loaded with require()")
+	}
 	
-	var Stream = __webpack_require__(319).Stream;
-	var PassThrough = __webpack_require__(324).PassThrough;
+	if (!process.getuid || !process.getgid) {
+	  throw new Error("this file should not be called without uid/gid support")
+	}
 	
-	var _ = __webpack_require__(337);
+	var argv = process.argv.slice(2)
+	  , user = argv[0] || process.getuid()
+	  , group = argv[1] || process.getgid()
 	
-	var util = module.exports = {};
+	if (!isNaN(user)) user = +user
+	if (!isNaN(group)) group = +group
 	
-	util.convertDateTimeDos = function(input) {
-	  return new Date(
-	    ((input >> 25) & 0x7f) + 1980,
-	    ((input >> 21) & 0x0f) - 1,
-	    (input >> 16) & 0x1f,
-	    (input >> 11) & 0x1f,
-	    (input >> 5) & 0x3f,
-	    (input & 0x1f) << 1
-	  );
-	};
+	console.error([user, group])
 	
-	util.dateify = function(dateish) {
-	  dateish = dateish || new Date();
+	try {
+	  process.setgid(group)
+	  process.setuid(user)
+	  console.log(JSON.stringify({uid:+process.getuid(), gid:+process.getgid()}))
+	} catch (ex) {
+	  console.log(JSON.stringify({error:ex.message,errno:ex.errno}))
+	}
 	
-	  if (dateish instanceof Date) {
-	    dateish = dateish;
-	  } else if (typeof dateish === 'string') {
-	    dateish = new Date(dateish);
-	  } else {
-	    dateish = new Date();
-	  }
-	
-	  return dateish;
-	};
-	
-	// this is slightly different from lodash version
-	util.defaults = function(object, source, guard) {
-	  var args = arguments;
-	  args[0] = args[0] || {};
-	
-	  return _.defaults.apply(_, args);
-	};
-	
-	util.dosDateTime = function(d, utc) {
-	  d = (d instanceof Date) ? d : util.dateify(d);
-	  utc = utc || false;
-	
-	  var year = utc ? d.getUTCFullYear() : d.getFullYear();
-	
-	  if (year < 1980) {
-	    return 2162688; // 1980-1-1 00:00:00
-	  } else if (year >= 2044) {
-	    return 2141175677; // 2043-12-31 23:59:58
-	  }
-	
-	  var val = {
-	    year: year,
-	    month: utc ? d.getUTCMonth() : d.getMonth(),
-	    date: utc ? d.getUTCDate() : d.getDate(),
-	    hours: utc ? d.getUTCHours() : d.getHours(),
-	    minutes: utc ? d.getUTCMinutes() : d.getMinutes(),
-	    seconds: utc ? d.getUTCSeconds() : d.getSeconds()
-	  };
-	
-	  return ((val.year-1980) << 25) | ((val.month+1) << 21) | (val.date << 16) |
-	    (val.hours << 11) | (val.minutes << 5) | (val.seconds / 2);
-	};
-	
-	util.isStream = function(source) {
-	  return source instanceof Stream;
-	};
-	
-	util.normalizeInputSource = function(source) {
-	  if (source === null) {
-	    return new Buffer(0);
-	  } else if (typeof source === 'string') {
-	    return new Buffer(source);
-	  } else if (util.isStream(source) && !source._readableState) {
-	    var normalized = new PassThrough();
-	    source.pipe(normalized);
-	
-	    return normalized;
-	  }
-	
-	  return source;
-	};
-	
-	util.sanitizePath = function() {
-	  var filepath = path.join.apply(path, arguments);
-	  return filepath.replace(/\\/g, '/').replace(/:/g, '').replace(/^\/+/, '');
-	};
-	
-	util.unixifyPath = function() {
-	  var filepath = path.join.apply(path, arguments);
-	  return filepath.replace(/\\/g, '/');
-	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(54)(module)))
 
 /***/ },
 /* 345 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var ZEROS = '0000000000000000000'
-	var ZERO_OFFSET = '0'.charCodeAt(0)
-	var USTAR = 'ustar\x0000'
-	
-	var clamp = function(index, len, defaultValue) {
-	  if (typeof index !== 'number') return defaultValue
-	  index = ~~index  // Coerce to integer.
-	  if (index >= len) return len
-	  if (index >= 0) return index
-	  index += len
-	  if (index >= 0) return index
-	  return 0
-	}
-	
-	var toType = function(flag) {
-	  switch (flag) {
-	    case 0:
-	    return 'file'
-	    case 1:
-	    return 'link'
-	    case 2:
-	    return 'symlink'
-	    case 3:
-	    return 'character-device'
-	    case 4:
-	    return 'block-device'
-	    case 5:
-	    return 'directory'
-	    case 6:
-	    return 'fifo'
-	    case 7:
-	    return 'contiguous-file'
-	    case 72:
-	    return 'pax-header'
-	    case 55:
-	    return 'pax-global-header'
-	    case 27:
-	    return 'gnu-long-link-path'
-	    case 28:
-	    case 30:
-	    return 'gnu-long-path'
-	  }
-	
-	  return null
-	}
-	
-	var toTypeflag = function(flag) {
-	  switch (flag) {
-	    case 'file':
-	    return 0
-	    case 'link':
-	    return 1
-	    case 'symlink':
-	    return 2
-	    case 'character-device':
-	    return 3
-	    case 'block-device':
-	    return 4
-	    case 'directory':
-	    return 5
-	    case 'fifo':
-	    return 6
-	    case 'contiguous-file':
-	    return 7
-	    case 'pax-header':
-	    return 72
-	  }
-	
-	  return 0
-	}
-	
-	var alloc = function(size) {
-	  var buf = new Buffer(size)
-	  buf.fill(0)
-	  return buf
-	}
-	
-	var indexOf = function(block, num, offset, end) {
-	  for (; offset < end; offset++) {
-	    if (block[offset] === num) return offset
-	  }
-	  return end
-	}
-	
-	var cksum = function(block) {
-	  var sum = 8 * 32
-	  for (var i = 0; i < 148; i++)   sum += block[i]
-	  for (var i = 156; i < 512; i++) sum += block[i]
-	  return sum
-	}
-	
-	var encodeOct = function(val, n) {
-	  val = val.toString(8)
-	  return ZEROS.slice(0, n-val.length)+val+' '
-	}
-	
-	var decodeOct = function(val, offset) {
-	  // Older versions of tar can prefix with spaces
-	  while (offset < val.length && val[offset] === 32) offset++
-	  var end = clamp(indexOf(val, 32, offset, val.length), val.length, val.length)
-	  while (offset < end && val[offset] === 0) offset++
-	  if (end === offset) return 0
-	  return parseInt(val.slice(offset, end).toString(), 8)
-	}
-	
-	var decodeStr = function(val, offset, length) {
-	  return val.slice(offset, indexOf(val, 0, offset, offset+length)).toString();
-	}
-	
-	var addLength = function(str) {
-	  var len = Buffer.byteLength(str)
-	  var digits = Math.floor(Math.log(len) / Math.log(10)) + 1
-	  if (len + digits > Math.pow(10, digits)) digits++
-	
-	  return (len+digits)+str
-	}
-	
-	exports.decodeLongPath = function(buf) {
-	  return decodeStr(buf, 0, buf.length)
-	}
-	
-	exports.encodePax = function(opts) { // TODO: encode more stuff in pax
-	  var result = ''
-	  if (opts.name) result += addLength(' path='+opts.name+'\n')
-	  if (opts.linkname) result += addLength(' linkpath='+opts.linkname+'\n')
-	  return new Buffer(result)
-	}
-	
-	exports.decodePax = function(buf) {
-	  var result = {}
-	
-	  while (buf.length) {
-	    var i = 0
-	    while (i < buf.length && buf[i] !== 32) i++
-	
-	    var len = parseInt(buf.slice(0, i).toString())
-	    if (!len) return result
-	
-	    var b = buf.slice(i+1, len-1).toString()
-	    var keyIndex = b.indexOf('=')
-	    if (keyIndex === -1) return result
-	    result[b.slice(0, keyIndex)] = b.slice(keyIndex+1)
-	
-	    buf = buf.slice(len)
-	  }
-	
-	  return result
-	}
-	
-	exports.encode = function(opts) {
-	  var buf = alloc(512)
-	  var name = opts.name
-	  var prefix = ''
-	
-	  if (opts.typeflag === 5 && name[name.length-1] !== '/') name += '/'
-	  if (Buffer.byteLength(name) !== name.length) return null // utf-8
-	
-	  while (Buffer.byteLength(name) > 100) {
-	    var i = name.indexOf('/')
-	    if (i === -1) return null
-	    prefix += prefix ? '/' + name.slice(0, i) : name.slice(0, i)
-	    name = name.slice(i+1)
-	  }
-	
-	  if (Buffer.byteLength(name) > 100 || Buffer.byteLength(prefix) > 155) return null
-	  if (opts.linkname && Buffer.byteLength(opts.linkname) > 100) return null
-	
-	  buf.write(name)
-	  buf.write(encodeOct(opts.mode & 07777, 6), 100)
-	  buf.write(encodeOct(opts.uid, 6), 108)
-	  buf.write(encodeOct(opts.gid, 6), 116)
-	  buf.write(encodeOct(opts.size, 11), 124)
-	  buf.write(encodeOct((opts.mtime.getTime() / 1000) | 0, 11), 136)
-	
-	  buf[156] = ZERO_OFFSET + toTypeflag(opts.type)
-	
-	  if (opts.linkname) buf.write(opts.linkname, 157)
-	
-	  buf.write(USTAR, 257)
-	  if (opts.uname) buf.write(opts.uname, 265)
-	  if (opts.gname) buf.write(opts.gname, 297)
-	  buf.write(encodeOct(opts.devmajor || 0, 6), 329)
-	  buf.write(encodeOct(opts.devminor || 0, 6), 337)
-	
-	  if (prefix) buf.write(prefix, 345)
-	
-	  buf.write(encodeOct(cksum(buf), 6), 148)
-	
-	  return buf
-	}
-	
-	exports.decode = function(buf) {
-	  var typeflag = buf[156] === 0 ? 0 : buf[156] - ZERO_OFFSET
-	  var type = toType(typeflag)
-	
-	  var name = decodeStr(buf, 0, 100)
-	  var mode = decodeOct(buf, 100)
-	  var uid = decodeOct(buf, 108)
-	  var gid = decodeOct(buf, 116)
-	  var size = decodeOct(buf, 124)
-	  var mtime = decodeOct(buf, 136)
-	  var linkname = buf[157] === 0 ? null : decodeStr(buf, 157, 100)
-	  var uname = decodeStr(buf, 265, 32)
-	  var gname = decodeStr(buf, 297, 32)
-	  var devmajor = decodeOct(buf, 329)
-	  var devminor = decodeOct(buf, 337)
-	
-	  if (buf[345]) name = decodeStr(buf, 345, 155)+'/'+name
-	
-	  var c = cksum(buf)
-	
-	  //checksum is still initial value if header was null.
-	  if (c === 8*32) return null
-	
-	  //valid checksum
-	  if (c !== decodeOct(buf, 148)) throw new Error("Invalid tar header. Maybe the tar is corrupted or it needs to be gunzipped?")
-	
-	  return {
-	    name: name,
-	    mode: mode,
-	    uid: uid,
-	    gid: gid,
-	    size: size,
-	    mtime: new Date(1000 * mtime),
-	    type: toType(typeflag),
-	    linkname: linkname,
-	    uname: uname,
-	    gname: gname,
-	    devmajor: devmajor,
-	    devminor: devminor
-	  }
-	}
-
-
-/***/ },
-/* 346 */
-/***/ function(module, exports, __webpack_require__) {
-
-	(function () {
-		"use strict";
-	
-		// modified from https://github.com/kriskowal/es5-shim
-		var has = Object.prototype.hasOwnProperty,
-			toString = Object.prototype.toString,
-			forEach = __webpack_require__(355),
-			isArgs = __webpack_require__(356),
-			hasDontEnumBug = !({'toString': null}).propertyIsEnumerable('toString'),
-			hasProtoEnumBug = (function () {}).propertyIsEnumerable('prototype'),
-			dontEnums = [
-				"toString",
-				"toLocaleString",
-				"valueOf",
-				"hasOwnProperty",
-				"isPrototypeOf",
-				"propertyIsEnumerable",
-				"constructor"
-			],
-			keysShim;
-	
-		keysShim = function keys(object) {
-			var isObject = object !== null && typeof object === 'object',
-				isFunction = toString.call(object) === '[object Function]',
-				isArguments = isArgs(object),
-				theKeys = [];
-	
-			if (!isObject && !isFunction && !isArguments) {
-				throw new TypeError("Object.keys called on a non-object");
-			}
-	
-			if (isArguments) {
-				forEach(object, function (value) {
-					theKeys.push(value);
-				});
-			} else {
-				var name,
-					skipProto = hasProtoEnumBug && isFunction;
-	
-				for (name in object) {
-					if (!(skipProto && name === 'prototype') && has.call(object, name)) {
-						theKeys.push(name);
-					}
-				}
-			}
-	
-			if (hasDontEnumBug) {
-				var ctor = object.constructor,
-					skipConstructor = ctor && ctor.prototype === object;
-	
-				forEach(dontEnums, function (dontEnum) {
-					if (!(skipConstructor && dontEnum === 'constructor') && has.call(object, dontEnum)) {
-						theKeys.push(dontEnum);
-					}
-				});
-			}
-			return theKeys;
-		};
-	
-		module.exports = keysShim;
-	}());
-	
-
-
-/***/ },
-/* 347 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = require("events");
-
-/***/ },
-/* 348 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(342)
-
-
-/***/ },
-/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Approach:
@@ -28254,24 +27952,24 @@ webpackJsonp([1],[
 	
 	module.exports = glob
 	
-	var fs = __webpack_require__(35)
-	var minimatch = __webpack_require__(367)
+	var fs = __webpack_require__(9)
+	var minimatch = __webpack_require__(375)
 	var Minimatch = minimatch.Minimatch
-	var inherits = __webpack_require__(370)
-	var EE = __webpack_require__(347).EventEmitter
-	var path = __webpack_require__(270)
-	var assert = __webpack_require__(307)
-	var globSync = __webpack_require__(358)
-	var common = __webpack_require__(359)
+	var inherits = __webpack_require__(367)
+	var EE = __webpack_require__(346).EventEmitter
+	var path = __webpack_require__(281)
+	var assert = __webpack_require__(321)
+	var globSync = __webpack_require__(351)
+	var common = __webpack_require__(352)
 	var alphasort = common.alphasort
 	var alphasorti = common.alphasorti
 	var isAbsolute = common.isAbsolute
 	var setopts = common.setopts
 	var ownProp = common.ownProp
-	var inflight = __webpack_require__(368)
-	var util = __webpack_require__(287)
+	var inflight = __webpack_require__(366)
+	var util = __webpack_require__(299)
 	
-	var once = __webpack_require__(369)
+	var once = __webpack_require__(368)
 	
 	function glob (pattern, options, cb) {
 	  if (typeof options === 'function') cb = options, options = {}
@@ -28864,6 +28562,325 @@ webpackJsonp([1],[
 
 
 /***/ },
+/* 346 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = require("events");
+
+/***/ },
+/* 347 */
+/***/ function(module, exports, __webpack_require__) {
+
+	(function () {
+		"use strict";
+	
+		// modified from https://github.com/kriskowal/es5-shim
+		var has = Object.prototype.hasOwnProperty,
+			toString = Object.prototype.toString,
+			forEach = __webpack_require__(355),
+			isArgs = __webpack_require__(356),
+			hasDontEnumBug = !({'toString': null}).propertyIsEnumerable('toString'),
+			hasProtoEnumBug = (function () {}).propertyIsEnumerable('prototype'),
+			dontEnums = [
+				"toString",
+				"toLocaleString",
+				"valueOf",
+				"hasOwnProperty",
+				"isPrototypeOf",
+				"propertyIsEnumerable",
+				"constructor"
+			],
+			keysShim;
+	
+		keysShim = function keys(object) {
+			var isObject = object !== null && typeof object === 'object',
+				isFunction = toString.call(object) === '[object Function]',
+				isArguments = isArgs(object),
+				theKeys = [];
+	
+			if (!isObject && !isFunction && !isArguments) {
+				throw new TypeError("Object.keys called on a non-object");
+			}
+	
+			if (isArguments) {
+				forEach(object, function (value) {
+					theKeys.push(value);
+				});
+			} else {
+				var name,
+					skipProto = hasProtoEnumBug && isFunction;
+	
+				for (name in object) {
+					if (!(skipProto && name === 'prototype') && has.call(object, name)) {
+						theKeys.push(name);
+					}
+				}
+			}
+	
+			if (hasDontEnumBug) {
+				var ctor = object.constructor,
+					skipConstructor = ctor && ctor.prototype === object;
+	
+				forEach(dontEnums, function (dontEnum) {
+					if (!(skipConstructor && dontEnum === 'constructor') && has.call(object, dontEnum)) {
+						theKeys.push(dontEnum);
+					}
+				});
+			}
+			return theKeys;
+		};
+	
+		module.exports = keysShim;
+	}());
+	
+
+
+/***/ },
+/* 348 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var ZEROS = '0000000000000000000'
+	var ZERO_OFFSET = '0'.charCodeAt(0)
+	var USTAR = 'ustar\x0000'
+	
+	var clamp = function(index, len, defaultValue) {
+	  if (typeof index !== 'number') return defaultValue
+	  index = ~~index  // Coerce to integer.
+	  if (index >= len) return len
+	  if (index >= 0) return index
+	  index += len
+	  if (index >= 0) return index
+	  return 0
+	}
+	
+	var toType = function(flag) {
+	  switch (flag) {
+	    case 0:
+	    return 'file'
+	    case 1:
+	    return 'link'
+	    case 2:
+	    return 'symlink'
+	    case 3:
+	    return 'character-device'
+	    case 4:
+	    return 'block-device'
+	    case 5:
+	    return 'directory'
+	    case 6:
+	    return 'fifo'
+	    case 7:
+	    return 'contiguous-file'
+	    case 72:
+	    return 'pax-header'
+	    case 55:
+	    return 'pax-global-header'
+	    case 27:
+	    return 'gnu-long-link-path'
+	    case 28:
+	    case 30:
+	    return 'gnu-long-path'
+	  }
+	
+	  return null
+	}
+	
+	var toTypeflag = function(flag) {
+	  switch (flag) {
+	    case 'file':
+	    return 0
+	    case 'link':
+	    return 1
+	    case 'symlink':
+	    return 2
+	    case 'character-device':
+	    return 3
+	    case 'block-device':
+	    return 4
+	    case 'directory':
+	    return 5
+	    case 'fifo':
+	    return 6
+	    case 'contiguous-file':
+	    return 7
+	    case 'pax-header':
+	    return 72
+	  }
+	
+	  return 0
+	}
+	
+	var alloc = function(size) {
+	  var buf = new Buffer(size)
+	  buf.fill(0)
+	  return buf
+	}
+	
+	var indexOf = function(block, num, offset, end) {
+	  for (; offset < end; offset++) {
+	    if (block[offset] === num) return offset
+	  }
+	  return end
+	}
+	
+	var cksum = function(block) {
+	  var sum = 8 * 32
+	  for (var i = 0; i < 148; i++)   sum += block[i]
+	  for (var i = 156; i < 512; i++) sum += block[i]
+	  return sum
+	}
+	
+	var encodeOct = function(val, n) {
+	  val = val.toString(8)
+	  return ZEROS.slice(0, n-val.length)+val+' '
+	}
+	
+	var decodeOct = function(val, offset) {
+	  // Older versions of tar can prefix with spaces
+	  while (offset < val.length && val[offset] === 32) offset++
+	  var end = clamp(indexOf(val, 32, offset, val.length), val.length, val.length)
+	  while (offset < end && val[offset] === 0) offset++
+	  if (end === offset) return 0
+	  return parseInt(val.slice(offset, end).toString(), 8)
+	}
+	
+	var decodeStr = function(val, offset, length) {
+	  return val.slice(offset, indexOf(val, 0, offset, offset+length)).toString();
+	}
+	
+	var addLength = function(str) {
+	  var len = Buffer.byteLength(str)
+	  var digits = Math.floor(Math.log(len) / Math.log(10)) + 1
+	  if (len + digits > Math.pow(10, digits)) digits++
+	
+	  return (len+digits)+str
+	}
+	
+	exports.decodeLongPath = function(buf) {
+	  return decodeStr(buf, 0, buf.length)
+	}
+	
+	exports.encodePax = function(opts) { // TODO: encode more stuff in pax
+	  var result = ''
+	  if (opts.name) result += addLength(' path='+opts.name+'\n')
+	  if (opts.linkname) result += addLength(' linkpath='+opts.linkname+'\n')
+	  return new Buffer(result)
+	}
+	
+	exports.decodePax = function(buf) {
+	  var result = {}
+	
+	  while (buf.length) {
+	    var i = 0
+	    while (i < buf.length && buf[i] !== 32) i++
+	
+	    var len = parseInt(buf.slice(0, i).toString())
+	    if (!len) return result
+	
+	    var b = buf.slice(i+1, len-1).toString()
+	    var keyIndex = b.indexOf('=')
+	    if (keyIndex === -1) return result
+	    result[b.slice(0, keyIndex)] = b.slice(keyIndex+1)
+	
+	    buf = buf.slice(len)
+	  }
+	
+	  return result
+	}
+	
+	exports.encode = function(opts) {
+	  var buf = alloc(512)
+	  var name = opts.name
+	  var prefix = ''
+	
+	  if (opts.typeflag === 5 && name[name.length-1] !== '/') name += '/'
+	  if (Buffer.byteLength(name) !== name.length) return null // utf-8
+	
+	  while (Buffer.byteLength(name) > 100) {
+	    var i = name.indexOf('/')
+	    if (i === -1) return null
+	    prefix += prefix ? '/' + name.slice(0, i) : name.slice(0, i)
+	    name = name.slice(i+1)
+	  }
+	
+	  if (Buffer.byteLength(name) > 100 || Buffer.byteLength(prefix) > 155) return null
+	  if (opts.linkname && Buffer.byteLength(opts.linkname) > 100) return null
+	
+	  buf.write(name)
+	  buf.write(encodeOct(opts.mode & 07777, 6), 100)
+	  buf.write(encodeOct(opts.uid, 6), 108)
+	  buf.write(encodeOct(opts.gid, 6), 116)
+	  buf.write(encodeOct(opts.size, 11), 124)
+	  buf.write(encodeOct((opts.mtime.getTime() / 1000) | 0, 11), 136)
+	
+	  buf[156] = ZERO_OFFSET + toTypeflag(opts.type)
+	
+	  if (opts.linkname) buf.write(opts.linkname, 157)
+	
+	  buf.write(USTAR, 257)
+	  if (opts.uname) buf.write(opts.uname, 265)
+	  if (opts.gname) buf.write(opts.gname, 297)
+	  buf.write(encodeOct(opts.devmajor || 0, 6), 329)
+	  buf.write(encodeOct(opts.devminor || 0, 6), 337)
+	
+	  if (prefix) buf.write(prefix, 345)
+	
+	  buf.write(encodeOct(cksum(buf), 6), 148)
+	
+	  return buf
+	}
+	
+	exports.decode = function(buf) {
+	  var typeflag = buf[156] === 0 ? 0 : buf[156] - ZERO_OFFSET
+	  var type = toType(typeflag)
+	
+	  var name = decodeStr(buf, 0, 100)
+	  var mode = decodeOct(buf, 100)
+	  var uid = decodeOct(buf, 108)
+	  var gid = decodeOct(buf, 116)
+	  var size = decodeOct(buf, 124)
+	  var mtime = decodeOct(buf, 136)
+	  var linkname = buf[157] === 0 ? null : decodeStr(buf, 157, 100)
+	  var uname = decodeStr(buf, 265, 32)
+	  var gname = decodeStr(buf, 297, 32)
+	  var devmajor = decodeOct(buf, 329)
+	  var devminor = decodeOct(buf, 337)
+	
+	  if (buf[345]) name = decodeStr(buf, 345, 155)+'/'+name
+	
+	  var c = cksum(buf)
+	
+	  //checksum is still initial value if header was null.
+	  if (c === 8*32) return null
+	
+	  //valid checksum
+	  if (c !== decodeOct(buf, 148)) throw new Error("Invalid tar header. Maybe the tar is corrupted or it needs to be gunzipped?")
+	
+	  return {
+	    name: name,
+	    mode: mode,
+	    uid: uid,
+	    gid: gid,
+	    size: size,
+	    mtime: new Date(1000 * mtime),
+	    type: toType(typeflag),
+	    linkname: linkname,
+	    uname: uname,
+	    gname: gname,
+	    devmajor: devmajor,
+	    devminor: devminor
+	  }
+	}
+
+
+/***/ },
+/* 349 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(343)
+
+
+/***/ },
 /* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -28875,664 +28892,27 @@ webpackJsonp([1],[
 	 * https://github.com/archiverjs/node-compress-commons/blob/master/LICENSE-MIT
 	 */
 	module.exports = {
-	  ArchiveEntry: __webpack_require__(362),
-	  ZipArchiveEntry: __webpack_require__(363),
-	  ArchiveOutputStream: __webpack_require__(364),
-	  ZipArchiveOutputStream: __webpack_require__(365)
+	  ArchiveEntry: __webpack_require__(361),
+	  ZipArchiveEntry: __webpack_require__(362),
+	  ArchiveOutputStream: __webpack_require__(363),
+	  ZipArchiveOutputStream: __webpack_require__(364)
 	};
 
 /***/ },
 /* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var once = __webpack_require__(375);
-	
-	var noop = function() {};
-	
-	var isRequest = function(stream) {
-		return stream.setHeader && typeof stream.abort === 'function';
-	};
-	
-	var isChildProcess = function(stream) {
-		return stream.stdio && Array.isArray(stream.stdio) && stream.stdio.length === 3
-	};
-	
-	var eos = function(stream, opts, callback) {
-		if (typeof opts === 'function') return eos(stream, null, opts);
-		if (!opts) opts = {};
-	
-		callback = once(callback || noop);
-	
-		var ws = stream._writableState;
-		var rs = stream._readableState;
-		var readable = opts.readable || (opts.readable !== false && stream.readable);
-		var writable = opts.writable || (opts.writable !== false && stream.writable);
-	
-		var onlegacyfinish = function() {
-			if (!stream.writable) onfinish();
-		};
-	
-		var onfinish = function() {
-			writable = false;
-			if (!readable) callback();
-		};
-	
-		var onend = function() {
-			readable = false;
-			if (!writable) callback();
-		};
-	
-		var onexit = function(exitCode) {
-			callback(exitCode ? new Error('exited with error code: ' + exitCode) : null);
-		};
-	
-		var onclose = function() {
-			if (readable && !(rs && rs.ended)) return callback(new Error('premature close'));
-			if (writable && !(ws && ws.ended)) return callback(new Error('premature close'));
-		};
-	
-		var onrequest = function() {
-			stream.req.on('finish', onfinish);
-		};
-	
-		if (isRequest(stream)) {
-			stream.on('complete', onfinish);
-			stream.on('abort', onclose);
-			if (stream.req) onrequest();
-			else stream.on('request', onrequest);
-		} else if (writable && !ws) { // legacy streams
-			stream.on('end', onlegacyfinish);
-			stream.on('close', onlegacyfinish);
-		}
-	
-		if (isChildProcess(stream)) stream.on('exit', onexit);
-	
-		stream.on('end', onend);
-		stream.on('finish', onfinish);
-		if (opts.error !== false) stream.on('error', callback);
-		stream.on('close', onclose);
-	
-		return function() {
-			stream.removeListener('complete', onfinish);
-			stream.removeListener('abort', onclose);
-			stream.removeListener('request', onrequest);
-			if (stream.req) stream.req.removeListener('finish', onfinish);
-			stream.removeListener('end', onlegacyfinish);
-			stream.removeListener('close', onlegacyfinish);
-			stream.removeListener('finish', onfinish);
-			stream.removeListener('exit', onexit);
-			stream.removeListener('end', onend);
-			stream.removeListener('error', callback);
-			stream.removeListener('close', onclose);
-		};
-	};
-	
-	module.exports = eos;
-
-/***/ },
-/* 352 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var DuplexStream = __webpack_require__(366)
-	  , util         = __webpack_require__(287)
-	
-	function BufferList (callback) {
-	  if (!(this instanceof BufferList))
-	    return new BufferList(callback)
-	
-	  this._bufs  = []
-	  this.length = 0
-	
-	  if (typeof callback == 'function') {
-	    this._callback = callback
-	
-	    var piper = function (err) {
-	      if (this._callback) {
-	        this._callback(err)
-	        this._callback = null
-	      }
-	    }.bind(this)
-	
-	    this.on('pipe', function (src) {
-	      src.on('error', piper)
-	    })
-	    this.on('unpipe', function (src) {
-	      src.removeListener('error', piper)
-	    })
-	  }
-	  else if (Buffer.isBuffer(callback))
-	    this.append(callback)
-	  else if (Array.isArray(callback)) {
-	    callback.forEach(function (b) {
-	      Buffer.isBuffer(b) && this.append(b)
-	    }.bind(this))
-	  }
-	
-	  DuplexStream.call(this)
-	}
-	
-	util.inherits(BufferList, DuplexStream)
-	
-	BufferList.prototype._offset = function (offset) {
-	  var tot = 0, i = 0, _t
-	  for (; i < this._bufs.length; i++) {
-	    _t = tot + this._bufs[i].length
-	    if (offset < _t)
-	      return [ i, offset - tot ]
-	    tot = _t
-	  }
-	}
-	
-	BufferList.prototype.append = function (buf) {
-	  var isBuffer = Buffer.isBuffer(buf) ||
-	                 buf instanceof BufferList
-	
-	  this._bufs.push(isBuffer ? buf : new Buffer(buf))
-	  this.length += buf.length
-	  return this
-	}
-	
-	BufferList.prototype._write = function (buf, encoding, callback) {
-	  this.append(buf)
-	  if (callback)
-	    callback()
-	}
-	
-	BufferList.prototype._read = function (size) {
-	  if (!this.length)
-	    return this.push(null)
-	  size = Math.min(size, this.length)
-	  this.push(this.slice(0, size))
-	  this.consume(size)
-	}
-	
-	BufferList.prototype.end = function (chunk) {
-	  DuplexStream.prototype.end.call(this, chunk)
-	
-	  if (this._callback) {
-	    this._callback(null, this.slice())
-	    this._callback = null
-	  }
-	}
-	
-	BufferList.prototype.get = function (index) {
-	  return this.slice(index, index + 1)[0]
-	}
-	
-	BufferList.prototype.slice = function (start, end) {
-	  return this.copy(null, 0, start, end)
-	}
-	
-	BufferList.prototype.copy = function (dst, dstStart, srcStart, srcEnd) {
-	  if (typeof srcStart != 'number' || srcStart < 0)
-	    srcStart = 0
-	  if (typeof srcEnd != 'number' || srcEnd > this.length)
-	    srcEnd = this.length
-	  if (srcStart >= this.length)
-	    return dst || new Buffer(0)
-	  if (srcEnd <= 0)
-	    return dst || new Buffer(0)
-	
-	  var copy   = !!dst
-	    , off    = this._offset(srcStart)
-	    , len    = srcEnd - srcStart
-	    , bytes  = len
-	    , bufoff = (copy && dstStart) || 0
-	    , start  = off[1]
-	    , l
-	    , i
-	
-	  // copy/slice everything
-	  if (srcStart === 0 && srcEnd == this.length) {
-	    if (!copy) // slice, just return a full concat
-	      return Buffer.concat(this._bufs)
-	
-	    // copy, need to copy individual buffers
-	    for (i = 0; i < this._bufs.length; i++) {
-	      this._bufs[i].copy(dst, bufoff)
-	      bufoff += this._bufs[i].length
-	    }
-	
-	    return dst
-	  }
-	
-	  // easy, cheap case where it's a subset of one of the buffers
-	  if (bytes <= this._bufs[off[0]].length - start) {
-	    return copy
-	      ? this._bufs[off[0]].copy(dst, dstStart, start, start + bytes)
-	      : this._bufs[off[0]].slice(start, start + bytes)
-	  }
-	
-	  if (!copy) // a slice, we need something to copy in to
-	    dst = new Buffer(len)
-	
-	  for (i = off[0]; i < this._bufs.length; i++) {
-	    l = this._bufs[i].length - start
-	
-	    if (bytes > l) {
-	      this._bufs[i].copy(dst, bufoff, start)
-	    } else {
-	      this._bufs[i].copy(dst, bufoff, start, start + bytes)
-	      break
-	    }
-	
-	    bufoff += l
-	    bytes -= l
-	
-	    if (start)
-	      start = 0
-	  }
-	
-	  return dst
-	}
-	
-	BufferList.prototype.toString = function (encoding, start, end) {
-	  return this.slice(start, end).toString(encoding)
-	}
-	
-	BufferList.prototype.consume = function (bytes) {
-	  while (this._bufs.length) {
-	    if (bytes > this._bufs[0].length) {
-	      bytes -= this._bufs[0].length
-	      this.length -= this._bufs[0].length
-	      this._bufs.shift()
-	    } else {
-	      this._bufs[0] = this._bufs[0].slice(bytes)
-	      this.length -= bytes
-	      break
-	    }
-	  }
-	  return this
-	}
-	
-	BufferList.prototype.duplicate = function () {
-	  var i = 0
-	    , copy = new BufferList()
-	
-	  for (; i < this._bufs.length; i++)
-	    copy.append(this._bufs[i])
-	
-	  return copy
-	}
-	
-	BufferList.prototype.destroy = function () {
-	  this._bufs.length = 0;
-	  this.length = 0;
-	  this.push(null);
-	}
-	
-	;(function () {
-	  var methods = {
-	      'readDoubleBE' : 8
-	    , 'readDoubleLE' : 8
-	    , 'readFloatBE'  : 4
-	    , 'readFloatLE'  : 4
-	    , 'readInt32BE'  : 4
-	    , 'readInt32LE'  : 4
-	    , 'readUInt32BE' : 4
-	    , 'readUInt32LE' : 4
-	    , 'readInt16BE'  : 2
-	    , 'readInt16LE'  : 2
-	    , 'readUInt16BE' : 2
-	    , 'readUInt16LE' : 2
-	    , 'readInt8'     : 1
-	    , 'readUInt8'    : 1
-	  }
-	
-	  for (var m in methods) {
-	    (function (m) {
-	      BufferList.prototype[m] = function (offset) {
-	        return this.slice(offset, offset + methods[m])[m](0)
-	      }
-	    }(m))
-	  }
-	}())
-	
-	module.exports = BufferList
-
-
-/***/ },
-/* 353 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// Copyright Joyent, Inc. and other Node contributors.
-	//
-	// Permission is hereby granted, free of charge, to any person obtaining a
-	// copy of this software and associated documentation files (the
-	// "Software"), to deal in the Software without restriction, including
-	// without limitation the rights to use, copy, modify, merge, publish,
-	// distribute, sublicense, and/or sell copies of the Software, and to permit
-	// persons to whom the Software is furnished to do so, subject to the
-	// following conditions:
-	//
-	// The above copyright notice and this permission notice shall be included
-	// in all copies or substantial portions of the Software.
-	//
-	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-	// USE OR OTHER DEALINGS IN THE SOFTWARE.
-	
-	var Buffer = __webpack_require__(330).Buffer;
-	
-	var isBufferEncoding = Buffer.isEncoding
-	  || function(encoding) {
-	       switch (encoding && encoding.toLowerCase()) {
-	         case 'hex': case 'utf8': case 'utf-8': case 'ascii': case 'binary': case 'base64': case 'ucs2': case 'ucs-2': case 'utf16le': case 'utf-16le': case 'raw': return true;
-	         default: return false;
-	       }
-	     }
-	
-	
-	function assertEncoding(encoding) {
-	  if (encoding && !isBufferEncoding(encoding)) {
-	    throw new Error('Unknown encoding: ' + encoding);
-	  }
-	}
-	
-	// StringDecoder provides an interface for efficiently splitting a series of
-	// buffers into a series of JS strings without breaking apart multi-byte
-	// characters. CESU-8 is handled as part of the UTF-8 encoding.
-	//
-	// @TODO Handling all encodings inside a single object makes it very difficult
-	// to reason about this code, so it should be split up in the future.
-	// @TODO There should be a utf8-strict encoding that rejects invalid UTF-8 code
-	// points as used by CESU-8.
-	var StringDecoder = exports.StringDecoder = function(encoding) {
-	  this.encoding = (encoding || 'utf8').toLowerCase().replace(/[-_]/, '');
-	  assertEncoding(encoding);
-	  switch (this.encoding) {
-	    case 'utf8':
-	      // CESU-8 represents each of Surrogate Pair by 3-bytes
-	      this.surrogateSize = 3;
-	      break;
-	    case 'ucs2':
-	    case 'utf16le':
-	      // UTF-16 represents each of Surrogate Pair by 2-bytes
-	      this.surrogateSize = 2;
-	      this.detectIncompleteChar = utf16DetectIncompleteChar;
-	      break;
-	    case 'base64':
-	      // Base-64 stores 3 bytes in 4 chars, and pads the remainder.
-	      this.surrogateSize = 3;
-	      this.detectIncompleteChar = base64DetectIncompleteChar;
-	      break;
-	    default:
-	      this.write = passThroughWrite;
-	      return;
-	  }
-	
-	  // Enough space to store all bytes of a single character. UTF-8 needs 4
-	  // bytes, but CESU-8 may require up to 6 (3 bytes per surrogate).
-	  this.charBuffer = new Buffer(6);
-	  // Number of bytes received for the current incomplete multi-byte character.
-	  this.charReceived = 0;
-	  // Number of bytes expected for the current incomplete multi-byte character.
-	  this.charLength = 0;
-	};
-	
-	
-	// write decodes the given buffer and returns it as JS string that is
-	// guaranteed to not contain any partial multi-byte characters. Any partial
-	// character found at the end of the buffer is buffered up, and will be
-	// returned when calling write again with the remaining bytes.
-	//
-	// Note: Converting a Buffer containing an orphan surrogate to a String
-	// currently works, but converting a String to a Buffer (via `new Buffer`, or
-	// Buffer#write) will replace incomplete surrogates with the unicode
-	// replacement character. See https://codereview.chromium.org/121173009/ .
-	StringDecoder.prototype.write = function(buffer) {
-	  var charStr = '';
-	  // if our last write ended with an incomplete multibyte character
-	  while (this.charLength) {
-	    // determine how many remaining bytes this buffer has to offer for this char
-	    var available = (buffer.length >= this.charLength - this.charReceived) ?
-	        this.charLength - this.charReceived :
-	        buffer.length;
-	
-	    // add the new bytes to the char buffer
-	    buffer.copy(this.charBuffer, this.charReceived, 0, available);
-	    this.charReceived += available;
-	
-	    if (this.charReceived < this.charLength) {
-	      // still not enough chars in this buffer? wait for more ...
-	      return '';
-	    }
-	
-	    // remove bytes belonging to the current character from the buffer
-	    buffer = buffer.slice(available, buffer.length);
-	
-	    // get the character that was split
-	    charStr = this.charBuffer.slice(0, this.charLength).toString(this.encoding);
-	
-	    // CESU-8: lead surrogate (D800-DBFF) is also the incomplete character
-	    var charCode = charStr.charCodeAt(charStr.length - 1);
-	    if (charCode >= 0xD800 && charCode <= 0xDBFF) {
-	      this.charLength += this.surrogateSize;
-	      charStr = '';
-	      continue;
-	    }
-	    this.charReceived = this.charLength = 0;
-	
-	    // if there are no more bytes in this buffer, just emit our char
-	    if (buffer.length === 0) {
-	      return charStr;
-	    }
-	    break;
-	  }
-	
-	  // determine and set charLength / charReceived
-	  this.detectIncompleteChar(buffer);
-	
-	  var end = buffer.length;
-	  if (this.charLength) {
-	    // buffer the incomplete character bytes we got
-	    buffer.copy(this.charBuffer, 0, buffer.length - this.charReceived, end);
-	    end -= this.charReceived;
-	  }
-	
-	  charStr += buffer.toString(this.encoding, 0, end);
-	
-	  var end = charStr.length - 1;
-	  var charCode = charStr.charCodeAt(end);
-	  // CESU-8: lead surrogate (D800-DBFF) is also the incomplete character
-	  if (charCode >= 0xD800 && charCode <= 0xDBFF) {
-	    var size = this.surrogateSize;
-	    this.charLength += size;
-	    this.charReceived += size;
-	    this.charBuffer.copy(this.charBuffer, size, 0, size);
-	    buffer.copy(this.charBuffer, 0, 0, size);
-	    return charStr.substring(0, end);
-	  }
-	
-	  // or just emit the charStr
-	  return charStr;
-	};
-	
-	// detectIncompleteChar determines if there is an incomplete UTF-8 character at
-	// the end of the given buffer. If so, it sets this.charLength to the byte
-	// length that character, and sets this.charReceived to the number of bytes
-	// that are available for this character.
-	StringDecoder.prototype.detectIncompleteChar = function(buffer) {
-	  // determine how many bytes we have to check at the end of this buffer
-	  var i = (buffer.length >= 3) ? 3 : buffer.length;
-	
-	  // Figure out if one of the last i bytes of our buffer announces an
-	  // incomplete char.
-	  for (; i > 0; i--) {
-	    var c = buffer[buffer.length - i];
-	
-	    // See http://en.wikipedia.org/wiki/UTF-8#Description
-	
-	    // 110XXXXX
-	    if (i == 1 && c >> 5 == 0x06) {
-	      this.charLength = 2;
-	      break;
-	    }
-	
-	    // 1110XXXX
-	    if (i <= 2 && c >> 4 == 0x0E) {
-	      this.charLength = 3;
-	      break;
-	    }
-	
-	    // 11110XXX
-	    if (i <= 3 && c >> 3 == 0x1E) {
-	      this.charLength = 4;
-	      break;
-	    }
-	  }
-	  this.charReceived = i;
-	};
-	
-	StringDecoder.prototype.end = function(buffer) {
-	  var res = '';
-	  if (buffer && buffer.length)
-	    res = this.write(buffer);
-	
-	  if (this.charReceived) {
-	    var cr = this.charReceived;
-	    var buf = this.charBuffer;
-	    var enc = this.encoding;
-	    res += buf.slice(0, cr).toString(enc);
-	  }
-	
-	  return res;
-	};
-	
-	function passThroughWrite(buffer) {
-	  return buffer.toString(this.encoding);
-	}
-	
-	function utf16DetectIncompleteChar(buffer) {
-	  this.charReceived = buffer.length % 2;
-	  this.charLength = this.charReceived ? 2 : 0;
-	}
-	
-	function base64DetectIncompleteChar(buffer) {
-	  this.charReceived = buffer.length % 3;
-	  this.charLength = this.charReceived ? 3 : 0;
-	}
-
-
-/***/ },
-/* 354 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = extend
-	
-	function extend() {
-	    var target = {}
-	
-	    for (var i = 0; i < arguments.length; i++) {
-	        var source = arguments[i]
-	
-	        for (var key in source) {
-	            if (source.hasOwnProperty(key)) {
-	                target[key] = source[key]
-	            }
-	        }
-	    }
-	
-	    return target
-	}
-
-
-/***/ },
-/* 355 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var hasOwn = Object.prototype.hasOwnProperty;
-	var toString = Object.prototype.toString;
-	
-	var isFunction = function (fn) {
-		var isFunc = (typeof fn === 'function' && !(fn instanceof RegExp)) || toString.call(fn) === '[object Function]';
-		if (!isFunc && typeof window !== 'undefined') {
-			isFunc = fn === window.setTimeout || fn === window.alert || fn === window.confirm || fn === window.prompt;
-		}
-		return isFunc;
-	};
-	
-	module.exports = function forEach(obj, fn) {
-		if (!isFunction(fn)) {
-			throw new TypeError('iterator must be a function');
-		}
-		var i, k,
-			isString = typeof obj === 'string',
-			l = obj.length,
-			context = arguments.length > 2 ? arguments[2] : null;
-		if (l === +l) {
-			for (i = 0; i < l; i++) {
-				if (context === null) {
-					fn(isString ? obj.charAt(i) : obj[i], i, obj);
-				} else {
-					fn.call(context, isString ? obj.charAt(i) : obj[i], i, obj);
-				}
-			}
-		} else {
-			for (k in obj) {
-				if (hasOwn.call(obj, k)) {
-					if (context === null) {
-						fn(obj[k], k, obj);
-					} else {
-						fn.call(context, obj[k], k, obj);
-					}
-				}
-			}
-		}
-	};
-	
-
-
-/***/ },
-/* 356 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var toString = Object.prototype.toString;
-	
-	module.exports = function isArguments(value) {
-		var str = toString.call(value);
-		var isArguments = str === '[object Arguments]';
-		if (!isArguments) {
-			isArguments = str !== '[object Array]'
-				&& value !== null
-				&& typeof value === 'object'
-				&& typeof value.length === 'number'
-				&& value.length >= 0
-				&& toString.call(value.callee) === '[object Function]';
-		}
-		return isArguments;
-	};
-	
-
-
-/***/ },
-/* 357 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = Array.isArray || function (arr) {
-	  return Object.prototype.toString.call(arr) == '[object Array]';
-	};
-
-
-/***/ },
-/* 358 */
-/***/ function(module, exports, __webpack_require__) {
-
 	module.exports = globSync
 	globSync.GlobSync = GlobSync
 	
-	var fs = __webpack_require__(35)
-	var minimatch = __webpack_require__(367)
+	var fs = __webpack_require__(9)
+	var minimatch = __webpack_require__(375)
 	var Minimatch = minimatch.Minimatch
-	var Glob = __webpack_require__(349).Glob
-	var util = __webpack_require__(287)
-	var path = __webpack_require__(270)
-	var assert = __webpack_require__(307)
-	var common = __webpack_require__(359)
+	var Glob = __webpack_require__(345).Glob
+	var util = __webpack_require__(299)
+	var path = __webpack_require__(281)
+	var assert = __webpack_require__(321)
+	var common = __webpack_require__(352)
 	var alphasort = common.alphasort
 	var alphasorti = common.alphasorti
 	var isAbsolute = common.isAbsolute
@@ -29934,7 +29314,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 359 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports.alphasort = alphasort
@@ -29950,8 +29330,8 @@ webpackJsonp([1],[
 	  return Object.prototype.hasOwnProperty.call(obj, field)
 	}
 	
-	var path = __webpack_require__(270)
-	var minimatch = __webpack_require__(367)
+	var path = __webpack_require__(281)
+	var minimatch = __webpack_require__(375)
 	var Minimatch = minimatch.Minimatch
 	
 	function absWin (p) {
@@ -30117,7 +29497,422 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 360 */
+/* 353 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var once = __webpack_require__(374);
+	
+	var noop = function() {};
+	
+	var isRequest = function(stream) {
+		return stream.setHeader && typeof stream.abort === 'function';
+	};
+	
+	var isChildProcess = function(stream) {
+		return stream.stdio && Array.isArray(stream.stdio) && stream.stdio.length === 3
+	};
+	
+	var eos = function(stream, opts, callback) {
+		if (typeof opts === 'function') return eos(stream, null, opts);
+		if (!opts) opts = {};
+	
+		callback = once(callback || noop);
+	
+		var ws = stream._writableState;
+		var rs = stream._readableState;
+		var readable = opts.readable || (opts.readable !== false && stream.readable);
+		var writable = opts.writable || (opts.writable !== false && stream.writable);
+	
+		var onlegacyfinish = function() {
+			if (!stream.writable) onfinish();
+		};
+	
+		var onfinish = function() {
+			writable = false;
+			if (!readable) callback();
+		};
+	
+		var onend = function() {
+			readable = false;
+			if (!writable) callback();
+		};
+	
+		var onexit = function(exitCode) {
+			callback(exitCode ? new Error('exited with error code: ' + exitCode) : null);
+		};
+	
+		var onclose = function() {
+			if (readable && !(rs && rs.ended)) return callback(new Error('premature close'));
+			if (writable && !(ws && ws.ended)) return callback(new Error('premature close'));
+		};
+	
+		var onrequest = function() {
+			stream.req.on('finish', onfinish);
+		};
+	
+		if (isRequest(stream)) {
+			stream.on('complete', onfinish);
+			stream.on('abort', onclose);
+			if (stream.req) onrequest();
+			else stream.on('request', onrequest);
+		} else if (writable && !ws) { // legacy streams
+			stream.on('end', onlegacyfinish);
+			stream.on('close', onlegacyfinish);
+		}
+	
+		if (isChildProcess(stream)) stream.on('exit', onexit);
+	
+		stream.on('end', onend);
+		stream.on('finish', onfinish);
+		if (opts.error !== false) stream.on('error', callback);
+		stream.on('close', onclose);
+	
+		return function() {
+			stream.removeListener('complete', onfinish);
+			stream.removeListener('abort', onclose);
+			stream.removeListener('request', onrequest);
+			if (stream.req) stream.req.removeListener('finish', onfinish);
+			stream.removeListener('end', onlegacyfinish);
+			stream.removeListener('close', onlegacyfinish);
+			stream.removeListener('finish', onfinish);
+			stream.removeListener('exit', onexit);
+			stream.removeListener('end', onend);
+			stream.removeListener('error', callback);
+			stream.removeListener('close', onclose);
+		};
+	};
+	
+	module.exports = eos;
+
+/***/ },
+/* 354 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// Copyright Joyent, Inc. and other Node contributors.
+	//
+	// Permission is hereby granted, free of charge, to any person obtaining a
+	// copy of this software and associated documentation files (the
+	// "Software"), to deal in the Software without restriction, including
+	// without limitation the rights to use, copy, modify, merge, publish,
+	// distribute, sublicense, and/or sell copies of the Software, and to permit
+	// persons to whom the Software is furnished to do so, subject to the
+	// following conditions:
+	//
+	// The above copyright notice and this permission notice shall be included
+	// in all copies or substantial portions of the Software.
+	//
+	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+	// USE OR OTHER DEALINGS IN THE SOFTWARE.
+	
+	var Buffer = __webpack_require__(330).Buffer;
+	
+	var isBufferEncoding = Buffer.isEncoding
+	  || function(encoding) {
+	       switch (encoding && encoding.toLowerCase()) {
+	         case 'hex': case 'utf8': case 'utf-8': case 'ascii': case 'binary': case 'base64': case 'ucs2': case 'ucs-2': case 'utf16le': case 'utf-16le': case 'raw': return true;
+	         default: return false;
+	       }
+	     }
+	
+	
+	function assertEncoding(encoding) {
+	  if (encoding && !isBufferEncoding(encoding)) {
+	    throw new Error('Unknown encoding: ' + encoding);
+	  }
+	}
+	
+	// StringDecoder provides an interface for efficiently splitting a series of
+	// buffers into a series of JS strings without breaking apart multi-byte
+	// characters. CESU-8 is handled as part of the UTF-8 encoding.
+	//
+	// @TODO Handling all encodings inside a single object makes it very difficult
+	// to reason about this code, so it should be split up in the future.
+	// @TODO There should be a utf8-strict encoding that rejects invalid UTF-8 code
+	// points as used by CESU-8.
+	var StringDecoder = exports.StringDecoder = function(encoding) {
+	  this.encoding = (encoding || 'utf8').toLowerCase().replace(/[-_]/, '');
+	  assertEncoding(encoding);
+	  switch (this.encoding) {
+	    case 'utf8':
+	      // CESU-8 represents each of Surrogate Pair by 3-bytes
+	      this.surrogateSize = 3;
+	      break;
+	    case 'ucs2':
+	    case 'utf16le':
+	      // UTF-16 represents each of Surrogate Pair by 2-bytes
+	      this.surrogateSize = 2;
+	      this.detectIncompleteChar = utf16DetectIncompleteChar;
+	      break;
+	    case 'base64':
+	      // Base-64 stores 3 bytes in 4 chars, and pads the remainder.
+	      this.surrogateSize = 3;
+	      this.detectIncompleteChar = base64DetectIncompleteChar;
+	      break;
+	    default:
+	      this.write = passThroughWrite;
+	      return;
+	  }
+	
+	  // Enough space to store all bytes of a single character. UTF-8 needs 4
+	  // bytes, but CESU-8 may require up to 6 (3 bytes per surrogate).
+	  this.charBuffer = new Buffer(6);
+	  // Number of bytes received for the current incomplete multi-byte character.
+	  this.charReceived = 0;
+	  // Number of bytes expected for the current incomplete multi-byte character.
+	  this.charLength = 0;
+	};
+	
+	
+	// write decodes the given buffer and returns it as JS string that is
+	// guaranteed to not contain any partial multi-byte characters. Any partial
+	// character found at the end of the buffer is buffered up, and will be
+	// returned when calling write again with the remaining bytes.
+	//
+	// Note: Converting a Buffer containing an orphan surrogate to a String
+	// currently works, but converting a String to a Buffer (via `new Buffer`, or
+	// Buffer#write) will replace incomplete surrogates with the unicode
+	// replacement character. See https://codereview.chromium.org/121173009/ .
+	StringDecoder.prototype.write = function(buffer) {
+	  var charStr = '';
+	  // if our last write ended with an incomplete multibyte character
+	  while (this.charLength) {
+	    // determine how many remaining bytes this buffer has to offer for this char
+	    var available = (buffer.length >= this.charLength - this.charReceived) ?
+	        this.charLength - this.charReceived :
+	        buffer.length;
+	
+	    // add the new bytes to the char buffer
+	    buffer.copy(this.charBuffer, this.charReceived, 0, available);
+	    this.charReceived += available;
+	
+	    if (this.charReceived < this.charLength) {
+	      // still not enough chars in this buffer? wait for more ...
+	      return '';
+	    }
+	
+	    // remove bytes belonging to the current character from the buffer
+	    buffer = buffer.slice(available, buffer.length);
+	
+	    // get the character that was split
+	    charStr = this.charBuffer.slice(0, this.charLength).toString(this.encoding);
+	
+	    // CESU-8: lead surrogate (D800-DBFF) is also the incomplete character
+	    var charCode = charStr.charCodeAt(charStr.length - 1);
+	    if (charCode >= 0xD800 && charCode <= 0xDBFF) {
+	      this.charLength += this.surrogateSize;
+	      charStr = '';
+	      continue;
+	    }
+	    this.charReceived = this.charLength = 0;
+	
+	    // if there are no more bytes in this buffer, just emit our char
+	    if (buffer.length === 0) {
+	      return charStr;
+	    }
+	    break;
+	  }
+	
+	  // determine and set charLength / charReceived
+	  this.detectIncompleteChar(buffer);
+	
+	  var end = buffer.length;
+	  if (this.charLength) {
+	    // buffer the incomplete character bytes we got
+	    buffer.copy(this.charBuffer, 0, buffer.length - this.charReceived, end);
+	    end -= this.charReceived;
+	  }
+	
+	  charStr += buffer.toString(this.encoding, 0, end);
+	
+	  var end = charStr.length - 1;
+	  var charCode = charStr.charCodeAt(end);
+	  // CESU-8: lead surrogate (D800-DBFF) is also the incomplete character
+	  if (charCode >= 0xD800 && charCode <= 0xDBFF) {
+	    var size = this.surrogateSize;
+	    this.charLength += size;
+	    this.charReceived += size;
+	    this.charBuffer.copy(this.charBuffer, size, 0, size);
+	    buffer.copy(this.charBuffer, 0, 0, size);
+	    return charStr.substring(0, end);
+	  }
+	
+	  // or just emit the charStr
+	  return charStr;
+	};
+	
+	// detectIncompleteChar determines if there is an incomplete UTF-8 character at
+	// the end of the given buffer. If so, it sets this.charLength to the byte
+	// length that character, and sets this.charReceived to the number of bytes
+	// that are available for this character.
+	StringDecoder.prototype.detectIncompleteChar = function(buffer) {
+	  // determine how many bytes we have to check at the end of this buffer
+	  var i = (buffer.length >= 3) ? 3 : buffer.length;
+	
+	  // Figure out if one of the last i bytes of our buffer announces an
+	  // incomplete char.
+	  for (; i > 0; i--) {
+	    var c = buffer[buffer.length - i];
+	
+	    // See http://en.wikipedia.org/wiki/UTF-8#Description
+	
+	    // 110XXXXX
+	    if (i == 1 && c >> 5 == 0x06) {
+	      this.charLength = 2;
+	      break;
+	    }
+	
+	    // 1110XXXX
+	    if (i <= 2 && c >> 4 == 0x0E) {
+	      this.charLength = 3;
+	      break;
+	    }
+	
+	    // 11110XXX
+	    if (i <= 3 && c >> 3 == 0x1E) {
+	      this.charLength = 4;
+	      break;
+	    }
+	  }
+	  this.charReceived = i;
+	};
+	
+	StringDecoder.prototype.end = function(buffer) {
+	  var res = '';
+	  if (buffer && buffer.length)
+	    res = this.write(buffer);
+	
+	  if (this.charReceived) {
+	    var cr = this.charReceived;
+	    var buf = this.charBuffer;
+	    var enc = this.encoding;
+	    res += buf.slice(0, cr).toString(enc);
+	  }
+	
+	  return res;
+	};
+	
+	function passThroughWrite(buffer) {
+	  return buffer.toString(this.encoding);
+	}
+	
+	function utf16DetectIncompleteChar(buffer) {
+	  this.charReceived = buffer.length % 2;
+	  this.charLength = this.charReceived ? 2 : 0;
+	}
+	
+	function base64DetectIncompleteChar(buffer) {
+	  this.charReceived = buffer.length % 3;
+	  this.charLength = this.charReceived ? 3 : 0;
+	}
+
+
+/***/ },
+/* 355 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var hasOwn = Object.prototype.hasOwnProperty;
+	var toString = Object.prototype.toString;
+	
+	var isFunction = function (fn) {
+		var isFunc = (typeof fn === 'function' && !(fn instanceof RegExp)) || toString.call(fn) === '[object Function]';
+		if (!isFunc && typeof window !== 'undefined') {
+			isFunc = fn === window.setTimeout || fn === window.alert || fn === window.confirm || fn === window.prompt;
+		}
+		return isFunc;
+	};
+	
+	module.exports = function forEach(obj, fn) {
+		if (!isFunction(fn)) {
+			throw new TypeError('iterator must be a function');
+		}
+		var i, k,
+			isString = typeof obj === 'string',
+			l = obj.length,
+			context = arguments.length > 2 ? arguments[2] : null;
+		if (l === +l) {
+			for (i = 0; i < l; i++) {
+				if (context === null) {
+					fn(isString ? obj.charAt(i) : obj[i], i, obj);
+				} else {
+					fn.call(context, isString ? obj.charAt(i) : obj[i], i, obj);
+				}
+			}
+		} else {
+			for (k in obj) {
+				if (hasOwn.call(obj, k)) {
+					if (context === null) {
+						fn(obj[k], k, obj);
+					} else {
+						fn.call(context, obj[k], k, obj);
+					}
+				}
+			}
+		}
+	};
+	
+
+
+/***/ },
+/* 356 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var toString = Object.prototype.toString;
+	
+	module.exports = function isArguments(value) {
+		var str = toString.call(value);
+		var isArguments = str === '[object Arguments]';
+		if (!isArguments) {
+			isArguments = str !== '[object Array]'
+				&& value !== null
+				&& typeof value === 'object'
+				&& typeof value.length === 'number'
+				&& value.length >= 0
+				&& toString.call(value.callee) === '[object Function]';
+		}
+		return isArguments;
+	};
+	
+
+
+/***/ },
+/* 357 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = extend
+	
+	function extend() {
+	    var target = {}
+	
+	    for (var i = 0; i < arguments.length; i++) {
+	        var source = arguments[i]
+	
+	        for (var key in source) {
+	            if (source.hasOwnProperty(key)) {
+	                target[key] = source[key]
+	            }
+	        }
+	    }
+	
+	    return target
+	}
+
+
+/***/ },
+/* 358 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = Array.isArray || function (arr) {
+	  return Object.prototype.toString.call(arr) == '[object Array]';
+	};
+
+
+/***/ },
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -30229,14 +30024,229 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 361 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(287).inherits
+	var DuplexStream = __webpack_require__(369)
+	  , util         = __webpack_require__(299)
+	
+	function BufferList (callback) {
+	  if (!(this instanceof BufferList))
+	    return new BufferList(callback)
+	
+	  this._bufs  = []
+	  this.length = 0
+	
+	  if (typeof callback == 'function') {
+	    this._callback = callback
+	
+	    var piper = function (err) {
+	      if (this._callback) {
+	        this._callback(err)
+	        this._callback = null
+	      }
+	    }.bind(this)
+	
+	    this.on('pipe', function (src) {
+	      src.on('error', piper)
+	    })
+	    this.on('unpipe', function (src) {
+	      src.removeListener('error', piper)
+	    })
+	  }
+	  else if (Buffer.isBuffer(callback))
+	    this.append(callback)
+	  else if (Array.isArray(callback)) {
+	    callback.forEach(function (b) {
+	      Buffer.isBuffer(b) && this.append(b)
+	    }.bind(this))
+	  }
+	
+	  DuplexStream.call(this)
+	}
+	
+	util.inherits(BufferList, DuplexStream)
+	
+	BufferList.prototype._offset = function (offset) {
+	  var tot = 0, i = 0, _t
+	  for (; i < this._bufs.length; i++) {
+	    _t = tot + this._bufs[i].length
+	    if (offset < _t)
+	      return [ i, offset - tot ]
+	    tot = _t
+	  }
+	}
+	
+	BufferList.prototype.append = function (buf) {
+	  var isBuffer = Buffer.isBuffer(buf) ||
+	                 buf instanceof BufferList
+	
+	  this._bufs.push(isBuffer ? buf : new Buffer(buf))
+	  this.length += buf.length
+	  return this
+	}
+	
+	BufferList.prototype._write = function (buf, encoding, callback) {
+	  this.append(buf)
+	  if (callback)
+	    callback()
+	}
+	
+	BufferList.prototype._read = function (size) {
+	  if (!this.length)
+	    return this.push(null)
+	  size = Math.min(size, this.length)
+	  this.push(this.slice(0, size))
+	  this.consume(size)
+	}
+	
+	BufferList.prototype.end = function (chunk) {
+	  DuplexStream.prototype.end.call(this, chunk)
+	
+	  if (this._callback) {
+	    this._callback(null, this.slice())
+	    this._callback = null
+	  }
+	}
+	
+	BufferList.prototype.get = function (index) {
+	  return this.slice(index, index + 1)[0]
+	}
+	
+	BufferList.prototype.slice = function (start, end) {
+	  return this.copy(null, 0, start, end)
+	}
+	
+	BufferList.prototype.copy = function (dst, dstStart, srcStart, srcEnd) {
+	  if (typeof srcStart != 'number' || srcStart < 0)
+	    srcStart = 0
+	  if (typeof srcEnd != 'number' || srcEnd > this.length)
+	    srcEnd = this.length
+	  if (srcStart >= this.length)
+	    return dst || new Buffer(0)
+	  if (srcEnd <= 0)
+	    return dst || new Buffer(0)
+	
+	  var copy   = !!dst
+	    , off    = this._offset(srcStart)
+	    , len    = srcEnd - srcStart
+	    , bytes  = len
+	    , bufoff = (copy && dstStart) || 0
+	    , start  = off[1]
+	    , l
+	    , i
+	
+	  // copy/slice everything
+	  if (srcStart === 0 && srcEnd == this.length) {
+	    if (!copy) // slice, just return a full concat
+	      return Buffer.concat(this._bufs)
+	
+	    // copy, need to copy individual buffers
+	    for (i = 0; i < this._bufs.length; i++) {
+	      this._bufs[i].copy(dst, bufoff)
+	      bufoff += this._bufs[i].length
+	    }
+	
+	    return dst
+	  }
+	
+	  // easy, cheap case where it's a subset of one of the buffers
+	  if (bytes <= this._bufs[off[0]].length - start) {
+	    return copy
+	      ? this._bufs[off[0]].copy(dst, dstStart, start, start + bytes)
+	      : this._bufs[off[0]].slice(start, start + bytes)
+	  }
+	
+	  if (!copy) // a slice, we need something to copy in to
+	    dst = new Buffer(len)
+	
+	  for (i = off[0]; i < this._bufs.length; i++) {
+	    l = this._bufs[i].length - start
+	
+	    if (bytes > l) {
+	      this._bufs[i].copy(dst, bufoff, start)
+	    } else {
+	      this._bufs[i].copy(dst, bufoff, start, start + bytes)
+	      break
+	    }
+	
+	    bufoff += l
+	    bytes -= l
+	
+	    if (start)
+	      start = 0
+	  }
+	
+	  return dst
+	}
+	
+	BufferList.prototype.toString = function (encoding, start, end) {
+	  return this.slice(start, end).toString(encoding)
+	}
+	
+	BufferList.prototype.consume = function (bytes) {
+	  while (this._bufs.length) {
+	    if (bytes > this._bufs[0].length) {
+	      bytes -= this._bufs[0].length
+	      this.length -= this._bufs[0].length
+	      this._bufs.shift()
+	    } else {
+	      this._bufs[0] = this._bufs[0].slice(bytes)
+	      this.length -= bytes
+	      break
+	    }
+	  }
+	  return this
+	}
+	
+	BufferList.prototype.duplicate = function () {
+	  var i = 0
+	    , copy = new BufferList()
+	
+	  for (; i < this._bufs.length; i++)
+	    copy.append(this._bufs[i])
+	
+	  return copy
+	}
+	
+	BufferList.prototype.destroy = function () {
+	  this._bufs.length = 0;
+	  this.length = 0;
+	  this.push(null);
+	}
+	
+	;(function () {
+	  var methods = {
+	      'readDoubleBE' : 8
+	    , 'readDoubleLE' : 8
+	    , 'readFloatBE'  : 4
+	    , 'readFloatLE'  : 4
+	    , 'readInt32BE'  : 4
+	    , 'readInt32LE'  : 4
+	    , 'readUInt32BE' : 4
+	    , 'readUInt32LE' : 4
+	    , 'readInt16BE'  : 2
+	    , 'readInt16LE'  : 2
+	    , 'readUInt16BE' : 2
+	    , 'readUInt16LE' : 2
+	    , 'readInt8'     : 1
+	    , 'readUInt8'    : 1
+	  }
+	
+	  for (var m in methods) {
+	    (function (m) {
+	      BufferList.prototype[m] = function (offset) {
+	        return this.slice(offset, offset + methods[m])[m](0)
+	      }
+	    }(m))
+	  }
+	}())
+	
+	module.exports = BufferList
 
 
 /***/ },
-/* 362 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -30257,7 +30267,7 @@ webpackJsonp([1],[
 	ArchiveEntry.prototype.isDirectory = function() {};
 
 /***/ },
-/* 363 */
+/* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -30267,10 +30277,10 @@ webpackJsonp([1],[
 	 * Licensed under the MIT license.
 	 * https://github.com/archiverjs/node-compress-commons/blob/master/LICENSE-MIT
 	 */
-	var inherits = __webpack_require__(287).inherits;
+	var inherits = __webpack_require__(299).inherits;
 	
-	var ArchiveEntry = __webpack_require__(362);
-	var GeneralPurposeBit = __webpack_require__(373);
+	var ArchiveEntry = __webpack_require__(361);
+	var GeneralPurposeBit = __webpack_require__(370);
 	
 	var constants = __webpack_require__(371);
 	var zipUtil = __webpack_require__(372);
@@ -30485,7 +30495,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 364 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -30495,11 +30505,11 @@ webpackJsonp([1],[
 	 * Licensed under the MIT license.
 	 * https://github.com/archiverjs/node-compress-commons/blob/master/LICENSE-MIT
 	 */
-	var inherits = __webpack_require__(287).inherits;
-	var Transform = __webpack_require__(324).Transform;
+	var inherits = __webpack_require__(299).inherits;
+	var Transform = __webpack_require__(326).Transform;
 	
-	var ArchiveEntry = __webpack_require__(362);
-	var util = __webpack_require__(374);
+	var ArchiveEntry = __webpack_require__(361);
+	var util = __webpack_require__(373);
 	
 	var ArchiveOutputStream = module.exports = function(options) {
 	  if (!(this instanceof ArchiveOutputStream)) {
@@ -30608,7 +30618,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 365 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -30618,17 +30628,17 @@ webpackJsonp([1],[
 	 * Licensed under the MIT license.
 	 * https://github.com/archiverjs/node-compress-commons/blob/master/LICENSE-MIT
 	 */
-	var inherits = __webpack_require__(287).inherits;
-	var crc32 = __webpack_require__(313);
+	var inherits = __webpack_require__(299).inherits;
+	var crc32 = __webpack_require__(320);
 	var CRC32Stream = __webpack_require__(376);
 	var DeflateCRC32Stream = CRC32Stream.DeflateCRC32Stream;
 	
-	var ArchiveOutputStream = __webpack_require__(364);
-	var ZipArchiveEntry = __webpack_require__(363);
-	var GeneralPurposeBit = __webpack_require__(373);
+	var ArchiveOutputStream = __webpack_require__(363);
+	var ZipArchiveEntry = __webpack_require__(362);
+	var GeneralPurposeBit = __webpack_require__(370);
 	
 	var constants = __webpack_require__(371);
-	var util = __webpack_require__(374);
+	var util = __webpack_require__(373);
 	var zipUtil = __webpack_require__(372);
 	
 	var ZipArchiveOutputStream = module.exports = function(options) {
@@ -31040,14 +31050,438 @@ webpackJsonp([1],[
 	};
 
 /***/ },
+/* 365 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(299).inherits
+
+
+/***/ },
 /* 366 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var wrappy = __webpack_require__(377)
+	var reqs = Object.create(null)
+	var once = __webpack_require__(368)
+	
+	module.exports = wrappy(inflight)
+	
+	function inflight (key, cb) {
+	  if (reqs[key]) {
+	    reqs[key].push(cb)
+	    return null
+	  } else {
+	    reqs[key] = [cb]
+	    return makeres(key)
+	  }
+	}
+	
+	function makeres (key) {
+	  return once(function RES () {
+	    var cbs = reqs[key]
+	    var len = cbs.length
+	    var args = slice(arguments)
+	    for (var i = 0; i < len; i++) {
+	      cbs[i].apply(null, args)
+	    }
+	    if (cbs.length > len) {
+	      // added more in the interim.
+	      // de-zalgo, just in case, but don't call again.
+	      cbs.splice(0, len)
+	      process.nextTick(function () {
+	        RES.apply(null, args)
+	      })
+	    } else {
+	      delete reqs[key]
+	    }
+	  })
+	}
+	
+	function slice (args) {
+	  var length = args.length
+	  var array = []
+	
+	  for (var i = 0; i < length; i++) array[i] = args[i]
+	  return array
+	}
+
+
+/***/ },
+/* 367 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(299).inherits
+
+
+/***/ },
+/* 368 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var wrappy = __webpack_require__(380)
+	module.exports = wrappy(once)
+	
+	once.proto = once(function () {
+	  Object.defineProperty(Function.prototype, 'once', {
+	    value: function () {
+	      return once(this)
+	    },
+	    configurable: true
+	  })
+	})
+	
+	function once (fn) {
+	  var f = function () {
+	    if (f.called) return f.value
+	    f.called = true
+	    return f.value = fn.apply(this, arguments)
+	  }
+	  f.called = false
+	  return f
+	}
+
+
+/***/ },
+/* 369 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(341)
 
 
 /***/ },
-/* 367 */
+/* 370 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * node-compress-commons
+	 *
+	 * Copyright (c) 2014 Chris Talkington, contributors.
+	 * Licensed under the MIT license.
+	 * https://github.com/archiverjs/node-compress-commons/blob/master/LICENSE-MIT
+	 */
+	var zipUtil = __webpack_require__(372);
+	
+	var DATA_DESCRIPTOR_FLAG = 1 << 3;
+	var ENCRYPTION_FLAG = 1 << 0;
+	var NUMBER_OF_SHANNON_FANO_TREES_FLAG = 1 << 2;
+	var SLIDING_DICTIONARY_SIZE_FLAG = 1 << 1;
+	var STRONG_ENCRYPTION_FLAG = 1 << 6;
+	var UFT8_NAMES_FLAG = 1 << 11;
+	
+	var GeneralPurposeBit = module.exports = function() {
+	  if (!(this instanceof GeneralPurposeBit)) {
+	    return new GeneralPurposeBit();
+	  }
+	
+	  this.descriptor = false;
+	  this.encryption = false;
+	  this.utf8 = false;
+	  this.numberOfShannonFanoTrees = 0;
+	  this.strongEncryption = false;
+	  this.slidingDictionarySize = 0;
+	
+	  return this;
+	};
+	
+	GeneralPurposeBit.prototype.encode = function() {
+	  return zipUtil.getShortBytes(
+	    (this.descriptor ? DATA_DESCRIPTOR_FLAG : 0) |
+	    (this.utf8 ? UFT8_NAMES_FLAG : 0) |
+	    (this.encryption ? ENCRYPTION_FLAG : 0) |
+	    (this.strongEncryption ? STRONG_ENCRYPTION_FLAG : 0)
+	  );
+	};
+	
+	GeneralPurposeBit.prototype.parse = function(buf, offset) {
+	  var flag = zipUtil.getShortBytesValue(buf, offset);
+	  var gbp = new GeneralPurposeBit();
+	
+	  gbp.useDataDescriptor((flag & DATA_DESCRIPTOR_FLAG) !== 0);
+	  gbp.useUTF8ForNames((flag & UFT8_NAMES_FLAG) !== 0);
+	  gbp.useStrongEncryption((flag & STRONG_ENCRYPTION_FLAG) !== 0);
+	  gbp.useEncryption((flag & ENCRYPTION_FLAG) !== 0);
+	  gbp.setSlidingDictionarySize((flag & SLIDING_DICTIONARY_SIZE_FLAG) !== 0 ? 8192 : 4096);
+	  gbp.setNumberOfShannonFanoTrees((flag & NUMBER_OF_SHANNON_FANO_TREES_FLAG) !== 0 ? 3 : 2);
+	
+	  return gbp;
+	};
+	
+	GeneralPurposeBit.prototype.setNumberOfShannonFanoTrees = function(n) {
+	  this.numberOfShannonFanoTrees = n;
+	};
+	
+	GeneralPurposeBit.prototype.getNumberOfShannonFanoTrees = function() {
+	  return this.numberOfShannonFanoTrees;
+	};
+	
+	GeneralPurposeBit.prototype.setSlidingDictionarySize = function(n) {
+	  this.slidingDictionarySize = n;
+	};
+	
+	GeneralPurposeBit.prototype.getSlidingDictionarySize = function() {
+	  return this.slidingDictionarySize;
+	};
+	
+	GeneralPurposeBit.prototype.useDataDescriptor = function(b) {
+	  this.descriptor = b;
+	};
+	
+	GeneralPurposeBit.prototype.usesDataDescriptor = function() {
+	  return this.descriptor;
+	};
+	
+	GeneralPurposeBit.prototype.useEncryption = function(b) {
+	  this.encryption = b;
+	};
+	
+	GeneralPurposeBit.prototype.usesEncryption = function() {
+	  return this.encryption;
+	};
+	
+	GeneralPurposeBit.prototype.useStrongEncryption = function(b) {
+	  this.strongEncryption = b;
+	};
+	
+	GeneralPurposeBit.prototype.usesStrongEncryption = function() {
+	  return this.strongEncryption;
+	};
+	
+	GeneralPurposeBit.prototype.useUTF8ForNames = function(b) {
+	  this.utf8 = b;
+	};
+	
+	GeneralPurposeBit.prototype.usesUTF8ForNames = function() {
+	  return this.utf8;
+	};
+
+/***/ },
+/* 371 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * node-compress-commons
+	 *
+	 * Copyright (c) 2014 Chris Talkington, contributors.
+	 * Licensed under the MIT license.
+	 * https://github.com/archiverjs/node-compress-commons/blob/master/LICENSE-MIT
+	 */
+	module.exports = {
+	  WORD: 4,
+	  DWORD: 8,
+	  EMPTY: new Buffer(0),
+	
+	  SHORT: 2,
+	  SHORT_MASK: 0xffff,
+	  SHORT_SHIFT: 16,
+	  SHORT_ZERO: new Buffer(Array(2)),
+	  LONG: 4,
+	  LONG_ZERO: new Buffer(Array(4)),
+	
+	  MIN_VERSION_INITIAL: 10,
+	  MIN_VERSION_DATA_DESCRIPTOR: 20,
+	  MIN_VERSION_ZIP64: 45,
+	  VERSION_MADEBY: 45,
+	
+	  METHOD_STORED: 0,
+	  METHOD_DEFLATED: 8,
+	
+	  PLATFORM_UNIX: 3,
+	  PLATFORM_FAT: 0,
+	
+	  SIG_LFH: 0x04034b50,
+	  SIG_DD: 0x08074b50,
+	  SIG_CFH: 0x02014b50,
+	  SIG_EOCD: 0x06054b50,
+	  SIG_ZIP64_EOCD: 0x06064B50,
+	  SIG_ZIP64_EOCD_LOC: 0x07064B50,
+	
+	  ZIP64_MAGIC_SHORT: 0xffff,
+	  ZIP64_MAGIC: 0xffffffff,
+	  ZIP64_EXTRA_ID: 0x0001,
+	
+	  ZLIB_NO_COMPRESSION: 0,
+	  ZLIB_BEST_SPEED: 1,
+	  ZLIB_BEST_COMPRESSION: 9,
+	  ZLIB_DEFAULT_COMPRESSION: -1,
+	
+	  MODE_MASK: 0xFFF,
+	  DEFAULT_FILE_MODE: 0100644, // 644 -rw-r--r-- = S_IFREG | S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH
+	  DEFAULT_DIR_MODE: 040755, // 755 drwxr-xr-x = S_IFDIR | S_IRWXU | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH
+	
+	  EXT_FILE_ATTR_DIR: 010173200020, // 755 drwxr-xr-x = (((S_IFDIR | 0755) << 16) | S_DOS_D)
+	  EXT_FILE_ATTR_FILE: 020151000040, // 644 -rw-r--r-- = (((S_IFREG | 0644) << 16) | S_DOS_A) >>> 0
+	
+	  // Unix file types
+	  S_IFMT: 0170000, // type of file mask
+	  S_IFIFO: 010000, // named pipe (fifo)
+	  S_IFCHR: 020000, // character special
+	  S_IFDIR: 040000, // directory
+	  S_IFBLK: 060000, // block special
+	  S_IFREG: 0100000, // regular
+	  S_IFLNK: 0120000, // symbolic link
+	  S_IFSOCK: 0140000, // socket
+	
+	  // DOS file type flags
+	  S_DOS_A: 040, // Archive
+	  S_DOS_D: 020, // Directory
+	  S_DOS_V: 010, // Volume
+	  S_DOS_S: 04, // System
+	  S_DOS_H: 02, // Hidden
+	  S_DOS_R: 01 // Read Only
+	};
+
+/***/ },
+/* 372 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * node-compress-commons
+	 *
+	 * Copyright (c) 2014 Chris Talkington, contributors.
+	 * Licensed under the MIT license.
+	 * https://github.com/archiverjs/node-compress-commons/blob/master/LICENSE-MIT
+	 */
+	var Int64 = __webpack_require__(382);
+	var util = module.exports = {};
+	
+	util.dateToDos = function(d) {
+	  var year = d.getUTCFullYear();
+	
+	  if (year < 1980) {
+	    return 2162688; // 1980-1-1 00:00:00
+	  } else if (year >= 2044) {
+	    return 2141175677; // 2043-12-31 23:59:58
+	  }
+	
+	  var val = {
+	    year: year,
+	    month: d.getUTCMonth(),
+	    date: d.getUTCDate(),
+	    hours: d.getUTCHours(),
+	    minutes: d.getUTCMinutes(),
+	    seconds: d.getUTCSeconds()
+	  };
+	
+	  return ((val.year - 1980) << 25) | ((val.month + 1) << 21) | (val.date << 16) |
+	    (val.hours << 11) | (val.minutes << 5) | (val.seconds / 2);
+	};
+	
+	util.dosToDate = function(dos) {
+	  return new Date(
+	    ((dos >> 25) & 0x7f) + 1980,
+	    ((dos >> 21) & 0x0f) - 1,
+	    (dos >> 16) & 0x1f,
+	    (dos >> 11) & 0x1f,
+	    (dos >> 5) & 0x3f,
+	    (dos & 0x1f) << 1
+	  );
+	};
+	
+	util.fromDosTime = function(buf) {
+	  return util.dosToDate(buf.readUInt32LE());
+	};
+	
+	util.getEightBytes = function(v) {
+	  var buf = new Buffer(8);
+	  var i64 = new Int64(v);
+	
+	  // BE to LE
+	  for(i = 0; i < 8; i++) {
+	    buf[i] = i64.buffer[7 - i];
+	  }
+	
+	  return buf;
+	};
+	
+	util.getShortBytes = function(v) {
+	  var buf = new Buffer(2);
+	  buf.writeUInt16LE(v, 0);
+	
+	  return buf;
+	};
+	
+	util.getShortBytesValue = function(buf, offset) {
+	  return buf.readUInt16LE(offset);
+	};
+	
+	util.getLongBytes = function(v) {
+	  var buf = new Buffer(4);
+	  buf.writeUInt32LE(v, 0);
+	
+	  return buf;
+	};
+	
+	util.getLongBytesValue = function(buf, offset) {
+	  return buf.readUInt32LE(offset);
+	};
+	
+	util.toDosTime = function(d) {
+	  return util.getLongBytes(util.dateToDos(d));
+	};
+
+/***/ },
+/* 373 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * node-compress-commons
+	 *
+	 * Copyright (c) 2014 Chris Talkington, contributors.
+	 * Licensed under the MIT license.
+	 * https://github.com/archiverjs/node-compress-commons/blob/master/LICENSE-MIT
+	 */
+	var Stream = __webpack_require__(318).Stream;
+	var PassThrough = __webpack_require__(326).PassThrough;
+	
+	var util = module.exports = {};
+	
+	util.isStream = function(source) {
+	  return source instanceof Stream;
+	};
+	
+	util.normalizeInputSource = function(source) {
+	  if (source === null) {
+	    return new Buffer(0);
+	  } else if (typeof source === 'string') {
+	    return new Buffer(source);
+	  } else if (util.isStream(source) && !source._readableState) {
+	    var normalized = new PassThrough();
+	    source.pipe(normalized);
+	
+	    return normalized;
+	  }
+	
+	  return source;
+	};
+
+/***/ },
+/* 374 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var wrappy = __webpack_require__(383)
+	module.exports = wrappy(once)
+	
+	once.proto = once(function () {
+	  Object.defineProperty(Function.prototype, 'once', {
+	    value: function () {
+	      return once(this)
+	    },
+	    configurable: true
+	  })
+	})
+	
+	function once (fn) {
+	  var f = function () {
+	    if (f.called) return f.value
+	    f.called = true
+	    return f.value = fn.apply(this, arguments)
+	  }
+	  f.called = false
+	  return f
+	}
+
+
+/***/ },
+/* 375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = minimatch
@@ -31055,11 +31489,11 @@ webpackJsonp([1],[
 	
 	var path = { sep: '/' }
 	try {
-	  path = __webpack_require__(270)
+	  path = __webpack_require__(281)
 	} catch (er) {}
 	
 	var GLOBSTAR = minimatch.GLOBSTAR = Minimatch.GLOBSTAR = {}
-	var expand = __webpack_require__(377)
+	var expand = __webpack_require__(381)
 	
 	// any single thing other than /
 	// don't need to escape / when using new RegExp()
@@ -31920,423 +32354,6 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 368 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var wrappy = __webpack_require__(382)
-	var reqs = Object.create(null)
-	var once = __webpack_require__(369)
-	
-	module.exports = wrappy(inflight)
-	
-	function inflight (key, cb) {
-	  if (reqs[key]) {
-	    reqs[key].push(cb)
-	    return null
-	  } else {
-	    reqs[key] = [cb]
-	    return makeres(key)
-	  }
-	}
-	
-	function makeres (key) {
-	  return once(function RES () {
-	    var cbs = reqs[key]
-	    var len = cbs.length
-	    var args = slice(arguments)
-	    for (var i = 0; i < len; i++) {
-	      cbs[i].apply(null, args)
-	    }
-	    if (cbs.length > len) {
-	      // added more in the interim.
-	      // de-zalgo, just in case, but don't call again.
-	      cbs.splice(0, len)
-	      process.nextTick(function () {
-	        RES.apply(null, args)
-	      })
-	    } else {
-	      delete reqs[key]
-	    }
-	  })
-	}
-	
-	function slice (args) {
-	  var length = args.length
-	  var array = []
-	
-	  for (var i = 0; i < length; i++) array[i] = args[i]
-	  return array
-	}
-
-
-/***/ },
-/* 369 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var wrappy = __webpack_require__(379)
-	module.exports = wrappy(once)
-	
-	once.proto = once(function () {
-	  Object.defineProperty(Function.prototype, 'once', {
-	    value: function () {
-	      return once(this)
-	    },
-	    configurable: true
-	  })
-	})
-	
-	function once (fn) {
-	  var f = function () {
-	    if (f.called) return f.value
-	    f.called = true
-	    return f.value = fn.apply(this, arguments)
-	  }
-	  f.called = false
-	  return f
-	}
-
-
-/***/ },
-/* 370 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(287).inherits
-
-
-/***/ },
-/* 371 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * node-compress-commons
-	 *
-	 * Copyright (c) 2014 Chris Talkington, contributors.
-	 * Licensed under the MIT license.
-	 * https://github.com/archiverjs/node-compress-commons/blob/master/LICENSE-MIT
-	 */
-	module.exports = {
-	  WORD: 4,
-	  DWORD: 8,
-	  EMPTY: new Buffer(0),
-	
-	  SHORT: 2,
-	  SHORT_MASK: 0xffff,
-	  SHORT_SHIFT: 16,
-	  SHORT_ZERO: new Buffer(Array(2)),
-	  LONG: 4,
-	  LONG_ZERO: new Buffer(Array(4)),
-	
-	  MIN_VERSION_INITIAL: 10,
-	  MIN_VERSION_DATA_DESCRIPTOR: 20,
-	  MIN_VERSION_ZIP64: 45,
-	  VERSION_MADEBY: 45,
-	
-	  METHOD_STORED: 0,
-	  METHOD_DEFLATED: 8,
-	
-	  PLATFORM_UNIX: 3,
-	  PLATFORM_FAT: 0,
-	
-	  SIG_LFH: 0x04034b50,
-	  SIG_DD: 0x08074b50,
-	  SIG_CFH: 0x02014b50,
-	  SIG_EOCD: 0x06054b50,
-	  SIG_ZIP64_EOCD: 0x06064B50,
-	  SIG_ZIP64_EOCD_LOC: 0x07064B50,
-	
-	  ZIP64_MAGIC_SHORT: 0xffff,
-	  ZIP64_MAGIC: 0xffffffff,
-	  ZIP64_EXTRA_ID: 0x0001,
-	
-	  ZLIB_NO_COMPRESSION: 0,
-	  ZLIB_BEST_SPEED: 1,
-	  ZLIB_BEST_COMPRESSION: 9,
-	  ZLIB_DEFAULT_COMPRESSION: -1,
-	
-	  MODE_MASK: 0xFFF,
-	  DEFAULT_FILE_MODE: 0100644, // 644 -rw-r--r-- = S_IFREG | S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH
-	  DEFAULT_DIR_MODE: 040755, // 755 drwxr-xr-x = S_IFDIR | S_IRWXU | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH
-	
-	  EXT_FILE_ATTR_DIR: 010173200020, // 755 drwxr-xr-x = (((S_IFDIR | 0755) << 16) | S_DOS_D)
-	  EXT_FILE_ATTR_FILE: 020151000040, // 644 -rw-r--r-- = (((S_IFREG | 0644) << 16) | S_DOS_A) >>> 0
-	
-	  // Unix file types
-	  S_IFMT: 0170000, // type of file mask
-	  S_IFIFO: 010000, // named pipe (fifo)
-	  S_IFCHR: 020000, // character special
-	  S_IFDIR: 040000, // directory
-	  S_IFBLK: 060000, // block special
-	  S_IFREG: 0100000, // regular
-	  S_IFLNK: 0120000, // symbolic link
-	  S_IFSOCK: 0140000, // socket
-	
-	  // DOS file type flags
-	  S_DOS_A: 040, // Archive
-	  S_DOS_D: 020, // Directory
-	  S_DOS_V: 010, // Volume
-	  S_DOS_S: 04, // System
-	  S_DOS_H: 02, // Hidden
-	  S_DOS_R: 01 // Read Only
-	};
-
-/***/ },
-/* 372 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * node-compress-commons
-	 *
-	 * Copyright (c) 2014 Chris Talkington, contributors.
-	 * Licensed under the MIT license.
-	 * https://github.com/archiverjs/node-compress-commons/blob/master/LICENSE-MIT
-	 */
-	var Int64 = __webpack_require__(378);
-	var util = module.exports = {};
-	
-	util.dateToDos = function(d) {
-	  var year = d.getUTCFullYear();
-	
-	  if (year < 1980) {
-	    return 2162688; // 1980-1-1 00:00:00
-	  } else if (year >= 2044) {
-	    return 2141175677; // 2043-12-31 23:59:58
-	  }
-	
-	  var val = {
-	    year: year,
-	    month: d.getUTCMonth(),
-	    date: d.getUTCDate(),
-	    hours: d.getUTCHours(),
-	    minutes: d.getUTCMinutes(),
-	    seconds: d.getUTCSeconds()
-	  };
-	
-	  return ((val.year - 1980) << 25) | ((val.month + 1) << 21) | (val.date << 16) |
-	    (val.hours << 11) | (val.minutes << 5) | (val.seconds / 2);
-	};
-	
-	util.dosToDate = function(dos) {
-	  return new Date(
-	    ((dos >> 25) & 0x7f) + 1980,
-	    ((dos >> 21) & 0x0f) - 1,
-	    (dos >> 16) & 0x1f,
-	    (dos >> 11) & 0x1f,
-	    (dos >> 5) & 0x3f,
-	    (dos & 0x1f) << 1
-	  );
-	};
-	
-	util.fromDosTime = function(buf) {
-	  return util.dosToDate(buf.readUInt32LE());
-	};
-	
-	util.getEightBytes = function(v) {
-	  var buf = new Buffer(8);
-	  var i64 = new Int64(v);
-	
-	  // BE to LE
-	  for(i = 0; i < 8; i++) {
-	    buf[i] = i64.buffer[7 - i];
-	  }
-	
-	  return buf;
-	};
-	
-	util.getShortBytes = function(v) {
-	  var buf = new Buffer(2);
-	  buf.writeUInt16LE(v, 0);
-	
-	  return buf;
-	};
-	
-	util.getShortBytesValue = function(buf, offset) {
-	  return buf.readUInt16LE(offset);
-	};
-	
-	util.getLongBytes = function(v) {
-	  var buf = new Buffer(4);
-	  buf.writeUInt32LE(v, 0);
-	
-	  return buf;
-	};
-	
-	util.getLongBytesValue = function(buf, offset) {
-	  return buf.readUInt32LE(offset);
-	};
-	
-	util.toDosTime = function(d) {
-	  return util.getLongBytes(util.dateToDos(d));
-	};
-
-/***/ },
-/* 373 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * node-compress-commons
-	 *
-	 * Copyright (c) 2014 Chris Talkington, contributors.
-	 * Licensed under the MIT license.
-	 * https://github.com/archiverjs/node-compress-commons/blob/master/LICENSE-MIT
-	 */
-	var zipUtil = __webpack_require__(372);
-	
-	var DATA_DESCRIPTOR_FLAG = 1 << 3;
-	var ENCRYPTION_FLAG = 1 << 0;
-	var NUMBER_OF_SHANNON_FANO_TREES_FLAG = 1 << 2;
-	var SLIDING_DICTIONARY_SIZE_FLAG = 1 << 1;
-	var STRONG_ENCRYPTION_FLAG = 1 << 6;
-	var UFT8_NAMES_FLAG = 1 << 11;
-	
-	var GeneralPurposeBit = module.exports = function() {
-	  if (!(this instanceof GeneralPurposeBit)) {
-	    return new GeneralPurposeBit();
-	  }
-	
-	  this.descriptor = false;
-	  this.encryption = false;
-	  this.utf8 = false;
-	  this.numberOfShannonFanoTrees = 0;
-	  this.strongEncryption = false;
-	  this.slidingDictionarySize = 0;
-	
-	  return this;
-	};
-	
-	GeneralPurposeBit.prototype.encode = function() {
-	  return zipUtil.getShortBytes(
-	    (this.descriptor ? DATA_DESCRIPTOR_FLAG : 0) |
-	    (this.utf8 ? UFT8_NAMES_FLAG : 0) |
-	    (this.encryption ? ENCRYPTION_FLAG : 0) |
-	    (this.strongEncryption ? STRONG_ENCRYPTION_FLAG : 0)
-	  );
-	};
-	
-	GeneralPurposeBit.prototype.parse = function(buf, offset) {
-	  var flag = zipUtil.getShortBytesValue(buf, offset);
-	  var gbp = new GeneralPurposeBit();
-	
-	  gbp.useDataDescriptor((flag & DATA_DESCRIPTOR_FLAG) !== 0);
-	  gbp.useUTF8ForNames((flag & UFT8_NAMES_FLAG) !== 0);
-	  gbp.useStrongEncryption((flag & STRONG_ENCRYPTION_FLAG) !== 0);
-	  gbp.useEncryption((flag & ENCRYPTION_FLAG) !== 0);
-	  gbp.setSlidingDictionarySize((flag & SLIDING_DICTIONARY_SIZE_FLAG) !== 0 ? 8192 : 4096);
-	  gbp.setNumberOfShannonFanoTrees((flag & NUMBER_OF_SHANNON_FANO_TREES_FLAG) !== 0 ? 3 : 2);
-	
-	  return gbp;
-	};
-	
-	GeneralPurposeBit.prototype.setNumberOfShannonFanoTrees = function(n) {
-	  this.numberOfShannonFanoTrees = n;
-	};
-	
-	GeneralPurposeBit.prototype.getNumberOfShannonFanoTrees = function() {
-	  return this.numberOfShannonFanoTrees;
-	};
-	
-	GeneralPurposeBit.prototype.setSlidingDictionarySize = function(n) {
-	  this.slidingDictionarySize = n;
-	};
-	
-	GeneralPurposeBit.prototype.getSlidingDictionarySize = function() {
-	  return this.slidingDictionarySize;
-	};
-	
-	GeneralPurposeBit.prototype.useDataDescriptor = function(b) {
-	  this.descriptor = b;
-	};
-	
-	GeneralPurposeBit.prototype.usesDataDescriptor = function() {
-	  return this.descriptor;
-	};
-	
-	GeneralPurposeBit.prototype.useEncryption = function(b) {
-	  this.encryption = b;
-	};
-	
-	GeneralPurposeBit.prototype.usesEncryption = function() {
-	  return this.encryption;
-	};
-	
-	GeneralPurposeBit.prototype.useStrongEncryption = function(b) {
-	  this.strongEncryption = b;
-	};
-	
-	GeneralPurposeBit.prototype.usesStrongEncryption = function() {
-	  return this.strongEncryption;
-	};
-	
-	GeneralPurposeBit.prototype.useUTF8ForNames = function(b) {
-	  this.utf8 = b;
-	};
-	
-	GeneralPurposeBit.prototype.usesUTF8ForNames = function() {
-	  return this.utf8;
-	};
-
-/***/ },
-/* 374 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * node-compress-commons
-	 *
-	 * Copyright (c) 2014 Chris Talkington, contributors.
-	 * Licensed under the MIT license.
-	 * https://github.com/archiverjs/node-compress-commons/blob/master/LICENSE-MIT
-	 */
-	var Stream = __webpack_require__(319).Stream;
-	var PassThrough = __webpack_require__(324).PassThrough;
-	
-	var util = module.exports = {};
-	
-	util.isStream = function(source) {
-	  return source instanceof Stream;
-	};
-	
-	util.normalizeInputSource = function(source) {
-	  if (source === null) {
-	    return new Buffer(0);
-	  } else if (typeof source === 'string') {
-	    return new Buffer(source);
-	  } else if (util.isStream(source) && !source._readableState) {
-	    var normalized = new PassThrough();
-	    source.pipe(normalized);
-	
-	    return normalized;
-	  }
-	
-	  return source;
-	};
-
-/***/ },
-/* 375 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var wrappy = __webpack_require__(383)
-	module.exports = wrappy(once)
-	
-	once.proto = once(function () {
-	  Object.defineProperty(Function.prototype, 'once', {
-	    value: function () {
-	      return once(this)
-	    },
-	    configurable: true
-	  })
-	})
-	
-	function once (fn) {
-	  var f = function () {
-	    if (f.called) return f.value
-	    f.called = true
-	    return f.value = fn.apply(this, arguments)
-	  }
-	  f.called = false
-	  return f
-	}
-
-
-/***/ },
 /* 376 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -32347,12 +32364,209 @@ webpackJsonp([1],[
 	 * Licensed under the MIT license.
 	 * https://github.com/archiverjs/node-crc32-stream/blob/master/LICENSE-MIT
 	 */
-	exports = module.exports = __webpack_require__(380);
+	exports = module.exports = __webpack_require__(378);
 	exports.CRC32Stream = exports;
-	exports.DeflateCRC32Stream = __webpack_require__(381);
+	exports.DeflateCRC32Stream = __webpack_require__(379);
 
 /***/ },
 /* 377 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// Returns a wrapper function that returns a wrapped callback
+	// The wrapper function should do some stuff, and return a
+	// presumably different callback function.
+	// This makes sure that own properties are retained, so that
+	// decorations and such are not lost along the way.
+	module.exports = wrappy
+	function wrappy (fn, cb) {
+	  if (fn && cb) return wrappy(fn)(cb)
+	
+	  if (typeof fn !== 'function')
+	    throw new TypeError('need wrapper function')
+	
+	  Object.keys(fn).forEach(function (k) {
+	    wrapper[k] = fn[k]
+	  })
+	
+	  return wrapper
+	
+	  function wrapper() {
+	    var args = new Array(arguments.length)
+	    for (var i = 0; i < args.length; i++) {
+	      args[i] = arguments[i]
+	    }
+	    var ret = fn.apply(this, args)
+	    var cb = args[args.length-1]
+	    if (typeof ret === 'function' && ret !== cb) {
+	      Object.keys(cb).forEach(function (k) {
+	        ret[k] = cb[k]
+	      })
+	    }
+	    return ret
+	  }
+	}
+
+
+/***/ },
+/* 378 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * node-crc32-stream
+	 *
+	 * Copyright (c) 2014 Chris Talkington, contributors.
+	 * Licensed under the MIT license.
+	 * https://github.com/archiverjs/node-crc32-stream/blob/master/LICENSE-MIT
+	 */
+	var inherits = __webpack_require__(299).inherits;
+	var Transform = __webpack_require__(326).Transform;
+	
+	var crc32 = __webpack_require__(320);
+	
+	var CRC32Stream = module.exports = function CRC32Stream(options) {
+	  Transform.call(this, options);
+	  this.checksum = new Buffer(4);
+	  this.checksum.writeInt32BE(0, 0);
+	
+	  this.rawSize = 0;
+	};
+	
+	inherits(CRC32Stream, Transform);
+	
+	CRC32Stream.prototype._transform = function(chunk, encoding, callback) {
+	  if (chunk) {
+	    this.checksum = crc32(chunk, this.checksum);
+	    this.rawSize += chunk.length;
+	  }
+	
+	  callback(null, chunk);
+	};
+	
+	CRC32Stream.prototype.digest = function() {
+	  return crc32.unsigned(0, this.checksum);
+	};
+	
+	CRC32Stream.prototype.hex = function() {
+	  return this.digest().toString(16).toUpperCase();
+	};
+	
+	CRC32Stream.prototype.size = function() {
+	  return this.rawSize;
+	};
+
+/***/ },
+/* 379 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * node-crc32-stream
+	 *
+	 * Copyright (c) 2014 Chris Talkington, contributors.
+	 * Licensed under the MIT license.
+	 * https://github.com/archiverjs/node-crc32-stream/blob/master/LICENSE-MIT
+	 */
+	var zlib = __webpack_require__(300);
+	var inherits = __webpack_require__(299).inherits;
+	
+	var crc32 = __webpack_require__(320);
+	
+	var DeflateCRC32Stream = module.exports = function (options) {
+	  zlib.DeflateRaw.call(this, options);
+	
+	  this.checksum = new Buffer(4);
+	  this.checksum.writeInt32BE(0, 0);
+	
+	  this.rawSize = 0;
+	  this.compressedSize = 0;
+	
+	  // BC v0.8
+	  if (typeof zlib.DeflateRaw.prototype.push !== 'function') {
+	    this.on('data', function(chunk) {
+	      if (chunk) {
+	        this.compressedSize += chunk.length;
+	      }
+	    });
+	  }
+	};
+	
+	inherits(DeflateCRC32Stream, zlib.DeflateRaw);
+	
+	DeflateCRC32Stream.prototype.push = function(chunk, encoding) {
+	  if (chunk) {
+	    this.compressedSize += chunk.length;
+	  }
+	
+	  return zlib.DeflateRaw.prototype.push.call(this, chunk, encoding);
+	};
+	
+	DeflateCRC32Stream.prototype.write = function(chunk, enc, cb) {
+	  if (chunk) {
+	    this.checksum = crc32(chunk, this.checksum);
+	    this.rawSize += chunk.length;
+	  }
+	
+	  return zlib.DeflateRaw.prototype.write.call(this, chunk, enc, cb);
+	};
+	
+	DeflateCRC32Stream.prototype.digest = function() {
+	  return crc32.unsigned(0, this.checksum);
+	};
+	
+	DeflateCRC32Stream.prototype.hex = function() {
+	  return this.digest().toString(16).toUpperCase();
+	};
+	
+	DeflateCRC32Stream.prototype.size = function(compressed) {
+	  compressed = compressed || false;
+	
+	  if (compressed) {
+	    return this.compressedSize;
+	  } else {
+	    return this.rawSize;
+	  }
+	};
+
+/***/ },
+/* 380 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// Returns a wrapper function that returns a wrapped callback
+	// The wrapper function should do some stuff, and return a
+	// presumably different callback function.
+	// This makes sure that own properties are retained, so that
+	// decorations and such are not lost along the way.
+	module.exports = wrappy
+	function wrappy (fn, cb) {
+	  if (fn && cb) return wrappy(fn)(cb)
+	
+	  if (typeof fn !== 'function')
+	    throw new TypeError('need wrapper function')
+	
+	  Object.keys(fn).forEach(function (k) {
+	    wrapper[k] = fn[k]
+	  })
+	
+	  return wrapper
+	
+	  function wrapper() {
+	    var args = new Array(arguments.length)
+	    for (var i = 0; i < args.length; i++) {
+	      args[i] = arguments[i]
+	    }
+	    var ret = fn.apply(this, args)
+	    var cb = args[args.length-1]
+	    if (typeof ret === 'function' && ret !== cb) {
+	      Object.keys(cb).forEach(function (k) {
+	        ret[k] = cb[k]
+	      })
+	    }
+	    return ret
+	  }
+	}
+
+
+/***/ },
+/* 381 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var concatMap = __webpack_require__(384);
@@ -32549,7 +32763,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 378 */
+/* 382 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//     Int64.js
@@ -32786,203 +33000,6 @@ webpackJsonp([1],[
 	    return '[Int64 value:' + this + ' octets:' + this.toOctetString(' ') + ']';
 	  }
 	};
-
-
-/***/ },
-/* 379 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// Returns a wrapper function that returns a wrapped callback
-	// The wrapper function should do some stuff, and return a
-	// presumably different callback function.
-	// This makes sure that own properties are retained, so that
-	// decorations and such are not lost along the way.
-	module.exports = wrappy
-	function wrappy (fn, cb) {
-	  if (fn && cb) return wrappy(fn)(cb)
-	
-	  if (typeof fn !== 'function')
-	    throw new TypeError('need wrapper function')
-	
-	  Object.keys(fn).forEach(function (k) {
-	    wrapper[k] = fn[k]
-	  })
-	
-	  return wrapper
-	
-	  function wrapper() {
-	    var args = new Array(arguments.length)
-	    for (var i = 0; i < args.length; i++) {
-	      args[i] = arguments[i]
-	    }
-	    var ret = fn.apply(this, args)
-	    var cb = args[args.length-1]
-	    if (typeof ret === 'function' && ret !== cb) {
-	      Object.keys(cb).forEach(function (k) {
-	        ret[k] = cb[k]
-	      })
-	    }
-	    return ret
-	  }
-	}
-
-
-/***/ },
-/* 380 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * node-crc32-stream
-	 *
-	 * Copyright (c) 2014 Chris Talkington, contributors.
-	 * Licensed under the MIT license.
-	 * https://github.com/archiverjs/node-crc32-stream/blob/master/LICENSE-MIT
-	 */
-	var inherits = __webpack_require__(287).inherits;
-	var Transform = __webpack_require__(324).Transform;
-	
-	var crc32 = __webpack_require__(313);
-	
-	var CRC32Stream = module.exports = function CRC32Stream(options) {
-	  Transform.call(this, options);
-	  this.checksum = new Buffer(4);
-	  this.checksum.writeInt32BE(0, 0);
-	
-	  this.rawSize = 0;
-	};
-	
-	inherits(CRC32Stream, Transform);
-	
-	CRC32Stream.prototype._transform = function(chunk, encoding, callback) {
-	  if (chunk) {
-	    this.checksum = crc32(chunk, this.checksum);
-	    this.rawSize += chunk.length;
-	  }
-	
-	  callback(null, chunk);
-	};
-	
-	CRC32Stream.prototype.digest = function() {
-	  return crc32.unsigned(0, this.checksum);
-	};
-	
-	CRC32Stream.prototype.hex = function() {
-	  return this.digest().toString(16).toUpperCase();
-	};
-	
-	CRC32Stream.prototype.size = function() {
-	  return this.rawSize;
-	};
-
-/***/ },
-/* 381 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * node-crc32-stream
-	 *
-	 * Copyright (c) 2014 Chris Talkington, contributors.
-	 * Licensed under the MIT license.
-	 * https://github.com/archiverjs/node-crc32-stream/blob/master/LICENSE-MIT
-	 */
-	var zlib = __webpack_require__(297);
-	var inherits = __webpack_require__(287).inherits;
-	
-	var crc32 = __webpack_require__(313);
-	
-	var DeflateCRC32Stream = module.exports = function (options) {
-	  zlib.DeflateRaw.call(this, options);
-	
-	  this.checksum = new Buffer(4);
-	  this.checksum.writeInt32BE(0, 0);
-	
-	  this.rawSize = 0;
-	  this.compressedSize = 0;
-	
-	  // BC v0.8
-	  if (typeof zlib.DeflateRaw.prototype.push !== 'function') {
-	    this.on('data', function(chunk) {
-	      if (chunk) {
-	        this.compressedSize += chunk.length;
-	      }
-	    });
-	  }
-	};
-	
-	inherits(DeflateCRC32Stream, zlib.DeflateRaw);
-	
-	DeflateCRC32Stream.prototype.push = function(chunk, encoding) {
-	  if (chunk) {
-	    this.compressedSize += chunk.length;
-	  }
-	
-	  return zlib.DeflateRaw.prototype.push.call(this, chunk, encoding);
-	};
-	
-	DeflateCRC32Stream.prototype.write = function(chunk, enc, cb) {
-	  if (chunk) {
-	    this.checksum = crc32(chunk, this.checksum);
-	    this.rawSize += chunk.length;
-	  }
-	
-	  return zlib.DeflateRaw.prototype.write.call(this, chunk, enc, cb);
-	};
-	
-	DeflateCRC32Stream.prototype.digest = function() {
-	  return crc32.unsigned(0, this.checksum);
-	};
-	
-	DeflateCRC32Stream.prototype.hex = function() {
-	  return this.digest().toString(16).toUpperCase();
-	};
-	
-	DeflateCRC32Stream.prototype.size = function(compressed) {
-	  compressed = compressed || false;
-	
-	  if (compressed) {
-	    return this.compressedSize;
-	  } else {
-	    return this.rawSize;
-	  }
-	};
-
-/***/ },
-/* 382 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// Returns a wrapper function that returns a wrapped callback
-	// The wrapper function should do some stuff, and return a
-	// presumably different callback function.
-	// This makes sure that own properties are retained, so that
-	// decorations and such are not lost along the way.
-	module.exports = wrappy
-	function wrappy (fn, cb) {
-	  if (fn && cb) return wrappy(fn)(cb)
-	
-	  if (typeof fn !== 'function')
-	    throw new TypeError('need wrapper function')
-	
-	  Object.keys(fn).forEach(function (k) {
-	    wrapper[k] = fn[k]
-	  })
-	
-	  return wrapper
-	
-	  function wrapper() {
-	    var args = new Array(arguments.length)
-	    for (var i = 0; i < args.length; i++) {
-	      args[i] = arguments[i]
-	    }
-	    var ret = fn.apply(this, args)
-	    var cb = args[args.length-1]
-	    if (typeof ret === 'function' && ret !== cb) {
-	      Object.keys(cb).forEach(function (k) {
-	        ret[k] = cb[k]
-	      })
-	    }
-	    return ret
-	  }
-	}
 
 
 /***/ },

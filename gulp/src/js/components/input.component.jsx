@@ -43,7 +43,7 @@ class Input extends React.Component {
 						className="input__field"
 						id={id}
 						ref={id}
-						onInput={this.handleChange}>
+						onInput={this.props.onInput || this.handleChange}>
 						{this.props.children}
 					</select>
 				);
