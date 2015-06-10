@@ -2,6 +2,7 @@
 
 /* Bourbon */
 @import "bourbon/bourbon";
+@import "tools/grid-settings";
 @import "neat/neat";
 
 /* Tools */
@@ -9,6 +10,9 @@
 @import "tools/site-settings";
 @import "tools/mixins";
 @import "tools/helpers";
+
+/* Plugin */
+@import url('../node_modules/react-gemini-scrollbar/node_modules/gemini-scrollbar/gemini-scrollbar.css');
 
 /* Base */
 @import "base/reset";
@@ -28,5 +32,6 @@
 @import "modules/dashboard";
 @import "modules/dropzone";
 @import "modules/button";
-@import "modules/modal";
 @import "modules/form";
+@import "modules/modal";
+@import "modules/scrollbar";
