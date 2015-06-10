@@ -1,5 +1,4 @@
 /* Bourbon */
-@import url("../node_modules/react-gemini-scrollbar/node_modules/gemini-scrollbar/gemini-scrollbar.css");
 html {
   box-sizing: border-box;
 }
@@ -9,7 +8,6 @@ html {
 }
 
 /* Tools */
-/* Plugin */
 /* Base */
 /**
  * html5doctor.com Reset Stylesheet v1.6.1 (http://html5doctor.com/html-5-reset-stylesheet/)
@@ -1106,29 +1104,4 @@ textarea:active {
 }
 .modal__input .input__label {
   color: #2d2e2c;
-}
-
-/* override gemini-scrollbar default styles */
-.gm-scrollbar-container .gm-scroll-view {
-  overflow-x: hidden;
-  height: 100% !important;
-}
-
-/* vertical scrollbar track */
-.gm-scrollbar.-vertical {
-  background-color: #96c119;
-}
-
-/* horizontal scrollbar track */
-.gm-scrollbar.-horizontal {
-  background-color: transparent;
-}
-
-/* scrollbar thumb */
-.gm-scrollbar .thumb {
-  background-color: #96c119;
-}
-
-.gm-scrollbar .thumb:hover {
-  background-color: fuchsia;
 }
