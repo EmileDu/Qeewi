@@ -36,10 +36,9 @@ app.init = function() {
 		}
 	});
 
-	// console.log(localStorage);
-	// if (window.localStorage != null && localStorage.getItem("projects") === null) {
-	// 	ProjectsData.init();
-	// }
+	if (window.localStorage != null && localStorage.getItem("projects") === null) {
+		ProjectsData.init();
+	}
 }
 
 app.initMenu = function(template) {
