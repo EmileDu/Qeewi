@@ -4,24 +4,19 @@ import NewProject from './newProject.component.jsx';
 import _ from 'lodash';
 
 class ProjectsList extends React.Component{
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 	}
 
 	render() {
-		var i = 0;
 		var projects = _.map(this.props.projects, function(project){
-			i++;
-			if (i > 5) {
-				i = 1;
-			}
 			return 	<li className="projects-list__item">
-								<Project key={ project.key } project={ project } id={i}/>
+								<Project key={ project.key } project={ project }/>
 							</li>
 		});
 		return (
 			<ul className="projects-list">
-				<NewProject />
+				<NewProject length={this.props.length}/>
 				{projects}
 			</ul>
 		)

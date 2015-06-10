@@ -41,9 +41,8 @@ class NewProject extends React.Component{
 					ref="projectsdropzone"
 					isDraging={this.state.isDraging}
 					path={this.state.path}
-					onDrop={this.handleDrop}
-					>
-					<Link to="NewProject">
+					onDrop={this.handleDrop}>
+					<Link to="NewProject" query={{length: this.props.length}} >
 						<Icon className="dropzone__icon" size="32" icon="icon-plus" link="images/Icons/svgdefs.svg" />
 						<h2 className="dropzone__label">Nouveau projet</h2>
 						<p className="dropzone__instruction" ref="instruction">(Drop ton dossier ici)</p>

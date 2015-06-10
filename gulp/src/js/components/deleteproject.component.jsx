@@ -20,14 +20,14 @@ class DeleteProject extends React.Component {
 
 	}
 
-	handleClick() {
+	deleteProject() {
 		AppActions.removeProject(projectID);
 		router.transitionTo('Homepage');
 	}
 
 	render() {
 		return(
-			<button className='header__button button' onClick={this.handleClick}>
+			<button className='header__button button' onClick={this.deleteProject}>
 				<Icon className='button__icon' size="32" icon="icon-circle-minus" link="images/Icons/svgdefs.svg" />
 				<span className='button__label'>Supprimer le projet</span>
 			</button>

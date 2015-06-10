@@ -13,20 +13,33 @@ app.node.fs = require('fs');
 app.node.gui = require('nw.gui');
 app.node.os = require('os');
 
+var data = {
+	"preconfig": "Site Web",
+	"resetcss": "",
+	"preprocss": "",
+	"preprojs": "",
+	"author": ""
+}
+
 var tray;
 
 var isTrayOn = false;
 
 app.init = function() {
 	this.initMenu(MenuTemplate);
-}
 
-app.initDev = function() {
-	if(isTrayOn) {
-		tray.remove();
-		isTrayOn = false;
-	}
-	this.initTray();
+	app.node.fs.exists(app.node.gui.App.dataPath + '/data/settings.json', function(exists){
+		if (!exists) {
+			app.node.fs.writeFile(app.node.gui.App.dataPath + '/data/settings.json', JSON.stringify(data), function(err){
+				if (err) throw err;
+			});
+		}
+	});
+
+	// console.log(localStorage);
+	// if (window.localStorage != null && localStorage.getItem("projects") === null) {
+	// 	ProjectsData.init();
+	// }
 }
 
 app.initMenu = function(template) {
@@ -51,7 +64,6 @@ app.initTray = function() {
 }
 
 app.node.gui.Window.get().on('loaded', function(){
-	// ProjectsData.init();
 	app.init();
 	Router.run(routes, function(Handler) {
 		React.render(<Handler/>, document.body)

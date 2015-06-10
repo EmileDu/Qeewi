@@ -45,9 +45,11 @@
 	margin-bottom: 2.25rem;
 }
 
-.input--modal{
-	@include omega(2n+1);
+.modal__input{
 	margin-bottom: 2.25rem;
+	&:nth-child(2n+1) {
+		margin-right: 0;
+	}
 	.input__label {
 		color: $black;
 	}

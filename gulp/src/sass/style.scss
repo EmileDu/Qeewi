@@ -11,6 +11,9 @@
 @import "tools/mixins";
 @import "tools/helpers";
 
+/* Plugin */
+@import url('../node_modules/react-gemini-scrollbar/node_modules/gemini-scrollbar/gemini-scrollbar.css');
+
 /* Base */
 @import "base/reset";
 @import "base/base";
@@ -31,3 +34,4 @@
 @import "modules/button";
 @import "modules/form";
 @import "modules/modal";
+@import "modules/scrollbar";

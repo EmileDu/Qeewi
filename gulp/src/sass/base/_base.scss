@@ -2,8 +2,9 @@
 // == Base
 // --------------------
 html, body {
-    width: 100%;
-    height: 100%;
+  @include position(relative);
+  width: 100%;
+  height: 100%;
 }
 
 html {
@@ -23,6 +24,23 @@ html {
 
 ::selection {
 	background: transparentize($green, 0.4);
+}
+
+::-webkit-scrollbar {
+    width:  10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: transparentize($black, .65);
+  &:hover {
+    background: transparentize($black, 0);
+  }
+}
+
+::-webkit-scrollbar-track {
+  background: $gray;
 }
 
 a, a:hover, a:active, a:visited {

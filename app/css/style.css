@@ -4,6 +4,7 @@
  * @license ISC
  */
 /* Bourbon */
+@import url("../node_modules/react-gemini-scrollbar/node_modules/gemini-scrollbar/gemini-scrollbar.css");
 html {
   box-sizing: border-box;
 }
@@ -13,6 +14,7 @@ html {
 }
 
 /* Tools */
+/* Plugin */
 /* Base */
 /**
  * html5doctor.com Reset Stylesheet v1.6.1 (http://html5doctor.com/html-5-reset-stylesheet/)
@@ -121,6 +123,7 @@ input, select {
 }
 
 html, body {
+  position: relative;
   width: 100%;
   height: 100%;
 }
@@ -142,6 +145,23 @@ html {
 
 ::selection {
   background: rgba(150, 193, 25, 0.6);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: rgba(45, 46, 44, 0.35);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2d2e2c;
+}
+
+::-webkit-scrollbar-track {
+  background: #eef3f5;
 }
 
 a, a:hover, a:active, a:visited {
@@ -354,6 +374,7 @@ textarea:active {
   max-width: 974px;
   margin-left: auto;
   margin-right: auto;
+  height: 100%;
   padding: 0 30px;
   margin-left: 50px;
 }
@@ -361,6 +382,11 @@ textarea:active {
   clear: both;
   content: "";
   display: table;
+}
+@media screen and (min-width: 1074px) {
+  .app__content {
+    margin: 0 auto;
+  }
 }
 
 /* Modules */
@@ -380,16 +406,17 @@ textarea:active {
   display: block;
   margin-right: 3.60299%;
   width: 22.29776%;
+  border-radius: 5px;
   margin-bottom: 24px;
 }
 .projects-list__item:last-child {
   margin-right: 0;
 }
-.projects-list__item:nth-child(5n) {
+.projects-list__item:nth-child(4n+1) {
   margin-right: 0;
 }
-.projects-list__item:nth-child(5n+1) {
-  clear: left;
+.projects-list__item:not(:first-child) {
+  box-shadow: 2px 0px 4px 0px rgba(45, 46, 44, 0.15);
 }
 
 .project {
@@ -414,9 +441,6 @@ textarea:active {
 }
 .project:not(.project--dashboard):first-child .dropzone {
   width: 100%;
-}
-.project:not(.project--dashboard):not(:first-child) {
-  box-shadow: 2px 0px 4px 0px rgba(45, 46, 44, 0.15);
 }
 .project:not(.project--dashboard):hover {
   color: #96c119;
@@ -457,9 +481,11 @@ textarea:active {
   height: 16px;
   margin-bottom: 5px;
   color: inherit;
-  text-transform: capitalize;
   font-weight: 400;
   letter-spacing: 1px;
+}
+.project__title:first-letter {
+  text-transform: uppercase;
 }
 
 .project__type {
@@ -729,6 +755,12 @@ textarea:active {
 .form-panel .form-section__title:before, .form-panel .form-section__title:after {
   display: none;
 }
+.form-panel .input--dropzone .input__field {
+  background: transparent;
+}
+.form-panel .input--dropzone .input__label {
+  color: #ffffff;
+}
 
 .form-panel__button {
   display: block;
@@ -840,6 +872,16 @@ textarea:active {
   margin-right: 0;
 }
 
+.input--10col {
+  float: left;
+  display: block;
+  margin-right: 3.60299%;
+  width: 82.73283%;
+}
+.input--10col:last-child {
+  margin-right: 0;
+}
+
 .input--12col {
   float: left;
   display: block;
@@ -898,58 +940,12 @@ textarea:active {
 .input--select .input__field {
   position: relative;
   height: 3rem;
+  font-family: "HelveticaNeue_Light", Helvetica, Arial, sans-serif;
+  padding: 1.25rem;
 }
 
 .input--search .input__field {
   padding-left: .8rem;
-}
-
-.input--radio {
-  margin-bottom: 0;
-}
-.input--radio .input__field {
-  -webkit-appearance: caret;
-  cursor: pointer;
-}
-.input--radio .input__field:hover + .input__label .input__label__content, .input--radio .input__field:checked + .input__label .input__label__content {
-  color: #96c119;
-}
-.input--radio .input__field:hover + .input__label .input__label__content:after, .input--radio .input__field:checked + .input__label .input__label__content:after {
-  -webkit-transform: scale(0.6);
-          transform: scale(0.6);
-}
-.input--radio .input__field:checked {
-  border: 1px solid #96c119;
-}
-.input--radio .input__label {
-  display: table;
-  padding: 0;
-}
-.input--radio .input__label__content {
-  display: table-cell;
-  vertical-align: middle;
-  padding: 0 1.25rem 0 3.4375rem;
-}
-.input--radio .input__label__content:before, .input--radio .input__label__content:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 1.25rem;
-  display: block;
-  width: 15px;
-  height: 15px;
-  margin: auto;
-  border-radius: 50%;
-  background: #eef3f5;
-}
-.input--radio .input__label__content:after {
-  -webkit-transform-origin: center center;
-          transform-origin: center center;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-  background: #96c119;
-  transition: all .2s ease-in-out;
 }
 
 .input--hidden {
@@ -965,7 +961,7 @@ textarea:active {
   z-index: 1;
   width: 100%;
   height: 100%;
-  padding: 1.25rem 1.25rem 0.5rem;
+  padding: 1.25rem 1.1875rem 0.5rem;
   background: #ffffff;
   border-radius: 3px;
   font-size: inherit;
@@ -982,8 +978,8 @@ textarea:active {
   color: #96c119;
 }
 .input:not(.input--dropzone):not(.input--radio) .input__field:focus + .input__label .input__label__content, .input:not(.input--dropzone):not(.input--radio) .input__field.input__field--filled + .input__label .input__label__content {
-  -webkit-transform: translate3d(0, -13px, 0);
-          transform: translate3d(0, -13px, 0);
+  -webkit-transform: translate3d(0, -11px, 0);
+          transform: translate3d(0, -11px, 0);
   font-size: 0.6875rem;
   opacity: .5;
 }
@@ -1003,10 +999,11 @@ textarea:active {
 .input__label__content {
   display: block;
   font-size: 1rem;
+  height: 100%;
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
   transition: all .3s ease-in-out;
-  padding: 1.25rem 0 0.5rem;
+  padding: 1rem 0 0.75rem;
 }
 
 .ReactModal__Overlay {
@@ -1087,15 +1084,37 @@ textarea:active {
   margin-bottom: 2.25rem;
 }
 
-.input--modal {
+.modal__input {
   margin-bottom: 2.25rem;
 }
-.input--modal:nth-child(3n) {
+.modal__input:nth-child(2n+1) {
   margin-right: 0;
 }
-.input--modal:nth-child(3n+1) {
-  clear: left;
-}
-.input--modal .input__label {
+.modal__input .input__label {
   color: #2d2e2c;
+}
+
+/* override gemini-scrollbar default styles */
+.gm-scrollbar-container .gm-scroll-view {
+  overflow-x: hidden;
+  height: 100% !important;
+}
+
+/* vertical scrollbar track */
+.gm-scrollbar.-vertical {
+  background-color: #96c119;
+}
+
+/* horizontal scrollbar track */
+.gm-scrollbar.-horizontal {
+  background-color: transparent;
+}
+
+/* scrollbar thumb */
+.gm-scrollbar .thumb {
+  background-color: #96c119;
+}
+
+.gm-scrollbar .thumb:hover {
+  background-color: fuchsia;
 }

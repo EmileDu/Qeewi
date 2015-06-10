@@ -9,7 +9,7 @@ class Project extends React.Component{
 
 	render() {
 		var project = this.props.project;
-		var file = project.thumb || "images/"+ this.props.id;
+		var file = "images/" + project.thumb || "images/" + this.props.id;
 		var style = {
 			backgroundImage: 'url('+ file +'_portrait_2x.png)'
 		}

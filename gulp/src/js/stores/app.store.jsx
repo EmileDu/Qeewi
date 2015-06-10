@@ -3,9 +3,13 @@ import AppActions from '../actions/app.action.jsx';
 import _ from 'lodash';
 import shortid from 'shortid';
 import jsondir from 'jsondir';
+import fs from 'fs';
+import gui from 'nw.gui';
+import archiver from 'archiver';
+import Handlebars from 'Handlebars';
 
-// import skeleton from '../skeleton.js';
 var localStorageKey = 'projects';
+var appDataTemplate = gui.App.dataPath+'/data/templates/';
 
 var AppStore = Reflux.createStore({
 	listenables: AppActions,
@@ -34,11 +38,12 @@ var AppStore = Reflux.createStore({
 		})
 	},
 
-	loadProjectsSuccess(projects) {
+	loadProjectsSuccess(projects, length) {
 		this.projects = projects;
 
 		this.trigger({
 			projects: this.projects,
+			length: length,
 			loading: false
 		})
 	},
@@ -54,26 +59,93 @@ var AppStore = Reflux.createStore({
 
 	},
 
+	ajaxCall(url, callback) {
+		var err = '';
+		var data = '';
+		var request = new XMLHttpRequest();
+		request.open('GET', url, true);
+		request.onload = function(){
+			data = request.responseText;
+			if (typeof callback == 'function') {
+				callback('success', err, data);
+			}
+		}
+
+		request.onerror = function() {
+			err = request.responseText;
+			if (typeof callback == 'function') {
+				callback('error', err, data);
+			}
+		}
+
+		request.send();
+	},
+
+	clean(string) {
+		string = 	string.replace(/&quot;/g, '"')
+										.replace(/&amp;#x27;/g, "'")
+										.replace(/&#x27;/g, "'")
+										.replace(/&lt;/g, '<')
+										.replace(/&gt;/g, '>');
+
+		return string;
+	},
+
 	addProject(data) {
 		var store = this;
-		var qeewiContent = {
+		var qeewiTpl,
+				packageTpl,
+				gulpfileTpl,
+				indexTpl,
+				skeletonTpl;
+
+		qeewiTpl = {
 			"title": data.title,
 			"type": data.type,
 			"desc": data.desc,
 			"author": data.author,
-			"version": "1.0.0"
+			"version": "1.0.0",
+			"thumb": data.thumb,
+			"keywords": data.keywords,
+			"option": {
+				"resetcss": data.resetcss,
+				"preprocss": data.preprocss,
+				"preprojs": data.preprojs
+			}
 		};
 
-		jsondir.json2dir({
-			"-path": data.path +'/'+ data.title,
-			"qeewiconfig": {
+		packageTpl = {
+			"name":data.title,
+			"version": "1.0.0",
+			"description": data.desc,
+			"author": data.author,
+			"license": "ISC",
+			"scripts": {
+				"install": "npm install"
+			},
+			"dependencies": {
+
+			},
+			"devDependencies": {
+				"del": "^1.1.1",
+				"gulp": "^3.8.11",
+				"gulp-load-plugins": "^0.10.0",
+				"gulp-autoprefixer": "^1.0.1",
+				"run-sequence": "^1.0.1"
+			}
+		};
+
+		skeletonTpl = {
+			"-path": data.path + '/' + data.title,
+			"qeewi": {
 				"-type": "f",
-				"-name": ".qeewiconfig",
-				"-content": JSON.stringify(qeewiContent)
+				"-name": ".qeewi",
+				"-content": JSON.stringify(qeewiTpl)
 			},
 			"package": {
 				"-type": "f",
-				"-name": "package.json"
+				"-name": "package.json",
+				"-content": JSON.stringify(packageTpl)
 			},
 			"gulp": {
 				"-type": "f",
@@ -99,15 +171,53 @@ var AppStore = Reflux.createStore({
 				}
 			},
 			"dist": {
-				"-type": "d"
+				"-type": "d",
+				"css": {
+					"-type": "d"
+				},
+				"js": {
+					"-type": "d"
+				},
+				"fonts": {
+					"-type": "d"
+				},
+				"images": {
+					"-type": "d"
+				}
 			}
-		}, function(err, result) {
+		};
+		console.log(skeletonTpl);
+		jsondir.json2dir(skeletonTpl, function(err, result) {
+			console.log('coucou');
 			if (err) throw err;
+			console.log(result);
 			store.updateList([{
 				key: shortid.generate(),
 				path: data.path + '/' + data.title
 			}].concat(store.projects));
-		})
+		});
+
+	},
+
+	exportProject(id) {
+		var projet = _.find(this.projects, function(project) {
+			return project.key == id;
+		});
+		var output = fs.createWriteStream('~/Desktop/'+projet.title+'.zip');
+		var archive = archiver('zip');
+
+		output.on('close', function() {
+			console.log(archive.pointer() + ' total bytes');
+			console.log('archiver has been finalized and the output file descriptor has closed.');
+		});
+
+		archive.on('error', function(err){
+    	throw err;
+		});
+
+		archive.pipe(output);
+		archive.directory('~'+projet.path);
+		archive.finalize();
 	},
 
 	removeProject(id) {

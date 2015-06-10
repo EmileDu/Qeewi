@@ -19,11 +19,13 @@
 		BASE: 'src/',
 		CSS: 'src/sass/',
 		JS: 'src/js/',
+		DATA: 'data/'
 	};
 	var destPaths = {
 		BASE: '../app/',
 		CSS: '../app/css/',
-		JS: '../app/js/'
+		JS: '../app/js/',
+		DATA: '../app/data'
 	};
 // ==========================================
 
@@ -115,6 +117,14 @@ gulp.task('html', function(){
 							.pipe(plugin.size({title: 'HTML'}));
 });
 
+// -------------------------
+// --    task: DATA    --
+// -------------------------
+gulp.task('data', function(){
+	return 	gulp.src(sourcePaths.DATA + '**/*.*')
+							.pipe(gulp.dest(destPaths.DATA));
+
+})
 
 
 // -------------------------
@@ -133,11 +143,12 @@ gulp.task('watch', function() {
 // -------------------------
 gulp.task('build', function(callback) {
 	nodeWebkit = new NwBuilder({
-	    files: ['../app/**'],
-	    platforms: ['osx', 'win', 'linux'],
-	    buildDir: '../build',
-	    cacheDir: '../ressources',
-	    macIcns: '../app/icons/app_icon.icns'
+		version: '0.12.2',
+    files: ['../app/**'],
+    platforms: ['osx'],
+    buildDir: '../build',
+    cacheDir: '../ressources',
+    macIcns: '../app/icons/app_icon.icns'
 	});
 	nodeWebkit.on('log', function (msg) { plugin.util.log('node-webkit-builder', msg); });
 	return 	nodeWebkit.build()
@@ -150,12 +161,12 @@ gulp.task('build', function(callback) {
 // --    task: serve      --
 //--------------------------
 gulp.task('serve', function(callback) {
-	runSequence('html', 'styles', 'scripts', 'watch', 'app', callback);
+	runSequence('data', 'html', 'styles', 'scripts', 'watch', 'app', callback);
 });
 
 // -------------------------
 // --    task: default    --
 // -------------------------
 gulp.task('default', function (callback) {
-	runSequence('html', 'styles', 'scripts', callback);
+	runSequence('data', 'html', 'styles', 'scripts', callback);
 });

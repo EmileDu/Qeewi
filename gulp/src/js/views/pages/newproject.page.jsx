@@ -1,27 +1,39 @@
 import React from 'react';
 import Dropzone from '../../components/dropzone.component.jsx';
 import _ from 'lodash';
+import fs from 'fs';
+import gui from 'nw.gui';
 import AppStore from '../../stores/app.store.jsx';
 import AppActions from '../../actions/app.action.jsx';
 import Input from '../../components/input.component.jsx';
-import ClassNames from 'classnames';
+import MoreOptions from '../partials/moreOptions.partial.jsx';
 
 var requiredInput;
 var formValidateButton;
 var router;
+var length;
+
+var path = gui.App.dataPath+'/data';
+var settings= '';
 
 class NewProject extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { isPanelOpen: false };
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
-		this.handleOpenPanel = this.handleOpenPanel.bind(this);
 		this.getFormData = this.getFormData.bind(this);
 	}
 
 	componentWillMount() {
 		router = this.context.router;
+		length = router.getCurrentQuery().length;
+
+		settings = fs.readFileSync(path + '/settings.json', 'utf-8');
+		settings = JSON.parse(settings.toString('utf8').replace(/^\uFEFF/, ''));
+
+		this.setState({
+			author: settings.author
+		});
 	}
 
 	componentDidMount() {
@@ -30,6 +42,15 @@ class NewProject extends React.Component {
 		this.refs.inputPath.getDOMNode().setAttribute('nwdirectory', true);
 		this.refs.inputPath.getDOMNode().setAttribute('directory', true);
 
+		console.log('watching settings.json');
+		fs.watchFile(path + '/settings.json', function(event){
+			settings = fs.readFileSync(path + '/settings.json', 'utf-8');
+			settings = JSON.parse(settings.toString('utf8').replace(/^\uFEFF/, ''));
+
+			this.setState({
+				author: settings.author
+			});
+		}.bind(this));
 	}
 
 	handleChange() {
@@ -43,12 +64,11 @@ class NewProject extends React.Component {
 		});
 		if (!flag){ isValidatable = true };
 		AppActions.isValidable(isValidatable);
-
 	}
 
 	getFormData() {
 		var form = document.querySelector("#newprojectform");
-		var data = form.querySelectorAll("input, textarea, button");
+		var data = form.querySelectorAll("input, textarea, button, select");
 		return data;
 	}
 
@@ -60,6 +80,31 @@ class NewProject extends React.Component {
 			return false
 		}
 		return value;
+	}
+
+	getThumb(num) {
+		var thumb;
+		switch(num) {
+			case 0:
+				thumb = 'kiwi';
+			 	break;
+			case 1:
+				thumb = 'pomme';
+			 	break;
+			case 2:
+				thumb = 'banane';
+			 	break;
+			case 3:
+				thumb = 'orange';
+			 	break;
+			case 4:
+				thumb = 'poire';
+			 	break;
+			default:
+				thumb = 'kiwi'
+				break;
+		}
+		return thumb;
 	}
 
 	handleSubmit() {
@@ -75,35 +120,34 @@ class NewProject extends React.Component {
 			}
 		});
 
+		while (length >= 5) { length -= 5; }
+
 		var data = {
 			path: this.getInputValue(formData, 'input-path') || '',
 			title: this.getInputValue(formData, 'input-title') || '',
 			type: this.getInputValue(formData, 'input-preconfig') || 'Site Web',
 			desc: this.getInputValue(formData, 'input-desc') || '',
-			author: this.getInputValue(formData, 'input-author') || ''
-		}
+			author: this.getInputValue(formData, 'input-author') || '',
+			preconfig: this.getInputValue(formData, 'input-preconfig') || '',
+			resetcss: this.getInputValue(formData, 'input-resetcss') || '',
+			preprocss: this.getInputValue(formData, 'input-preprocss') || '',
+			preprojs: this.getInputValue(formData, 'input-preprojs') || '',
+			thumb: this.getThumb(parseInt(length))
+		};
 
 		AppActions.addProject(data);
 		var { router } = this.context;
 		router.transitionTo('Homepage');
 	}
 
-	handleOpenPanel() {
-		if(this.state.isPanelOpen){
-			this.setState({isPanelOpen: false});
-		} else {
-			this.setState({isPanelOpen: true});
-		}
-	}
 
 	render() {
-		var classPanel = ClassNames('form-panel', {'form-panel--open': this.state.isPanelOpen})
-
 		if (router.getCurrentQuery().path !== undefined) {
 			var pathValue = router.getCurrentQuery().path;
 		} else {
 			var pathValue = '';
 		}
+
 		return (
 			<div className="page" ref="newprojectpage">
 				<h1 className="page__title">New Project</h1>
@@ -139,12 +183,13 @@ class NewProject extends React.Component {
 								id="input-keyword"
 								required={false}>
 								Mot-Clés
-								</Input>
+							</Input>
 							<Input
 								className="form-section__input input input--4col"
 								type="text"
 								name="input-author"
 								id="input-author"
+								value={this.state.author}
 								required={false}>
 								Auteur
 							</Input>
@@ -161,85 +206,7 @@ class NewProject extends React.Component {
 							</Input>
 						</div>
 					</fieldset>
-					<div className={classPanel}>
-						<button className="form-panel__button" onClick={this.handleOpenPanel}>Plus d'option</button>
-						<fieldset className="form-section" id="moreconfig">
-							<div className="row">
-								<Input
-									className="form-section__input input input--select input--3col"
-									type="select"
-									name="input-select-preconfig"
-									id="input-select-preconfig"
-									required={false}
-									label="Pré-configuration"
-									default="website">
-									<option value="website">Site Web</option>
-									<option value="webapp">Web App</option>
-									<option value="proto">Prototype</option>
-								</Input>
-								<Input
-									className="form-section__input input input--select input--3col"
-									type="select"
-									name="input-select-resetcss"
-									id="input-select-resetcss"
-									required={false}
-									label="Reset CSS"
-									default="">
-									<option value="">Aucun</option>
-									<option value="reset">Reset</option>
-									<option value="normalize">Normalize</option>
-								</Input>
-								<Input
-									className="form-section__input input input--select input--3col"
-									type="select"
-									name="input-select-preprocss"
-									id="input-select-preprocss"
-									required={false}
-									label="Préprocesseur CSS"
-									default="">
-									<option value="">Aucun</option>
-									<option value="less">LESS</option>
-									<option value="sass">SASS</option>
-									<option value="scss">SCSS</option>
-									<option value="stylus">Stylus</option>
-								</Input>
-								<Input
-									className="form-section__input input input--select input--3col"
-									type="select"
-									name="input-select-preprojs"
-									id="input-select-preprojs"
-									required={false}
-									label="Préprocesseur JS"
-									default="">
-									<option value="">Aucun</option>
-									<option value="coffeescript">CoffeeScript</option>
-									<option value="livescript">LiveScript</option>
-								</Input>
-							</div>
-						</fieldset>
-						<fieldset className="form-section" id="jsextern">
-							<legend className="form-section__title">Ressources Javascript</legend>
-							<div className="row">
-								<Input
-									className="form-section__input input input--search input--6col"
-									type="search"
-									name="input-select-jsextern"
-									id="input-select-jsextern"
-									required={false}>
-									Rechercher sur github
-								</Input>
-								<Input
-									className="form-section__input input input--dropzone input--6col"
-									type="file"
-									name="input-favicon"
-									id="input-favicon"
-									accept="image/*"
-									required={false}>
-									<Dropzone className="input__label__content dropzone">Ressource personnelle</Dropzone>
-								</Input>
-							</div>
-						</fieldset>
-					</div>
+					<MoreOptions />
 					<input type="file" ref="inputPath" id="input-path" name="input-path" className="form-section__input input input--hidden" onChange={this.handleSubmit}/>
 				</form>
 			</div>
@@ -249,6 +216,5 @@ class NewProject extends React.Component {
 
 NewProject.displayName = 'New project page';
 NewProject.contextTypes = { router: React.PropTypes.func.isRequired };
-
 
 export default NewProject;

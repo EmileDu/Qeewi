@@ -1,46 +1,47 @@
 {
-	"name": "Qeewi",
-	"version": "1.0.0",
-	"description": "Application to initialize quickly, easily and efficiently a website",
-	"main": "index.html",
-	"keywords": [
-		"Qeewi",
-		"Boilerplate",
-		"TFE",
-		"ESIAJ",
-		"HEAJ",
-		"DWM",
-		"Generator"
-	],
-	"author": "Emile Duval <bonjour@emileduval.be> (http://emileduval.be/)",
-	"license": "ISC",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/EmileDu/Qeewi.git"
-	},
-	"homepage": "http://qeewi.io",
-	"bugs": {
-		"url": "https://github.com/EmileDu/Qeewi/issues",
-		"email": "support@qeewi.io"
-	},
-	"webkit": {
-		"plugin": true
-	},
-	"window": {
-		"title": "Qeewi",
-		"icon": "icons/app_icon.png",
-		"show": true,
-		"toolbar": false,
-		"resizable": false ,
-		"frame": true,
-		"width": 1024,
-		"height": 576,
-		"position": "mouse",
-		"min_width": 1024,
-		"min_height": 576
-	},
-	"dependencies": {
-		"classnames": "^2.0.0",
+  "name": "Qeewi",
+  "version": "1.0.0",
+  "description": "Application to initialize quickly, easily and efficiently a website",
+  "main": "index.html",
+  "keywords": [
+    "Qeewi",
+    "Boilerplate",
+    "TFE",
+    "ESIAJ",
+    "HEAJ",
+    "DWM",
+    "Generator"
+  ],
+  "author": "Emile Duval <bonjour@emileduval.be> (http://emileduval.be/)",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EmileDu/Qeewi.git"
+  },
+  "homepage": "http://qeewi.io",
+  "bugs": {
+    "url": "https://github.com/EmileDu/Qeewi/issues",
+    "email": "support@qeewi.io"
+  },
+  "webkit": {
+    "plugin": true
+  },
+  "window": {
+    "title": "Qeewi",
+    "icon": "icons/app_icon.png",
+    "show": true,
+    "toolbar": false,
+    "resizable": true,
+    "frame": true,
+    "width": 1024,
+    "height": 576,
+    "position": "mouse",
+    "min_width": 1024,
+    "min_height": 576
+  },
+  "dependencies": {
+    "archiver": "^0.14.4",
+    "classnames": "^2.0.0",
     "handlebars": "^3.0.1",
     "json-loader": "^0.5.1",
     "jsondir": "^0.1.3",
@@ -48,37 +49,38 @@
     "nw": "^0.12.1",
     "nw-appmenu": "^0.1.1",
     "react": "^0.13.1",
+    "react-gemini-scrollbar": "^1.1.1",
     "react-modal": "^0.1.1",
     "react-portal": "^0.4.1",
     "react-router": "^0.13.2",
     "reflux": "^0.2.7",
     "shortid": "^2.2.2"
-	},
-	"devDependencies": {
-		"babel-core": "^5.1.10",
-		"babel-loader": "^5.0.0",
-		"debug": "^2.1.3",
-		"del": "^1.1.1",
-		"gulp": "^3.8.11",
-		"gulp-autoprefixer": "^1.0.1",
-		"gulp-csso": "^0.2.9",
-		"gulp-header": "^1.2.2",
-		"gulp-if": "^1.2.5",
-		"gulp-livereload": "^3.8.0",
-		"gulp-load-plugins": "^0.10.0",
-		"gulp-notify": "^2.2.0",
-		"gulp-rename": "^1.2.2",
-		"gulp-ruby-sass": "^0.7.1",
-		"gulp-shell": "^0.2.10",
-		"gulp-size": "^1.2.1",
-		"gulp-tap": "^0.1.3",
-		"gulp-uglify": "^1.0.1",
-		"gulp-util": "^3.0.4",
-		"gulp-webpack": "^1.0.0",
-		"node-webkit-builder": "^1.0.11",
-		"nw-dev": "^1.2.0",
-		"react-tools": "^0.13.2",
-		"run-sequence": "^1.0.1",
-		"webpack": "^1.8.5"
-	}
+  },
+  "devDependencies": {
+    "babel-core": "^5.1.10",
+    "babel-loader": "^5.0.0",
+    "debug": "^2.1.3",
+    "del": "^1.1.1",
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^1.0.1",
+    "gulp-csso": "^0.2.9",
+    "gulp-header": "^1.2.2",
+    "gulp-if": "^1.2.5",
+    "gulp-livereload": "^3.8.0",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-ruby-sass": "^0.7.1",
+    "gulp-shell": "^0.2.10",
+    "gulp-size": "^1.2.1",
+    "gulp-tap": "^0.1.3",
+    "gulp-uglify": "^1.0.1",
+    "gulp-util": "^3.0.4",
+    "gulp-webpack": "^1.0.0",
+    "node-webkit-builder": "^1.0.11",
+    "nw-dev": "^1.2.0",
+    "react-tools": "^0.13.2",
+    "run-sequence": "^1.0.1",
+    "webpack": "^1.8.5"
+  }
 }

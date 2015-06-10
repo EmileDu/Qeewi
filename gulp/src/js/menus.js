@@ -4,7 +4,7 @@ var menu = {
 	'': {
 		'Préférences': {
 			click: function () {
-				window.alert('click Example App -> "example item"');
+				
 			},
 			key: ',',
 		}
@@ -12,18 +12,18 @@ var menu = {
 	"Aide": {
 		"Conditions d'utilisation": {
 			click: function() {
-				window.alert("condition d'utilisation");
+				gui.Shell.openExternal("http://qeewi.io");
 			}
 		},
 		"Documentation": {
 			click: function() {
-				window.alert("Documentation");
+				gui.Shell.openExternal("http://qeewi.io");
 			}
 		},
 		'separator2': 'separator',
 		"Reporter un bug": {
 			click: function() {
-				window.alert("Report un bug");
+				gui.Shell.openExternal("https://github.com/EmileDu/Qeewi/issues");
 			}
 		}
 	},

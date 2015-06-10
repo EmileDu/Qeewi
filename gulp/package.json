@@ -23,6 +23,7 @@
     "email": "support@qeewi.io"
   },
   "dependencies": {
+    "archiver": "^0.14.4",
     "classnames": "^2.0.0",
     "handlebars": "^3.0.1",
     "json-loader": "^0.5.1",
@@ -31,6 +32,7 @@
     "nw": "^0.12.1",
     "nw-appmenu": "^0.1.1",
     "react": "^0.13.1",
+    "react-gemini-scrollbar": "^1.1.1",
     "react-modal": "^0.1.1",
     "react-portal": "^0.4.1",
     "react-router": "^0.13.2",

@@ -9,6 +9,7 @@ class Home extends React.Component {
 		super(props);
 		this.state = {
 			projects: [],
+			length: 0,
 			loading: false
 		}
 	}

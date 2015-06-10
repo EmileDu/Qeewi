@@ -1,0 +1,24 @@
+/* override gemini-scrollbar default styles */
+
+.gm-scrollbar-container .gm-scroll-view {
+	overflow-x: hidden;
+	height: 100% !important;
+}
+
+/* vertical scrollbar track */
+.gm-scrollbar.-vertical {
+  background-color: $green;
+}
+
+/* horizontal scrollbar track */
+.gm-scrollbar.-horizontal {
+  background-color: transparent;
+}
+
+/* scrollbar thumb */
+.gm-scrollbar .thumb {
+  background-color: $green;
+}
+.gm-scrollbar .thumb:hover {
+  background-color: fuchsia;
+}

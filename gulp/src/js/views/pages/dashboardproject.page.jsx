@@ -38,7 +38,7 @@ class DashboardProject extends React.Component {
 
 	render() {
 		var project = this.state.project;
-		var file = project.thumbportrait || "images/"+id;
+		var file = "images/" + project.thumb || "images/"+id;
 		var style = {
 			backgroundImage: 'url('+ file +'_portrait_2x.png)'
 		}

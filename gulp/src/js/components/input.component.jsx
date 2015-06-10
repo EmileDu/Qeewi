@@ -20,6 +20,14 @@ class Input extends React.Component {
 		this.setState({ value: ev.target.value });
 		if (!_.isEmpty(_.trim(ev.target.value))) {
 			this.setState({ isFilled: true });
+		} else {
+			this.setState({ isFilled: false });
+		}
+	}
+
+	componentWillMount(){
+		if(this.props.value != undefined) {
+			this.setState({ isFilled: true });
 		}
 	}
 
@@ -31,10 +39,11 @@ class Input extends React.Component {
 					<select
 						key={id}
 						name={this.props.name}
-						value={this.props.defaultVal}
+						value={this.props.default || value}
 						className="input__field"
 						id={id}
-						ref={id}>
+						ref={id}
+						onInput={this.handleChange}>
 						{this.props.children}
 					</select>
 				);
@@ -61,7 +70,7 @@ class Input extends React.Component {
 						id={id}
 						name={this.props.name}
 						ref={id}
-						value={value}
+						value={this.props.value || value}
 						required={this.props.required}
 						onChange={this.handleChange}/>
 				);
@@ -74,7 +83,7 @@ class Input extends React.Component {
 						id={id}
 						name={this.props.name}
 						ref={id}
-						value={value}
+						value={this.props.value || value}
 						required={this.props.required}
 						onInput={this.handleChange}/>
 				);
@@ -87,9 +96,22 @@ class Input extends React.Component {
 						className={classInput}
 						id={id}
 						ref={id}
-						value={value}
+						value={this.props.value || value}
 						required={this.props.required}
-						onInput={this.handleChange} />
+						onInput={this.props.onInput || this.handleChange} />
+				);
+				break;
+			case 'modal_author':
+				input.push(
+					<input
+						type='text'
+						className={classInput}
+						id={id}
+						name={this.props.name}
+						ref={id}
+						value={this.props.value || value}
+						required={this.props.required}
+						onChange={this.handleChange}/>
 				);
 				break;
 			default:
@@ -112,6 +134,17 @@ class Input extends React.Component {
 	getFieldMarkup(type) {
 		var field = [];
 		switch (type) {
+			case 'modal_author':
+				field.push(
+					<label
+						key={id}
+						className="input__label"
+						htmlFor={id}>
+						{this.props.children}
+					</label>,
+					{input}
+				);
+				break;
 			case 'file':
 				field.push(
 						{input},
@@ -152,10 +185,12 @@ class Input extends React.Component {
 	render() {
 		id = this.props.id || "input-"+this.props.type;
 		className = ClassNames(this.props.className);
-		classInput = ClassNames('input__field', {'input__field--filled': this.state.isFilled})
+		classInput = ClassNames('input__field', {'input__field--filled': this.props.isFilled || this.state.isFilled})
 		value = this.state.value;
 		input = this.getInputType(this.props.type);
 		field = this.getFieldMarkup(this.props.type);
+		this.props.default = null;
+		this.props.value = null;
 
 		return (
 			<div className={className}>
