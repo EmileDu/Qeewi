@@ -27,7 +27,7 @@ var isTrayOn = false;
 
 app.init = function() {
 	this.initMenu(MenuTemplate);
-
+	
 	app.node.fs.exists(app.node.gui.App.dataPath + '/data/settings.json', function(exists){
 		if (exists == false) {
 			console.log('coucou');

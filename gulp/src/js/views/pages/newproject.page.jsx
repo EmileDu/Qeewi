@@ -172,7 +172,7 @@ class NewProject extends React.Component {
 								id="input-desc"
 								required={false}
 								maxlength="400">
-								Description du project
+								Description du projet
 							</Input>
 						</div>
 						<div className="row">
@@ -182,7 +182,7 @@ class NewProject extends React.Component {
 								name="input-keyword"
 								id="input-keyword"
 								required={false}>
-								Mot-Clés
+								Mots-Clés
 							</Input>
 							<Input
 								className="form-section__input input input--4col"

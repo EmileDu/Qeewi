@@ -15,7 +15,6 @@ class MoreOptions extends React.Component {
 		super(props);
 		this.handleOpenPanel = this.handleOpenPanel.bind(this);
 		this.handleChange = this.handleChange.bind(this);
-		this.selectChange = this.selectChange.bind(this);
 		this.state = { isPanelOpen: false, value: null, isFilled: false, preconfig: 'Site Web', resetcss: '', preprocss: '', preprojs: ''  };
 	}
 
@@ -69,7 +68,7 @@ class MoreOptions extends React.Component {
 
 		return (
 			<div className={classPanel}>
-				<button className="form-panel__button" onClick={this.handleOpenPanel}>Plus d'option</button>
+				<button className="form-panel__button" onClick={this.handleOpenPanel}>Plus d'options</button>
 				<fieldset className="form-section" id="moreconfig">
 					<div className="row">
 						<Input
@@ -141,7 +140,7 @@ class MoreOptions extends React.Component {
 							required={false}
 							isFilled={this.state.isFilled}
 							onInput={this.handleChange}>
-							Rechercher en ligne
+							Recherche en ligne
 						</Input>
 						<Input
 							className="form-section__input input input--dropzone input--6col"
@@ -150,7 +149,7 @@ class MoreOptions extends React.Component {
 							id="input-jsperso"
 							accept="image/*"
 							required={false}>
-							<Dropzone className="input__label__content dropzone">Ressource personnelle</Dropzone>
+							<Dropzone className="input__label__content dropzone">Ressources personnelles</Dropzone>
 						</Input>
 					</div>
 				</fieldset>

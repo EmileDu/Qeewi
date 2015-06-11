@@ -31,7 +31,7 @@
     "icon": "icons/app_icon.png",
     "show": true,
     "toolbar": false,
-    "resizable": true,
+    "resizable": false,
     "frame": true,
     "width": 1024,
     "height": 576,

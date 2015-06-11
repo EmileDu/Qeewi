@@ -4,9 +4,9 @@ import gui from 'nw.gui';
 
 var path = gui.App.dataPath+'/data';
 var data = {
-	"title":"Projet d'exemple",
+	"title":"Projet - exemple",
 	"type":"Site Web",
-	"desc":"Ceci est la fiche du projet. Vous y retrouvez, ces informations générales. Vous avez aussi accès à plusieurs fonctionnalités comme éditer, mettre à jour les ressources, exporter et pour finir supprimer le projet",
+	"desc":"Ceci est la fiche du projet. Vous y retrouvez, ses informations générales. Vous avez aussi accès à plusieurs fonctionnalités comme éditer, mettre à jour les ressources, exporter ou encore supprimer le projet",
 	"author":"Qeewi",
 	"version":"1.0.0",
 	"thumb":"kiwi",
